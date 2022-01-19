@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Formik } from 'formik';
+import * as Yup from 'yup';
 import {
   StylFormLogin,
   StylTitleForm,
@@ -9,39 +10,41 @@ import {
   ArrowBack,
 } from './../index';
 
-import emailImgSvg from './../../img/icons/icon-email.svg';
-import passwordlImgSvg from './../../img/icons/icon-lock.svg';
-import { regulEmail, regulPassword } from '../../constants';
+import emailImgSvg from './../../assets/icons/icon-email.svg';
+import passwordlImgSvg from './../../assets/icons/icon-lock.svg';
 import { routes } from '../../Router';
+import useActionsWithRedux from '../../hooks/useActionsWithRedux';
 
 const FormLogin = () => {
-  const [isEmail, setEmail] = useState(false),
-    [isPassword, setPassword] = useState(false);
-
-  const handleSubmitForm = (values, validate) => {
-    validate(values);
+  const {loginUser} = useActionsWithRedux()
+  const handleSubmitForm = (initialValues) => {
+    loginUser(initialValues)
   };
 
+  const SignInSchema = Yup.object().shape({
+    password: Yup.string()
+      .min(6, 'Слишком короткий пароль')
+      .max(50, 'Слишком длинный пароль')
+      .required('Обязательноe поле'),
+    email: Yup.string()
+      .email('Неправильная почта. Вот пример: user1@gmail.com')
+      .max(50, 'Слишком длинный email')
+      .required('Обязательноe поле'),
+  });
   return (
     <StylCenterBoxGradientForm>
       <Formik
         validateOnChange={false}
         validateOnBlur={false}
+        validationSchema={SignInSchema}
         initialValues={{
           email: '',
           password: '',
         }}
-        validate={(values) => {
-          !regulEmail.test(values.email) ? setEmail(true) : setEmail(false);
-
-          !regulPassword.test(values.password)
-            ? setPassword(true)
-            : setPassword(false);
-        }}
         onSubmit={handleSubmitForm}
       >
-        {({ values, handleChange, handleSubmit }) => (
-          <StylFormLogin onSubmit={handleSubmit}>
+        {({ values, errors, handleChange, handleSubmit }) => (
+          <StylFormLogin onSubmit={handleSubmit} method="POST">
             <StylTitleForm>
               <ArrowBack exact to={routes.home} />
               Вход
@@ -53,10 +56,8 @@ const FormLogin = () => {
               placeholder='Почта'
               valueInput={values.email}
               imgStart={emailImgSvg}
-              err={isEmail}
-              errText='
-              Email not correct. Please check the spelling
-            '
+              err={errors.email}
+              errText={errors.email}
               changer={handleChange}
             />
             <FormInput
@@ -67,8 +68,8 @@ const FormLogin = () => {
               placeholder='Пароль'
               imgStart={passwordlImgSvg}
               password={true}
-              err={isPassword}
-              errText='Password contain unsupported characters'
+              err={errors.password}
+              errText={errors.password}
               changer={handleChange}
             />
 

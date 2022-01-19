@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { StylBoxFlexRowSpaceBetween } from './../../../';
 import { StylBtnBasic } from './../../../index';
-import iconBurgerSvg from './../../../../img/icons/icon-burger-menu.svg';
+import iconBurgerSvg from './../../../../assets/icons/icon-burger-menu.svg';
 
 const StylImgLogo = styled.img`
   position: relative;
@@ -40,7 +40,7 @@ const StylBtnMenuNavPageHome = styled(StylBtnBasic)`
     z-index: 1;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: none;
   }
 `;
@@ -71,7 +71,7 @@ const StylBoxMainMenuPageHome = styled.ul`
   transition: all 0.2s ease-in-out;
   animation: ${(props) => (props.open ? '1s slidein' : '0.5s slideout')};
 
-  @media (min-width: 768px) {
+  @media (min-width: 1024px) {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -112,6 +112,7 @@ const StylItemMainNav = styled.li`
 
 const StylLinkMainNav = styled.div`
   cursor: pointer;
+  display: flex;
   position: relative;
   font-size: ${(props) => props.theme.typography.textSmall.primary};
   font-weight: ${(props) => props.theme.typography.textWeigth.primary};
@@ -127,6 +128,7 @@ const StylLinkMainNav = styled.div`
     text-decoration: none;
     white-space: nowrap;
     transition: all 0.2s ease;
+    width: 100%;
     color: ${(props) => props.theme.palette.text.light};
   }
 
@@ -153,45 +155,44 @@ const StylLinkMainNav = styled.div`
         transform: scale(1.1);
       }
     }
-
-    ${(props) =>
-      props.isAddMenu &&
-      css`
-        &:after {
-          content: '';
-          position: absolute;
-          left: 90%;
-          top: 30%;
-          display: block;
-          width: 5px;
-          height: 5px;
-          border-top: 2px solid ${(props) => props.theme.palette.main};
-          border-right: 2px solid ${(props) => props.theme.palette.main};
-
-          transform: rotate(135deg) translateY(-50%);
-          transition: all 0.2s ease;
-        }
-
-        @media (min-width: 1024px) {
-          &:hover {
-            &:after {
-              border-color: ${(props) => props.theme.palette.border.main};
-            }
-          }
-
-          &:active {
-            &:after {
-              border-bottom: 2px solid
-                ${(props) => props.theme.palette.border.main};
-              border-left: 2px solid
-                ${(props) => props.theme.palette.border.main};
-              border-top: 2px solid transparent;
-              border-right: 2px solid transparent;
-            }
-          }
-        }
-      `}
   }
+
+  ${(props) =>
+    props.isAddMenu &&
+    css`
+      &:after {
+        content: '';
+        position: absolute;
+        left: 90%;
+        top: 30%;
+        display: block;
+        width: 5px;
+        height: 5px;
+        border-top: 2px solid ${(props) => props.theme.palette.main};
+        border-right: 2px solid ${(props) => props.theme.palette.main};
+
+        transform: rotate(135deg) translateY(-50%);
+        transition: all 0.2s ease;
+      }
+
+      @media (min-width: 1024px) {
+        &:hover {
+          &:after {
+            border-color: ${(props) => props.theme.palette.border.main};
+          }
+        }
+
+        &:active {
+          &:after {
+            border-bottom: 2px solid
+              ${(props) => props.theme.palette.border.main};
+            border-left: 2px solid ${(props) => props.theme.palette.border.main};
+            border-top: 2px solid transparent;
+            border-right: 2px solid transparent;
+          }
+        }
+      }
+    `}
 `;
 
 export {

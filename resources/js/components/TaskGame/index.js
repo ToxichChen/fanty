@@ -1,4 +1,5 @@
 import TaskGamePage from './TaskGamePage';
+import TaskGameReview from './TaskGameReview';
 import {
   SectionTaskGame,
   StylBoxContentTask,
@@ -11,6 +12,8 @@ import {
   StylBoxFeatures,
   StylTimeTask,
   StylLinkSettings,
+  StylBoxReview,
+  BtnReview,
 } from './TaskGamePage.styled';
 
 export {
@@ -26,4 +29,7 @@ export {
   StylBoxFeatures,
   TaskGamePage,
   StylLinkSettings,
+  StylBoxReview,
+  BtnReview,
+  TaskGameReview,
 };

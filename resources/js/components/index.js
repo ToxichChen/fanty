@@ -133,6 +133,9 @@ import {
   TaskGamePage,
   StylTimeTask,
   StylLinkSettings,
+  StylBoxReview,
+  BtnReview,
+  TaskGameReview,
 } from './TaskGame';
 
 //form registration
@@ -142,17 +145,43 @@ import { SettingGameComplexity } from './SettingGameComplexity';
 
 //settings game
 import {
+  StylOptionsAddedWrapper,
+  StylVipStatusModal,
+  StylWrapperInput,
+  StylInputUserSettings,
+  StylTitleUserSettings,
+  StylImgCardSettings,
+  StylBoxCenterCard,
+  StylBoxFooterSettings,
   SettingsGame,
-  StylTitleSettings,
-  StylLinkFeatureSettings,
+  StylBoxFeaturesGame,
+  StylBtnStartGame,
   StylBoxSettingsGame,
-  StylSettingsOptions,
-  StylListOptionsSettings,
-  StylBtnRadioList,
-  StylBtnLine,
-  StylBtnRadioBtn,
-  StylListAnotherOption,
-  OptionItem,
+  StylBtnOpenSetting,
+  StylWrapperRadioBtn,
+  StylRadioSetting,
+  StylLabelRadio,
+  StylBoxWrapperOptions,
+  BtnMoreSettings,
+  StylWrapperSettings,
+  SettingGameOptions,
+  StylWrapperAllSettings,
+  SettingsGameVipStatus,
+  StylWrapperVip,
+  StylVipText,
+  StylBtnVip,
+  StylBtnFooterSettings,
+  SettingsGameFooter,
+  StylSectionDiscount,
+  StylCardSettingsTitle,
+  StylWrapperCard,
+  StylCardSettingsText,
+  StylBtnCardSettings,
+  StylBoxWrapperCards,
+  StylBtnStartGameFooter,
+  StylBtnFooterSettingsComplexity,
+  StylBoxFlexStartColumn,
+  StylWrapperCenterContent,
 } from './SettingsGame';
 
 //intro card home
@@ -168,7 +197,106 @@ import {
   IntroCard,
 } from './PageHome/SectionIntroCard';
 
+//task info
+import {
+  StylTaskInfoSlider,
+  TaskInfoSlider,
+  StylTaskInfoBoxCenter,
+  StylTaskInfoTitle,
+  StylTaskInfoDescription,
+} from './TaskInfo';
+
+//modal
+import {
+  StylModalSettings,
+  StylTitleModalSettings,
+  StylBtnSaveAndClose,
+  StylImgModal,
+  StylTextModal,
+  ModalSettings,
+} from './ModalWindow';
+
+//alert
+import {
+  StylBoxAlert,
+  StylSubTitleAlert,
+  StylTextAlert,
+  StylBtnClose,
+  AlertMessage,
+} from './AlertMessage';
+
+//music player
+import { MusicPlayer } from './MusicPlayer';
+
+//blogs
+import { Blogs } from './Blogs';
+
+//mini player
+import { MiniPlayer } from './MusicPlayer/MiniPlayer';
+
+//article blog
+import { Article } from './ArticleBlogs';
+
 export {
+  Article,
+  MiniPlayer,
+  Blogs,
+  MusicPlayer,
+  TaskGameReview,
+  StylBoxReview,
+  BtnReview,
+  StylBoxAlert,
+  StylSubTitleAlert,
+  StylTextAlert,
+  StylBtnClose,
+  AlertMessage,
+  StylModalSettings,
+  StylTitleModalSettings,
+  StylBtnSaveAndClose,
+  StylImgModal,
+  StylTextModal,
+  ModalSettings,
+  StylWrapperCenterContent,
+  StylBoxFlexStartColumn,
+  StylBtnFooterSettingsComplexity,
+  StylBtnStartGameFooter,
+  StylOptionsAddedWrapper,
+  StylVipStatusModal,
+  StylWrapperInput,
+  StylInputUserSettings,
+  StylTitleUserSettings,
+  StylImgCardSettings,
+  StylBoxCenterCard,
+  StylBoxWrapperCards,
+  StylBtnCardSettings,
+  StylCardSettingsText,
+  StylCardSettingsTitle,
+  StylWrapperCard,
+  SettingsGameFooter,
+  StylSectionDiscount,
+  StylBoxFooterSettings,
+  StylBtnVip,
+  StylBtnFooterSettings,
+  StylVipText,
+  StylWrapperVip,
+  SettingsGameVipStatus,
+  StylWrapperAllSettings,
+  SettingGameOptions,
+  StylWrapperSettings,
+  BtnMoreSettings,
+  StylBoxWrapperOptions,
+  StylTaskInfoDescription,
+  StylTaskInfoSlider,
+  TaskInfoSlider,
+  StylTaskInfoBoxCenter,
+  StylTaskInfoTitle,
+  StylBoxFeaturesGame,
+  StylBtnStartGame,
+  StylBoxSettingsGame,
+  StylBtnOpenSetting,
+  StylWrapperRadioBtn,
+  StylRadioSetting,
+  StylLabelRadio,
   StylBoxIntroCard,
   StylBoxCenterIntroCard,
   StylBoxCardGame,
@@ -178,16 +306,6 @@ export {
   StylTextCardGame,
   StylBtnCardGame,
   IntroCard,
-  StylListAnotherOption,
-  OptionItem,
-  StylBtnRadioBtn,
-  StylListOptionsSettings,
-  StylBtnLine,
-  StylBtnRadioList,
-  StylSettingsOptions,
-  StylBoxSettingsGame,
-  StylTitleSettings,
-  StylLinkFeatureSettings,
   SettingsGame,
   StylLinkSettings,
   SettingGameComplexity,

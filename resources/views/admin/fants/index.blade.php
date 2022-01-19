@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <h1>Настройки игры: </h1>
+    <h1>Список Фантов: </h1>
     <a role="button" href="/admin/fant/create" class="btn btn-success m-4">Создать новую</a>
     <div style="width: 1200px; border: 1px solid;">
         <div style="margin: 10px">
@@ -12,6 +12,8 @@
                     <th>Настройка</th>
                     <th>Поднастройка</th>
                     <th>Группа фантов</th>
+                    <th>Пол</th>
+                    <th>Тип секса</th>
                     <th>Создано в</th>
                     <th>Изменено в</th>
                     <th>&nbsp</th>
@@ -25,11 +27,13 @@
                         <td>{{ $fant->setting_name }}</td>
                         <td>{{ $fant->subsetting_name }}</td>
                         <td>{{ $fant->fant_group_name }}</td>
+                        <td>{{ ($fant->sex === 1 ? 'М' : ($fant->sex === 2 ? 'Ж' : '')) }}</td>
+                        <td>{{ ($fant->sex_type === 1 ? 'Нежный' : ($fant->sex_type === 2 ? 'Жесткий' : '')) }}</td>
                         <td>{{ $fant->created_at }}</td>
                         <td>{{ $fant->updated_at }}</td>
                         <td>
-                            <a role="button" href="/admin/subsetting/edit/{{$fant->id}}" class="btn btn-primary">Изменить</a>
-                            <a role="button" href="/admin/subsetting/delete/{{$fant->id}}" class="btn btn-danger">Удалить</a>
+                            <a role="button" href="/admin/fant/edit/{{$fant->id}}" class="btn btn-primary">Изменить</a>
+                            <a role="button" href="/admin/fant/delete/{{$fant->id}}" class="btn btn-danger">Удалить</a>
                         </td>
                     </tr>
                 @endforeach

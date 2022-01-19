@@ -1,4 +1,7 @@
-import React from 'react';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 import {
   StylBoxIntroPageHome,
   StylComplexityList,
@@ -9,12 +12,16 @@ import {
 } from '../..';
 
 const ComplexityHome = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <StylBoxIntroPageHome>
       <StylComplexityList>
-        <StylComplexityItem>
+        <StylComplexityItem data-aos='fade-right'>
           <StylTitleComplexity isComplexity='green'>
-            Зеленый
+            ЗЕЛЕНЫЙ
           </StylTitleComplexity>
           <StylBoxFlexColumnSpaceBetween>
             <StylTextTypeComplexity>Флирт</StylTextTypeComplexity>
@@ -22,7 +29,7 @@ const ComplexityHome = () => {
           </StylBoxFlexColumnSpaceBetween>
         </StylComplexityItem>
 
-        <StylComplexityItem>
+        <StylComplexityItem data-aos='fade-right'>
           <StylTitleComplexity isComplexity='orange'>
             ОРАНЖЕВЫЕ
           </StylTitleComplexity>
@@ -32,7 +39,7 @@ const ComplexityHome = () => {
           </StylBoxFlexColumnSpaceBetween>
         </StylComplexityItem>
 
-        <StylComplexityItem>
+        <StylComplexityItem data-aos='fade-right'>
           <StylTitleComplexity isComplexity='red'>КРАСНЫЕ</StylTitleComplexity>
           <StylBoxFlexColumnSpaceBetween>
             <StylTextTypeComplexity>Секс</StylTextTypeComplexity>

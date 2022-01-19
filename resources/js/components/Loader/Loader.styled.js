@@ -9,6 +9,7 @@ const StylBoxCenterSpiner = styled.div`
   height: 100vh;
   background: radial-gradient(circle, #240015 0%, #12000b 100%);
   overflow: hidden;
+  z-index: 1000;
 
   animation: hueRotate 6s ease-in-out 3s infinite;
   @keyframes hueRotate {

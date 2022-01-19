@@ -16,12 +16,21 @@ const StylLinkIntorCard = styled(StylBasicLink)`
 `;
 
 const StylBoxCardIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
-  max-width: 360px;
   width: 100%;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.07);
   border-radius: 5px;
   margin-bottom: 20px;
+
+  @media (min-width: 900px) {
+    max-width: 100%;
+    width: 49%;
+  }
+
+  @media (min-width: 1150px) {
+    max-width: 360px;
+    width: 100%;
+  }
 `;
 
 const StylBoxCenterIntroPageHome = styled.div`

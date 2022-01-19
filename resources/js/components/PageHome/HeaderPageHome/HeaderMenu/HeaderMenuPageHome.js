@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import logo from './../../../../img/logo.png';
+import logo from './../../../../assets/logo.png';
 
 import {
   StylBoxMainMenuPageHome,
@@ -13,10 +13,12 @@ import {
 } from '../../../index';
 
 import { routes } from './../../../../Router';
+import useActionsWithRedux from '../../../../hooks/useActionsWithRedux';
 
 const HeaderMenuPageHome = () => {
-  const [isOpenMainMenu, setOpenMainMenu] = useState(false);
-  const [isOpenAdditional, setOpenAdditiona] = useState(false);
+  const {profile} = useActionsWithRedux();
+  const [isOpenMainMenu, setOpenMainMenu] = useState(false),
+    [isOpenAdditional, setOpenAdditiona] = useState(false);
 
   const handleAdditionalMenu = () => {
     setOpenAdditiona(!isOpenAdditional);
@@ -61,18 +63,38 @@ const HeaderMenuPageHome = () => {
         </StylItemMainNav>
         <StylItemMainNav>
           <StylLinkMainNav onClick={handleMenu}>
-            <NavLink exact to={routes.formLogin}>
-              Логин
+            <NavLink exact to={routes.blogs.main}>
+              Блог
             </NavLink>
           </StylLinkMainNav>
         </StylItemMainNav>
-        <StylItemMainNav>
-          <StylLinkMainNav onClick={handleMenu} href={routes.formRegister}>
-            <NavLink exact to={routes.formRegister}>
-              Регистрация
-            </NavLink>
-          </StylLinkMainNav>
-        </StylItemMainNav>
+        {profile === null && (
+          <StylItemMainNav>
+            <StylLinkMainNav onClick={handleMenu}>
+              <NavLink exact to={routes.formLogin}>
+                Логин
+              </NavLink>
+            </StylLinkMainNav>
+          </StylItemMainNav>
+        )}{' '}
+        {profile === null && (
+          <StylItemMainNav>
+            <StylLinkMainNav onClick={handleMenu}>
+              <NavLink exact to={routes.formRegister}>
+                Регистрация
+              </NavLink>
+            </StylLinkMainNav>
+          </StylItemMainNav>
+        )}{' '}
+        {profile && (
+          <StylItemMainNav>
+            <StylLinkMainNav onClick={handleMenu}>
+              <NavLink exact to={routes.profileUser}>
+                Профиль
+              </NavLink>
+            </StylLinkMainNav>
+          </StylItemMainNav>
+        )}
       </StylBoxMainMenuPageHome>
     </StylBoxNavMenuPageHome>
   );

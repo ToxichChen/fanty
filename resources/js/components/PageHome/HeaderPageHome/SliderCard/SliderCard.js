@@ -1,5 +1,4 @@
 import React from 'react';
-import { routes } from '../../../../Router';
 
 import {
   StylBoxFlexColumnFlexStart,
@@ -10,9 +9,9 @@ import {
   StylImgDoubleArrow,
 } from '../../../index';
 
-import doubleArrow from './../../../../img/icons/icon-double-arrow.png';
+import doubleArrow from './../../../../assets/icons/icon-double-arrow.png';
 
-const SliderCard = ({ id, title, text, isSelect, index, imgUrl }) => {
+const SliderCard = ({ id, title, text, isSelect, index, imgUrl, pageUrl }) => {
   return (
     <StylBoxContentHeaderPageHome
       imgUrl={imgUrl}
@@ -24,7 +23,7 @@ const SliderCard = ({ id, title, text, isSelect, index, imgUrl }) => {
         <StylHeaderTitlePageHome>{title}</StylHeaderTitlePageHome>
         <StylHeaderTextPageHome>{text}</StylHeaderTextPageHome>
       </StylBoxFlexColumnFlexStart>
-      <StylBtnReadMore to={routes.taskGame}>
+      <StylBtnReadMore to={pageUrl}>
         Начать игру
         <StylImgDoubleArrow src={doubleArrow} alt='double arrow' />
       </StylBtnReadMore>

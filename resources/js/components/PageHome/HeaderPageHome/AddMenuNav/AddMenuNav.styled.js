@@ -6,8 +6,9 @@ const BoxAddMenu = styled.ul`
   animation: ${(props) => (props.isShow ? '1s slideIn' : '0.5s slideOut')};
   opacity: ${(props) => (props.isShow ? '1' : '0')};
   z-index: ${(props) => (props.isShow ? '1' : '-1')};
+  visibility: ${(props) => (props.isShow ? 'visible' : 'hidden')};
   display: flex;
-  top: 0px;
+  top: 30px;
   left: 10px;
   width: 200px;
   flex-direction: column;

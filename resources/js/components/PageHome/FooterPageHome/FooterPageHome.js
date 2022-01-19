@@ -14,9 +14,11 @@ import {
   AddMenuNav,
 } from './../../';
 
-import logo from './../../../img/logo.png';
+import logo from './../../../assets/logo.png';
+import useActionsWithRedux from '../../../hooks/useActionsWithRedux';
 
 const FooterPageHome = () => {
+  const {profile} = useActionsWithRedux()
   const [isOpenAdditional, setOpenAdditiona] = useState(false);
 
   const handleAdditionalMenu = () => {
@@ -57,18 +59,38 @@ const FooterPageHome = () => {
             </StylItemMenuFooter>
             <StylItemMenuFooter>
               <StylLinkMenuFooter>
-                <NavLink exact to={routes.formLogin}>
-                  Логин
+                <NavLink exact to={routes.blogs.main}>
+                  Блог
                 </NavLink>
               </StylLinkMenuFooter>
             </StylItemMenuFooter>
-            <StylItemMenuFooter>
-              <StylLinkMenuFooter>
-                <NavLink exact to={routes.formRegister}>
-                  Регистрация
-                </NavLink>
-              </StylLinkMenuFooter>
-            </StylItemMenuFooter>
+            {profile === null && (
+              <StylItemMenuFooter>
+                <StylLinkMenuFooter>
+                  <NavLink exact to={routes.formLogin}>
+                    Логин
+                  </NavLink>
+                </StylLinkMenuFooter>
+              </StylItemMenuFooter>
+            )}{' '}
+            {profile ===null&& (
+              <StylItemMenuFooter>
+                <StylLinkMenuFooter>
+                  <NavLink exact to={routes.formRegister}>
+                    Регистрация
+                  </NavLink>
+                </StylLinkMenuFooter>
+              </StylItemMenuFooter>
+            )}{' '}
+            {profile && (
+              <StylItemMenuFooter>
+                <StylLinkMenuFooter>
+                  <NavLink exact to={routes.profileUser}>
+                    Профиль
+                  </NavLink>
+                </StylLinkMenuFooter>
+              </StylItemMenuFooter>
+            )}
           </StylMenuFooterPageHome>
           <HeaderFollowUs />
           <StylCopyrightFooter>

@@ -1,8 +1,6 @@
 import React, { useEffect } from 'react';
-import {
-  TaskGamePage,
-} from '../../components';
-import imgBgJPG from './../../img/bg/bg-image.jpg';
+import { TaskGamePage } from '../../components';
+import imgBgJPG from './../../assets/bg/bg-image.jpg';
 
 const TaskGameView = ({ title }) => {
   useEffect(() => {
@@ -15,8 +13,9 @@ const TaskGameView = ({ title }) => {
         title='Андрей'
         text='Ты целуешь её в 5 мест по своему выбору, а она должна ответить поцелуем в те же места'
         img={imgBgJPG}
-        time={false}
-        level='level2'
+        isTime={true}
+        isTimeDuration={20}
+        level='level4'
       />
     </>
   );

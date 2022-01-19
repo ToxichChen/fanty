@@ -1,6 +1,8 @@
-import React from 'react';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
 
-import doubleArrow from './../../../img/icons/icon-double-arrow.png';
+import doubleArrow from './../../../assets/icons/icon-double-arrow.png';
 import { dataCardGameArr } from '../../../constants';
 
 import {
@@ -17,14 +19,18 @@ import {
 import { routes } from '../../../Router';
 
 const IntroCard = () => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <StylBoxIntroCard>
       <StylBoxCenterIntroCard>
         {dataCardGameArr.map((item) => (
-          <StylBoxCardGame key={item.id}>
+          <StylBoxCardGame key={item.id} data-aos='fade-right'>
             <StylDataCardGame>
               {item.data}
-              <StylLinkCardGame to={routes.taskGame}>
+              <StylLinkCardGame to={routes.taskGame.main}>
                 {item.link}
               </StylLinkCardGame>
             </StylDataCardGame>

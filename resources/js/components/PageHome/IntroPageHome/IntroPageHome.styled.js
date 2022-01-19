@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import { StylBoxFlexColumnFlexStart } from '../..';
-import imageBGJPG from './../../../img/bg/bg-image.jpg';
-import imageMobileBGJPG from './../../../img/bg/bg-image-mobile.jpg';
+import imageBGJPG from './../../../assets/bg/bg-image.jpg';
+import imageMobileBGJPG from './../../../assets/bg/bg-image-mobile.jpg';
 
 const StylBoxIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
   background-blend-mode: multiply;

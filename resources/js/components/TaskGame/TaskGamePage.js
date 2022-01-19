@@ -1,7 +1,8 @@
-import React from 'react';
-import { routes } from '../../Router';
+import { useEffect } from 'react';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
 import {
-  StylBoxFlexRowFlexEnd,
   SectionTaskGame,
   StylBoxContentTask,
   StylBtnTask,
@@ -10,32 +11,39 @@ import {
   StylTextTask,
   StylImgTask,
   StylBoxFeatures,
-  StylTimeTask,
-  StylLinkSettings,
+  TaskGameReview,
 } from './../index';
 
-const TaskGamePage = ({ title, text, img, time, level }) => {
+import TaskGameBar from './TaskGameBar';
+
+const TaskGamePage = ({ title, text, img, isTime, level, isTimeDuration }) => {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <SectionTaskGame>
-      <StylBoxContentTask>
-        <StylBoxTask>
+      <StylBoxContentTask data-aos='fade-right'>
+        <StylBoxTask data-aos='fade-right' data-aos-duration='2000'>
           <StylTitleTask>{title}, твой ход!</StylTitleTask>
           <StylTextTask>{text}</StylTextTask>
           <StylImgTask src={img} alt='img task' />
-          <StylTimeTask className='fas fa-hourglass-start' isTime={time} />
+          <TaskGameBar isTimeDuration={isTimeDuration} isTime={isTime} />
+          <TaskGameReview idFanty={1} />
         </StylBoxTask>
         <StylBoxFeatures>
-          <StylLinkSettings to={routes.settingsGame.main}>
-            <i className='fas fa-cog'></i>Настройки
-          </StylLinkSettings>
-          <StylBoxFlexRowFlexEnd>
-            <StylBtnTask isType={level} isPreLastBtn={true}>
-              <i className='fas fa-arrow-up'></i>Следующий уровень
-            </StylBtnTask>
-            <StylBtnTask isType='task' isLastBtn={true}>
-              <i className='fas fa-arrow-down'></i>Следующее задание
-            </StylBtnTask>
-          </StylBoxFlexRowFlexEnd>
+          <StylBtnTask
+            isType={level}
+            isPreLastBtn={true}
+          >
+            <i className='fas fa-arrow-up'></i>Следующий уровень
+          </StylBtnTask>
+          <StylBtnTask
+            isType='task'
+            isLastBtn={true}
+          >
+            <i className='fas fa-arrow-down'></i>Следующее задание
+          </StylBtnTask>
         </StylBoxFeatures>
       </StylBoxContentTask>
     </SectionTaskGame>

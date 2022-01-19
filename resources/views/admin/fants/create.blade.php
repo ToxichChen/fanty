@@ -31,7 +31,8 @@
             <small id="emailHelp" class="form-text text-muted">Выберите из списка подходящую настройку.</small>
             <label for="exampleFormControlSelect1">Поднастройка</label>
             <select class="form-control" id="exampleFormControlSelect1" name="subsetting">
-                @foreach ($subsettings as $subsetting)
+                <option value="0" > Общее </option>
+            @foreach ($subsettings as $subsetting)
                     <option value="{{$subsetting->id}}" >{{$subsetting->title}}</option>
                 @endforeach
             </select>
@@ -43,6 +44,44 @@
                 @endforeach
             </select>
             <small id="emailHelp" class="form-text text-muted">Выберите из списка подходящую группу фантов.</small>
+            <label for="sex">Пол:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" value="0" id="sex0" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Не зависит от пола
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" value="1" id="sex1" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Мужчине
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex" value="2" id="sex2" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Женщине
+                </label>
+            </div>
+            <label for="sex_type">Тип секса:</label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex_type" value="0" id="sex_type0" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                    Не зависит
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex_type" value="1" id="sex_type1" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Нежный секс
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="sex_type" value="2" id="sex_type2" >
+                <label class="form-check-label" for="flexRadioDefault2">
+                    Жесткий секс
+                </label>
+            </div>
             <label for="exampleFormControlSelect1">Активировать таймер: </label>
             <input type="checkbox"
                    onchange="document.getElementById('timer').disabled = !this.checked;" name='is_timer_active'

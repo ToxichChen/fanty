@@ -1,5 +1,5 @@
-import bgImage1 from './../img/bg/bg-image-1.jpg';
-import bgImage2 from './../img/bg/bg-image-2.jpg';
+import bgImage1 from './../assets/bg/bg-image-1.jpg';
+import bgImage2 from './../assets/bg/bg-image-2.jpg';
 
 const sliderDataArr = [
   {
@@ -8,6 +8,7 @@ const sliderDataArr = [
     text: 'Dying Light — компьютерная игра в жанре survival horror и action-adventure от первого лица с открытым миром, разработанная польской студией Techland и изданная Warner Bros. Interactive Entertainment в 2015 году для PlayStation 4, Xbox One, Microsoft Windows и Linux.',
     img: bgImage1,
     counter: '01.',
+    pageUrl: '/taskGame/info/1',
   },
   {
     id: 2,
@@ -16,6 +17,7 @@ const sliderDataArr = [
 
     img: bgImage2,
     counter: '02.',
+    pageUrl: '/taskGame/info/2',
   },
 ];
 
@@ -142,7 +144,7 @@ const dataCardGameArr = [
     id: 1,
     data: '11.11.18 / in',
     link: 'Games',
-    linkUrl: '/taskGame/info',
+    linkUrl: '/taskGame/info/1',
     title: 'The best online game is out now!',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
     btnText: 'Read More',
@@ -151,7 +153,7 @@ const dataCardGameArr = [
     id: 2,
     data: '11.11.18 / in',
     link: 'Playstation',
-    linkUrl: '/taskGame/info',
+    linkUrl: '/taskGame/info/2',
     title: 'Top 5 best games in november',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
     btnText: 'Read More',
@@ -161,24 +163,292 @@ const dataCardGameArr = [
     id: 3,
     data: '11.11.18 / in',
     link: 'Reviews',
-    linkUrl: '/taskGame/info',
+    linkUrl: '/taskGame/info/3',
     title: 'Get this game at a promo price',
     text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
     btnText: 'Read More',
   },
 ];
 
-const regulPassword = /(?=.*[A-Z]+)(?=.*[0-9])(?=.*[a-z]){6,}/,
-  regulEmail =
-    /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+const ListOptionArr = [
+  {
+    id: 1,
+    title: 'Основные настройки ',
+    vip: true,
+    sexDifference: true,
+    optionsBasic: [
+      { title: 'По умолчанию', checked: true, value: '1a' },
+      { title: 'Своя настройка', checked: false, value: '2a' },
+      { title: 'Включить всё', checked: false, value: '3a' },
+    ],
+    optionsUserMan: [
+      {
+        title: 'Для современных телефонов',
+        vip: false,
+        check: false,
+        text: 'Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+      {
+        title: 'Задания без текста',
+        vip: true,
+        check: true,
+        text: 'Показывать задания только с изображениями(без текста).',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+      {
+        title: 'Только картинки(без текста)',
+        vip: true,
+        check: true,
+        text: 'Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+      {
+        title: 'Смена фона',
+        vip: true,
+        check: true,
+        text: 'При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+      {
+        title: 'Не повторять задания',
+        vip: true,
+        check: 'a',
+        text: 'Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+    ],
+    optionsUserWoman: [
+      {
+        title: 'Наказания за пропуск',
+        vip: true,
+        check: true,
+        text: 'В случае пропуска нескольких фантов игрок получает наказание',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+      {
+        title: 'Отложенные задания',
+        vip: true,
+        check: true,
+        text: 'Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).',
+        description:
+          'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad',
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: 'Основные настройки ',
+    vip: true,
+    sexDifference: false,
+    optionsBasic: [
+      { title: 'По умолчанию', checked: true, value: '4a' },
+      { title: 'Своя настройка', checked: false, value: '5a' },
+      { title: 'Включить всё', checked: false, value: '6a' },
+    ],
+    optionsUserMan: [
+      {
+        idCheckbox: 'ax',
+        vip: true,
+        title: 'Для современных телефонов',
+        check: true,
+        text: 'Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.',
+      },
+      {
+        idCheckbox: 'qw',
+        vip: true,
+        title: 'Задания без текста',
+        check: true,
+        text: 'Показывать задания только с изображениями(без текста).',
+      },
+      {
+        idCheckbox: 'sd',
+        vip: true,
+        title: 'Только картинки(без текста)',
+        check: true,
+        text: 'Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.',
+      },
+      {
+        idCheckbox: 'xc',
+        vip: true,
+        title: 'Смена фона',
+        check: true,
+        text: 'При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).',
+      },
+      {
+        idCheckbox: 'vf',
+        vip: true,
+        title: 'Не повторять задания',
+        check: 'a',
+        text: 'Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).',
+      },
+    ],
+    optionsUserWoman: [
+      {
+        idCheckbox: 'xg',
+        vip: true,
+        title: 'Наказания за пропуск',
+        check: true,
+        text: 'В случае пропуска нескольких фантов игрок получает наказание',
+      },
+      {
+        idCheckbox: 'fd',
+        vip: true,
+        title: 'Отложенные задания',
+        check: true,
+        text: 'Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).',
+      },
+    ],
+  },
+];
+
+const players = [
+  { name: 'Alex', gender: 'man' },
+  { name: 'Alyona', gender: 'female' },
+];
+
+const musicPlayer = {
+  imgUrl:
+    'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+  title: 'Leave Your Lover',
+  artist: 'Artist - Echos',
+  album: 'Album - Echos',
+};
+
+const blogPostsArr = [
+  {
+    id: 1,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    title: 'Лучшие VR-игры на рынке',
+    text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
+    data: '11/12/11',
+    url: '/blogs/article/1',
+  },
+  {
+    id: 2,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    title: 'Лучшие VR-игры на рынке',
+    text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
+    data: '11/12/11',
+    url: '/blogs/article/2',
+  },
+  {
+    id: 3,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    title: 'Лучшие VR-игры на рынке',
+    text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
+    data: '11/12/11',
+    url: '/blogs/article/3',
+  },
+  {
+    id: 4,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    title: 'Лучшие VR-asdasdadadигры на рынке',
+    text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
+    data: '11/12/11',
+    url: '/blogs/article/4',
+  },
+];
+
+const blogTrendsArr = [
+  {
+    id: 1,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    data: '11.11.18 ',
+    title: 'The best online game is out now!',
+    url: 'blogs/article/1',
+  },
+  {
+    id: 2,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    data: '11.11.18 ',
+    title: 'The best online game is out now!',
+    url: 'blogs/article/1',
+  },
+  {
+    id: 3,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    data: '11.11.18 ',
+    title: 'The best online game is out now!',
+    url: 'blogs/article/1',
+  },
+  {
+    id: 4,
+    imgUrl:
+      'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+    data: '11.11.18 ',
+    title: 'The best online game is out now!',
+    url: 'blogs/article/1',
+  },
+];
+
+const blogsCategoriesListArr = [
+  {
+    id: 1,
+    title: 'Games',
+  },
+  {
+    id: 2,
+    title: 'Gaming Tips & Tricks',
+  },
+  {
+    id: 3,
+    title: 'Online Games',
+  },
+  {
+    id: 4,
+    title: 'Team Games',
+  },
+  {
+    id: 5,
+    title: 'Community',
+  },
+  {
+    id: 6,
+    title: 'Uncategorized',
+  },
+];
+
+const miniPlayer = {
+  title: 'Limp Bizkit',
+  imgUrl:
+    'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+};
+
+const article = {
+  imgUrl:
+    'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
+  title: 'Лучшие VR-игры на рынке',
+  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
+  data: '11/12/11',
+};
 
 export {
+  article,
+  miniPlayer,
+  blogsCategoriesListArr,
+  blogPostsArr,
   sliderDataArr,
   linkFollowsArr,
   dataPostArr,
-  regulPassword,
-  regulEmail,
   dataPostFeatureArr,
   dataOptionsList,
   dataCardGameArr,
+  ListOptionArr,
+  players,
+  musicPlayer,
+  blogTrendsArr,
 };

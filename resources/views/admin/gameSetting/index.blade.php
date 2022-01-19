@@ -9,6 +9,9 @@
             <tr>
                 <th>ID</th>
                 <th>Название</th>
+                <th>Разница пола</th>
+                <th>Премиум</th>
+                <th>Окончание</th>
                 <th>Создано в</th>
                 <th>Изменено в</th>
                 <th>&nbsp</th>
@@ -19,10 +22,13 @@
                 <tr>
                     <td>{{ $gameSetting->id }}</td>
                     <td>{{ $gameSetting->title }}</td>
+                    <td>{{ $gameSetting->has_sex_difference === 1 ? 'да' : 'нет' }}</td>
+                    <td>{{ $gameSetting->is_premium  ? 'да' : 'нет'  }}</td>
+                    <td>{{ $gameSetting->is_finish  ? 'да' : 'нет' }}</td>
                     <td>{{ $gameSetting->created_at }}</td>
                     <td>{{ $gameSetting->updated_at }}</td>
                     <td><a role="button" href="/admin/gameSettings/edit/{{$gameSetting->id}}" class="btn btn-primary">Изменить</a>
-                        <a role="button" href="/admin/gameSettings/delete/{{$gameSetting->id}}" class="btn btn-danger">Удалить</a>
+{{--                        <a role="button" href="/admin/gameSettings/delete/{{$gameSetting->id}}" class="btn btn-danger">Удалить</a>--}}
                     </td>
                 </tr>
             @endforeach

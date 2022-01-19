@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import {
   StylBoxFlexColumnFlexStart,
   StylArrowNextPageHome,
@@ -10,7 +10,7 @@ import {
   StylHeaderPageHome,
 } from '../..';
 
-import arrowNext from './../../../img/icons/icon-arrow-next.png';
+import arrowNext from './../../../assets/icons/icon-arrow-next.png';
 import { sliderDataArr } from '../../../constants';
 
 const HeaderPageHome = () => {
@@ -51,6 +51,7 @@ const HeaderPageHome = () => {
           id={item.counter}
           isSelect={item.counter === isSelectedSlide}
           key={index}
+          pageUrl={item.pageUrl}
         />
       ))}
 

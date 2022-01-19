@@ -1,16 +1,22 @@
-import React, { lazy } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { lazy, useEffect } from 'react';
+import { Route, Switch, useHistory } from 'react-router-dom';
+import useActionsWithRedux from './hooks/useActionsWithRedux';
 
 const routes = {
   home: '/',
   settingsGame: {
-    main: '/settingsGame',
-    complexity: '/settingsGame/complexity',
+    main: '/settingsGame/:id',
+    complexity: '/settingsGame/complexity/:id',
+  },
+  blogs: {
+    main: '/blogs',
+    article: '/blogs/article/:id',
   },
   formLogin: '/formLogin',
   formRegister: '/formRegister',
-  taskGame: { main: '/taskGame', info: '/taskGame/info' },
+  taskGame: { main: '/taskGame/:id', info: '/taskGame/info/:id' },
   musicFromSex: '/musicForSex',
+  profileUser: '/profileUser',
   notFound: '*',
 };
 
@@ -28,8 +34,18 @@ const SettingsGameComplexity = lazy(() =>
   import('./views/SettingsGameComplexityPage/SettingsGameComplexityView')
 );
 const TaskInfo = lazy(() => import('./views/TaskInfoPage/TaskInfo'));
+const MusicPage = lazy(() => import('./views/MusicPage/MusicPage'));
+const BlogsPage = lazy(() => import('./views/BlogsPage/BlogsView'));
+const ArticlePage = lazy(() => import('./views/BlogsPage/Article/ArticleView'));
 
-const Router = () => (
+const Router = () => {
+  const history = useHistory();
+  const {profile} = useActionsWithRedux
+
+  useEffect(() => {if(profile !== null && routes.formLogin || profile !== null && routes.formRegister){
+    history.push(routes.home)
+  }}, [history]);
+  return(
   <Switch>
     <Route exact path={routes.home}>
       <Home title='Home' />
@@ -52,10 +68,19 @@ const Router = () => (
     <Route exact path={routes.taskGame.info}>
       <TaskInfo title='Task Game Info' />
     </Route>
+    <Route exact path={routes.musicFromSex}>
+      <MusicPage title='Music' />
+    </Route>
+    <Route exact path={routes.blogs.main}>
+      <BlogsPage title='Blogs' />
+    </Route>
+    <Route exact path={routes.blogs.article}>
+      <ArticlePage title='Article' />
+    </Route>
     <Route exact path={routes.notFound}>
       <NotFound title='Not Found' />
     </Route>
   </Switch>
-);
+)};
 
 export { Router, routes };

@@ -6,6 +6,9 @@ import { SettingsGameView } from './SettingsGamePage';
 import { TaskGameView } from './TaskGamePage';
 import { SettingsGameComplexityView } from './SettingsGameComplexityPage';
 import { TaskInfo } from './TaskInfoPage';
+import { ProfileUser } from './ProfilePage';
+import { MusicPage } from './MusicPage';
+import { BlogsView } from './BlogsPage';
 
 export {
   FormLoginView,
@@ -16,4 +19,7 @@ export {
   TaskGameView,
   SettingsGameComplexityView,
   TaskInfo,
+  ProfileUser,
+  MusicPage,
+  BlogsView,
 };

@@ -13,18 +13,23 @@ const StylBoxCenterIntroCard = styled.div`
   max-width: 1140px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  justify-content: center;
+  flex-direction: column;
   flex-wrap: wrap;
+
+  @media (min-width: 1200px) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
 `;
 
 const StylBoxCardGame = styled.article`
   max-width: 370px;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1200px) {
     margin: 0;
   }
 `;

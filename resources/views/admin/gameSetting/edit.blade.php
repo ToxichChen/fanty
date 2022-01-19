@@ -18,6 +18,19 @@
             <input type="text" class="form-control" name="title" id="title" value="{{$gameSetting->title}}" placeholder="Название">
         </div>
 
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" {{$gameSetting->is_premium === 0 ? '' : 'checked'}} name="premium" id="premium">
+            <label class="form-check-label" for="premium">
+                Премиум
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" {{$gameSetting->is_finish === 0 ? '' : 'checked'}} name="finish" id="finish">
+            <label class="form-check-label" for="finish">
+                Окончание
+            </label>
+        </div>
+
         <button type="submit" class="btn btn-primary">Изменить</button>
     </form>
 

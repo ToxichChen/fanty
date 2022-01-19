@@ -4,4 +4,51 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-self: flex-start;
+}
+
+.page-item:first-child {
+  display: none;
+}
+.page-item:last-child {
+  display: none;
+}
+
+.page-item {
+  position: relative;
+  cursor: pointer;
+  min-width: 40px;
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid transparent;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+  font-family: 'Roboto', sans-serif;
+  margin-right: 5px;
+}
+
+.page-item::before {
+  content: '0';
+  position: relative;
+}
+.page-item::after {
+  content: '.';
+  position: relative;
+}
+
+.active {
+  border-color: #b01ba5;
+  color: #b01ba5;
+  border-radius: 50%;
 }

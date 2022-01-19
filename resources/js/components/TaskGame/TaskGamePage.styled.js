@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import imgBGFromGameJPG from './../../img/bg/bg-image.jpg';
-import imgBGMobileFromGameJPG from './../../img/bg/bg-image-mobile.jpg';
+import imgBGFromGameJPG from './../../assets/bg/bg-image.jpg';
+import imgBGMobileFromGameJPG from './../../assets/bg/bg-image-mobile.jpg';
 import { NavLink } from 'react-router-dom';
 
 const SectionTaskGame = styled.section`
@@ -8,15 +8,15 @@ const SectionTaskGame = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 50px 20px;
   background-image: url(${imgBGMobileFromGameJPG});
+  padding: 130px 0;
   background-repeat: no-repeat;
   background-attachment: fixed;
   min-height: 100vh;
   box-shadow: 0 0 0 1000px inset rgba(0, 0, 0, 0.5);
 
   @media (min-width: 1024px) {
+    padding: 50px 20px;
     background-size: cover;
     background-image: url(${imgBGFromGameJPG});
   }
@@ -98,10 +98,7 @@ const StylBtnTask = styled.button`
     props.isPreLastBtn &&
     css`
       margin-right: 0;
-      margin-bottom: 0;
-      border-radius: 0;
-      border-top-left-radius: 5px;
-      border-bottom-left-radius: 5px;
+      border-radius: 5px;
 
       @media (min-width: 500px) {
         margin-right: 0;
@@ -120,9 +117,7 @@ const StylBtnTask = styled.button`
   ${(props) =>
     props.isLastBtn &&
     css`
-      border-radius: 0;
-      border-top-right-radius: 5px;
-      border-bottom-right-radius: 5px;
+      border-radius: 5pxx;
 
       @media (min-width: 1024px) {
         &:hover {
@@ -158,7 +153,7 @@ const StylTextTask = styled.p`
   font-weight: ${(props) => props.theme.typography.textWeigth.main};
   font-family: ${(props) => props.theme.typography.textFamily.main};
   color: ${(props) => props.theme.palette.main};
-  margin-bottom: 5px;
+  margin-bottom: 15px;
   text-align: center;
 `;
 
@@ -276,7 +271,55 @@ const StylLinkSettings = styled(NavLink)`
   }
 `;
 
+const StylBoxReview = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: flex-end;
+  margin-top: 15px;
+`;
+
+const BtnReview = styled.button`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: ${(props) => props.theme.typography.textSmall.primary};
+  font-weight: ${(props) => props.theme.typography.textWeigth.main};
+  font-family: ${(props) => props.theme.typography.textFamily.main};
+  color: ${(props) => props.theme.palette.main};
+  pointer-events: ${(props) => props.isClick && 'none'};
+  opacity: ${(props) => (props.isClick ? '0.5' : '1')};
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: transparent;
+
+  &:first-child {
+    margin-right: 10px;
+  }
+
+  & > i {
+    color: ${(props) => props.theme.palette.text.light};
+    font-size: 20px;
+    transition: all 0.2s ease;
+  }
+
+  @media (min-width: 1024px) {
+    &:hover {
+      & > i {
+        color: ${(props) => props.theme.palette.text.primary};
+      }
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
+`;
+
 export {
+  StylBoxReview,
+  BtnReview,
   StylLinkSettings,
   StylTimeTask,
   SectionTaskGame,

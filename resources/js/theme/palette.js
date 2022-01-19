@@ -12,6 +12,7 @@ const palette = {
 
   icon: {
     light: '#fff',
+    main: '#b01ba5',
   },
 
   backgroundBtn: {
@@ -37,13 +38,15 @@ const palette = {
 
   border: {
     main: '#b01ba5',
+    primary: '#34164b',
     dark: '#808080',
+    light: '#fff',
   },
 
   error: {
-    text: '#f6657f',
-    border: '#f6657f',
-    btn: '#f6657f',
+    text: '#FF0700',
+    border: '#FF0700',
+    btn: '#FF0700',
     icon: '#FF0700',
   },
 };

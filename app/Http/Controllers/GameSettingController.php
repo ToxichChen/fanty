@@ -20,17 +20,19 @@ class GameSettingController extends Controller
 
     public function createPage()
     {
-        return View::make('admin.fantGroup.create');
+        return View::make('admin.gameSetting.create');
     }
 
     public function create(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|unique:game_settings|max:255'
+            'title' => 'required|unique:game_settings|max:255',
         ]);
 
         $gameSetting = new GameSetting();
         $gameSetting->title = $validated['title'];
+        $gameSetting->is_premium = $request->premium === null ? false : true;
+        $gameSetting->is_finish = $request->finish === null ? false : true;
         $gameSetting->save();
         return redirect('/admin/gameSetting');
     }
@@ -63,16 +65,18 @@ class GameSettingController extends Controller
         // process the login
         $gameSettings = GameSetting::find($id);
         $gameSettings->title = $validated['title'];
+        $gameSettings->is_premium = $request->premium === null ? false : true;
+        $gameSettings->is_finish = $request->finish === null ? false : true;
         $gameSettings->save();
         return redirect('/admin/gameSetting');
     }
 
-    public function delete($id)
-    {
-        $gameSettings = GameSetting::where('id',$id)->delete();
-
-        return redirect('/admin/gameSetting');
-    }
+//    public function delete($id)
+//    {
+//        $gameSettings = GameSetting::where('id',$id)->delete();
+//
+//        return redirect('/admin/gameSetting');
+//    }
 
     public function getSettings() {
         $gameSettings = GameSetting::all()->toArray();

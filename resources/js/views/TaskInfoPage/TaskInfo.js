@@ -3,6 +3,8 @@ import {
   IntroPageHome,
   FeaturePageHome,
   ComplexityHome,
+  TaskInfoSlider,
+  FooterPageHome,
 } from '../../components';
 
 const TaskInfo = ({ title }) => {
@@ -12,9 +14,16 @@ const TaskInfo = ({ title }) => {
 
   return (
     <>
+      <TaskInfoSlider
+        title={'Sex fanty'}
+        description={
+          'Не каждый отваживается на использование специальных устройств во время полового контакта. '
+        }
+      />
       <IntroPageHome />
       <FeaturePageHome />
       <ComplexityHome />
+      <FooterPageHome />
     </>
   );
 };

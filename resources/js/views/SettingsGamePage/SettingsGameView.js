@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { SettingsGame } from '../../components';
+import { SettingsGame, SettingsGameVipStatus } from '../../components';
 
 const SettingsGameView = ({ title }) => {
   useEffect(() => {
@@ -8,6 +8,7 @@ const SettingsGameView = ({ title }) => {
 
   return (
     <>
+      <SettingsGameVipStatus vip={false} />
       <SettingsGame />
     </>
   );

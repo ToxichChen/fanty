@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { StylIconInputEnd, StylBtnEyePassword } from '../../index.js';
-import visibleEyeImg from './../../../img/icons/icon-visible-password.svg';
-import closeEyeImg from './../../../img/icons/icon-hidden-password.svg';
+import visibleEyeImg from './../../../assets/icons/icon-visible-password.svg';
+import closeEyeImg from './../../../assets/icons/icon-hidden-password.svg';
 
 const BtnEyePassword = ({ changeEye }) => {
   const [isVisible, setVisible] = useState(true);
