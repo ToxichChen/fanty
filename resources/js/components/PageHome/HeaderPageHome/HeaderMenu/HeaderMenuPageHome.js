@@ -1,103 +1,107 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import logo from './../../../../assets/logo.png';
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import logo from "./../../../../assets/logo.png";
 
 import {
-  StylBoxMainMenuPageHome,
-  StylItemMainNav,
-  StylLinkMainNav,
-  StylImgLogo,
-  StylBtnMenuNavPageHome,
-  StylBoxNavMenuPageHome,
-  AddMenuNav,
-} from '../../../index';
+    StylBoxMainMenuPageHome,
+    StylItemMainNav,
+    StylLinkMainNav,
+    StylImgLogo,
+    StylBtnMenuNavPageHome,
+    StylBoxNavMenuPageHome,
+    AddMenuNav,
+} from "../../../index";
 
-import { routes } from './../../../../Router';
-import useActionsWithRedux from '../../../../hooks/useActionsWithRedux';
+import { routes } from "./../../../../Router";
+import useActionsWithRedux from "../../../../hooks/useActionsWithRedux";
 
 const HeaderMenuPageHome = () => {
-  const {profile} = useActionsWithRedux();
-  const [isOpenMainMenu, setOpenMainMenu] = useState(false),
-    [isOpenAdditional, setOpenAdditiona] = useState(false);
+    const { profile } = useActionsWithRedux();
+    console.log();
+    const [isOpenMainMenu, setOpenMainMenu] = useState(false),
+        [isOpenAdditional, setOpenAdditiona] = useState(false);
 
-  const handleAdditionalMenu = () => {
-    setOpenAdditiona(!isOpenAdditional);
-  };
+    const handleAdditionalMenu = () => {
+        setOpenAdditiona(!isOpenAdditional);
+    };
 
-  const handleMenu = () => {
-    setOpenMainMenu(!isOpenMainMenu);
-  };
+    const handleMenu = () => {
+        setOpenMainMenu(!isOpenMainMenu);
+    };
 
-  return (
-    <StylBoxNavMenuPageHome>
-      <StylImgLogo src={logo} alt='logo' />
-      <StylBtnMenuNavPageHome
-        type='button'
-        onClick={handleMenu}
-        open={isOpenMainMenu}
-      />
-      <StylBoxMainMenuPageHome open={isOpenMainMenu}>
-        <StylItemMainNav>
-          <StylLinkMainNav onClick={handleMenu}>
-            <NavLink exact to={routes.home}>
-              Домой
-            </NavLink>
-          </StylLinkMainNav>
-        </StylItemMainNav>
-        <StylItemMainNav>
-          <StylLinkMainNav onClick={handleAdditionalMenu} isAddMenu={true}>
-            Игры
-            <AddMenuNav
-              typeMenu={true}
-              visibleContent={isOpenAdditional}
-              handleContent={handleAdditionalMenu}
+    return (
+        <StylBoxNavMenuPageHome>
+            <StylImgLogo src={logo} alt="logo" />
+            <StylBtnMenuNavPageHome
+                type="button"
+                onClick={handleMenu}
+                open={isOpenMainMenu}
             />
-          </StylLinkMainNav>
-        </StylItemMainNav>
-        <StylItemMainNav>
-          <StylLinkMainNav onClick={handleMenu}>
-            <NavLink exact to={routes.musicFromSex}>
-              Музыка для секса
-            </NavLink>
-          </StylLinkMainNav>
-        </StylItemMainNav>
-        <StylItemMainNav>
-          <StylLinkMainNav onClick={handleMenu}>
-            <NavLink exact to={routes.blogs.main}>
-              Блог
-            </NavLink>
-          </StylLinkMainNav>
-        </StylItemMainNav>
-        {profile === null && (
-          <StylItemMainNav>
-            <StylLinkMainNav onClick={handleMenu}>
-              <NavLink exact to={routes.formLogin}>
-                Логин
-              </NavLink>
-            </StylLinkMainNav>
-          </StylItemMainNav>
-        )}{' '}
-        {profile === null && (
-          <StylItemMainNav>
-            <StylLinkMainNav onClick={handleMenu}>
-              <NavLink exact to={routes.formRegister}>
-                Регистрация
-              </NavLink>
-            </StylLinkMainNav>
-          </StylItemMainNav>
-        )}{' '}
-        {profile && (
-          <StylItemMainNav>
-            <StylLinkMainNav onClick={handleMenu}>
-              <NavLink exact to={routes.profileUser}>
-                Профиль
-              </NavLink>
-            </StylLinkMainNav>
-          </StylItemMainNav>
-        )}
-      </StylBoxMainMenuPageHome>
-    </StylBoxNavMenuPageHome>
-  );
+            <StylBoxMainMenuPageHome open={isOpenMainMenu}>
+                <StylItemMainNav>
+                    <StylLinkMainNav onClick={handleMenu}>
+                        <NavLink exact to={routes.home}>
+                            Домой
+                        </NavLink>
+                    </StylLinkMainNav>
+                </StylItemMainNav>
+                <StylItemMainNav>
+                    <StylLinkMainNav
+                        onClick={handleAdditionalMenu}
+                        isAddMenu={true}
+                    >
+                        Игры
+                        <AddMenuNav
+                            typeMenu={true}
+                            visibleContent={isOpenAdditional}
+                            handleContent={handleAdditionalMenu}
+                        />
+                    </StylLinkMainNav>
+                </StylItemMainNav>
+                <StylItemMainNav>
+                    <StylLinkMainNav onClick={handleMenu}>
+                        <NavLink exact to={routes.musicFromSex}>
+                            Музыка для секса
+                        </NavLink>
+                    </StylLinkMainNav>
+                </StylItemMainNav>
+                <StylItemMainNav>
+                    <StylLinkMainNav onClick={handleMenu}>
+                        <NavLink exact to={routes.blogs.main}>
+                            Блог
+                        </NavLink>
+                    </StylLinkMainNav>
+                </StylItemMainNav>
+                {Object.keys(profile).length === 0 && (
+                    <StylItemMainNav>
+                        <StylLinkMainNav onClick={handleMenu}>
+                            <NavLink exact to={routes.formLogin}>
+                                Логин
+                            </NavLink>
+                        </StylLinkMainNav>
+                    </StylItemMainNav>
+                )}{" "}
+                {Object.keys(profile).length === 0 && (
+                    <StylItemMainNav>
+                        <StylLinkMainNav onClick={handleMenu}>
+                            <NavLink exact to={routes.formRegister}>
+                                Регистрация
+                            </NavLink>
+                        </StylLinkMainNav>
+                    </StylItemMainNav>
+                )}{" "}
+                {Object.keys(profile).length !== 0 && (
+                    <StylItemMainNav>
+                        <StylLinkMainNav onClick={handleMenu}>
+                            <NavLink exact to={routes.profileUser}>
+                                Профиль
+                            </NavLink>
+                        </StylLinkMainNav>
+                    </StylItemMainNav>
+                )}
+            </StylBoxMainMenuPageHome>
+        </StylBoxNavMenuPageHome>
+    );
 };
 
 export default HeaderMenuPageHome;

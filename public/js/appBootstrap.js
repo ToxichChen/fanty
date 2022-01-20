@@ -25520,6 +25520,8 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_4__["default"])(),
       profile = _useActionsWithRedux.profile;
 
+  console.log();
+
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isOpenMainMenu = _useState2[0],
@@ -25584,7 +25586,7 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
             children: "\u0411\u043B\u043E\u0433"
           })
         })
-      }), profile === null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
+      }), Object.keys(profile).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylLinkMainNav, {
           onClick: handleMenu,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
@@ -25593,7 +25595,7 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
             children: "\u041B\u043E\u0433\u0438\u043D"
           })
         })
-      }), ' ', profile === null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
+      }), " ", Object.keys(profile).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylLinkMainNav, {
           onClick: handleMenu,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
@@ -25602,7 +25604,7 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
             children: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F"
           })
         })
-      }), ' ', profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
+      }), " ", Object.keys(profile).length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylLinkMainNav, {
           onClick: handleMenu,
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
@@ -30330,7 +30332,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n\n.pagination {\n  list-style: none;\n  display: flex;\n  flex-direction: row;\n  align-self: flex-start;\n}\n\n.page-item:first-child {\n  display: none;\n}\n.page-item:last-child {\n  display: none;\n}\n\n.page-item {\n  position: relative;\n  cursor: pointer;\n  min-width: 40px;\n  height: 40px;\n  font-size: 16px;\n  font-weight: 500;\n  border: 2px solid transparent;\n  color: #fff;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.5s;\n  font-family: 'Roboto', sans-serif;\n  margin-right: 5px;\n}\n\n.page-item::before {\n  content: '0';\n  position: relative;\n}\n.page-item::after {\n  content: '.';\n  position: relative;\n}\n\n.active {\n  border-color: #b01ba5;\n  color: #b01ba5;\n  border-radius: 50%;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n.pagination {\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-self: flex-start;\r\n}\r\n\r\n.page-item:first-child {\r\n  display: none;\r\n}\r\n.page-item:last-child {\r\n  display: none;\r\n}\r\n\r\n.page-item {\r\n  position: relative;\r\n  cursor: pointer;\r\n  min-width: 40px;\r\n  height: 40px;\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  border: 2px solid transparent;\r\n  color: #fff;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  transition: all 0.5s;\r\n  font-family: 'Roboto', sans-serif;\r\n  margin-right: 5px;\r\n}\r\n\r\n.page-item::before {\r\n  content: '0';\r\n  position: relative;\r\n}\r\n.page-item::after {\r\n  content: '.';\r\n  position: relative;\r\n}\r\n\r\n.active {\r\n  border-color: #b01ba5;\r\n  color: #b01ba5;\r\n  border-radius: 50%;\r\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -30514,7 +30516,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-check.svg?9bf079a9c5ce2828051db81a90117e65");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-check.svg?76a7d2be26a986125c5263ccae116b8b");
 
 /***/ }),
 
@@ -30529,7 +30531,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-close.svg?084af21f353add78a7813d47e8179dd3");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-close.svg?f0170ad2df8c9fe560102020ce865b6d");
 
 /***/ }),
 
@@ -30559,7 +30561,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-email.svg?a87ab4384b0f09ab423a9cdeb8d6fe9e");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-email.svg?7695d401a8d9e329809cb4203f4d1456");
 
 /***/ }),
 
@@ -30574,7 +30576,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-girl.svg?699d30aebba3a986ef378b4f96a61949");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-girl.svg?863a9114028389ae5013e7bd9f65c718");
 
 /***/ }),
 
@@ -30589,7 +30591,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-hidden-password.svg?bdb68900466728533e6d6b71df09e3bb");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-hidden-password.svg?ad01ac80bf0aef8fbd1917def09094a9");
 
 /***/ }),
 
@@ -30604,7 +30606,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-lock.svg?fe9006932697e22554e36ea2ab45e7bf");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-lock.svg?d734aa605afadff4d2c8c2e8998e2359");
 
 /***/ }),
 
@@ -30619,7 +30621,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-man.svg?e64de58e5d4cb5f4eaa8a38d7a3c4c61");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-man.svg?5926d18e6da2942d3682f31cdbecb0fc");
 
 /***/ }),
 
@@ -30634,7 +30636,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-success.svg?7c4ab121425c35f8b34392c5426c918d");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-success.svg?38d052deadf01bcfa3ca13f0a7f3e56a");
 
 /***/ }),
 
@@ -30649,7 +30651,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-user.svg?ce759283c8037733015e908cd870b722");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-user.svg?1cac3d7adf3f957260cbbce9109cab54");
 
 /***/ }),
 
@@ -30679,7 +30681,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-warning.svg?c5e42ec4dd6c0f9126628b60d91d205b");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-warning.svg?b12fa11b70ae6b974b950c6a0dc317c6");
 
 /***/ }),
 
