@@ -16,8 +16,7 @@ import { routes } from "./../../../../Router";
 import useActionsWithRedux from "../../../../hooks/useActionsWithRedux";
 
 const HeaderMenuPageHome = () => {
-    const { profile } = useActionsWithRedux();
-    console.log();
+    const { profile, userLogout } = useActionsWithRedux();
     const [isOpenMainMenu, setOpenMainMenu] = useState(false),
         [isOpenAdditional, setOpenAdditiona] = useState(false);
 
@@ -27,6 +26,11 @@ const HeaderMenuPageHome = () => {
 
     const handleMenu = () => {
         setOpenMainMenu(!isOpenMainMenu);
+    };
+
+    const profileRequest = () => {
+        handleMenu();
+        userLogout();
     };
 
     return (
@@ -95,6 +99,15 @@ const HeaderMenuPageHome = () => {
                         <StylLinkMainNav onClick={handleMenu}>
                             <NavLink exact to={routes.profileUser}>
                                 Профиль
+                            </NavLink>
+                        </StylLinkMainNav>
+                    </StylItemMainNav>
+                )}
+                {Object.keys(profile).length !== 0 && (
+                    <StylItemMainNav>
+                        <StylLinkMainNav onClick={profileRequest}>
+                            <NavLink exact to={routes.home}>
+                                Выйти
                             </NavLink>
                         </StylLinkMainNav>
                     </StylItemMainNav>

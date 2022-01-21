@@ -1,89 +1,113 @@
-import { useDispatch, useSelector } from 'react-redux';
-import { useCallback } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { useCallback } from "react";
 import {
-  loginForm,
-  registerForm,
-} from './../redux/formFeatures/formFeaturesOperation';
-import { alert } from '../redux/alertFeatures/AlertActions';
-import { getSettings } from '../redux/settingsFeatures/SettingsOperation';
+    loginForm,
+    logoutUser,
+    registerForm,
+} from "./../redux/formFeatures/formFeaturesOperation";
+import { alert } from "../redux/alertFeatures/AlertActions";
+import {
+    getSettings,
+    postSettingsCountTask,
+} from "../redux/settingsFeatures/SettingsOperation";
 
 function useActionsWithRedux() {
-  const dispatch = useDispatch();
-  const getAllSettings = useSelector((state) => state.settings);
-  const profile = useSelector((state) => state.authForm.user);
-  const alertMessage = useSelector((state) => state.alertMessage);
-  const vip = useSelector((state) => state.authForm.user.vip);
-  const likesFanty = useSelector((state) => state.activeFanty.fanty.likes);
-  const disLikesFanty = useSelector(
-    (state) => state.activeFanty.fanty.disLikes
-  );
-  const showMiniPlayer = useSelector((state) => state.musicData.miniPlayer);
-
-  const alertHidden = useCallback(() => {
-    dispatch(
-      alert({
-        show: false,
-        err: alertMessage.err,
-        message: alertMessage.message,
-      })
+    const dispatch = useDispatch();
+    const getAllSettings = useSelector((state) => state.settings.settings[0]);
+    const loadingSettings = useSelector(
+        (state) => state.settings.isLoadingSettings
     );
-  }, [dispatch, alertMessage]);
+    const profile = useSelector((state) => state.authForm.user);
+    const alertMessage = useSelector((state) => state.alertMessage);
+    const vip = useSelector((state) => state.authForm.user.vip);
+    const likesFanty = useSelector((state) => state.activeFanty.fanty.likes);
+    const disLikesFanty = useSelector(
+        (state) => state.activeFanty.fanty.disLikes
+    );
+    const showMiniPlayer = useSelector((state) => state.musicData.miniPlayer);
 
-  const NotifySuccess = useCallback(
-    (message) => {
-      dispatch(
-        alert({
-          show: true,
-          err: false,
-          message: message,
-        })
-      );
-    },
-    [dispatch]
-  );
+    const alertHidden = useCallback(() => {
+        dispatch(
+            alert({
+                show: false,
+                err: alertMessage.err,
+                message: alertMessage.message,
+            })
+        );
+    }, [dispatch, alertMessage]);
 
-  const NotifyError = useCallback(
-    (message) => {
-      dispatch(
-        alert({
-          show: true,
-          err: true,
-          message: message,
-        })
-      );
-    },
-    [dispatch]
-  );
+    const NotifySuccess = useCallback(
+        (message) => {
+            dispatch(
+                alert({
+                    show: true,
+                    err: false,
+                    message: message,
+                })
+            );
+        },
+        [dispatch]
+    );
 
-  const loginUser = useCallback(
-    (data) => {
-      dispatch(loginForm(data));
-    },
-    [dispatch]
-  );
+    const NotifyError = useCallback(
+        (message) => {
+            dispatch(
+                alert({
+                    show: true,
+                    err: true,
+                    message: message,
+                })
+            );
+        },
+        [dispatch]
+    );
 
+    const loginUser = useCallback(
+        (data) => {
+            dispatch(loginForm(data));
+        },
+        [dispatch]
+    );
 
-  const registerUser = useCallback(
-    (data) => {
-      dispatch(registerForm(data));
-    },
-    [dispatch]
-  );
+    const userLogout = useCallback(() => {
+        dispatch(logoutUser());
+    }, [dispatch]);
 
-  const settings = useCallback(()=> {dispatch(getSettings())}, [dispatch])
-  return {
-    loginUser,settings,
-    registerUser,
-    alertMessage,getAllSettings,
-    profile,
-    vip,
-    likesFanty,
-    disLikesFanty,
-    showMiniPlayer,
-    alertHidden,
-    NotifySuccess,
-    NotifyError,
-  };
+    const registerUser = useCallback(
+        (data) => {
+            dispatch(registerForm(data));
+        },
+        [dispatch]
+    );
+
+    const settings = useCallback(() => {
+        dispatch(getSettings());
+    }, [dispatch]);
+
+    const settingsCountTask = useCallback(
+        (data) => {
+            dispatch(postSettingsCountTask());
+        },
+        [dispatch]
+    );
+    return {
+        alertHidden,
+        NotifySuccess,
+        NotifyError,
+        loginUser,
+        settings,
+        registerUser,
+        userLogout,
+        settingsCountTask,
+        alertMessage,
+        getAllSettings,
+        profile,
+        vip,
+        likesFanty,
+        disLikesFanty,
+        showMiniPlayer,
+        loadingSettings,
+    };
 }
 
 export default useActionsWithRedux;

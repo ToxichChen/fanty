@@ -21838,24 +21838,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var routes = {
-  home: '/',
+  home: "/",
   settingsGame: {
-    main: '/settingsGame/:id',
-    complexity: '/settingsGame/complexity/:id'
+    main: "/settingsGame/:id",
+    complexity: "/settingsGame/complexity/:id"
   },
   blogs: {
-    main: '/blogs',
-    article: '/blogs/article/:id'
+    main: "/blogs",
+    article: "/blogs/article/:id"
   },
-  formLogin: '/formLogin',
-  formRegister: '/formRegister',
+  formLogin: "/formLogin",
+  formRegister: "/formRegister",
   taskGame: {
-    main: '/taskGame/:id',
-    info: '/taskGame/info/:id'
+    main: "/taskGame/:id",
+    info: "/taskGame/info/:id"
   },
-  musicFromSex: '/musicForSex',
-  profileUser: '/profileUser',
-  notFound: '*'
+  musicFromSex: "/musicForSex",
+  profileUser: "/profileUser",
+  notFound: "*"
 };
 var Home = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_views_HomePage_HomeView_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/HomePage/HomeView */ "./resources/js/views/HomePage/HomeView.js"));
@@ -21892,13 +21892,16 @@ var ArticlePage = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(funct
 });
 
 var Router = function Router() {
-  var history = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_3__.useHistory)();
-  var profile = _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_1__["default"].profile;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (profile !== null && routes.formLogin || profile !== null && routes.formRegister) {
-      history.push(routes.home);
-    }
-  }, [history]);
+  /*     const history = useHistory();
+  const { profile } = useActionsWithRedux;
+    useEffect(() => {
+      if (
+          (Object.keys(profile).length !== 0 && routes.formLogin) ||
+          (Object.keys(profile).length !== 0 && routes.formRegister)
+      ) {
+          history.push(routes.home);
+      }
+  }, [history, profile]); */
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Switch, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.Route, {
       exact: true,
@@ -23687,7 +23690,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_icons_icon_man_svg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../assets/icons/icon-man.svg */ "./resources/js/assets/icons/icon-man.svg");
 /* harmony import */ var _assets_icons_icon_girl_svg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../assets/icons/icon-girl.svg */ "./resources/js/assets/icons/icon-girl.svg");
 /* harmony import */ var _SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../SettingsGame/CheckBox/CheckBox */ "./resources/js/components/SettingsGame/CheckBox/CheckBox.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _SettingsGame_RadioBox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../SettingsGame/RadioBox */ "./resources/js/components/SettingsGame/RadioBox/index.js");
+/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -23700,77 +23707,98 @@ var ModalSettings = function ModalSettings(_ref) {
   var visible = _ref.visible,
       switchVisible = _ref.switchVisible,
       item = _ref.item;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylModalSettings, {
+
+  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_6__["default"])(),
+      profile = _useActionsWithRedux.profile;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylModalSettings, {
     isVisible: visible,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnCardSettings, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnCardSettings, {
       type: "button",
       onClick: switchVisible,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
         className: "fas fa-times"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTitleModalSettings, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTitleModalSettings, {
       children: item.title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylVipStatusModal, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylVipStatusModal, {
       isVip: false,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylVipText, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylVipText, {
         isLowWidth: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("b", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("b", {
           children: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0437\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u044B "
         }), " \u0438 \u0431\u0443\u0434\u0443\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B \u0432 \u043F\u043E\u043B\u043D\u043E\u0439 \u0432\u0435\u0440\u0441\u0438\u0438 \u0438\u0433\u0440\u044B."]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnVip, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnVip, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
           className: "fas fa-gem"
         }), " \u041F\u043E\u043B\u043D\u0430\u044F \u0432\u0435\u0440\u0441\u0438\u044F \u043E\u0442 159 \u0440\u0443\u0431"]
       })]
-    }), item.has_sex_difference ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
+    }), item.has_sex_difference ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
       isColumn: true,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperCenterContent, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgModal, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperCenterContent, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgModal, {
             src: _assets_icons_icon_man_svg__WEBPACK_IMPORTED_MODULE_2__["default"],
             alt: "man"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTextModal, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTextModal, {
             children: "\u041C\u0443\u0436\u0447\u0438\u043D\u0430"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperCenterContent, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgModal, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperCenterContent, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgModal, {
             src: _assets_icons_icon_girl_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
             alt: "girl"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTextModal, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTextModal, {
             children: "\u0416\u0435\u043D\u0449\u0438\u043D\u0430"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
-          children: item.subsettings.map(function (elem, index) {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
+          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox__WEBPACK_IMPORTED_MODULE_5__.RadioBox, {
+            item: item,
+            optionsBasic: item.subsettings,
+            subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+          }) : item.subsettings.map(function (elem, index) {
             if (elem.sex === 1) {
-              /*#__PURE__*/
-              (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                elem: elem
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                elem: elem,
+                premium: item.is_premium === 1 && profile.response.is_premium === 0
               }, index);
             }
+
+            return false;
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
-          children: item.subsettings.map(function (elem, index) {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
+          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox__WEBPACK_IMPORTED_MODULE_5__.RadioBox, {
+            item: item,
+            optionsBasic: item.subsettings,
+            subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+          }) : item.subsettings.map(function (elem, index) {
             if (elem.sex === 2) {
-              /*#__PURE__*/
-              (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                elem: elem
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                elem: elem,
+                premium: item.is_premium === 1 && profile.response.is_premium === 0
               }, index);
             }
+
+            return false;
           })
         })]
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylOptionsAddedWrapper, {
         isFullWidth: true,
-        children: item.subsettings.map(function (elem, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
-            elem: elem
+        children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox__WEBPACK_IMPORTED_MODULE_5__.RadioBox, {
+          item: item,
+          optionsBasic: item.subsettings,
+          subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+        }) : item.subsettings.map(function (elem, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_4__["default"], {
+            elem: elem,
+            premium: item.is_premium === 1 && profile.response.is_premium === 0
           }, index);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnSaveAndClose, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnSaveAndClose, {
       onClick: switchVisible,
       children: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438 \u0437\u0430\u043A\u0440\u044B\u0442\u044C"
     })]
@@ -24999,7 +25027,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var FooterPageHome = function FooterPageHome() {
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_4__["default"])(),
-      profile = _useActionsWithRedux.profile;
+      profile = _useActionsWithRedux.profile,
+      userLogout = _useActionsWithRedux.userLogout;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -25051,7 +25080,7 @@ var FooterPageHome = function FooterPageHome() {
                 children: "\u0411\u043B\u043E\u0433"
               })
             })
-          }), profile === null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
+          }), Object.keys(profile).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylLinkMenuFooter, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
                 exact: true,
@@ -25059,7 +25088,7 @@ var FooterPageHome = function FooterPageHome() {
                 children: "\u041B\u043E\u0433\u0438\u043D"
               })
             })
-          }), ' ', profile === null && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
+          }), " ", Object.keys(profile).length === 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylLinkMenuFooter, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
                 exact: true,
@@ -25067,12 +25096,21 @@ var FooterPageHome = function FooterPageHome() {
                 children: "\u0420\u0435\u0433\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u044F"
               })
             })
-          }), ' ', profile && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
+          }), " ", Object.keys(profile).length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylLinkMenuFooter, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
                 exact: true,
                 to: _Router__WEBPACK_IMPORTED_MODULE_1__.routes.profileUser,
                 children: "\u041F\u0440\u043E\u0444\u0438\u043B\u044C"
+              })
+            })
+          }), Object.keys(profile).length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylItemMenuFooter, {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_2__.StylLinkMenuFooter, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
+                exact: true,
+                to: _Router__WEBPACK_IMPORTED_MODULE_1__.routes.profileUser,
+                onClick: userLogout,
+                children: "\u0412\u044B\u0439\u0442\u0438"
               })
             })
           })]
@@ -25518,9 +25556,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 var HeaderMenuPageHome = function HeaderMenuPageHome() {
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_4__["default"])(),
-      profile = _useActionsWithRedux.profile;
-
-  console.log();
+      profile = _useActionsWithRedux.profile,
+      userLogout = _useActionsWithRedux.userLogout;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -25537,6 +25574,11 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
 
   var handleMenu = function handleMenu() {
     setOpenMainMenu(!isOpenMainMenu);
+  };
+
+  var profileRequest = function profileRequest() {
+    handleMenu();
+    userLogout();
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(_index__WEBPACK_IMPORTED_MODULE_2__.StylBoxNavMenuPageHome, {
@@ -25611,6 +25653,15 @@ var HeaderMenuPageHome = function HeaderMenuPageHome() {
             exact: true,
             to: _Router__WEBPACK_IMPORTED_MODULE_3__.routes.profileUser,
             children: "\u041F\u0440\u043E\u0444\u0438\u043B\u044C"
+          })
+        })
+      }), Object.keys(profile).length !== 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylItemMainNav, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_index__WEBPACK_IMPORTED_MODULE_2__.StylLinkMainNav, {
+          onClick: profileRequest,
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_6__.NavLink, {
+            exact: true,
+            to: _Router__WEBPACK_IMPORTED_MODULE_3__.routes.home,
+            children: "\u0412\u044B\u0439\u0442\u0438"
           })
         })
       })]
@@ -26428,15 +26479,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var SettingGameComplexity = function SettingGameComplexity() {
+  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_6__["default"])(),
+      profile = _useActionsWithRedux.profile,
+      NotifyError = _useActionsWithRedux.NotifyError,
+      settingsCountTask = _useActionsWithRedux.settingsCountTask;
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     aos__WEBPACK_IMPORTED_MODULE_1___default().init({
       duration: 1000
     });
   }, []);
-  var vip = false;
-
-  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_6__["default"])(),
-      NotifyError = _useActionsWithRedux.NotifyError;
+  var vip = profile.response.is_premiume === 1 ? true : false;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -26459,24 +26512,29 @@ var SettingGameComplexity = function SettingGameComplexity() {
       setRange3 = _useState8[1];
 
   var checkRanges = function checkRanges() {
-    if (isRange1 === '1' && isRange2 === '1' && isRange3 === '1') {
-      NotifyError('Ошибка, выберите хотя-бы минимальное количество игр');
+    if (isRange1 === "1" && isRange2 === "1" && isRange3 === "1") {
+      NotifyError("Ошибка, выберите хотя-бы минимальное количество игр");
       setRanges(false);
     } else {
       setRanges(true);
+      settingsCountTask({
+        is_green: isRange1,
+        is_orange: isRange2,
+        is_red: isRange3
+      });
     }
   };
 
   var chooseRange1 = function chooseRange1(e) {
-    setRange1(e.currentTarget.getAttribute('data-range1'));
+    setRange1(e.currentTarget.getAttribute("data-range1"));
   };
 
   var chooseRange2 = function chooseRange2(e) {
-    setRange2(e.currentTarget.getAttribute('data-range2'));
+    setRange2(e.currentTarget.getAttribute("data-range2"));
   };
 
   var chooseRange3 = function chooseRange3(e) {
-    setRange3(e.currentTarget.getAttribute('data-range3'));
+    setRange3(e.currentTarget.getAttribute("data-range3"));
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_index__WEBPACK_IMPORTED_MODULE_3__.SectionTaskGame, {
@@ -26500,7 +26558,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
               isRange: "range1",
               isVip: vip,
               isActive: true,
-              isWidth: (isRange1 - 1) * 33 + '%',
+              isWidth: (isRange1 - 1) * 33 + "%",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylCenterRange, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnSelectRange, {
                   isRange: "range1",
@@ -26581,7 +26639,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
               isRange: "range2",
               isActive: vip,
               isVip: vip,
-              isWidth: (isRange2 - 1) * 33 + '%',
+              isWidth: (isRange2 - 1) * 33 + "%",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylCenterRange, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnSelectRange, {
                   isRange: "range2",
@@ -26614,7 +26672,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
                   children: !vip && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                     className: "fas fa-times",
                     style: {
-                      color: 'red'
+                      color: "red"
                     }
                   })
                 })]
@@ -26669,7 +26727,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
               isActive: vip,
               isVip: vip,
               isMinCount: vip ? false : true,
-              isWidth: (isRange3 - 1) * 33 + '%',
+              isWidth: (isRange3 - 1) * 33 + "%",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylCenterRange, {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnSelectRange, {
                   isRange: "range3",
@@ -26695,7 +26753,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
                   children: !vip && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                     className: "fas fa-times",
                     style: {
-                      color: 'red'
+                      color: "red"
                     }
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnSelectRange, {
@@ -26708,7 +26766,7 @@ var SettingGameComplexity = function SettingGameComplexity() {
                   children: !vip && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                     className: "fas fa-times",
                     style: {
-                      color: 'red'
+                      color: "red"
                     }
                   })
                 })]
@@ -26933,9 +26991,10 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var Checkbox = function Checkbox(_ref) {
-  var elem = _ref.elem;
+  var elem = _ref.elem,
+      premium = _ref.premium;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(elem.check),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
       isCheck = _useState2[0],
       setCheck = _useState2[1];
@@ -26955,7 +27014,7 @@ var Checkbox = function Checkbox(_ref) {
         checked: isCheck,
         onChange: handleCheckboxChange
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_index__WEBPACK_IMPORTED_MODULE_1__.StyledCheckbox, {
-        checked: elem.vip ? isCheck : 'a',
+        checked: premium ? "a" : isCheck,
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_index__WEBPACK_IMPORTED_MODULE_1__.Icon, {
           viewBox: "0 0 24 24",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("polyline", {
@@ -27016,24 +27075,24 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var CheckboxContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: inline-block;\n  vertical-align: middle;\n"])));
-var Icon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].svg(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  fill: none;\n  stroke: white;\n  stroke-width: 2px;\n"])));
+var CheckboxContainer = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: inline-block;\n    vertical-align: middle;\n"])));
+var Icon = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].svg(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    fill: none;\n    stroke: white;\n    stroke-width: 2px;\n"])));
 var HiddenCheckbox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].input.attrs({
-  type: 'checkbox'
-})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  border: 0;\n  clip: rect(0 0 0 0);\n  clippath: inset(50%);\n  height: 1px;\n  margin: -1px;\n  overflow: hidden;\n  padding: 0;\n  position: absolute;\n  white-space: nowrap;\n  width: 1px;\n"])));
-var StyledCheckbox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  pointer-events: ", ";\n  display: inline-block;\n  width: 16px;\n  height: 16px;\n  background: url(", "),\n    ", ";\n  background-repeat: no-repeat;\n  background-size: 100%;\n  background-position: center center;\n  border: 1px solid ", ";\n  border-radius: 3px;\n  transition: all 150ms;\n\n  ", ":focus + & {\n    box-shadow: 0 0 0 3px #00a6cb;\n  }\n\n  ", " {\n    visibility: ", ";\n  }\n"])), function (props) {
-  return props.checked === 'a' && 'none';
+  type: "checkbox"
+})(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    border: 0;\n    clip: rect(0 0 0 0);\n    clippath: inset(50%);\n    height: 1px;\n    margin: -1px;\n    overflow: hidden;\n    padding: 0;\n    position: absolute;\n    white-space: nowrap;\n    width: 1px;\n"])));
+var StyledCheckbox = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    pointer-events: ", ";\n    display: inline-block;\n    width: 16px;\n    height: 16px;\n    background: url(", "),\n        ", ";\n    background-repeat: no-repeat;\n    background-size: 100%;\n    background-position: center center;\n    border: 1px solid ", ";\n    border-radius: 3px;\n    transition: all 150ms;\n\n    ", ":focus + & {\n        box-shadow: 0 0 0 3px #00a6cb;\n    }\n\n    ", " {\n        visibility: ", ";\n    }\n"])), function (props) {
+  return props.checked === "a" && "none";
 }, function (props) {
-  return props.checked === 'a' && _assets_icons_icon_close_svg__WEBPACK_IMPORTED_MODULE_0__["default"];
+  return props.checked === "a" && _assets_icons_icon_close_svg__WEBPACK_IMPORTED_MODULE_0__["default"];
 }, function (props) {
-  return props.checked === true ? 'linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%)' : props.checked === 'a' ? 'red' : 'transparent';
+  return props.checked === true ? "linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%)" : props.checked === "a" ? "red" : "transparent";
 }, function (props) {
   return props.theme.palette.main;
 }, HiddenCheckbox, Icon, function (props) {
-  return props.checked === true ? 'visible' : 'hidden';
+  return props.checked === true ? "visible" : "hidden";
 });
-var StylLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].label(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  margin-bottom: 20px;\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n"])));
-var StylTextLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  width: 100%;\n  margin-left: 8px;\n"])), function (props) {
+var StylLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].label(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    position: relative;\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 20px;\n\n    &:last-child {\n        margin-bottom: 0;\n    }\n"])));
+var StylTextLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    width: 100%;\n    margin-left: 8px;\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27042,7 +27101,7 @@ var StylTextLabel = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBoxInfo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  position: absolute;\n  bottom: calc(100% + 10px);\n  right: calc(-100% - 35px);\n  max-width: 200px;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  background-color: rgba(58, 58, 58, 0.8);\n  text-align: center;\n  border-radius: 8px;\n  padding: 10px;\n  letter-spacing: 1.2px;\n  visibility: ", ";\n  transition: all 0.2s ease;\n"])), function (props) {
+var StylBoxInfo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    position: absolute;\n    bottom: calc(100% + 10px);\n    right: calc(-100% - 35px);\n    max-width: 200px;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    background-color: rgba(58, 58, 58, 0.8);\n    text-align: center;\n    border-radius: 8px;\n    padding: 10px;\n    letter-spacing: 1.2px;\n    visibility: ", ";\n    transition: all 0.2s ease;\n"])), function (props) {
   return props.theme.typography.textSmall.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27051,9 +27110,9 @@ var StylBoxInfo = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_t
 }, function (props) {
   return props.theme.palette.main;
 }, function (props) {
-  return props.isHidden ? 'visible' : 'hidden';
+  return props.isHidden ? "visible" : "hidden";
 });
-var StylBoxAddInfoTask = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  position: relative;\n  width: 20px;\n  height: 20px;\n  background-color: ", ";\n  border: none;\n  outline: none;\n  border-radius: 50%;\n\n  & > i {\n    font-size: 10px;\n    color: ", ";\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      ", " {\n        visibility: visible;\n      }\n    }\n  }\n"])), function (props) {
+var StylBoxAddInfoTask = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].button(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    position: absolute;\n    right: 20px;\n    top: 0;\n    width: 20px;\n    height: 20px;\n    background-color: ", ";\n    border: none;\n    outline: none;\n    border-radius: 50%;\n\n    & > i {\n        font-size: 10px;\n        color: ", ";\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            ", " {\n                visibility: visible;\n            }\n        }\n    }\n"])), function (props) {
   return props.theme.palette.backgroundColor.second;
 }, function (props) {
   return props.theme.palette.icon.light;
@@ -27105,8 +27164,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! aos/dist/aos.css */ "./node_modules/aos/dist/aos.css");
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../ */ "./resources/js/components/index.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _RadioBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../RadioBox */ "./resources/js/components/SettingsGame/RadioBox/index.js");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -27127,6 +27187,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SettingGameOptions = function SettingGameOptions(_ref) {
   var item = _ref.item;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -27135,71 +27196,44 @@ var SettingGameOptions = function SettingGameOptions(_ref) {
     });
   }, []);
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(item.optionsBasic[0].value),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
-      isSelect = _useState2[0],
-      setSelect = _useState2[1];
+      isShowOption = _useState2[0],
+      setShowOption = _useState2[1];
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState4 = _slicedToArray(_useState3, 2),
-      isShowOption = _useState4[0],
-      setShowOption = _useState4[1];
-
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState6 = _slicedToArray(_useState5, 2),
-      isShowModal = _useState6[0],
-      setShowModal = _useState6[1];
+      isShowModal = _useState4[0],
+      setShowModal = _useState4[1];
 
   var showAnotherOption = function showAnotherOption() {
     setShowOption(!isShowOption);
   };
 
-  var handleSelectChange = function handleSelectChange(e) {
-    var value = e.currentTarget.value;
-    setSelect(value);
-  };
-
   var handleModal = function handleModal() {
     setShowModal(!isShowModal);
-    setSelect(item.optionsBasic[1].value);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylBoxSettingsGame, {
-    id: item.id,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylBtnOpenSetting, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylBoxSettingsGame, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylBtnOpenSetting, {
       onClick: showAnotherOption,
       isShow: isShowOption,
-      children: [item.title, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+      children: [item.title, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
         className: "fas fa-chevron-right"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylWrapperSettings, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylWrapperSettings, {
       isShow: isShowOption,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("form", {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_3__.StylBoxWrapperOptions, {
-          isVip: item.is_premium === 1 ? true : false,
-          children: _constants__WEBPACK_IMPORTED_MODULE_4__.ListOptionArr.optionsBasic.map(function (elem) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.StylWrapperRadioBtn, {
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_3__.StylRadioSetting, {
-                id: elem.value,
-                type: "radio",
-                name: "radio",
-                checked: isSelect === elem.value,
-                value: elem.value,
-                onChange: handleSelectChange
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_3__.StylLabelRadio, {
-                htmlFor: elem.value
-              }), elem.title]
-            }, elem.value);
-          })
-        })
-      }), !item.is_premium && 'Доступно в полной версии игры', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.BtnMoreSettings, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_RadioBox__WEBPACK_IMPORTED_MODULE_4__.RadioBox, {
+        optionsBasic: _constants__WEBPACK_IMPORTED_MODULE_5__.optionsBasic,
+        item: item
+      }), item.is_premium === 1 && "Доступно в полной версии игры", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(___WEBPACK_IMPORTED_MODULE_3__.BtnMoreSettings, {
         type: "button",
         onClick: handleModal,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("i", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("i", {
           className: "fas fa-cog"
-        }), item.is_premium ? 'Настройки' : 'Смотреть настройки']
+        }), item.is_premium === 0 ? "Настройки" : "Смотреть настройки"]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_3__.ModalSettings, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(___WEBPACK_IMPORTED_MODULE_3__.ModalSettings, {
       visible: isShowModal,
       switchVisible: handleModal,
       item: item
@@ -27221,19 +27255,15 @@ var SettingGameOptions = function SettingGameOptions(_ref) {
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "StylBtnOpenSetting": () => (/* binding */ StylBtnOpenSetting),
-/* harmony export */   "StylWrapperSettings": () => (/* binding */ StylWrapperSettings),
-/* harmony export */   "StylBoxWrapperOptions": () => (/* binding */ StylBoxWrapperOptions),
-/* harmony export */   "StylRadioSetting": () => (/* binding */ StylRadioSetting),
-/* harmony export */   "StylWrapperRadioBtn": () => (/* binding */ StylWrapperRadioBtn),
-/* harmony export */   "StylLabelRadio": () => (/* binding */ StylLabelRadio)
+/* harmony export */   "StylWrapperSettings": () => (/* binding */ StylWrapperSettings)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+var _templateObject, _templateObject2, _templateObject3;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var StylBtnOpenSetting = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  position: relative;\n  cursor: pointer;\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 18px;\n\n  & > i {\n    position: relative;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    margin-left: 10px;\n    font-size: 12px;\n    background: linear-gradient(180deg, #555abf 0, #32325d 90.87%);\n    transition: all 0.2s ease;\n    transform: rotate(", ");\n  }\n\n  ", "\n"])), function (props) {
+var StylBtnOpenSetting = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: relative;\n    cursor: pointer;\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 18px;\n\n    & > i {\n        position: relative;\n        display: flex;\n        justify-content: center;\n        align-items: center;\n        width: 20px;\n        height: 20px;\n        border-radius: 50%;\n        margin-left: 10px;\n        font-size: 12px;\n        background: linear-gradient(180deg, #555abf 0, #32325d 90.87%);\n        transition: all 0.2s ease;\n        transform: rotate(", ");\n    }\n\n    ", "\n"])), function (props) {
   return props.theme.typography.textMedium.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27242,12 +27272,12 @@ var StylBtnOpenSetting = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 }, function (props) {
   return props.theme.palette.text.light;
 }, function (props) {
-  return props.isShow ? '90deg' : '0';
+  return props.isShow ? "90deg" : "0";
 }, function (props) {
-  return props.isOpen && (0,styled_components__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n      & > i {\n        transform: rotate(90deg);\n      }\n    "])));
+  return props.isOpen && (0,styled_components__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            & > i {\n                transform: rotate(90deg);\n            }\n        "])));
 });
-var StylWrapperSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: ", ";\n  flex-direction: column;\n  align-items: flex-start;\n\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n\n  @media (min-width: 1024px) {\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: center;\n  }\n"])), function (props) {
-  return props.isShow ? 'flex' : 'none';
+var StylWrapperSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: ", ";\n    flex-direction: column;\n    align-items: flex-start;\n\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n\n    @media (min-width: 1024px) {\n        flex-direction: row;\n        justify-content: space-between;\n        align-items: center;\n    }\n"])), function (props) {
+  return props.isShow ? "flex" : "none";
 }, function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
@@ -27257,20 +27287,6 @@ var StylWrapperSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["defaul
 }, function (props) {
   return props.theme.palette.text.light;
 });
-var StylBoxWrapperOptions = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  flex-direction: column;\n\n  display: ", ";\n"])), function (props) {
-  return props.isVip ? 'flex' : 'none';
-});
-var StylLabelRadio = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].label(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  position: absolute;\n  top: 0;\n  left: 4px;\n  width: 20px;\n  height: 20px;\n  border-radius: 50%;\n  background-color: #151924;\n  transition: all 0.2s ease;\n\n  &::after {\n    display: block;\n    color: white;\n    width: 12px;\n    height: 12px;\n    margin: 4px;\n  }\n"])));
-var StylWrapperRadioBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  position: relative;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  display: flex;\n  flex-direction: row;\n  margin-bottom: 15px;\n"])), function (props) {
-  return props.theme.typography.textSmall.primary;
-}, function (props) {
-  return props.theme.typography.textWeigth.main;
-}, function (props) {
-  return props.theme.typography.textFamily.main;
-}, function (props) {
-  return props.theme.palette.text.light;
-});
-var StylRadioSetting = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  position: relative;\n  opacity: 0;\n  z-index: 1;\n  cursor: pointer;\n  width: 25px;\n  height: 25px;\n  margin-right: 10px;\n\n  &:hover ~ ", " {\n    background: #ccc;\n  }\n\n  &:checked + ", " {\n    &::after {\n      content: '';\n      position: absolute;\n      top: 0;\n      left: 0;\n      width: 20px;\n      height: 20px;\n      border-radius: 50%;\n      background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);\n    }\n  }\n\n  &:checked + ", " {\n    width: 20px;\n    height: 20px;\n    border: 4px solid #191c2b;\n    border-radius: 50%;\n    background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);\n  }\n"])), StylLabelRadio, StylWrapperRadioBtn, StylLabelRadio);
 
 
 /***/ }),
@@ -27300,6 +27316,165 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/SettingsGame/RadioBox/RadioBox.js":
+/*!*******************************************************************!*\
+  !*** ./resources/js/components/SettingsGame/RadioBox/RadioBox.js ***!
+  \*******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./RadioBox.styled */ "./resources/js/components/SettingsGame/RadioBox/RadioBox.styled.js");
+/* harmony import */ var _CheckBox__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../CheckBox */ "./resources/js/components/SettingsGame/CheckBox/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+
+
+
+var RadioBox = function RadioBox(_ref) {
+  var item = _ref.item,
+      optionsBasic = _ref.optionsBasic,
+      subsettings = _ref.subsettings;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(optionsBasic[0].title),
+      _useState2 = _slicedToArray(_useState, 2),
+      isSelect = _useState2[0],
+      setSelect = _useState2[1];
+
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      isHiddenInfo = _useState4[0],
+      setHiddenInfo = _useState4[1];
+
+  var handleSelectChange = function handleSelectChange(e) {
+    var value = e.currentTarget.value;
+    setSelect(value);
+  };
+
+  console.log(subsettings);
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylBoxWrapperOptions, {
+      isVip: subsettings ? "red" : item.is_premium === 0 ? true : false,
+      children: optionsBasic.map(function (elem) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylWrapperRadioBtn, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylRadioSetting, {
+            id: elem.title,
+            type: "radio",
+            name: "radio",
+            checked: isSelect === elem.title,
+            value: elem.title,
+            onChange: handleSelectChange,
+            isVip: subsettings
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylLabelRadio, {
+            htmlFor: elem.title,
+            isVip: subsettings
+          }), elem.title, subsettings && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_CheckBox__WEBPACK_IMPORTED_MODULE_2__.StylBoxAddInfoTask, {
+            type: "button",
+            onClick: function onClick() {
+              return setHiddenInfo(!isHiddenInfo);
+            },
+            onFocus: function onFocus() {
+              return setHiddenInfo(true);
+            },
+            onBlur: function onBlur() {
+              return setHiddenInfo(false);
+            },
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("i", {
+              className: "fas fa-question"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_CheckBox__WEBPACK_IMPORTED_MODULE_2__.StylBoxInfo, {
+              isHidden: isHiddenInfo,
+              children: elem.description
+            })]
+          })]
+        }, elem.title);
+      })
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RadioBox);
+
+/***/ }),
+
+/***/ "./resources/js/components/SettingsGame/RadioBox/RadioBox.styled.js":
+/*!**************************************************************************!*\
+  !*** ./resources/js/components/SettingsGame/RadioBox/RadioBox.styled.js ***!
+  \**************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "StylBoxWrapperOptions": () => (/* binding */ StylBoxWrapperOptions),
+/* harmony export */   "StylRadioSetting": () => (/* binding */ StylRadioSetting),
+/* harmony export */   "StylWrapperRadioBtn": () => (/* binding */ StylWrapperRadioBtn),
+/* harmony export */   "StylLabelRadio": () => (/* binding */ StylLabelRadio)
+/* harmony export */ });
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7;
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+var StylBoxWrapperOptions = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    flex-direction: column;\n\n    display: ", ";\n\n    ", "\n"])), function (props) {
+  return props.isVip ? "flex" : "none";
+}, function (props) {
+  return props.isVip && (0,styled_components__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            display: flex;\n        "])));
+});
+var StylLabelRadio = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].label(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    position: absolute;\n    top: 0;\n    left: 4px;\n    width: 20px;\n    height: 20px;\n    border-radius: 50%;\n    background-color: #151924;\n    transition: all 0.2s ease;\n\n    &::after {\n        display: block;\n        color: white;\n        width: 12px;\n        height: 12px;\n        margin: 4px;\n    }\n\n    ", "\n"])), function (props) {
+  return props.isVip && (0,styled_components__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n            pointer-events: none;\n            width: 20px;\n            height: 20px;\n            border: 4px solid #191c2b;\n            border-radius: 50%;\n            background: red !important;\n        "])));
+});
+var StylWrapperRadioBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    position: relative;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    display: flex;\n    flex-direction: row;\n    margin-bottom: 15px;\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.main;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.light;
+});
+var StylRadioSetting = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    position: relative;\n    opacity: 0;\n    z-index: 1;\n    cursor: pointer;\n    width: 25px;\n    height: 25px;\n    margin-right: 10px;\n\n    ", "\n\n    &:hover ~ ", " {\n        background: #ccc;\n    }\n\n    &:checked + ", " {\n        &::after {\n            content: \"\";\n            position: absolute;\n            top: 0;\n            left: 0;\n            width: 20px;\n            height: 20px;\n            border-radius: 50%;\n            background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);\n        }\n    }\n\n    &:checked + ", " {\n        width: 20px;\n        height: 20px;\n        border: 4px solid #191c2b;\n        border-radius: 50%;\n        background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);\n    }\n"])), function (props) {
+  return props.isVip && (0,styled_components__WEBPACK_IMPORTED_MODULE_0__.css)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n            pointer-events: none;\n\n            &:checked + ", " {\n                background: red;\n            }\n\n            &:checked + ", " {\n                &::after {\n                    background: red;\n                }\n            }\n        "])), StylLabelRadio, StylWrapperRadioBtn);
+}, StylLabelRadio, StylWrapperRadioBtn, StylLabelRadio);
+
+
+/***/ }),
+
+/***/ "./resources/js/components/SettingsGame/RadioBox/index.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/components/SettingsGame/RadioBox/index.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "RadioBox": () => (/* reexport safe */ _RadioBox__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _RadioBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./RadioBox */ "./resources/js/components/SettingsGame/RadioBox/RadioBox.js");
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/SettingsGame/SettingsGame.js":
 /*!**************************************************************!*\
   !*** ./resources/js/components/SettingsGame/SettingsGame.js ***!
@@ -27323,17 +27498,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 var SettingsGame = function SettingsGame() {
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-      settings = _useActionsWithRedux.settings,
-      getAllSettings = _useActionsWithRedux.getAllSettings;
+      getAllSettings = _useActionsWithRedux.getAllSettings,
+      loadingSettings = _useActionsWithRedux.loadingSettings;
 
-  settings();
+  console.log(getAllSettings);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.SectionTaskGame, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBoxFeaturesGame, {
       "data-aos": "fade-right",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
-        children: getAllSettings && getAllSettings.map(function (item) {
+        children: loadingSettings ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+          children: "Loading"
+        }) : getAllSettings.map(function (item) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.SettingGameOptions, {
             item: item
           }, item.id);
@@ -27345,7 +27523,7 @@ var SettingsGame = function SettingsGame() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTitleUserSettings, {
             children: "\u041C\u0443\u0436\u0447\u0438\u043Da"
           }), _constants__WEBPACK_IMPORTED_MODULE_2__.players.map(function (item, index) {
-            return item.gender === 'man' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperInput, {
+            return item.gender === "man" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperInput, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                 className: "fas fa-male"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylInputUserSettings, {
@@ -27360,7 +27538,7 @@ var SettingsGame = function SettingsGame() {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTitleUserSettings, {
             children: "\u0416\u0435\u043D\u0449\u0438\u043Da"
           }), _constants__WEBPACK_IMPORTED_MODULE_2__.players.map(function (item, index) {
-            return item.gender === 'female' && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperInput, {
+            return item.gender === "female" && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperInput, {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("i", {
                 className: "fas fa-female"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylInputUserSettings, {
@@ -27421,8 +27599,8 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var StylBoxFeaturesGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  max-width: 1140px;\n  width: 100%;\n  border-radius: 40px;\n  padding: 25px;\n  background: rgba(25, 28, 43, 0.95);\n  margin-bottom: 20px;\n"])));
-var StylBtnStartGame = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  width: 100%;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-align: center;\n  text-decoration: none;\n  padding: 15px 60px;\n  border-radius: 100px;\n  align-self: center;\n  margin-bottom: 30px;\n  border: 3px solid #982926;\n  background: linear-gradient(180deg, #bd2726 0, #982926 90.87%);\n  transition: all 0.2s ease;\n\n  @media (min-width: 768px) {\n    width: auto;\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      box-shadow: 0 0 10px 2px #982926;\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n"])), function (props) {
+var StylBoxFeaturesGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    max-width: 1140px;\n    width: 100%;\n    border-radius: 40px;\n    padding: 25px;\n    background: rgba(25, 28, 43, 0.95);\n    margin-bottom: 20px;\n"])));
+var StylBtnStartGame = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    padding: 15px 60px;\n    border-radius: 100px;\n    align-self: center;\n    margin-bottom: 30px;\n    border: 3px solid #982926;\n    background: linear-gradient(180deg, #bd2726 0, #982926 90.87%);\n    transition: all 0.2s ease;\n\n    @media (min-width: 768px) {\n        width: auto;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            box-shadow: 0 0 10px 2px #982926;\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textMedium.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27431,8 +27609,8 @@ var StylBtnStartGame = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["defaul
 }, function (props) {
   return props.theme.palette.text.light;
 });
-var StylBoxSettingsGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  background-color: rgba(255, 255, 255, 0.1);\n  border-radius: 20px;\n  max-width: 100;\n  width: 100%;\n  padding: 20px;\n  margin-bottom: 20px;\n\n  @media (min-width: 1024px) {\n    padding: 30px 20px 20px 40px;\n    width: 49%;\n    margin-bottom: 0;\n  }\n"])));
-var BtnMoreSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  position: relative;\n  cursor: pointer;\n  max-width: 190px;\n  width: 100%;\n  padding: 0 25px;\n\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  border: 3px solid #555abf;\n  background: -webkit-gradient(\n    linear,\n    left top,\n    left bottom,\n    from(#32325d),\n    color-stop(90.87%, #555abf)\n  );\n  background: -o-linear-gradient(top, #32325d 0, #555abf 90.87%);\n  background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);\n  -webkit-box-shadow: 0 2px 10px #257cff;\n  box-shadow: 0 2px 10px #257cff;\n  border-radius: 69px;\n  height: 50px;\n  color: #fff;\n  text-decoration: none;\n\n  & > i {\n    position: absolute;\n    left: 25px;\n    top: 16px;\n    transition: all 0.2s ease;\n  }\n\n  @media (min-width: 768px) {\n    margin-bottom: 30px;\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      & > i {\n        transform: rotate(45deg);\n      }\n    }\n  }\n"])), function (props) {
+var StylBoxSettingsGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    background-color: rgba(255, 255, 255, 0.1);\n    border-radius: 20px;\n    max-width: 100;\n    width: 100%;\n    padding: 20px;\n    margin-bottom: 20px;\n\n    @media (min-width: 1024px) {\n        padding: 30px 20px 20px 40px;\n        width: 49%;\n        margin-bottom: 20px;\n    }\n"])));
+var BtnMoreSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    position: relative;\n    cursor: pointer;\n    max-width: 190px;\n    width: 100%;\n    padding: 0 25px;\n\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    border: 3px solid #555abf;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#32325d),\n        color-stop(90.87%, #555abf)\n    );\n    background: -o-linear-gradient(top, #32325d 0, #555abf 90.87%);\n    background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);\n    -webkit-box-shadow: 0 2px 10px #257cff;\n    box-shadow: 0 2px 10px #257cff;\n    border-radius: 69px;\n    height: 50px;\n    color: #fff;\n    text-decoration: none;\n\n    & > i {\n        position: absolute;\n        left: 25px;\n        top: 16px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 30px;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27441,12 +27619,12 @@ var BtnMoreSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].
 }, function (props) {
   return props.theme.palette.text.light;
 });
-var StylWrapperAllSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: ", ";\n  flex-direction: column;\n  margin-bottom: 20px;\n  width: 100%;\n\n  @media (min-width: 768px) {\n    flex-direction: row;\n  }\n\n  @media (min-width: 1024px) {\n    flex-direction: ", ";\n    justify-content: space-between;\n    align-items: flex-start;\n  }\n"])), function (props) {
-  return props.isColumn ? 'column' : 'row';
+var StylWrapperAllSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    flex-direction: ", ";\n    flex-direction: column;\n    margin-bottom: 20px;\n    width: 100%;\n\n    @media (min-width: 768px) {\n        flex-direction: row;\n        flex-wrap: wrap;\n    }\n\n    @media (min-width: 1024px) {\n        flex-direction: ", ";\n        justify-content: space-between;\n        align-items: flex-start;\n    }\n"])), function (props) {
+  return props.isColumn ? "column" : "row";
 }, function (props) {
-  return props.isColumn ? 'column' : 'row';
+  return props.isColumn ? "column" : "row";
 });
-var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  display: flex;\n  width: 100%;\n  align-items: center;\n  justify-content: center;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-align: center;\n  text-decoration: none;\n  background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n  box-shadow: 0 2px 10px #f53131;\n  padding: 15px 20px;\n  border-radius: 100px;\n  border: 3px solid #f32d2d;\n  margin-bottom: 20px;\n  transition: all 0.2s ease;\n\n  & > i {\n    color: ", ";\n    margin-right: 10px;\n    font-size: 20px;\n    transition: all 0.2s ease;\n  }\n\n  @media (min-width: 768px) {\n    margin-bottom: 0;\n    width: auto;\n    justify-content: flex-start;\n\n    &:not(:last-child) {\n      margin-right: 15px;\n    }\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n      & > i {\n        transform: rotate(45deg);\n      }\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n"])), function (props) {
+var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom_cjs_react_router_dom_min__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n    box-shadow: 0 2px 10px #f53131;\n    padding: 15px 20px;\n    border-radius: 100px;\n    border: 3px solid #f32d2d;\n    margin-bottom: 20px;\n    transition: all 0.2s ease;\n\n    & > i {\n        color: ", ";\n        margin-right: 10px;\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 0;\n        width: auto;\n        justify-content: flex-start;\n\n        &:not(:last-child) {\n            margin-right: 15px;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27457,10 +27635,10 @@ var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["d
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnFooterSettings)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  border: 3px solid #005734;\n  background: #00a44f;\n  background: -webkit-gradient(\n    linear,\n    left top,\n    left bottom,\n    from(#00a44f),\n    color-stop(90.87%, #005734)\n  );\n  background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n  background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n  -webkit-box-shadow: 0 2px 10px #005734;\n  box-shadow: 0 2px 10px #005734;\n\n  @media (min-width: 1024px) {\n    &:hover {\n      background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n      & > i {\n        transform: rotate(45deg);\n      }\n    }\n  }\n"])));
-var StylBoxFooterSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  flex-wrap: wrap;\n  justify-content: space-between;\n  align-items: center;\n  max-width: 1140px;\n  width: 100%;\n  border-radius: 40px;\n  padding: 25px;\n  background: rgba(25, 28, 43, 0.95);\n"])));
-var StylSectionDiscount = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  display: ", ";\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-align: center;\n  margin-bottom: ", ";\n\n  & > span {\n    color: #f32d2d;\n    margin-left: 5px;\n  }\n"])), function (props) {
-  return props.isVip ? 'none' : 'block';
+var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnFooterSettings)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])));
+var StylBoxFooterSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center;\n    max-width: 1140px;\n    width: 100%;\n    border-radius: 40px;\n    padding: 25px;\n    background: rgba(25, 28, 43, 0.95);\n"])));
+var StylSectionDiscount = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    display: ", ";\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    margin-bottom: ", ";\n\n    & > span {\n        color: #f32d2d;\n        margin-left: 5px;\n    }\n"])), function (props) {
+  return props.isVip ? "none" : "block";
 }, function (props) {
   return props.theme.typography.textLarge.primary;
 }, function (props) {
@@ -27470,12 +27648,12 @@ var StylSectionDiscount = styled_components__WEBPACK_IMPORTED_MODULE_0__["defaul
 }, function (props) {
   return props.theme.palette.text.primary;
 }, function (props) {
-  return props.isMargin && '40px';
+  return props.isMargin && "40px";
 });
-var StylWrapperCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  position: relative;\n  display: ", ";\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  max-width: 100%;\n  width: 100%;\n  padding: 45px 45px 30px;\n  margin-bottom: 10px;\n  margin-right: 10px;\n  background: no-repeat rgba(19, 43, 59, 0.7);\n  border-radius: 32px;\n\n  &:nth-child(1) {\n    width: 100%;\n    max-width: 100%;\n  }\n\n  &:nth-child(2n) {\n    background: no-repeat rgba(22, 40, 68, 0.7);\n  }\n\n  @media (min-width: 600px) {\n    max-width: 48%;\n  }\n\n  @media (min-width: 1200px) {\n    max-width: 350px;\n\n    &:nth-child(1) {\n      width: 350px;\n      max-width: 100%;\n    }\n  }\n"])), function (props) {
-  return props.isVisible ? 'flex' : 'none';
+var StylWrapperCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    position: relative;\n    display: ", ";\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    max-width: 100%;\n    width: 100%;\n    padding: 45px 45px 30px;\n    margin-bottom: 10px;\n    margin-right: 10px;\n    background: no-repeat rgba(19, 43, 59, 0.7);\n    border-radius: 32px;\n\n    &:nth-child(1) {\n        width: 100%;\n        max-width: 100%;\n    }\n\n    &:nth-child(2n) {\n        background: no-repeat rgba(22, 40, 68, 0.7);\n    }\n\n    @media (min-width: 600px) {\n        max-width: 48%;\n    }\n\n    @media (min-width: 1200px) {\n        max-width: 350px;\n\n        &:nth-child(1) {\n            width: 350px;\n            max-width: 100%;\n        }\n    }\n"])), function (props) {
+  return props.isVisible ? "flex" : "none";
 });
-var StylCardSettingsTitle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 10px;\n  text-align: center;\n\n  & > span {\n    font-size: ", ";\n  }\n"])), function (props) {
+var StylCardSettingsTitle = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 10px;\n    text-align: center;\n\n    & > span {\n        font-size: ", ";\n    }\n"])), function (props) {
   return props.theme.typography.textMedium.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27486,7 +27664,7 @@ var StylCardSettingsTitle = styled_components__WEBPACK_IMPORTED_MODULE_0__["defa
 }, function (props) {
   return props.theme.typography.textLarge.main;
 });
-var StylCardSettingsText = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  line-height: 1.5;\n  text-align: center;\n  margin-bottom: 10px;\n"])), function (props) {
+var StylCardSettingsText = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    line-height: 1.5;\n    text-align: center;\n    margin-bottom: 10px;\n"])), function (props) {
   return props.isSmall ? props.theme.typography.textSmall.main : props.theme.typography.textMedium.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27495,11 +27673,11 @@ var StylCardSettingsText = styled_components__WEBPACK_IMPORTED_MODULE_0__["defau
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnCardSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  position: absolute;\n  display: block;\n  width: 32px;\n  height: 32px;\n  top: 15px;\n  right: 20px;\n  border-radius: 50%;\n  border: none;\n  outline: none;\n  background-color: #162844;\n  color: #fff;\n"])));
-var StylBoxWrapperCards = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: stretch;\n  max-width: 1140px;\n  width: 100%;\n  flex-wrap: wrap;\n  padding: 10px;\n"])));
-var StylBoxCenterCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n\n  & > i {\n    font-size: 20px;\n    max-width: 65px;\n    width: 100%;\n\n    color: #fff;\n    padding: 20px;\n    border: 1px solid #fff;\n    border-radius: 50%;\n\n    &:first-child {\n      margin-right: 10px;\n    }\n  }\n"])));
-var StylImgCardSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  width: 50px;\n  height: 50px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 50%;\n  padding: 0;\n  background-color: transparent;\n  border: 2px solid #fff;\n"])));
-var StylTitleUserSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 10px;\n"])), function (props) {
+var StylBtnCardSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    position: absolute;\n    display: block;\n    width: 32px;\n    height: 32px;\n    top: 15px;\n    right: 20px;\n    border-radius: 50%;\n    border: none;\n    outline: none;\n    background-color: #162844;\n    color: #fff;\n"])));
+var StylBoxWrapperCards = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    align-items: stretch;\n    max-width: 1140px;\n    width: 100%;\n    flex-wrap: wrap;\n    padding: 10px;\n"])));
+var StylBoxCenterCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    justify-content: center;\n\n    & > i {\n        font-size: 20px;\n        max-width: 65px;\n        width: 100%;\n\n        color: #fff;\n        padding: 20px;\n        border: 1px solid #fff;\n        border-radius: 50%;\n\n        &:first-child {\n            margin-right: 10px;\n        }\n    }\n"])));
+var StylImgCardSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    width: 50px;\n    height: 50px;\n    display: flex;\n    align-items: center;\n    justify-content: center;\n    border-radius: 50%;\n    padding: 0;\n    background-color: transparent;\n    border: 2px solid #fff;\n"])));
+var StylTitleUserSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 10px;\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -27508,23 +27686,23 @@ var StylTitleUserSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["defa
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylWrapperInput = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n  position: relative;\n  padding: 0 25px 0 55px;\n  margin-bottom: 15px;\n  border-radius: 100px;\n  height: 50px;\n  max-width: 100%;\n  width: 100%;\n  background-color: transparent;\n  border: 1px solid #fff;\n  margin-bottom: 10px;\n  transition: all 0.2s ease;\n\n  & > i {\n    position: absolute;\n    top: 30%;\n    left: 5%;\n    font-size: 20px;\n    color: #fff;\n  }\n\n  @media (min-width: 768px) {\n    max-width: 245px;\n\n    & > i {\n      left: 10%;\n    }\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      border-color: ", ";\n    }\n\n    &:active,\n    &:focus {\n      border-color: ", ";\n    }\n  }\n"])), function (props) {
+var StylWrapperInput = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject18 || (_templateObject18 = _taggedTemplateLiteral(["\n    position: relative;\n    padding: 0 25px 0 55px;\n    margin-bottom: 15px;\n    border-radius: 100px;\n    height: 50px;\n    max-width: 100%;\n    width: 100%;\n    background-color: transparent;\n    border: 1px solid #fff;\n    margin-bottom: 10px;\n    transition: all 0.2s ease;\n\n    & > i {\n        position: absolute;\n        top: 30%;\n        left: 5%;\n        font-size: 20px;\n        color: #fff;\n    }\n\n    @media (min-width: 768px) {\n        max-width: 245px;\n\n        & > i {\n            left: 10%;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            border-color: ", ";\n        }\n\n        &:active,\n        &:focus {\n            border-color: ", ";\n        }\n    }\n"])), function (props) {
   return props.theme.palette.text.primary;
 }, function (props) {
   return props.theme.palette.text.dark;
 });
-var StylInputUserSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n  position: relative;\n  font-size: 14px;\n  color: #fff;\n  font-weight: 600;\n  height: 50px;\n  max-width: 100%;\n  width: 100%;\n  background-color: transparent;\n  outline: none;\n  border: none;\n"])));
-var StylVipStatusModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["\n  display: ", ";\n  flex-direction: row;\n  flex-wrap: wrap;\n  padding: 40px;\n  border-radius: 20px;\n  margin-top: 30px;\n  margin-bottom: 10px;\n  width: 100%;\n  background-color: rgba(255, 255, 255, 0.1);\n"])), function (props) {
-  return props.isVip ? 'none' : 'flex';
+var StylInputUserSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].input(_templateObject19 || (_templateObject19 = _taggedTemplateLiteral(["\n    position: relative;\n    font-size: 14px;\n    color: #fff;\n    font-weight: 600;\n    height: 50px;\n    max-width: 100%;\n    width: 100%;\n    background-color: transparent;\n    outline: none;\n    border: none;\n"])));
+var StylVipStatusModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject20 || (_templateObject20 = _taggedTemplateLiteral(["\n    display: ", ";\n    flex-direction: row;\n    flex-wrap: wrap;\n    padding: 40px;\n    border-radius: 20px;\n    margin-top: 30px;\n    margin-bottom: 10px;\n    width: 100%;\n    background-color: rgba(255, 255, 255, 0.1);\n"])), function (props) {
+  return props.isVip ? "none" : "flex";
 });
-var StylOptionsAddedWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  width: ", ";\n  padding: 25px;\n  margin-bottom: 10px;\n  border-radius: 20px;\n  background-color: rgba(255, 255, 255, 0.1);\n  z-index: 10;\n\n  @media (min-width: 768px) {\n    padding: ", ";\n  }\n"])), function (props) {
-  return props.isFullWidth ? '100%' : '49%';
+var StylOptionsAddedWrapper = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject21 || (_templateObject21 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    width: ", ";\n    padding: 25px;\n    margin-bottom: 10px;\n    border-radius: 20px;\n    background-color: rgba(255, 255, 255, 0.1);\n    z-index: 10;\n\n    @media (min-width: 768px) {\n        padding: ", ";\n    }\n"])), function (props) {
+  return props.isFullWidth ? "100%" : "49%";
 }, function (props) {
-  return props.isPadding ? '65px 55px 50px 45px' : '15px';
+  return props.isPadding ? "65px 55px 50px 45px" : "15px";
 });
-var StylBtnStartGameFooter = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnStartGame)(_templateObject22 || (_templateObject22 = _taggedTemplateLiteral(["\n  margin-bottom: 0;\n"])));
-var StylBoxFlexStartColumn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject23 || (_templateObject23 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-start;\n  align-items: center;\n  width: 100%;\n\n  @media (min-width: 768px) {\n    width: auto;\n    flex-direction: row;\n  }\n"])));
-var StylWrapperCenterContent = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylOptionsAddedWrapper)(_templateObject24 || (_templateObject24 = _taggedTemplateLiteral(["\n  flex-direction: row;\n  justify-content: center;\n  align-items: center;\n  margin: 0;\n  margin-top: 10px;\n"])));
+var StylBtnStartGameFooter = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnStartGame)(_templateObject22 || (_templateObject22 = _taggedTemplateLiteral(["\n    margin-bottom: 0;\n"])));
+var StylBoxFlexStartColumn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject23 || (_templateObject23 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-start;\n    align-items: center;\n    width: 100%;\n\n    @media (min-width: 768px) {\n        width: auto;\n        flex-direction: row;\n    }\n"])));
+var StylWrapperCenterContent = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylOptionsAddedWrapper)(_templateObject24 || (_templateObject24 = _taggedTemplateLiteral(["\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    margin: 0;\n    margin-top: 10px;\n"])));
 
 
 /***/ }),
@@ -28180,7 +28358,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../ */ "./resources/js/components/index.js");
 /* harmony import */ var _assets_icons_icon_double_arrow_png__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../assets/icons/icon-double-arrow.png */ "./resources/js/assets/icons/icon-double-arrow.png");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -28191,16 +28371,21 @@ var TaskInfoSlider = function TaskInfoSlider(_ref) {
   var title = _ref.title,
       description = _ref.description,
       _ref$taskUrl = _ref.taskUrl,
-      taskUrl = _ref$taskUrl === void 0 ? '/settingsGame/1' : _ref$taskUrl;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoSlider, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.HeaderMenuPageHome, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoBoxCenter, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoTitle, {
+      taskUrl = _ref$taskUrl === void 0 ? "/settingsGame/1" : _ref$taskUrl;
+
+  var _useActionWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_3__["default"])(),
+      settings = _useActionWithRedux.settings;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoSlider, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.HeaderMenuPageHome, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoBoxCenter, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoTitle, {
         children: title
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoDescription, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylTaskInfoDescription, {
         children: description
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnReadMore, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBtnReadMore, {
         to: taskUrl,
-        children: ["\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgDoubleArrow, {
+        onClick: settings,
+        children: ["\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylImgDoubleArrow, {
           src: _assets_icons_icon_double_arrow_png__WEBPACK_IMPORTED_MODULE_2__["default"],
           alt: "double arrow"
         })]
@@ -28762,6 +28947,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "optionsBasic": () => (/* binding */ optionsBasic),
 /* harmony export */   "article": () => (/* binding */ article),
 /* harmony export */   "miniPlayer": () => (/* binding */ miniPlayer),
 /* harmony export */   "blogsCategoriesListArr": () => (/* binding */ blogsCategoriesListArr),
@@ -28783,369 +28969,382 @@ __webpack_require__.r(__webpack_exports__);
 
 var sliderDataArr = [{
   id: 1,
-  title: 'Игра началась!',
-  text: 'Dying Light — компьютерная игра в жанре survival horror и action-adventure от первого лица с открытым миром, разработанная польской студией Techland и изданная Warner Bros. Interactive Entertainment в 2015 году для PlayStation 4, Xbox One, Microsoft Windows и Linux.',
+  title: "Игра началась!",
+  text: "Dying Light — компьютерная игра в жанре survival horror и action-adventure от первого лица с открытым миром, разработанная польской студией Techland и изданная Warner Bros. Interactive Entertainment в 2015 году для PlayStation 4, Xbox One, Microsoft Windows и Linux.",
   img: _assets_bg_bg_image_1_jpg__WEBPACK_IMPORTED_MODULE_0__["default"],
-  counter: '01.',
-  pageUrl: '/taskGame/info/1'
+  counter: "01.",
+  pageUrl: "/taskGame/info/1"
 }, {
   id: 2,
-  title: 'Игра началась!',
-  text: 'loodborne — компьютерная игра в жанре Action/RPG, разработанная совместно японскими компаниями FromSoftware и SCE Japan Studio эксклюзивно для игровой приставки PlayStation 4 под руководством геймдизайнера Хидэтаки',
+  title: "Игра началась!",
+  text: "loodborne — компьютерная игра в жанре Action/RPG, разработанная совместно японскими компаниями FromSoftware и SCE Japan Studio эксклюзивно для игровой приставки PlayStation 4 под руководством геймдизайнера Хидэтаки",
   img: _assets_bg_bg_image_2_jpg__WEBPACK_IMPORTED_MODULE_1__["default"],
-  counter: '02.',
-  pageUrl: '/taskGame/info/2'
+  counter: "02.",
+  pageUrl: "/taskGame/info/2"
 }];
-var linkFollowsArr = ['fab fa-pinterest', 'fab fa-facebook', 'fab fa-twitter', 'fab fa-behance'];
+var linkFollowsArr = ["fab fa-pinterest", "fab fa-facebook", "fab fa-twitter", "fab fa-behance"];
 var dataPostArr = [{
   id: 1,
-  svg: 'fas fa-user-friends',
-  title: 'Фанты для двоих',
-  text: 'В игру могут играть как состоявшиеся пары, так и влюбленные'
+  svg: "fas fa-user-friends",
+  title: "Фанты для двоих",
+  text: "В игру могут играть как состоявшиеся пары, так и влюбленные"
 }, {
   id: 2,
-  svg: 'fas fa-restroom',
-  title: 'Мужчина и женщина',
-  text: 'Игроки по очереди получают сексуальные задания, которые им предстоит выполнить'
+  svg: "fas fa-restroom",
+  title: "Мужчина и женщина",
+  text: "Игроки по очереди получают сексуальные задания, которые им предстоит выполнить"
 }, {
   id: 3,
-  svg: 'fas fa-sliders-h',
-  title: 'Секс задания',
-  text: 'Фанты распределены по категориям. Всего три уровня заданий: зеленые, оранжевые и красные'
+  svg: "fas fa-sliders-h",
+  title: "Секс задания",
+  text: "Фанты распределены по категориям. Всего три уровня заданий: зеленые, оранжевые и красные"
 }, {
   id: 4,
-  svg: 'fas fa-cog',
-  title: 'Настройка',
-  text: 'Выберите только подходящие Вам категории заданий'
+  svg: "fas fa-cog",
+  title: "Настройка",
+  text: "Выберите только подходящие Вам категории заданий"
 }, {
   id: 5,
-  svg: 'fas fa-bolt',
-  title: 'Наказания',
-  text: 'За пропуск хода для мужчины и женщины предусмотрены сексуальные наказания'
+  svg: "fas fa-bolt",
+  title: "Наказания",
+  text: "За пропуск хода для мужчины и женщины предусмотрены сексуальные наказания"
 }, {
   id: 6,
-  svg: 'fas fa-save',
-  title: 'Сохранение',
-  text: 'Вы всегда можете продолжить игру с выбранными настройками'
+  svg: "fas fa-save",
+  title: "Сохранение",
+  text: "Вы всегда можете продолжить игру с выбранными настройками"
 }];
 var dataPostFeatureArr = [{
   id: 1,
-  title: 'Классический секс',
-  text: ' Интимные отношения многогранны. Впечатления от проникновения в самые сокровенные места женского тела могут создать внутреннюю связь, которую очень сложно разрушить. Во время эротической игры обычный половой акт может стать непредсказуемым спектаклем, который заставит пережить незабываемое волнение. Благодаря ресурсам игры можно получить дополнительную информацию о сексуальных позах, добавить в свой интимный контакт новые переживания, которые будут способствовать дальнейшему развитию близких отношений между партнерами. Следуя советам, которые будут появляться на экране, можно заставить себя и свою вторую половину пойти на неимоверные «подвиги» во время сексуального контакта.'
+  title: "Классический секс",
+  text: " Интимные отношения многогранны. Впечатления от проникновения в самые сокровенные места женского тела могут создать внутреннюю связь, которую очень сложно разрушить. Во время эротической игры обычный половой акт может стать непредсказуемым спектаклем, который заставит пережить незабываемое волнение. Благодаря ресурсам игры можно получить дополнительную информацию о сексуальных позах, добавить в свой интимный контакт новые переживания, которые будут способствовать дальнейшему развитию близких отношений между партнерами. Следуя советам, которые будут появляться на экране, можно заставить себя и свою вторую половину пойти на неимоверные «подвиги» во время сексуального контакта."
 }, {
   id: 2,
-  title: 'Анальный секс',
-  text: 'Женская попка всегда является предметом вожделения со стороны противоположного пола. Два аккуратных полушария манят своей соблазнительной округлостью. Вряд ли найдется мужчина, который втайне не мечтал о том, чтобы вставить свой напряженный до предела половой орган в анальное отверстие своей соблазнительной подружки. Но не каждый может откровенно сказать о своих желаниях. Получив неожиданное задание, связанное с анальным сексом, девушка не будет готова сопротивляться. Она даже и покраснеть не успеет, когда в ее узкой попке окажется пульсирующий «гость», который проверит на эластичность эту пикантную часть женской фигуры.'
+  title: "Анальный секс",
+  text: "Женская попка всегда является предметом вожделения со стороны противоположного пола. Два аккуратных полушария манят своей соблазнительной округлостью. Вряд ли найдется мужчина, который втайне не мечтал о том, чтобы вставить свой напряженный до предела половой орган в анальное отверстие своей соблазнительной подружки. Но не каждый может откровенно сказать о своих желаниях. Получив неожиданное задание, связанное с анальным сексом, девушка не будет готова сопротивляться. Она даже и покраснеть не успеет, когда в ее узкой попке окажется пульсирующий «гость», который проверит на эластичность эту пикантную часть женской фигуры."
 }, {
   id: 3,
-  title: 'Оральный секс',
-  text: ' Мужчины просто обожают этот способ достижения максимального удовольствия. Но не все девушки стремятся к тому, чтобы старательно поработать языком: полизать мошонку, сомкнуть плотное кольцо из губ на головке полового члена своего любовника. Игра поможет представительницам прекрасной половины человечества быть смелей. Ведь оральный секс по праву считается одним из самых безопасных и приятных способов достижения пика интимного наслаждения. Кроме того, барышня, которая умело работает губками сама может испытать многократный оргазм во время выполнения своей благородной миссии.'
+  title: "Оральный секс",
+  text: " Мужчины просто обожают этот способ достижения максимального удовольствия. Но не все девушки стремятся к тому, чтобы старательно поработать языком: полизать мошонку, сомкнуть плотное кольцо из губ на головке полового члена своего любовника. Игра поможет представительницам прекрасной половины человечества быть смелей. Ведь оральный секс по праву считается одним из самых безопасных и приятных способов достижения пика интимного наслаждения. Кроме того, барышня, которая умело работает губками сама может испытать многократный оргазм во время выполнения своей благородной миссии."
 }, {
   id: 4,
-  title: 'Мастурбация',
-  text: 'Стимуляция интимных зон вполне распространенное явление. Часто этим способом удовлетворяют себя одинокие люди. Однако этот процесс может принести новые впечатления партнерам. Не каждый человек сможет заняться самоудовлетворением на глазах у своей второй половины. Внутренняя скромность, стеснения, мысли о том, что происходит что-то неприличное, мешают реализации подобных идей. Игра поможет реализовать свои фантазии, не испытывая дискомфорта. Девушка сможет полностью открыться перед своим любимым. А мужчина продемонстрирует, как сложно было сохранять выдержку во время разлуки со второй половинкой.'
+  title: "Мастурбация",
+  text: "Стимуляция интимных зон вполне распространенное явление. Часто этим способом удовлетворяют себя одинокие люди. Однако этот процесс может принести новые впечатления партнерам. Не каждый человек сможет заняться самоудовлетворением на глазах у своей второй половины. Внутренняя скромность, стеснения, мысли о том, что происходит что-то неприличное, мешают реализации подобных идей. Игра поможет реализовать свои фантазии, не испытывая дискомфорта. Девушка сможет полностью открыться перед своим любимым. А мужчина продемонстрирует, как сложно было сохранять выдержку во время разлуки со второй половинкой."
 }, {
   id: 5,
-  title: 'Парень доминирует',
-  text: ' Мужчина по своим природным качествам обязан быть лидером. Это на подсознательном уровне чувствует его вторая половина. Но иногда ей необходима дополнительная демонстрация главенствующего положения представителя сильного пола. В категории игры, где доминирует парень, девчонка имеет все шансы почувствовать себя безвольной вещью в руках искушенного господина. Активизируя внутреннюю покорность в ненавязчивой форме, можно сделать эротические переживания настолько острыми, что оргазм будет накрывать участников ролевого эксперимента волна за волной. В точности следуя рекомендациям игры можно испытать все прелести манящей культуры, которая давно стала популярной в разных кругах мирового общества.'
+  title: "Парень доминирует",
+  text: " Мужчина по своим природным качествам обязан быть лидером. Это на подсознательном уровне чувствует его вторая половина. Но иногда ей необходима дополнительная демонстрация главенствующего положения представителя сильного пола. В категории игры, где доминирует парень, девчонка имеет все шансы почувствовать себя безвольной вещью в руках искушенного господина. Активизируя внутреннюю покорность в ненавязчивой форме, можно сделать эротические переживания настолько острыми, что оргазм будет накрывать участников ролевого эксперимента волна за волной. В точности следуя рекомендациям игры можно испытать все прелести манящей культуры, которая давно стала популярной в разных кругах мирового общества."
 }, {
   id: 6,
-  title: 'Девушка доминирует',
-  text: 'Многим девицам хочется почувствовать себя хозяйкой положения. Мужчины слишком часто перебирают на себя всю власть в эротических отношениях. О пристрастиях второй половинки забывают, ее фантазии игнорируются. Для того, чтобы получить от жизни все, девушки нередко выбирают доминирующую роль в сексуальных отношениях. Это очень возбуждает партнеров, которые привыкли к тому, что все решения приходится принимать единолично. Такая смена ролей может подарить не только оргазм всем участникам пикантной игры, но заставить пересмотреть свое поведение в повседневной жизни.'
+  title: "Девушка доминирует",
+  text: "Многим девицам хочется почувствовать себя хозяйкой положения. Мужчины слишком часто перебирают на себя всю власть в эротических отношениях. О пристрастиях второй половинки забывают, ее фантазии игнорируются. Для того, чтобы получить от жизни все, девушки нередко выбирают доминирующую роль в сексуальных отношениях. Это очень возбуждает партнеров, которые привыкли к тому, что все решения приходится принимать единолично. Такая смена ролей может подарить не только оргазм всем участникам пикантной игры, но заставить пересмотреть свое поведение в повседневной жизни."
 }, {
   id: 7,
-  title: 'Секс игрушки',
-  text: '    Не каждый отваживается на использование специальных устройств во время полового контакта. Однако эти вещицы способны превратить сексуальные отношения в феерическое действо, которое подарит массу новых эмоций. Для того, чтобы преступить к использованию предметов эротического характера, можно воспользоваться соответствующей категорией. Недостаток опыта поведения с подобными предметами может быть компенсирован мудрыми советами, которые в нужный момент могут появиться на экране. Отношения будут гармоничными, а новая страница в интимной биографии порадует оглушительным оргазмом.'
+  title: "Секс игрушки",
+  text: "    Не каждый отваживается на использование специальных устройств во время полового контакта. Однако эти вещицы способны превратить сексуальные отношения в феерическое действо, которое подарит массу новых эмоций. Для того, чтобы преступить к использованию предметов эротического характера, можно воспользоваться соответствующей категорией. Недостаток опыта поведения с подобными предметами может быть компенсирован мудрыми советами, которые в нужный момент могут появиться на экране. Отношения будут гармоничными, а новая страница в интимной биографии порадует оглушительным оргазмом."
 }];
 var dataOptionsList = [{
   id: 1,
-  title: 'Основные настройки',
+  title: "Основные настройки",
   vip: true,
   addOption: [{
-    title: 'Стандартный набор',
+    title: "Стандартный набор",
     check: false
   }, {
-    title: 'По умолчанию',
+    title: "По умолчанию",
     check: false
   }, {
-    title: 'Своя настройка',
+    title: "Своя настройка",
     check: false
   }]
 }, {
   id: 2,
-  title: 'Классический секс',
+  title: "Классический секс",
   vip: true,
   addOption: [{
-    title: 'Стандартный набор',
+    title: "Стандартный набор",
     check: false
   }, {
-    title: 'По умолчанию',
+    title: "По умолчанию",
     check: false
   }, {
-    title: 'Своя настройка',
+    title: "Своя настройка",
     check: false
   }]
 }, {
   id: 3,
-  title: 'Окончание',
-  vip: 'false',
+  title: "Окончание",
+  vip: "false",
   addOption: [{
-    title: 'Стандартный набор',
+    title: "Стандартный набор",
     check: false
   }, {
-    title: 'По умолчанию',
+    title: "По умолчанию",
     check: false
   }, {
-    title: 'Своя настройка',
+    title: "Своя настройка",
     check: false
   }]
 }];
 var dataCardGameArr = [{
   id: 1,
-  data: '11.11.18 / in',
-  link: 'Games',
-  linkUrl: '/taskGame/info/1',
-  title: 'The best online game is out now!',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
-  btnText: 'Read More'
+  data: "11.11.18 / in",
+  link: "Games",
+  linkUrl: "/taskGame/info/1",
+  title: "The best online game is out now!",
+  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
+  btnText: "Read More"
 }, {
   id: 2,
-  data: '11.11.18 / in',
-  link: 'Playstation',
-  linkUrl: '/taskGame/info/2',
-  title: 'Top 5 best games in november',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
-  btnText: 'Read More'
+  data: "11.11.18 / in",
+  link: "Playstation",
+  linkUrl: "/taskGame/info/2",
+  title: "Top 5 best games in november",
+  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
+  btnText: "Read More"
 }, {
   id: 3,
-  data: '11.11.18 / in',
-  link: 'Reviews',
-  linkUrl: '/taskGame/info/3',
-  title: 'Get this game at a promo price',
-  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....',
-  btnText: 'Read More'
+  data: "11.11.18 / in",
+  link: "Reviews",
+  linkUrl: "/taskGame/info/3",
+  title: "Get this game at a promo price",
+  text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
+  btnText: "Read More"
 }];
 var ListOptionArr = [{
   id: 1,
-  title: 'Основные настройки ',
+  title: "Основные настройки ",
   vip: true,
   sexDifference: true,
   optionsBasic: [{
-    title: 'По умолчанию',
+    title: "По умолчанию",
     checked: true,
-    value: '1a'
+    value: "1a"
   }, {
-    title: 'Своя настройка',
+    title: "Своя настройка",
     checked: false,
-    value: '2a'
+    value: "2a"
   }, {
-    title: 'Включить всё',
+    title: "Включить всё",
     checked: false,
-    value: '3a'
+    value: "3a"
   }],
   optionsUserMan: [{
-    title: 'Для современных телефонов',
+    title: "Для современных телефонов",
     vip: false,
     check: false,
-    text: 'Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }, {
-    title: 'Задания без текста',
+    title: "Задания без текста",
     vip: true,
     check: true,
-    text: 'Показывать задания только с изображениями(без текста).',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "Показывать задания только с изображениями(без текста).",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }, {
-    title: 'Только картинки(без текста)',
+    title: "Только картинки(без текста)",
     vip: true,
     check: true,
-    text: 'Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }, {
-    title: 'Смена фона',
+    title: "Смена фона",
     vip: true,
     check: true,
-    text: 'При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }, {
-    title: 'Не повторять задания',
+    title: "Не повторять задания",
     vip: true,
-    check: 'a',
-    text: 'Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    check: "a",
+    text: "Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }],
   optionsUserWoman: [{
-    title: 'Наказания за пропуск',
+    title: "Наказания за пропуск",
     vip: true,
     check: true,
-    text: 'В случае пропуска нескольких фантов игрок получает наказание',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "В случае пропуска нескольких фантов игрок получает наказание",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }, {
-    title: 'Отложенные задания',
+    title: "Отложенные задания",
     vip: true,
     check: true,
-    text: 'Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).',
-    description: 'hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad'
+    text: "Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).",
+    description: "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad"
   }]
 }, {
   id: 2,
-  title: 'Основные настройки ',
+  title: "Основные настройки ",
   vip: true,
   sexDifference: false,
   optionsBasic: [{
-    title: 'По умолчанию',
+    title: "По умолчанию",
     checked: true,
-    value: '4a'
+    value: "4a"
   }, {
-    title: 'Своя настройка',
+    title: "Своя настройка",
     checked: false,
-    value: '5a'
+    value: "5a"
   }, {
-    title: 'Включить всё',
+    title: "Включить всё",
     checked: false,
-    value: '6a'
+    value: "6a"
   }],
   optionsUserMan: [{
-    idCheckbox: 'ax',
+    idCheckbox: "ax",
     vip: true,
-    title: 'Для современных телефонов',
+    title: "Для современных телефонов",
     check: true,
-    text: 'Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.'
+    text: "Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах."
   }, {
-    idCheckbox: 'qw',
+    idCheckbox: "qw",
     vip: true,
-    title: 'Задания без текста',
+    title: "Задания без текста",
     check: true,
-    text: 'Показывать задания только с изображениями(без текста).'
+    text: "Показывать задания только с изображениями(без текста)."
   }, {
-    idCheckbox: 'sd',
+    idCheckbox: "sd",
     vip: true,
-    title: 'Только картинки(без текста)',
+    title: "Только картинки(без текста)",
     check: true,
-    text: 'Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.'
+    text: "Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке."
   }, {
-    idCheckbox: 'xc',
+    idCheckbox: "xc",
     vip: true,
-    title: 'Смена фона',
+    title: "Смена фона",
     check: true,
-    text: 'При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).'
+    text: "При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы)."
   }, {
-    idCheckbox: 'vf',
+    idCheckbox: "vf",
     vip: true,
-    title: 'Не повторять задания',
-    check: 'a',
-    text: 'Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).'
+    title: "Не повторять задания",
+    check: "a",
+    text: "Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий)."
   }],
   optionsUserWoman: [{
-    idCheckbox: 'xg',
+    idCheckbox: "xg",
     vip: true,
-    title: 'Наказания за пропуск',
+    title: "Наказания за пропуск",
     check: true,
-    text: 'В случае пропуска нескольких фантов игрок получает наказание'
+    text: "В случае пропуска нескольких фантов игрок получает наказание"
   }, {
-    idCheckbox: 'fd',
+    idCheckbox: "fd",
     vip: true,
-    title: 'Отложенные задания',
+    title: "Отложенные задания",
     check: true,
-    text: 'Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).'
+    text: "Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней)."
   }]
 }];
 var players = [{
-  name: 'Alex',
-  gender: 'man'
+  name: "Alex",
+  gender: "man"
 }, {
-  name: 'Alyona',
-  gender: 'female'
+  name: "Alyona",
+  gender: "female"
 }];
 var musicPlayer = {
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Leave Your Lover',
-  artist: 'Artist - Echos',
-  album: 'Album - Echos'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Leave Your Lover",
+  artist: "Artist - Echos",
+  album: "Album - Echos"
 };
 var blogPostsArr = [{
   id: 1,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Лучшие VR-игры на рынке',
-  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
-  data: '11/12/11',
-  url: '/blogs/article/1'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Лучшие VR-игры на рынке",
+  text: "Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.",
+  data: "11/12/11",
+  url: "/blogs/article/1"
 }, {
   id: 2,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Лучшие VR-игры на рынке',
-  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
-  data: '11/12/11',
-  url: '/blogs/article/2'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Лучшие VR-игры на рынке",
+  text: "Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.",
+  data: "11/12/11",
+  url: "/blogs/article/2"
 }, {
   id: 3,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Лучшие VR-игры на рынке',
-  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
-  data: '11/12/11',
-  url: '/blogs/article/3'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Лучшие VR-игры на рынке",
+  text: "Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.",
+  data: "11/12/11",
+  url: "/blogs/article/3"
 }, {
   id: 4,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Лучшие VR-asdasdadadигры на рынке',
-  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
-  data: '11/12/11',
-  url: '/blogs/article/4'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Лучшие VR-asdasdadadигры на рынке",
+  text: "Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.",
+  data: "11/12/11",
+  url: "/blogs/article/4"
 }];
 var blogTrendsArr = [{
   id: 1,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  data: '11.11.18 ',
-  title: 'The best online game is out now!',
-  url: 'blogs/article/1'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  data: "11.11.18 ",
+  title: "The best online game is out now!",
+  url: "blogs/article/1"
 }, {
   id: 2,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  data: '11.11.18 ',
-  title: 'The best online game is out now!',
-  url: 'blogs/article/1'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  data: "11.11.18 ",
+  title: "The best online game is out now!",
+  url: "blogs/article/1"
 }, {
   id: 3,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  data: '11.11.18 ',
-  title: 'The best online game is out now!',
-  url: 'blogs/article/1'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  data: "11.11.18 ",
+  title: "The best online game is out now!",
+  url: "blogs/article/1"
 }, {
   id: 4,
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  data: '11.11.18 ',
-  title: 'The best online game is out now!',
-  url: 'blogs/article/1'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  data: "11.11.18 ",
+  title: "The best online game is out now!",
+  url: "blogs/article/1"
 }];
 var blogsCategoriesListArr = [{
   id: 1,
-  title: 'Games'
+  title: "Games"
 }, {
   id: 2,
-  title: 'Gaming Tips & Tricks'
+  title: "Gaming Tips & Tricks"
 }, {
   id: 3,
-  title: 'Online Games'
+  title: "Online Games"
 }, {
   id: 4,
-  title: 'Team Games'
+  title: "Team Games"
 }, {
   id: 5,
-  title: 'Community'
+  title: "Community"
 }, {
   id: 6,
-  title: 'Uncategorized'
+  title: "Uncategorized"
 }];
 var miniPlayer = {
-  title: 'Limp Bizkit',
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg'
+  title: "Limp Bizkit",
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg"
 };
 var article = {
-  imgUrl: 'https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg',
-  title: 'Лучшие VR-игры на рынке',
-  text: 'Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.',
-  data: '11/12/11'
+  imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
+  title: "Лучшие VR-игры на рынке",
+  text: "Вы заполняете нашу электронную форму, чтобы запросить интересующие вас профили разработчиков. Другой вариант — просмотреть наш пул профессионалов, которые доступны для заключения контракта. Подписываем NDA. 2 Интервью с разработчиками Мы проводим первичную встречу и уточняем ваши требования. В результате мы рассылаем анонимные резюме подходящих людей, которые у нас есть. Основываясь на нашем опыте, мы можем предоставить запрашиваемые ресурсы в 90% случаев, доступные в течение 1-4 недель.3 Разгрузите свою работу! Мы подписываем контракт с указанием выделенных свойств команды. Вы начинаете разгружать свой бэклог команде. Наш менеджер проекта посещает еженедельные встречи и контролирует разработчиков с нашей стороны.",
+  data: "11/12/11"
 };
+var optionsBasic = [{
+  title: "По умолчанию",
+  checked: true,
+  settings_id: 1
+}, {
+  title: "Своя настройка",
+  checked: false,
+  settings_id: 2
+}, {
+  title: "Включить всё",
+  checked: false,
+  settings_id: 3
+}];
 
 
 /***/ }),
@@ -29175,7 +29374,10 @@ __webpack_require__.r(__webpack_exports__);
 function useActionsWithRedux() {
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useDispatch)();
   var getAllSettings = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
-    return state.settings;
+    return state.settings.settings[0];
+  });
+  var loadingSettings = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
+    return state.settings.isLoadingSettings;
   });
   var profile = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.authForm.user;
@@ -29219,16 +29421,27 @@ function useActionsWithRedux() {
   var loginUser = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
     dispatch((0,_redux_formFeatures_formFeaturesOperation__WEBPACK_IMPORTED_MODULE_2__.loginForm)(data));
   }, [dispatch]);
+  var userLogout = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
+    dispatch((0,_redux_formFeatures_formFeaturesOperation__WEBPACK_IMPORTED_MODULE_2__.logoutUser)());
+  }, [dispatch]);
   var registerUser = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
     dispatch((0,_redux_formFeatures_formFeaturesOperation__WEBPACK_IMPORTED_MODULE_2__.registerForm)(data));
   }, [dispatch]);
   var settings = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
     dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.getSettings)());
   }, [dispatch]);
+  var settingsCountTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
+    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsCountTask)());
+  }, [dispatch]);
   return {
+    alertHidden: alertHidden,
+    NotifySuccess: NotifySuccess,
+    NotifyError: NotifyError,
     loginUser: loginUser,
     settings: settings,
     registerUser: registerUser,
+    userLogout: userLogout,
+    settingsCountTask: settingsCountTask,
     alertMessage: alertMessage,
     getAllSettings: getAllSettings,
     profile: profile,
@@ -29236,9 +29449,7 @@ function useActionsWithRedux() {
     likesFanty: likesFanty,
     disLikesFanty: disLikesFanty,
     showMiniPlayer: showMiniPlayer,
-    alertHidden: alertHidden,
-    NotifySuccess: NotifySuccess,
-    NotifyError: NotifyError
+    loadingSettings: loadingSettings
   };
 }
 
@@ -29713,14 +29924,14 @@ var getUserProfileError = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.creat
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "loginForm": () => (/* binding */ loginForm),
-/* harmony export */   "registerForm": () => (/* binding */ registerForm)
+/* harmony export */   "registerForm": () => (/* binding */ registerForm),
+/* harmony export */   "logoutUser": () => (/* binding */ logoutUser)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
-/* harmony import */ var _formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./formFeaturesActions */ "./resources/js/redux/formFeatures/formFeaturesActions.js");
+/* harmony import */ var _formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./formFeaturesActions */ "./resources/js/redux/formFeatures/formFeaturesActions.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -29729,14 +29940,13 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = 'http://localhost/api';
+(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = "http://localhost/api";
 var token = {
   set: function set(tok) {
     (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "".concat(tok);
   },
   unset: function unset() {
-    (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = '';
+    (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "";
   }
 };
 
@@ -29749,37 +29959,33 @@ var loginForm = function loginForm(credentials) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              //const { NotifySuccess, NotifyError } = useActionsWithRedux();
-              console.log(credentials);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.loginRequest)());
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileRequest)());
-              _context.prev = 3;
-              _context.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('/user/login', credentials);
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.loginRequest)());
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileRequest)());
+              _context.prev = 2;
+              _context.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/user/login", credentials);
 
-            case 6:
+            case 5:
               _yield$axios$post = _context.sent;
               data = _yield$axios$post.data;
               token.set(data.access_token);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.loginSuccess)(data));
-              console.log(data);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileSuccess)(data)); // NotifySuccess('Ok');
-
-              _context.next = 18;
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.loginSuccess)(data));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileSuccess)(data));
+              _context.next = 16;
               break;
 
-            case 14:
-              _context.prev = 14;
-              _context.t0 = _context["catch"](3);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.loginError)(_context.t0.message));
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileError)(_context.t0.message)); // NotifyError(error.message);
+            case 12:
+              _context.prev = 12;
+              _context.t0 = _context["catch"](2);
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.loginError)(_context.t0.message));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileError)(_context.t0.message));
 
-            case 18:
+            case 16:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[3, 14]]);
+      }, _callee, null, [[2, 12]]);
     }));
 
     return function (_x) {
@@ -29797,38 +30003,76 @@ var registerForm = function registerForm(credentials) {
         while (1) {
           switch (_context2.prev = _context2.next) {
             case 0:
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.registerRequest)());
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileRequest)());
-              console.log(credentials);
-              _context2.prev = 3;
-              _context2.next = 6;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('user/register', credentials);
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerRequest)());
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileRequest)());
+              _context2.prev = 2;
+              _context2.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("user/register", credentials);
 
-            case 6:
+            case 5:
               _yield$axios$post2 = _context2.sent;
               data = _yield$axios$post2.data;
               token.set(data.access_token);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.registerSuccess)(data));
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileSuccess)(data));
-              _context2.next = 17;
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerSuccess)(data));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileSuccess)(data));
+              _context2.next = 16;
               break;
 
-            case 13:
-              _context2.prev = 13;
-              _context2.t0 = _context2["catch"](3);
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.registerError)(_context2.t0.message));
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_3__.getUserProfileError)(_context2.t0.message));
+            case 12:
+              _context2.prev = 12;
+              _context2.t0 = _context2["catch"](2);
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerError)(_context2.t0.message));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileError)(_context2.t0.message));
 
-            case 17:
+            case 16:
             case "end":
               return _context2.stop();
           }
         }
-      }, _callee2, null, [[3, 13]]);
+      }, _callee2, null, [[2, 12]]);
     }));
 
     return function (_x2) {
       return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
+var logoutUser = function logoutUser() {
+  return /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(dispatch) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerRequest)());
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileRequest)());
+              _context3.prev = 2;
+              _context3.next = 5;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/user/logout");
+
+            case 5:
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerSuccess)({}));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileSuccess)({}));
+              _context3.next = 13;
+              break;
+
+            case 9:
+              _context3.prev = 9;
+              _context3.t0 = _context3["catch"](2);
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerError)(_context3.t0.message));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileError)(_context3.t0.message));
+
+            case 13:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[2, 9]]);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
     };
   }();
 };
@@ -30005,14 +30249,14 @@ var settingsError = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createActio
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "getSettings": () => (/* binding */ getSettings)
+/* harmony export */   "getSettings": () => (/* binding */ getSettings),
+/* harmony export */   "postSettingsCountTask": () => (/* binding */ postSettingsCountTask)
 /* harmony export */ });
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
-/* harmony import */ var _SettingsAction__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SettingsAction */ "./resources/js/redux/settingsFeatures/SettingsAction.js");
+/* harmony import */ var _SettingsAction__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SettingsAction */ "./resources/js/redux/settingsFeatures/SettingsAction.js");
 
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -30021,8 +30265,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
-
-(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = 'http://localhost/api';
+(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = "http://localhost/api";
 var token = {
   set: function set(tok) {
     (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "".concat(tok);
@@ -30041,23 +30284,23 @@ var getSettings = function getSettings(credentials) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_3__.settingsRequest)());
+              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_2__.settingsRequest)());
               _context.prev = 1;
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get('/settings/get', credentials);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get", credentials);
 
             case 4:
               _yield$axios$get = _context.sent;
               data = _yield$axios$get.data;
               token.set(data.access_token);
-              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_3__.settingsSuccess)(data));
+              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_2__.settingsSuccess)([data]));
               _context.next = 13;
               break;
 
             case 10:
               _context.prev = 10;
               _context.t0 = _context["catch"](1);
-              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_3__.settingsError)(_context.t0.message));
+              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_2__.settingsError)(_context.t0.message));
 
             case 13:
             case "end":
@@ -30069,6 +30312,40 @@ var getSettings = function getSettings(credentials) {
 
     return function (_x) {
       return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+var postSettingsCountTask = function postSettingsCountTask(credentials) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(dispatch) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get", credentials);
+
+            case 3:
+              _context2.next = 8;
+              break;
+
+            case 5:
+              _context2.prev = 5;
+              _context2.t0 = _context2["catch"](0);
+              dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_2__.settingsError)(_context2.t0.message));
+
+            case 8:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 5]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
     };
   }();
 };
@@ -30091,6 +30368,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _SettingsAction__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SettingsAction */ "./resources/js/redux/settingsFeatures/SettingsAction.js");
+var _createReducer3;
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -30100,17 +30379,23 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var settings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)([], _defineProperty({}, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsSuccess, function (_, _ref) {
+var settings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)([], _defineProperty({}, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsSuccess.type, function (_, _ref) {
   var payload = _ref.payload;
   return _objectSpread({}, payload);
 }));
-var settingsErrorMessage = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(null, _defineProperty({}, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsError, function (_, _ref2) {
+var settingsErrorMessage = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(null, _defineProperty({}, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsError.type, function (_, _ref2) {
   var payload = _ref2.payload;
   return _objectSpread({}, payload);
 }));
+var isLoadingSettings = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(false, (_createReducer3 = {}, _defineProperty(_createReducer3, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsRequest.type, function () {
+  return true;
+}), _defineProperty(_createReducer3, _SettingsAction__WEBPACK_IMPORTED_MODULE_0__.settingsSuccess.type, function () {
+  return false;
+}), _createReducer3));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
   settings: settings,
-  settingsErrorMessage: settingsErrorMessage
+  settingsErrorMessage: settingsErrorMessage,
+  isLoadingSettings: isLoadingSettings
 }));
 
 /***/ }),
@@ -30146,9 +30431,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var authPersistConfig = {
-  key: 'authForm',
+  key: "authForm",
   storage: redux_persist_lib_storage__WEBPACK_IMPORTED_MODULE_1__["default"],
-  whitelist: ['user', 'token']
+  whitelist: ["user"]
 };
 var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_8__.configureStore)({
   reducer: {
@@ -30164,7 +30449,7 @@ var store = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_8__.configureStore)({
       serializableCheck: false
     });
   },
-  devTools: "development" === 'development'
+  devTools: "development" === "development"
 });
 var persistor = (0,redux_persist__WEBPACK_IMPORTED_MODULE_0__.persistStore)(store);
 

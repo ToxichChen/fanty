@@ -1,67 +1,73 @@
-import axios from 'axios';
-import useActionsWithRedux from '../../hooks/useActionsWithRedux';
+import axios from "axios";
 import {
-  registerRequest,
-  registerSuccess,
-  registerError,
-  loginRequest,
-  loginSuccess,
-  loginError,
-  getUserProfileRequest,
-  getUserProfileSuccess,
-  getUserProfileError,
-} from './formFeaturesActions';
+    registerRequest,
+    registerSuccess,
+    registerError,
+    loginRequest,
+    loginSuccess,
+    loginError,
+    getUserProfileRequest,
+    getUserProfileSuccess,
+    getUserProfileError,
+} from "./formFeaturesActions";
 
-axios.defaults.baseURL = 'http://localhost/api';
+axios.defaults.baseURL = "http://localhost/api";
 
 const token = {
-  set(tok) {
-    axios.defaults.headers.common.Authorization = `${tok}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
+    set(tok) {
+        axios.defaults.headers.common.Authorization = `${tok}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = "";
+    },
 };
 
 const loginForm = (credentials) => async (dispatch) => {
-  //const { NotifySuccess, NotifyError } = useActionsWithRedux();
-  console.log(credentials)
+    dispatch(loginRequest());
+    dispatch(getUserProfileRequest());
 
-  dispatch(loginRequest());
-  dispatch(getUserProfileRequest());
+    try {
+        const { data } = await axios.post("/user/login", credentials);
 
-  try {
-    const { data } = await axios.post('/user/login', credentials);
+        token.set(data.access_token);
+        dispatch(loginSuccess(data));
 
-    token.set(data.access_token);
-    dispatch(loginSuccess(data));
-
-    console.log(data)
-
-    dispatch(getUserProfileSuccess(data));
-   // NotifySuccess('Ok');
-  } catch (error) {
-    dispatch(loginError(error.message));
-    dispatch(getUserProfileError(error.message));
-   // NotifyError(error.message);
-  }
+        dispatch(getUserProfileSuccess(data));
+    } catch (error) {
+        dispatch(loginError(error.message));
+        dispatch(getUserProfileError(error.message));
+    }
 };
 
 const registerForm = (credentials) => async (dispatch) => {
-  dispatch(registerRequest());
-  dispatch(getUserProfileRequest());
-  console.log(credentials)
+    dispatch(registerRequest());
+    dispatch(getUserProfileRequest());
 
-  try {
-    const { data } = await axios.post('user/register', credentials);
-    token.set(data.access_token);
-    dispatch(registerSuccess(data));
+    try {
+        const { data } = await axios.post("user/register", credentials);
+        token.set(data.access_token);
+        dispatch(registerSuccess(data));
 
-    dispatch(getUserProfileSuccess(data));
-  } catch (error) {
-    dispatch(registerError(error.message));
-    dispatch(getUserProfileError(error.message));
-  }
+        dispatch(getUserProfileSuccess(data));
+    } catch (error) {
+        dispatch(registerError(error.message));
+        dispatch(getUserProfileError(error.message));
+    }
 };
 
-export { loginForm, registerForm };
+const logoutUser = () => async (dispatch) => {
+    dispatch(registerRequest());
+    dispatch(getUserProfileRequest());
+
+    try {
+        await axios.get("/user/logout");
+        dispatch(registerSuccess({}));
+
+        dispatch(getUserProfileSuccess({}));
+    } catch (error) {
+        dispatch(registerError(error.message));
+        dispatch(getUserProfileError(error.message));
+    }
+};
+
+export { loginForm, registerForm, logoutUser };
