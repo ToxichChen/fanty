@@ -9,13 +9,17 @@ import {
 } from "./index";
 
 import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
+import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const Checkbox = ({ elem, premium }) => {
+    const { settingsGameTask } = useActionsWithRedux();
+
     const [isCheck, setCheck] = useState(false);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
 
     const handleCheckboxChange = (event) => {
         setCheck(event.target.checked);
+        settingsGameTask(elem);
     };
 
     return (

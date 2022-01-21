@@ -1,34 +1,45 @@
-import { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import {
-  StylBoxFlexStartColumn,
-  StylBoxFooterSettings,
-  StylBtnFooterSettings,
-  StylBtnFooterSettingsComplexity,
-} from '..';
-import { routes } from '../../Router';
+    StylBoxFlexStartColumn,
+    StylBoxFooterSettings,
+    StylBtnFooterSettings,
+    StylBtnFooterSettingsComplexity,
+} from "..";
+import { routes } from "../../Router";
+import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
-const SettingsGameFooter = () => {
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
+const SettingsGameFooter = ({ man, female }) => {
+    const { sendSettingsGame, sendPlayersGame } = useActionsWithRedux();
 
-  return (
-    <StylBoxFooterSettings>
-      <StylBoxFlexStartColumn>
-        <StylBtnFooterSettings to={routes.home}>
-          <i className='fas fa-sign-out-alt'></i>
-          Выйти из игры
-        </StylBtnFooterSettings>
-      </StylBoxFlexStartColumn>
-      <StylBtnFooterSettingsComplexity to={routes.settingsGame.complexity}>
-        <i className='fas fa-align-left'></i>
-        Количество заданий
-      </StylBtnFooterSettingsComplexity>
-    </StylBoxFooterSettings>
-  );
+    const sendDataSettingsGame = () => {
+        sendSettingsGame();
+        sendPlayersGame(man, female);
+    };
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
+
+    return (
+        <StylBoxFooterSettings>
+            <StylBoxFlexStartColumn>
+                <StylBtnFooterSettings to={routes.home}>
+                    <i className="fas fa-sign-out-alt"></i>
+                    Выйти из игры
+                </StylBtnFooterSettings>
+            </StylBoxFlexStartColumn>
+            <StylBtnFooterSettingsComplexity
+                to={routes.settingsGame.complexity}
+                onClick={sendDataSettingsGame}
+            >
+                <i className="fas fa-align-left"></i>
+                Количество заданий
+            </StylBtnFooterSettingsComplexity>
+        </StylBoxFooterSettings>
+    );
 };
 
 export default SettingsGameFooter;

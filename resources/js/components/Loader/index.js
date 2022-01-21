@@ -1,4 +1,5 @@
-import Loader from './Loader';
-import { StylBoxCenterSpiner, StylSpiner } from './Loader.styled';
+import Loader from "./Loader";
+import MiniLoader from "./MiniLoader";
+import { StylBoxCenterSpiner, StylSpiner } from "./Loader.styled";
 
-export { Loader, StylBoxCenterSpiner, StylSpiner };
+export { Loader, StylBoxCenterSpiner, StylSpiner, MiniLoader };

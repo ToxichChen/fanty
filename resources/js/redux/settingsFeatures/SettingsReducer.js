@@ -5,6 +5,7 @@ import {
     settingsSuccess,
     settingsError,
     settingsRequest,
+    settingsGameData,
 } from "./SettingsAction";
 
 const settings = createReducer([], {
@@ -19,6 +20,10 @@ const settingsErrorMessage = createReducer(null, {
     }),
 });
 
+const settingsGame = createReducer([], {
+    [settingsGameData.type]: (_, { payload }) => [...payload],
+});
+
 const isLoadingSettings = createReducer(false, {
     [settingsRequest.type]: () => true,
     [settingsSuccess.type]: () => false,
@@ -28,4 +33,5 @@ export default combineReducers({
     settings,
     settingsErrorMessage,
     isLoadingSettings,
+    settingsGame,
 });

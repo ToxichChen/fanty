@@ -9,11 +9,15 @@ import { alert } from "../redux/alertFeatures/AlertActions";
 import {
     getSettings,
     postSettingsCountTask,
+    postSettingsGame,
+    postPlayersGame,
 } from "../redux/settingsFeatures/SettingsOperation";
+import { settingsGameData } from "../redux/settingsFeatures/SettingsAction";
 
 function useActionsWithRedux() {
     const dispatch = useDispatch();
     const getAllSettings = useSelector((state) => state.settings.settings[0]);
+    const settingsGame = useSelector((state) => state.settings.settingsGame);
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
     );
@@ -84,13 +88,41 @@ function useActionsWithRedux() {
         dispatch(getSettings());
     }, [dispatch]);
 
-    const settingsCountTask = useCallback(
+    const settingsCountTask = useCallback(() => {
+        dispatch(postSettingsCountTask());
+    }, [dispatch]);
+
+    const settingsGameTask = useCallback(
         (data) => {
-            dispatch(postSettingsCountTask());
+            const newArr = [...settingsGame];
+
+            if (settingsGame.includes(data)) {
+                settingsGame.find(
+                    (item, index) => item === data && newArr.splice(index, 1)
+                );
+            } else {
+                newArr.push(data);
+            }
+
+            dispatch(settingsGameData(newArr));
+        },
+        [dispatch, settingsGame]
+    );
+
+    const sendSettingsGame = useCallback(() => {
+        dispatch(postSettingsGame(settingsGame));
+    }, [dispatch, settingsGame]);
+
+    const sendPlayersGame = useCallback(
+        (data) => {
+            dispatch(postPlayersGame(data));
         },
         [dispatch]
     );
+
     return {
+        sendPlayersGame,
+        settingsGameTask,
         alertHidden,
         NotifySuccess,
         NotifyError,
@@ -107,6 +139,8 @@ function useActionsWithRedux() {
         disLikesFanty,
         showMiniPlayer,
         loadingSettings,
+        settingsGame,
+        sendSettingsGame,
     };
 }
 

@@ -37,4 +37,25 @@ const postSettingsCountTask = (credentials) => async (dispatch) => {
     }
 };
 
-export { getSettings, postSettingsCountTask };
+const postSettingsGame = (credentials) => async (dispatch) => {
+    try {
+        await axios.get("/settings/get", credentials);
+    } catch (error) {
+        dispatch(settingsError(error.message));
+    }
+};
+
+const postPlayersGame = (credentials) => async (dispatch) => {
+    try {
+        await axios.get("/settings/get", credentials);
+    } catch (error) {
+        dispatch(settingsError(error.message));
+    }
+};
+
+export {
+    getSettings,
+    postSettingsCountTask,
+    postSettingsGame,
+    postPlayersGame,
+};

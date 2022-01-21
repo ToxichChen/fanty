@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     SectionTaskGame,
     StylBoxFeaturesGame,
@@ -13,17 +13,19 @@ import {
 
 import { players } from "../../constants";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import { MiniLoader } from "./../Loader/MiniLoader";
 
 const SettingsGame = () => {
+    const [isChangeMan, setChangeMan] = useState("");
+    const [isChangeFemale, setChangeFemala] = useState("");
     const { getAllSettings, loadingSettings } = useActionsWithRedux();
-    console.log(getAllSettings);
 
     return (
         <SectionTaskGame>
             <StylBoxFeaturesGame data-aos="fade-right">
                 <StylWrapperAllSettings>
                     {loadingSettings ? (
-                        <>Loading</>
+                        <MiniLoader />
                     ) : (
                         getAllSettings.map((item) => {
                             return (
@@ -45,7 +47,10 @@ const SettingsGame = () => {
                                         <i className="fas fa-male"></i>
                                         <StylInputUserSettings
                                             type="text"
-                                            defaultValue={item.name}
+                                            onChange={(e) =>
+                                                setChangeMan(e.target.value)
+                                            }
+                                            value={isChangeMan}
                                         />
                                     </StylWrapperInput>
                                 )
@@ -63,7 +68,10 @@ const SettingsGame = () => {
                                         <i className="fas fa-female"></i>
                                         <StylInputUserSettings
                                             type="text"
-                                            defaultValue={item.name}
+                                            onChange={(e) =>
+                                                setChangeFemala(e.target.value)
+                                            }
+                                            value={isChangeFemale}
                                         />
                                     </StylWrapperInput>
                                 )
@@ -71,7 +79,7 @@ const SettingsGame = () => {
                     </StylBoxSettingsGame>
                 </StylWrapperAllSettings>
             </StylBoxFeaturesGame>
-            <SettingsGameFooter />
+            <SettingsGameFooter man={isChangeMan} female={isChangeFemale} />
         </SectionTaskGame>
     );
 };

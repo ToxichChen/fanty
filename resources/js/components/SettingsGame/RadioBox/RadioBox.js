@@ -7,17 +7,19 @@ import {
     StylLabelRadio,
 } from "./RadioBox.styled";
 import { StylBoxAddInfoTask, StylBoxInfo } from "../CheckBox";
+import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const RadioBox = ({ item, optionsBasic, subsettings }) => {
+    const { settingsGameTask } = useActionsWithRedux();
     const [isSelect, setSelect] = useState(optionsBasic[0].title);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
 
-    const handleSelectChange = (e) => {
+    const handleSelectChange = (e, elem) => {
         const value = e.currentTarget.value;
         setSelect(value);
-    };
 
-    console.log(subsettings);
+        subsettings && settingsGameTask(elem);
+    };
 
     return (
         <form>

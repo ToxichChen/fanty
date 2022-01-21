@@ -1,9 +1,8 @@
-import React from "react";
-import { StylBoxCenterSpiner, StylSpiner } from "./index";
+import { StylBoxCenterSpinerMini, StylSpiner } from "./Loader.styled";
 
-const Loader = () => {
+export const MiniLoader = () => {
     return (
-        <StylBoxCenterSpiner>
+        <StylBoxCenterSpinerMini>
             <StylSpiner viewBox="0 0 100 100" height="150px" width="150px">
                 <clipPath id="clip">
                     <path
@@ -16,8 +15,6 @@ const Loader = () => {
                     d="M 67.757283,59.202113 C 62.675098,69.009189 50.604962,72.839469 40.797887,67.757283 30.990811,62.675098 27.160531,50.604962 32.242717,40.797887 37.324902,30.990811 49.395038,27.160531 59.202113,32.242717 69.009189,37.324902 72.839469,49.395038 67.757283,59.202113"
                 />
             </StylSpiner>
-        </StylBoxCenterSpiner>
+        </StylBoxCenterSpinerMini>
     );
 };
-
-export default Loader;
