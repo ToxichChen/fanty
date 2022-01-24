@@ -13,7 +13,7 @@ import {
 
 import { players } from "../../constants";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
-import { MiniLoader } from "./../Loader/MiniLoader";
+import  MiniLoader  from "../Loader/MiniLoader";
 
 const SettingsGame = () => {
     const [isChangeMan, setChangeMan] = useState("");

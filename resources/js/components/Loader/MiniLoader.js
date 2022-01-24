@@ -1,6 +1,6 @@
 import { StylBoxCenterSpinerMini, StylSpiner } from "./Loader.styled";
 
-export const MiniLoader = () => {
+const MiniLoader = () => {
     return (
         <StylBoxCenterSpinerMini>
             <StylSpiner viewBox="0 0 100 100" height="150px" width="150px">
@@ -18,3 +18,5 @@ export const MiniLoader = () => {
         </StylBoxCenterSpinerMini>
     );
 };
+
+export default MiniLoader

@@ -31,7 +31,7 @@ const getSettings = (credentials) => async (dispatch) => {
 
 const postSettingsCountTask = (credentials) => async (dispatch) => {
     try {
-        await axios.get("/settings/get", credentials);
+        await axios.post("/settings/gameDuration/send", credentials);
     } catch (error) {
         dispatch(settingsError(error.message));
     }
@@ -39,7 +39,7 @@ const postSettingsCountTask = (credentials) => async (dispatch) => {
 
 const postSettingsGame = (credentials) => async (dispatch) => {
     try {
-        await axios.get("/settings/get", credentials);
+        await axios.post("/settings/send", credentials);
     } catch (error) {
         dispatch(settingsError(error.message));
     }

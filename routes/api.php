@@ -26,3 +26,6 @@ Route::post('/user/login', [UserController::class, 'login']);
 Route::post('/user/register', [UserController::class, 'register']);
 Route::get('/user/logout', [UserController::class, 'logout']);
 Route::get('/settings/get', [GameSettingController::class, 'getSettings']);
+Route::post('/settings/send', [GameSettingController::class, 'sendSettings']);
+Route::post('/settings/gameDuration/send', [GameSettingController::class, 'gameDurationSend']);
+

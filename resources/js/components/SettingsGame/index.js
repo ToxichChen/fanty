@@ -3,10 +3,6 @@ import {
   SettingGameOptions,
   StylBtnOpenSetting,
   StylWrapperSettings,
-  StylBoxWrapperOptions,
-  StylRadioSetting,
-  StylWrapperRadioBtn,
-  StylLabelRadio,
 } from './GameOptions/';
 import {
   StylWrapperVip,
@@ -57,10 +53,6 @@ export {
   StylBtnStartGame,
   StylBoxSettingsGame,
   StylBtnOpenSetting,
-  StylWrapperRadioBtn,
-  StylRadioSetting,
-  StylLabelRadio,
-  StylBoxWrapperOptions,
   BtnMoreSettings,
   StylWrapperSettings,
   SettingGameOptions,

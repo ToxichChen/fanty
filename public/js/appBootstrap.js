@@ -23665,10 +23665,11 @@ var StylBoxCenterSpinerMini = styled_components__WEBPACK_IMPORTED_MODULE_0__["de
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "MiniLoader": () => (/* binding */ MiniLoader)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Loader_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Loader.styled */ "./resources/js/components/Loader/Loader.styled.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -23691,6 +23692,8 @@ var MiniLoader = function MiniLoader() {
     })
   });
 };
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MiniLoader);
 
 /***/ }),
 
@@ -27352,11 +27355,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SettingGameOptions": () => (/* reexport safe */ _SettingGameOptions__WEBPACK_IMPORTED_MODULE_0__["default"]),
 /* harmony export */   "StylBtnOpenSetting": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylBtnOpenSetting),
-/* harmony export */   "StylWrapperSettings": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylWrapperSettings),
-/* harmony export */   "StylBoxWrapperOptions": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylBoxWrapperOptions),
-/* harmony export */   "StylRadioSetting": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylRadioSetting),
-/* harmony export */   "StylWrapperRadioBtn": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylWrapperRadioBtn),
-/* harmony export */   "StylLabelRadio": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylLabelRadio)
+/* harmony export */   "StylWrapperSettings": () => (/* reexport safe */ _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__.StylWrapperSettings)
 /* harmony export */ });
 /* harmony import */ var _SettingGameOptions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./SettingGameOptions */ "./resources/js/components/SettingsGame/GameOptions/SettingGameOptions.js");
 /* harmony import */ var _SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SettingGameOptions.styled */ "./resources/js/components/SettingsGame/GameOptions/SettingGameOptions.styled.js");
@@ -27545,7 +27544,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var ___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../ */ "./resources/js/components/index.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../constants */ "./resources/js/constants/index.js");
 /* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
-/* harmony import */ var _Loader_MiniLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../Loader/MiniLoader */ "./resources/js/components/Loader/MiniLoader.js");
+/* harmony import */ var _Loader_MiniLoader__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../Loader/MiniLoader */ "./resources/js/components/Loader/MiniLoader.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
@@ -27586,7 +27585,7 @@ var SettingsGame = function SettingsGame() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(___WEBPACK_IMPORTED_MODULE_1__.StylBoxFeaturesGame, {
       "data-aos": "fade-right",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.StylWrapperAllSettings, {
-        children: loadingSettings ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Loader_MiniLoader__WEBPACK_IMPORTED_MODULE_4__.MiniLoader, {}) : getAllSettings.map(function (item) {
+        children: loadingSettings ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Loader_MiniLoader__WEBPACK_IMPORTED_MODULE_4__["default"], {}) : getAllSettings.map(function (item) {
           return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(___WEBPACK_IMPORTED_MODULE_1__.SettingGameOptions, {
             item: item
           }, item.id);
@@ -27980,10 +27979,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "StylBtnStartGame": () => (/* reexport safe */ _SettingsGame_styled__WEBPACK_IMPORTED_MODULE_5__.StylBtnStartGame),
 /* harmony export */   "StylBoxSettingsGame": () => (/* reexport safe */ _SettingsGame_styled__WEBPACK_IMPORTED_MODULE_5__.StylBoxSettingsGame),
 /* harmony export */   "StylBtnOpenSetting": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylBtnOpenSetting),
-/* harmony export */   "StylWrapperRadioBtn": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylWrapperRadioBtn),
-/* harmony export */   "StylRadioSetting": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylRadioSetting),
-/* harmony export */   "StylLabelRadio": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylLabelRadio),
-/* harmony export */   "StylBoxWrapperOptions": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylBoxWrapperOptions),
 /* harmony export */   "BtnMoreSettings": () => (/* reexport safe */ _SettingsGame_styled__WEBPACK_IMPORTED_MODULE_5__.BtnMoreSettings),
 /* harmony export */   "StylWrapperSettings": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.StylWrapperSettings),
 /* harmony export */   "SettingGameOptions": () => (/* reexport safe */ _GameOptions___WEBPACK_IMPORTED_MODULE_1__.SettingGameOptions),
@@ -28836,7 +28831,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "SettingGameOptions": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.SettingGameOptions),
 /* harmony export */   "StylWrapperSettings": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylWrapperSettings),
 /* harmony export */   "BtnMoreSettings": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.BtnMoreSettings),
-/* harmony export */   "StylBoxWrapperOptions": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylBoxWrapperOptions),
 /* harmony export */   "StylTaskInfoDescription": () => (/* reexport safe */ _TaskInfo__WEBPACK_IMPORTED_MODULE_18__.StylTaskInfoDescription),
 /* harmony export */   "StylTaskInfoSlider": () => (/* reexport safe */ _TaskInfo__WEBPACK_IMPORTED_MODULE_18__.StylTaskInfoSlider),
 /* harmony export */   "TaskInfoSlider": () => (/* reexport safe */ _TaskInfo__WEBPACK_IMPORTED_MODULE_18__.TaskInfoSlider),
@@ -28846,9 +28840,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "StylBtnStartGame": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylBtnStartGame),
 /* harmony export */   "StylBoxSettingsGame": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylBoxSettingsGame),
 /* harmony export */   "StylBtnOpenSetting": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylBtnOpenSetting),
-/* harmony export */   "StylWrapperRadioBtn": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylWrapperRadioBtn),
-/* harmony export */   "StylRadioSetting": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylRadioSetting),
-/* harmony export */   "StylLabelRadio": () => (/* reexport safe */ _SettingsGame__WEBPACK_IMPORTED_MODULE_16__.StylLabelRadio),
 /* harmony export */   "StylBoxIntroCard": () => (/* reexport safe */ _PageHome_SectionIntroCard__WEBPACK_IMPORTED_MODULE_17__.StylBoxIntroCard),
 /* harmony export */   "StylBoxCenterIntroCard": () => (/* reexport safe */ _PageHome_SectionIntroCard__WEBPACK_IMPORTED_MODULE_17__.StylBoxCenterIntroCard),
 /* harmony export */   "StylBoxCardGame": () => (/* reexport safe */ _PageHome_SectionIntroCard__WEBPACK_IMPORTED_MODULE_17__.StylBoxCardGame),
@@ -29552,12 +29543,12 @@ function useActionsWithRedux() {
   var settingsGameTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
     var newArr = _toConsumableArray(settingsGame);
 
-    if (settingsGame.includes(data)) {
+    if (settingsGame.includes(data.id)) {
       settingsGame.find(function (item, index) {
-        return item === data && newArr.splice(index, 1);
+        return item.id === data.id && newArr.splice(index, 1);
       });
     } else {
-      newArr.push(data);
+      newArr.push(data.id);
     }
 
     dispatch((0,_redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_5__.settingsGameData)(newArr));
@@ -30472,7 +30463,7 @@ var postSettingsCountTask = function postSettingsCountTask(credentials) {
             case 0:
               _context2.prev = 0;
               _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get", credentials);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/settings/gameDuration/send", credentials);
 
             case 3:
               _context2.next = 8;
@@ -30506,7 +30497,7 @@ var postSettingsGame = function postSettingsGame(credentials) {
             case 0:
               _context3.prev = 0;
               _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get", credentials);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/settings/send", credentials);
 
             case 3:
               _context3.next = 8;
@@ -30849,7 +30840,7 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_laravel_mix_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 ___CSS_LOADER_EXPORT___.push([module.id, "@import url(https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap);"]);
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "* {\r\n  padding: 0;\r\n  margin: 0;\r\n  box-sizing: border-box;\r\n  scroll-behavior: smooth;\r\n}\r\n\r\n.pagination {\r\n  list-style: none;\r\n  display: flex;\r\n  flex-direction: row;\r\n  align-self: flex-start;\r\n}\r\n\r\n.page-item:first-child {\r\n  display: none;\r\n}\r\n.page-item:last-child {\r\n  display: none;\r\n}\r\n\r\n.page-item {\r\n  position: relative;\r\n  cursor: pointer;\r\n  min-width: 40px;\r\n  height: 40px;\r\n  font-size: 16px;\r\n  font-weight: 500;\r\n  border: 2px solid transparent;\r\n  color: #fff;\r\n  display: inline-flex;\r\n  align-items: center;\r\n  justify-content: center;\r\n  transition: all 0.5s;\r\n  font-family: 'Roboto', sans-serif;\r\n  margin-right: 5px;\r\n}\r\n\r\n.page-item::before {\r\n  content: '0';\r\n  position: relative;\r\n}\r\n.page-item::after {\r\n  content: '.';\r\n  position: relative;\r\n}\r\n\r\n.active {\r\n  border-color: #b01ba5;\r\n  color: #b01ba5;\r\n  border-radius: 50%;\r\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "* {\n  padding: 0;\n  margin: 0;\n  box-sizing: border-box;\n  scroll-behavior: smooth;\n}\n\n.pagination {\n  list-style: none;\n  display: flex;\n  flex-direction: row;\n  align-self: flex-start;\n}\n\n.page-item:first-child {\n  display: none;\n}\n.page-item:last-child {\n  display: none;\n}\n\n.page-item {\n  position: relative;\n  cursor: pointer;\n  min-width: 40px;\n  height: 40px;\n  font-size: 16px;\n  font-weight: 500;\n  border: 2px solid transparent;\n  color: #fff;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 0.5s;\n  font-family: 'Roboto', sans-serif;\n  margin-right: 5px;\n}\n\n.page-item::before {\n  content: '0';\n  position: relative;\n}\n.page-item::after {\n  content: '.';\n  position: relative;\n}\n\n.active {\n  border-color: #b01ba5;\n  color: #b01ba5;\n  border-radius: 50%;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -31033,7 +31024,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-check.svg?76a7d2be26a986125c5263ccae116b8b");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-check.svg?9bf079a9c5ce2828051db81a90117e65");
 
 /***/ }),
 
@@ -31048,7 +31039,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-close.svg?f0170ad2df8c9fe560102020ce865b6d");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-close.svg?084af21f353add78a7813d47e8179dd3");
 
 /***/ }),
 
@@ -31078,7 +31069,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-email.svg?7695d401a8d9e329809cb4203f4d1456");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-email.svg?a87ab4384b0f09ab423a9cdeb8d6fe9e");
 
 /***/ }),
 
@@ -31093,7 +31084,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-girl.svg?863a9114028389ae5013e7bd9f65c718");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-girl.svg?699d30aebba3a986ef378b4f96a61949");
 
 /***/ }),
 
@@ -31108,7 +31099,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-hidden-password.svg?ad01ac80bf0aef8fbd1917def09094a9");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-hidden-password.svg?bdb68900466728533e6d6b71df09e3bb");
 
 /***/ }),
 
@@ -31123,7 +31114,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-lock.svg?d734aa605afadff4d2c8c2e8998e2359");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-lock.svg?fe9006932697e22554e36ea2ab45e7bf");
 
 /***/ }),
 
@@ -31138,7 +31129,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-man.svg?5926d18e6da2942d3682f31cdbecb0fc");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-man.svg?e64de58e5d4cb5f4eaa8a38d7a3c4c61");
 
 /***/ }),
 
@@ -31153,7 +31144,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-success.svg?38d052deadf01bcfa3ca13f0a7f3e56a");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-success.svg?7c4ab121425c35f8b34392c5426c918d");
 
 /***/ }),
 
@@ -31168,7 +31159,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-user.svg?1cac3d7adf3f957260cbbce9109cab54");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-user.svg?ce759283c8037733015e908cd870b722");
 
 /***/ }),
 
@@ -31198,7 +31189,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-warning.svg?b12fa11b70ae6b974b950c6a0dc317c6");
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/icon-warning.svg?c5e42ec4dd6c0f9126628b60d91d205b");
 
 /***/ }),
 

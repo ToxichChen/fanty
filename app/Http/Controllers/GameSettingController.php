@@ -78,13 +78,24 @@ class GameSettingController extends Controller
 //        return redirect('/admin/gameSetting');
 //    }
 
-    public function getSettings() {
+    public function getSettings()
+    {
         $gameSettings = GameSetting::all()->toArray();
         for ($i = 0; $i < count($gameSettings); $i++) {
-            $gameSettings[$i]['subsettings'] = Subsetting::where('setting_id',$gameSettings[$i]['id'])->get()->toArray();
+            $gameSettings[$i]['subsettings'] = Subsetting::where('setting_id', $gameSettings[$i]['id'])->get()->toArray();
         }
 
         return $gameSettings;
+    }
+
+    public function sendSettings(Request $request)
+    {
+        dd($request);
+    }
+
+    public function gameDurationSend(Request $request)
+    {
+        dd($request);
     }
 
 }

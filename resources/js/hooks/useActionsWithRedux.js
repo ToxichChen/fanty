@@ -96,12 +96,12 @@ function useActionsWithRedux() {
         (data) => {
             const newArr = [...settingsGame];
 
-            if (settingsGame.includes(data)) {
+            if (settingsGame.includes(data.id)) {
                 settingsGame.find(
-                    (item, index) => item === data && newArr.splice(index, 1)
+                    (item, index) => item.id === data.id && newArr.splice(index, 1)
                 );
             } else {
-                newArr.push(data);
+                newArr.push(data.id);
             }
 
             dispatch(settingsGameData(newArr));
