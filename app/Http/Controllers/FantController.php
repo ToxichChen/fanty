@@ -97,27 +97,38 @@ class FantController extends Controller
         return redirect('/admin/fant');
     }
 
-    public function formFantsArray() {
-        $subsettings = [1,5,2,3,4,6];
-
-        $start_time = microtime(true);
-
-        $greenLevel = Config::get('constants.six_green');
-        $fantsArray = ['green' => [], ];
-        foreach ($greenLevel as $setting) {
-            if ($setting !== 0 && in_array($setting, $subsettings)) {
-                $fant = Fant::where('subsetting_id', $setting)->inRandomOrder()->limit(1)->get()->toArray();
-                array_push($fantsArray['green'], $fant[0]);
-            } else {
-                $fant = Fant::where('subsetting_id', 0)->inRandomOrder()->limit(1)->get()->toArray();
-                array_push($fantsArray['green'], $fant[0]);
+    public function generateFant(Request $request) {
+        if ($request->all() !== null) {
+            $levels = Config::get('constants.levels_types');
+            if (in_array($request->current_level, $levels)) {
+                if ($request->current_level !== 'red') {
+                    $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
+                    $planSetting = $levelPlan[$request->fant_number];
+                    if (in_array($planSetting, $_SESSION['settings'])) {
+                        $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex]);
+                        return $fant;
+                    } else {
+                        $fant = Fant::where(['subsetting_id' => 0,'fantGroup' => $levels[$request->current_level], 'sex' => $request->sex]);
+                        return $fant;
+                    }
+                } else {
+                    $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
+                    $planSetting = $levelPlan[$request->fant_number];
+                    if (!is_array($planSetting)) {
+                        if (in_array($planSetting, $_SESSION['settings'])) {
+                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex]);
+                            return $fant;
+                        } else {
+                            $fant = Fant::where(['subsetting_id' => 0,'fantGroup' => $levels[$request->current_level], 'sex' => $request->sex]);
+                            return $fant;
+                        }
+                    } else {
+                        // Break down point to $_SESSION
+                    }
+                }
             }
+        } else {
+            return false;
         }
-        $end_time = microtime(true);
-        $execution_time = ($end_time - $start_time);
-        var_dump($start_time);
-        var_dump($end_time);
-        dd($execution_time);
-        dd($fantsArray);
     }
 }

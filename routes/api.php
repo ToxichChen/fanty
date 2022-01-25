@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameSettingController;
+use App\Http\Controllers\FantController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -28,4 +29,11 @@ Route::get('/user/logout', [UserController::class, 'logout']);
 Route::get('/settings/get', [GameSettingController::class, 'getSettings']);
 Route::post('/settings/send', [GameSettingController::class, 'sendSettings']);
 Route::post('/settings/gameDuration/send', [GameSettingController::class, 'gameDurationSend']);
+Route::post('/fant/generate', [FantController::class, 'generateFant']);
+/*
+ * Incoming data:
+ *  current_level: ('red', 'yellow', 'green')
+ *  fant_number: 1 (refresh to 0 with each level)
+ *  sex: 0 (men)/ 1 (women)
+ *  */
 

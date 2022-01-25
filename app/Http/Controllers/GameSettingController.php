@@ -90,12 +90,61 @@ class GameSettingController extends Controller
 
     public function sendSettings(Request $request)
     {
-        dd($request);
+        if (is_array($request->all())) {
+            $_SESSION['settings'] = $request->all();
+        } else {
+            $_SESSION['settings'] = [];
+        }
     }
 
     public function gameDurationSend(Request $request)
     {
-        dd($request);
+        if (is_array($request->all())) {
+            switch ($request->is_green) {
+                case 0:
+                    $_SESSION['game_duration']['green'] = '';
+                    break;
+                case 6:
+                    $_SESSION['game_duration']['green'] = 'six_green';
+                    break;
+                case 8:
+                    $_SESSION['game_duration']['green'] = 'eight_green';
+                    break;
+                case 10:
+                    $_SESSION['game_duration']['green'] = 'ten_green';
+                    break;
+            }
+            switch ($request->is_yellow) {
+                case 0:
+                    $_SESSION['game_duration']['yellow'] = '';
+                    break;
+                case 6:
+                    $_SESSION['game_duration']['yellow'] = 'six_yellow';
+                    break;
+                case 8:
+                    $_SESSION['game_duration']['yellow'] = 'eight_yellow';
+                    break;
+                case 10:
+                    $_SESSION['game_duration']['yellow'] = 'ten_yellow';
+                    break;
+            }
+            switch ($request->is_red) {
+                case 0:
+                    $_SESSION['game_duration']['red'] = '';
+                    break;
+                case 6:
+                    $_SESSION['game_duration']['red'] = 'six_red';
+                    break;
+                case 8:
+                    $_SESSION['game_duration']['red'] = 'eight_red';
+                    break;
+                case 10:
+                    $_SESSION['game_duration']['red'] = 'ten_red';
+                    break;
+            }
+        } else {
+            $_SESSION['game_duration'] = [];
+        }
     }
 
 }
