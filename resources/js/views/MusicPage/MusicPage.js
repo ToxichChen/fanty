@@ -1,16 +1,15 @@
-import { useEffect } from 'react';
-import { MusicPlayer } from './../../components/';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import MusicPlayer from "./../../components/MusicPlayer/MusicPlayer";
 
 const MusicPage = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return (
-    <>
-      <MusicPlayer />
-    </>
-  );
+    return (
+        <>
+            <MusicPlayer />
+        </>
+    );
 };
 
 export default MusicPage;

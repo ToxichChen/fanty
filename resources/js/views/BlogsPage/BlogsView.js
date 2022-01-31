@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import { Blogs } from '../../components';
+import Blogs from "./../../components/Blogs/Blogs.js";
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 
 const BlogsView = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return (
-    <>
-      <Blogs />
-    </>
-  );
+    return (
+        <>
+            <Blogs />
+        </>
+    );
 };
 
 export default BlogsView;

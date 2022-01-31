@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 
 const ProfileUser = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return <></>;
+    return <></>;
 };
 
 export default ProfileUser;

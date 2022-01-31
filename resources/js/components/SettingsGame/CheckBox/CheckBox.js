@@ -6,7 +6,7 @@ import {
     StyledCheckbox,
     StylLabel,
     StylTextLabel,
-} from "./index";
+} from "./CheckBox.styled";
 
 import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";

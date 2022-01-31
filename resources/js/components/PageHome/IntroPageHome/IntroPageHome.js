@@ -1,25 +1,23 @@
-import {
-  StylBoxIntroPageHome,
-  CardIntroPageHome,
-  StylBoxCenterIntroPageHome,
-} from '../..';
-import { dataPostArr } from '../../../constants';
+import { StylBoxIntroPageHome } from "./IntroPageHome.styled";
+import CardIntroPageHome from "./CardIntro/CardIntroPageHome";
+import { StylBoxCenterIntroPageHome } from "./CardIntro/CardIntroPageHome.styled";
+import { dataPostArr } from "../../../constants";
 
 const IntroPageHome = () => {
-  return (
-    <StylBoxIntroPageHome top={true}>
-      <StylBoxCenterIntroPageHome>
-        {dataPostArr.map((item) => (
-          <CardIntroPageHome
-            key={item.id}
-            svg={item.svg}
-            title={item.title}
-            text={item.text}
-          />
-        ))}
-      </StylBoxCenterIntroPageHome>
-    </StylBoxIntroPageHome>
-  );
+    return (
+        <StylBoxIntroPageHome top={true}>
+            <StylBoxCenterIntroPageHome>
+                {dataPostArr.map((item) => (
+                    <CardIntroPageHome
+                        key={item.id}
+                        svg={item.svg}
+                        title={item.title}
+                        text={item.text}
+                    />
+                ))}
+            </StylBoxCenterIntroPageHome>
+        </StylBoxIntroPageHome>
+    );
 };
 
 export default IntroPageHome;

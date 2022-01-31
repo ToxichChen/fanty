@@ -1,21 +1,21 @@
-import React, { useState } from 'react';
-import { StylIconInputEnd, StylBtnEyePassword } from '../../index.js';
-import visibleEyeImg from './../../../assets/icons/icon-visible-password.svg';
-import closeEyeImg from './../../../assets/icons/icon-hidden-password.svg';
+import React, { useState } from "react";
+import { StylIconInputEnd, StylBtnEyePassword } from "./FormInput.styled";
+import visibleEyeImg from "./../../../assets/icons/icon-visible-password.svg";
+import closeEyeImg from "./../../../assets/icons/icon-hidden-password.svg";
 
 const BtnEyePassword = ({ changeEye }) => {
-  const [isVisible, setVisible] = useState(true);
+    const [isVisible, setVisible] = useState(true);
 
-  const isVisiblePassword = () => {
-    setVisible(!isVisible);
-    changeEye();
-  };
+    const isVisiblePassword = () => {
+        setVisible(!isVisible);
+        changeEye();
+    };
 
-  return (
-    <StylBtnEyePassword onClick={isVisiblePassword} type='button'>
-      <StylIconInputEnd src={isVisible ? visibleEyeImg : closeEyeImg} />
-    </StylBtnEyePassword>
-  );
+    return (
+        <StylBtnEyePassword onClick={isVisiblePassword} type="button">
+            <StylIconInputEnd src={isVisible ? visibleEyeImg : closeEyeImg} />
+        </StylBtnEyePassword>
+    );
 };
 
 export default BtnEyePassword;

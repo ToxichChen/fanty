@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import { FormRegistration } from '../../components';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import FormRegistration from "../../components/FormRegistration/FormRegistration";
 
 const FormRegisterView = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return (
-    <>
-      <FormRegistration />
-    </>
-  );
+    return (
+        <>
+            <FormRegistration />
+        </>
+    );
 };
 
 export default FormRegisterView;

@@ -17,7 +17,7 @@
         "react-paginate": "^8.1.0",
         "react-redux": "^7.2.6",
         "react-router": "^6.0.1",
-        "react-router-dom": "^5.2.0",
+        "react-router-dom": "^6.0.0",
         "react-scripts": "4.0.3",
         "redux": "^4.1.2",
         "redux-persist": "^6.0.0",
@@ -75,11 +75,11 @@
     },
     "watch": "npm-watch",
     "watch": {
-    "build": {
-      "patterns": [
-        "resources/js"
-      ],
-      "extensions": "js,jsx"
+        "build": {
+            "patterns": [
+                "resources/js"
+            ],
+            "extensions": "js,jsx"
+        }
     }
-  }
 }

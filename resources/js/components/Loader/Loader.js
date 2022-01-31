@@ -1,5 +1,4 @@
-import React from "react";
-import { StylBoxCenterSpiner, StylSpiner } from "./index";
+import { StylBoxCenterSpiner, StylSpiner } from "./Loader.styled";
 
 const Loader = () => {
     return (

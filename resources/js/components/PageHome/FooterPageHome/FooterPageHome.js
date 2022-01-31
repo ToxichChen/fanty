@@ -1,18 +1,20 @@
 import React, { useState } from "react";
 import { routes } from "../../../Router";
 import { NavLink } from "react-router-dom";
+import AddMenuNav from "./../HeaderPageHome/AddMenuNav/AddMenuNav";
+import HeaderFollowUs from "./../HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
 import {
     StylBoxFooterPageHome,
-    StylBoxContainerMaxWidth,
-    StylBoxFlexColumnCenter,
     StylImgLogoMagin,
-    StylMenuFooterPageHome,
+    StylCopyrightFooter,
     StylItemMenuFooter,
     StylLinkMenuFooter,
-    HeaderFollowUs,
-    StylCopyrightFooter,
-    AddMenuNav,
-} from "./../../";
+    StylMenuFooterPageHome,
+} from "./FooterPageHome.styled";
+import {
+    StylBoxContainerMaxWidth,
+    StylBoxFlexColumnCenter,
+} from "./../../common/BasicBoxes/BasicBoxes.styled";
 
 import logo from "./../../../assets/logo.png";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";

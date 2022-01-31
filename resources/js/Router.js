@@ -1,12 +1,11 @@
-import React, { lazy, useEffect } from "react";
-import { Route, Switch, useHistory } from "react-router-dom";
-import useActionsWithRedux from "./hooks/useActionsWithRedux";
+import React, { lazy } from "react";
+import { Route, Routes } from "react-router-dom";
 
 const routes = {
     home: "/",
     settingsGame: {
         main: "/settingsGame/:id",
-        complexity: "/settingsGame/complexity/:id",
+        complexity: "/settingsGame/complexity",
     },
     blogs: {
         main: "/blogs",
@@ -39,53 +38,62 @@ const BlogsPage = lazy(() => import("./views/BlogsPage/BlogsView"));
 const ArticlePage = lazy(() => import("./views/BlogsPage/Article/ArticleView"));
 
 const Router = () => {
-    /*     const history = useHistory();
-    const { profile } = useActionsWithRedux;
-
-    useEffect(() => {
-        if (
-            (Object.keys(profile).length !== 0 && routes.formLogin) ||
-            (Object.keys(profile).length !== 0 && routes.formRegister)
-        ) {
-            history.push(routes.home);
-        }
-    }, [history, profile]); */
     return (
-        <Switch>
-            <Route exact path={routes.home}>
-                <Home title="Home" />
-            </Route>
-            <Route exact path={routes.settingsGame.complexity}>
-                <SettingsGameComplexity title="Settings Game Complexity" />
-            </Route>
-            <Route exact path={routes.settingsGame.main}>
-                <SettingsGame title="Settings Game" />
-            </Route>
-            <Route exact path={routes.formLogin}>
-                <FormLogin title="Form Login" />
-            </Route>
-            <Route exact path={routes.formRegister}>
-                <FormRegister title="Form Register" />
-            </Route>
-            <Route exact path={routes.taskGame.main}>
-                <TaskGame title="Task Game" />
-            </Route>
-            <Route exact path={routes.taskGame.info}>
-                <TaskInfo title="Task Game Info" />
-            </Route>
-            <Route exact path={routes.musicFromSex}>
-                <MusicPage title="Music" />
-            </Route>
-            <Route exact path={routes.blogs.main}>
-                <BlogsPage title="Blogs" />
-            </Route>
-            <Route exact path={routes.blogs.article}>
-                <ArticlePage title="Article" />
-            </Route>
-            <Route exact path={routes.notFound}>
-                <NotFound title="Not Found" />
-            </Route>
-        </Switch>
+        <Routes>
+            <Route exact path={routes.home} element={<Home title="Home" />} />
+            <Route
+                exact
+                path={routes.settingsGame.complexity}
+                element={
+                    <SettingsGameComplexity title="Settings Game Complexity" />
+                }
+            />
+            <Route
+                exact
+                path={routes.settingsGame.main}
+                element={<SettingsGame title="Settings Game" />}
+            />
+            <Route
+                exact
+                path={routes.formLogin}
+                element={<FormLogin title="Form Login" />}
+            />
+            <Route
+                exact
+                path={routes.formRegister}
+                element={<FormRegister title="Form Register" />}
+            />
+            <Route
+                exact
+                path={routes.taskGame.main}
+                element={<TaskGame title="Task Game" />}
+            />
+            <Route
+                exact
+                path={routes.taskGame.info}
+                element={<TaskInfo title="Task Game Info" />}
+            />
+            <Route
+                exact
+                path={routes.musicFromSex}
+                element={<MusicPage title="Music" />}
+            />
+            <Route
+                exact
+                path={routes.blogs.main}
+                element={<BlogsPage title="Blogs" />}
+            />
+            <Route
+                exact
+                path={routes.blogs.article}
+                element={<ArticlePage title="Article" />}
+            />
+            <Route
+                exact
+                path={routes.notFound}
+                element={<NotFound title="Not Found" />}
+            />
+        </Routes>
     );
 };
 

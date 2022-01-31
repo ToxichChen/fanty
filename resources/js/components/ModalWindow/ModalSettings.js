@@ -1,24 +1,27 @@
-import React from "react";
 import {
-    StylModalSettings,
-    StylBtnCardSettings,
-    StylTitleModalSettings,
+    StylWrapperAllSettings,
+    StylWrapperCenterContent,
     StylVipStatusModal,
+    StylOptionsAddedWrapper,
+    StylBtnCardSettings,
+} from "./../SettingsGame/SettingsGame.styled";
+import {
     StylVipText,
     StylBtnVip,
+} from "./../SettingsGame/VipStatusSettings/SettingsGameVipStatus.styled";
+import {
+    StylModalSettings,
+    StylTitleModalSettings,
     StylBtnSaveAndClose,
-    StylOptionsAddedWrapper,
-    StylWrapperAllSettings,
     StylImgModal,
     StylTextModal,
-    StylWrapperCenterContent,
-} from "..";
+} from "./ModalSettings.styled";
 
 import iconManSVG from "./../../assets/icons/icon-man.svg";
 import iconGirlSVG from "./../../assets/icons/icon-girl.svg";
 
 import Checkbox from "../SettingsGame/CheckBox/CheckBox";
-import { RadioBox } from "./../SettingsGame/RadioBox";
+import RadioBox from "./../SettingsGame/RadioBox/RadioBox";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
 const ModalSettings = ({ visible, switchVisible, item }) => {

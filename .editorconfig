@@ -1,4 +1,5 @@
 root = true
+NODE_ENV = "development"
 
 [*]
 charset = utf-8

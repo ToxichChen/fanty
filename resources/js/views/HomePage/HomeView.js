@@ -1,18 +1,19 @@
-import React, { useEffect } from 'react';
-import { HeaderPageHome, FooterPageHome, IntroCard } from '../../components';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import HeaderPageHome from "./../../components/PageHome/HeaderPageHome/HeaderPageHome";
+import FooterPageHome from "./../../components/PageHome/FooterPageHome/FooterPageHome";
+import IntroCard from "./../../components/PageHome/IntroPageHome/IntroPageHome";
 
 const HomeView = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return (
-    <>
-      <HeaderPageHome />
-      <IntroCard />
-      <FooterPageHome />
-    </>
-  );
+    return (
+        <>
+            <HeaderPageHome />
+            <IntroCard />
+            <FooterPageHome />
+        </>
+    );
 };
 
 export default HomeView;

@@ -8,7 +8,7 @@ const sliderDataArr = [
         text: "Dying Light — компьютерная игра в жанре survival horror и action-adventure от первого лица с открытым миром, разработанная польской студией Techland и изданная Warner Bros. Interactive Entertainment в 2015 году для PlayStation 4, Xbox One, Microsoft Windows и Linux.",
         img: bgImage1,
         counter: "01.",
-        pageUrl: "/taskGame/info/1",
+        pageUrl: "/taskGame/info",
     },
     {
         id: 2,
@@ -17,7 +17,7 @@ const sliderDataArr = [
 
         img: bgImage2,
         counter: "02.",
-        pageUrl: "/taskGame/info/2",
+        pageUrl: "/taskGame/info",
     },
 ];
 
@@ -106,45 +106,11 @@ const dataPostFeatureArr = [
     },
 ];
 
-const dataOptionsList = [
-    {
-        id: 1,
-        title: "Основные настройки",
-        vip: true,
-        addOption: [
-            { title: "Стандартный набор", check: false },
-            { title: "По умолчанию", check: false },
-            { title: "Своя настройка", check: false },
-        ],
-    },
-    {
-        id: 2,
-        title: "Классический секс",
-        vip: true,
-        addOption: [
-            { title: "Стандартный набор", check: false },
-            { title: "По умолчанию", check: false },
-            { title: "Своя настройка", check: false },
-        ],
-    },
-    {
-        id: 3,
-        title: "Окончание",
-        vip: "false",
-        addOption: [
-            { title: "Стандартный набор", check: false },
-            { title: "По умолчанию", check: false },
-            { title: "Своя настройка", check: false },
-        ],
-    },
-];
-
 const dataCardGameArr = [
     {
         id: 1,
         data: "11.11.18 / in",
         link: "Games",
-        linkUrl: "/taskGame/info/1",
         title: "The best online game is out now!",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
         btnText: "Read More",
@@ -153,7 +119,6 @@ const dataCardGameArr = [
         id: 2,
         data: "11.11.18 / in",
         link: "Playstation",
-        linkUrl: "/taskGame/info/2",
         title: "Top 5 best games in november",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
         btnText: "Read More",
@@ -163,154 +128,10 @@ const dataCardGameArr = [
         id: 3,
         data: "11.11.18 / in",
         link: "Reviews",
-        linkUrl: "/taskGame/info/3",
         title: "Get this game at a promo price",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
         btnText: "Read More",
     },
-];
-
-const ListOptionArr = [
-    {
-        id: 1,
-        title: "Основные настройки ",
-        vip: true,
-        sexDifference: true,
-        optionsBasic: [
-            { title: "По умолчанию", checked: true, value: "1a" },
-            { title: "Своя настройка", checked: false, value: "2a" },
-            { title: "Включить всё", checked: false, value: "3a" },
-        ],
-        optionsUserMan: [
-            {
-                title: "Для современных телефонов",
-                vip: false,
-                check: false,
-                text: "Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-            {
-                title: "Задания без текста",
-                vip: true,
-                check: true,
-                text: "Показывать задания только с изображениями(без текста).",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-            {
-                title: "Только картинки(без текста)",
-                vip: true,
-                check: true,
-                text: "Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-            {
-                title: "Смена фона",
-                vip: true,
-                check: true,
-                text: "При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-            {
-                title: "Не повторять задания",
-                vip: true,
-                check: "a",
-                text: "Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-        ],
-        optionsUserWoman: [
-            {
-                title: "Наказания за пропуск",
-                vip: true,
-                check: true,
-                text: "В случае пропуска нескольких фантов игрок получает наказание",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-            {
-                title: "Отложенные задания",
-                vip: true,
-                check: true,
-                text: "Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).",
-                description:
-                    "hahahahahahaha asdad czxczcaas d asdqwe asd asdzxc asd ad",
-            },
-        ],
-    },
-    {
-        id: 2,
-        title: "Основные настройки ",
-        vip: true,
-        sexDifference: false,
-        optionsBasic: [
-            { title: "По умолчанию", checked: true, value: "4a" },
-            { title: "Своя настройка", checked: false, value: "5a" },
-            { title: "Включить всё", checked: false, value: "6a" },
-        ],
-        optionsUserMan: [
-            {
-                idCheckbox: "ax",
-                vip: true,
-                title: "Для современных телефонов",
-                check: true,
-                text: "Добавляет элементы дизайна(размытый фон, мерцания кнопок), но может тормозить на некоторых устройствах.",
-            },
-            {
-                idCheckbox: "qw",
-                vip: true,
-                title: "Задания без текста",
-                check: true,
-                text: "Показывать задания только с изображениями(без текста).",
-            },
-            {
-                idCheckbox: "sd",
-                vip: true,
-                title: "Только картинки(без текста)",
-                check: true,
-                text: "Задания без текста. Вы должны проявить фантазию и воспроизвести то, что видите на картинке.",
-            },
-            {
-                idCheckbox: "xc",
-                vip: true,
-                title: "Смена фона",
-                check: true,
-                text: "При включении фоны в игре меняются при каждом новом задании(не работает при игре без обновления страницы).",
-            },
-            {
-                idCheckbox: "vf",
-                vip: true,
-                title: "Не повторять задания",
-                check: "a",
-                text: "Если Вы уже играли в игру и включили данную опцию, то задания из предыдущих игр не будут выпадать(при условии, что достаточно новых заданий).",
-            },
-        ],
-        optionsUserWoman: [
-            {
-                idCheckbox: "xg",
-                vip: true,
-                title: "Наказания за пропуск",
-                check: true,
-                text: "В случае пропуска нескольких фантов игрок получает наказание",
-            },
-            {
-                idCheckbox: "fd",
-                vip: true,
-                title: "Отложенные задания",
-                check: true,
-                text: "Задания, которые не нужно выполнять непосредственно в игре. Их предстоит выполнить после игры(обычно в течении нескольких дней).",
-            },
-        ],
-    },
-];
-
-const players = [
-    { name: "Alex", gender: "man" },
-    { name: "Alyona", gender: "female" },
 ];
 
 const musicPlayer = {
@@ -441,10 +262,7 @@ export {
     linkFollowsArr,
     dataPostArr,
     dataPostFeatureArr,
-    dataOptionsList,
     dataCardGameArr,
-    ListOptionArr,
-    players,
     musicPlayer,
     blogTrendsArr,
 };

@@ -1,17 +1,16 @@
-import React, { useEffect } from 'react';
-import { SettingsGame, SettingsGameVipStatus } from '../../components';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import SettingsGame from "./../../components/SettingsGame/SettingsGame";
+import SettingsGameVipStatus from "./../../components/SettingsGame/VipStatusSettings/SettingsGameVipStatus";
 
 const SettingsGameView = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
-
-  return (
-    <>
-      <SettingsGameVipStatus vip={false} />
-      <SettingsGame />
-    </>
-  );
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
+    return (
+        <>
+            <SettingsGameVipStatus vip={false} />
+            <SettingsGame />
+        </>
+    );
 };
 
 export default SettingsGameView;

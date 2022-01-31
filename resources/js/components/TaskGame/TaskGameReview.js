@@ -1,39 +1,39 @@
-import { useState } from 'react';
-import useActionsWithRedux from '../../hooks/useActionsWithRedux';
-import { StylBoxReview, BtnReview } from './../index';
+import { useState } from "react";
+import { StylBoxReview, BtnReview } from "./TaskGamePage.styled";
+import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import {
-  activeFantyDisLikeFanty,
-  activeFantyLikeFanty,
-} from './../../redux/activeFantyFeatures/activeFantyFeaturesOperation';
+    activeFantyDisLikeFanty,
+    activeFantyLikeFanty,
+} from "./../../redux/activeFantyFeatures/activeFantyFeaturesOperation";
 
 const TaskGameReview = ({ id }) => {
-  const [isChooseUser, setChooseUser] = useState(false);
-  const { likesFanty, disLikesFanty } = useActionsWithRedux();
+    const [isChooseUser, setChooseUser] = useState(false);
+    const { likesFanty, disLikesFanty } = useActionsWithRedux();
 
-  const selectUser = (state) => {
-    setChooseUser(true);
+    const selectUser = (state) => {
+        setChooseUser(true);
 
-    state === 1 ? activeFantyLikeFanty(id) : activeFantyDisLikeFanty(id);
-  };
+        state === 1 ? activeFantyLikeFanty(id) : activeFantyDisLikeFanty(id);
+    };
 
-  return (
-    <StylBoxReview>
-      <BtnReview
-        type='button'
-        onClick={() => selectUser(1)}
-        isClick={isChooseUser}
-      >
-        <i className='far fa-thumbs-up' />: {likesFanty}
-      </BtnReview>
-      <BtnReview
-        type='button'
-        onClick={() => selectUser(0)}
-        isClick={isChooseUser}
-      >
-        <i className='far fa-thumbs-down' />: {disLikesFanty}
-      </BtnReview>
-    </StylBoxReview>
-  );
+    return (
+        <StylBoxReview>
+            <BtnReview
+                type="button"
+                onClick={() => selectUser(1)}
+                isClick={isChooseUser}
+            >
+                <i className="far fa-thumbs-up" />: {likesFanty}
+            </BtnReview>
+            <BtnReview
+                type="button"
+                onClick={() => selectUser(0)}
+                isClick={isChooseUser}
+            >
+                <i className="far fa-thumbs-down" />: {disLikesFanty}
+            </BtnReview>
+        </StylBoxReview>
+    );
 };
 
 export default TaskGameReview;

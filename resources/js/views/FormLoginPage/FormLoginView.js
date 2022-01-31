@@ -1,16 +1,15 @@
-import React, { useEffect } from 'react';
-import { FormLogin } from '../../components';
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import FormLogin from "../../components/FormLogin/FormLogin";
 
 const FormLoginView = ({ title }) => {
-  useEffect(() => {
-    document.title = title || '';
-  }, [title]);
+    const { ChangeTitlePage } = useChangeTitlePage();
+    ChangeTitlePage(title);
 
-  return (
-    <>
-      <FormLogin />
-    </>
-  );
+    return (
+        <>
+            <FormLogin />
+        </>
+    );
 };
 
 export default FormLoginView;

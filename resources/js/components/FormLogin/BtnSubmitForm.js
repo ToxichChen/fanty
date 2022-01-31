@@ -1,16 +1,16 @@
-import React from 'react';
-import { StylBtnSubmitForm, StylLineBorder } from './../index';
+import React from "react";
+import { StylBtnSubmitForm, StylLineBorder } from "./FormLogin.styled";
 
 const BtnSubmitForm = () => {
-  return (
-    <StylBtnSubmitForm type='submit'>
-      Отправить
-      <StylLineBorder />
-      <StylLineBorder />
-      <StylLineBorder />
-      <StylLineBorder />
-    </StylBtnSubmitForm>
-  );
+    return (
+        <StylBtnSubmitForm type="submit">
+            Отправить
+            <StylLineBorder />
+            <StylLineBorder />
+            <StylLineBorder />
+            <StylLineBorder />
+        </StylBtnSubmitForm>
+    );
 };
 
 export default BtnSubmitForm;

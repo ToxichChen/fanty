@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
+import { SectionTaskGame } from "./../TaskGame/TaskGamePage.styled";
 import {
-    SectionTaskGame,
+    StylBoxFlexStartColumn,
+    StylBoxFooterSettings,
     StylBoxFeaturesGame,
     StylOptionsAddedWrapper,
-    StylBoxFooterSettings,
-    StylBoxFlexStartColumn,
-} from "./../index";
+} from "./../SettingsGame/SettingsGame.styled";
 
 import {
     StylBoxRange,

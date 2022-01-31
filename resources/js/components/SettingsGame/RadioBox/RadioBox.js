@@ -6,7 +6,7 @@ import {
     StylWrapperRadioBtn,
     StylLabelRadio,
 } from "./RadioBox.styled";
-import { StylBoxAddInfoTask, StylBoxInfo } from "../CheckBox";
+import { StylBoxAddInfoTask, StylBoxInfo } from "./../CheckBox/CheckBox.styled";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const RadioBox = ({ item, optionsBasic, subsettings }) => {

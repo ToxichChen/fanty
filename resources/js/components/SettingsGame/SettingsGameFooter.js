@@ -7,7 +7,7 @@ import {
     StylBoxFooterSettings,
     StylBtnFooterSettings,
     StylBtnFooterSettingsComplexity,
-} from "..";
+} from "./SettingsGame.styled";
 import { routes } from "../../Router";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 

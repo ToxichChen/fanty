@@ -1,15 +1,14 @@
 import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
-
+import { StylBoxSettingsGame, BtnMoreSettings } from "./../SettingsGame.styled";
 import {
-    StylBoxSettingsGame,
     StylBtnOpenSetting,
-    BtnMoreSettings,
     StylWrapperSettings,
-    ModalSettings,
-} from "./../../";
-import { RadioBox } from "./../RadioBox";
+} from "./SettingGameOptions.styled";
+
+import ModalSettings from "./../../ModalWindow/ModalSettings";
+import RadioBox from "./../RadioBox/RadioBox";
 import { optionsBasic } from "../../../constants";
 
 const SettingGameOptions = ({ item }) => {

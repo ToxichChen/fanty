@@ -1,24 +1,29 @@
-import React, { useState } from "react";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import SettingGameOptions from "./GameOptions/SettingGameOptions";
+import SettingsGameFooter from "./SettingsGameFooter";
+import { SectionTaskGame } from "./../TaskGame/TaskGamePage.styled";
 import {
-    SectionTaskGame,
     StylBoxFeaturesGame,
-    SettingGameOptions,
     StylWrapperAllSettings,
-    SettingsGameFooter,
     StylBoxSettingsGame,
     StylTitleUserSettings,
     StylInputUserSettings,
     StylWrapperInput,
-} from "./../";
+} from "./SettingsGame.styled";
 
-import { players } from "../../constants";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
-import  MiniLoader  from "../Loader/MiniLoader";
+import MiniLoader from "./../Loader/MiniLoader";
 
 const SettingsGame = () => {
+    const { id } = useParams();
     const [isChangeMan, setChangeMan] = useState("");
     const [isChangeFemale, setChangeFemala] = useState("");
-    const { getAllSettings, loadingSettings } = useActionsWithRedux();
+    const { getAllSettings, loadingSettings, settings } = useActionsWithRedux();
+
+    useEffect(() => {
+        settings(id);
+    }, [id, settings]);
 
     return (
         <SectionTaskGame>
@@ -40,42 +45,31 @@ const SettingsGame = () => {
                         data-aos-duration="2000"
                     >
                         <StylTitleUserSettings>Мужчинa</StylTitleUserSettings>
-                        {players.map(
-                            (item, index) =>
-                                item.gender === "man" && (
-                                    <StylWrapperInput key={index}>
-                                        <i className="fas fa-male"></i>
-                                        <StylInputUserSettings
-                                            type="text"
-                                            onChange={(e) =>
-                                                setChangeMan(e.target.value)
-                                            }
-                                            value={isChangeMan}
-                                        />
-                                    </StylWrapperInput>
-                                )
-                        )}
+
+                        <StylWrapperInput>
+                            <i className="fas fa-male"></i>
+                            <StylInputUserSettings
+                                type="text"
+                                onChange={(e) => setChangeMan(e.target.value)}
+                                value={isChangeMan}
+                            />
+                        </StylWrapperInput>
                     </StylBoxSettingsGame>
                     <StylBoxSettingsGame
                         data-aos="fade-right"
                         data-aos-duration="2000"
                     >
                         <StylTitleUserSettings>Женщинa</StylTitleUserSettings>
-                        {players.map(
-                            (item, index) =>
-                                item.gender === "female" && (
-                                    <StylWrapperInput key={index}>
-                                        <i className="fas fa-female"></i>
-                                        <StylInputUserSettings
-                                            type="text"
-                                            onChange={(e) =>
-                                                setChangeFemala(e.target.value)
-                                            }
-                                            value={isChangeFemale}
-                                        />
-                                    </StylWrapperInput>
-                                )
-                        )}
+                        <StylWrapperInput>
+                            <i className="fas fa-female"></i>
+                            <StylInputUserSettings
+                                type="text"
+                                onChange={(e) =>
+                                    setChangeFemala(e.target.value)
+                                }
+                                value={isChangeFemale}
+                            />
+                        </StylWrapperInput>
                     </StylBoxSettingsGame>
                 </StylWrapperAllSettings>
             </StylBoxFeaturesGame>

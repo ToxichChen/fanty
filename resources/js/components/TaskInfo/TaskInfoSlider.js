@@ -1,13 +1,13 @@
-import React from "react";
+import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+
+import { StylImgDoubleArrow } from "./../common/ImgLogo/ImgLogo.styled";
+import { StylBtnReadMore } from "./../PageHome/HeaderPageHome/SliderCard/SliderCard.styled";
 import {
-    StylBtnReadMore,
-    StylImgDoubleArrow,
     StylTaskInfoSlider,
     StylTaskInfoBoxCenter,
     StylTaskInfoTitle,
     StylTaskInfoDescription,
-    HeaderMenuPageHome,
-} from "./../";
+} from "./TaskInfoSlider.styled";
 import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
 import useActionWithRedux from "./../../hooks/useActionsWithRedux";
 

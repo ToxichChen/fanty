@@ -2,6 +2,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "./../../../../assets/logo.png";
 
+import AddMenuNav from "./../AddMenuNav/AddMenuNav";
+
 import {
     StylBoxMainMenuPageHome,
     StylItemMainNav,
@@ -9,8 +11,7 @@ import {
     StylImgLogo,
     StylBtnMenuNavPageHome,
     StylBoxNavMenuPageHome,
-    AddMenuNav,
-} from "../../../index";
+} from "./HeaderMenu.styled";
 
 import { routes } from "./../../../../Router";
 import useActionsWithRedux from "../../../../hooks/useActionsWithRedux";
