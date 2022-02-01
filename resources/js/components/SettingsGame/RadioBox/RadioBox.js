@@ -10,7 +10,7 @@ import { StylBoxAddInfoTask, StylBoxInfo } from "./../CheckBox/CheckBox.styled";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const RadioBox = ({ item, optionsBasic, subsettings }) => {
-    const { settingsGameTask } = useActionsWithRedux();
+    const { settingsGameTask, profile } = useActionsWithRedux();
     const [isSelect, setSelect] = useState(optionsBasic[0].title);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
 
@@ -25,7 +25,11 @@ const RadioBox = ({ item, optionsBasic, subsettings }) => {
         <form>
             <StylBoxWrapperOptions
                 isVip={
-                    subsettings ? "red" : item.is_premium === 0 ? true : false
+                    subsettings
+                        ? "red"
+                        : item.is_premium === 1 && profile.is_premium === 0
+                        ? false
+                        : true
                 }
             >
                 {optionsBasic.map((elem) => (

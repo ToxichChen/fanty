@@ -12,11 +12,10 @@ import { routes } from "../../Router";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
 const SettingsGameFooter = ({ man, female }) => {
-    const { sendSettingsGame, sendPlayersGame } = useActionsWithRedux();
+    const { sendSettingsGame } = useActionsWithRedux();
 
     const sendDataSettingsGame = () => {
-        sendSettingsGame();
-        sendPlayersGame(man, female);
+        sendSettingsGame(man, female);
     };
 
     useEffect(() => {

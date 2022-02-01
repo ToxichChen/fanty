@@ -1170,7 +1170,7 @@ var TaskInfoSlider = function TaskInfoSlider(_ref) {
   var title = _ref.title,
       description = _ref.description,
       _ref$taskUrl = _ref.taskUrl,
-      taskUrl = _ref$taskUrl === void 0 ? "/settingsGame/1" : _ref$taskUrl;
+      taskUrl = _ref$taskUrl === void 0 ? "/settingsGame" : _ref$taskUrl;
 
   var _useActionWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_5__["default"])(),
       settings = _useActionWithRedux.settings;
@@ -1301,37 +1301,6 @@ var StylImgDoubleArrow = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useChangeTitlePage.js":
-/*!**************************************************!*\
-  !*** ./resources/js/hooks/useChangeTitlePage.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var useChangeTitlePage = function useChangeTitlePage() {
-  var ChangeTitle = function ChangeTitle(_ref) {
-    var title = _ref.title;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      document.title = title;
-    }, [title]);
-  };
-
-  return {
-    ChangeTitle: ChangeTitle
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useChangeTitlePage);
-
-/***/ }),
-
 /***/ "./resources/js/views/TaskInfoPage/TaskInfo.js":
 /*!*****************************************************!*\
   !*** ./resources/js/views/TaskInfoPage/TaskInfo.js ***!
@@ -1343,14 +1312,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../hooks/useChangeTitlePage */ "./resources/js/hooks/useChangeTitlePage.js");
-/* harmony import */ var _components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/PageHome/IntroPageHome/IntroPageHome */ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.js");
-/* harmony import */ var _components_PageHome_FeaturesPageHome_FeaturePageHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../components/PageHome/FeaturesPageHome/FeaturePageHome */ "./resources/js/components/PageHome/FeaturesPageHome/FeaturePageHome.js");
-/* harmony import */ var _components_PageHome_ComplexityHome_ComplexityHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/PageHome/ComplexityHome/ComplexityHome */ "./resources/js/components/PageHome/ComplexityHome/ComplexityHome.js");
-/* harmony import */ var _components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/PageHome/FooterPageHome/FooterPageHome */ "./resources/js/components/PageHome/FooterPageHome/FooterPageHome.js");
-/* harmony import */ var _components_TaskInfo_TaskInfoSlider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../../components/TaskInfo/TaskInfoSlider */ "./resources/js/components/TaskInfo/TaskInfoSlider.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/PageHome/IntroPageHome/IntroPageHome */ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.js");
+/* harmony import */ var _components_PageHome_FeaturesPageHome_FeaturePageHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/PageHome/FeaturesPageHome/FeaturePageHome */ "./resources/js/components/PageHome/FeaturesPageHome/FeaturePageHome.js");
+/* harmony import */ var _components_PageHome_ComplexityHome_ComplexityHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../components/PageHome/ComplexityHome/ComplexityHome */ "./resources/js/components/PageHome/ComplexityHome/ComplexityHome.js");
+/* harmony import */ var _components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../components/PageHome/FooterPageHome/FooterPageHome */ "./resources/js/components/PageHome/FooterPageHome/FooterPageHome.js");
+/* harmony import */ var _components_TaskInfo_TaskInfoSlider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../components/TaskInfo/TaskInfoSlider */ "./resources/js/components/TaskInfo/TaskInfoSlider.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -1362,16 +1329,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var TaskInfo = function TaskInfo(_ref) {
   var title = _ref.title;
-
-  var _useChangeTitlePage = (0,_hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-      ChangeTitlePage = _useChangeTitlePage.ChangeTitlePage;
-
-  ChangeTitlePage(title);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_TaskInfo_TaskInfoSlider__WEBPACK_IMPORTED_MODULE_5__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_TaskInfo_TaskInfoSlider__WEBPACK_IMPORTED_MODULE_4__["default"], {
       title: "Sex fanty",
       description: "Не каждый отваживается на использование специальных устройств во время полового контакта. "
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PageHome_FeaturesPageHome_FeaturePageHome__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PageHome_ComplexityHome_ComplexityHome__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_PageHome_FeaturesPageHome_FeaturePageHome__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_PageHome_ComplexityHome_ComplexityHome__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 };
 

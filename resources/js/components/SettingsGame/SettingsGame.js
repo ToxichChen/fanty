@@ -1,4 +1,3 @@
-import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import SettingGameOptions from "./GameOptions/SettingGameOptions";
 import SettingsGameFooter from "./SettingsGameFooter";
@@ -16,14 +15,13 @@ import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import MiniLoader from "./../Loader/MiniLoader";
 
 const SettingsGame = () => {
-    const { id } = useParams();
     const [isChangeMan, setChangeMan] = useState("");
     const [isChangeFemale, setChangeFemala] = useState("");
     const { getAllSettings, loadingSettings, settings } = useActionsWithRedux();
 
     useEffect(() => {
-        settings(id);
-    }, [id, settings]);
+        settings();
+    }, [settings]);
 
     return (
         <SectionTaskGame>

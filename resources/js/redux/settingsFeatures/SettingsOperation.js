@@ -16,11 +16,11 @@ const token = {
     },
 };
 
-const getSettings = (credentials) => async (dispatch) => {
+const getSettings = () => async (dispatch) => {
     dispatch(settingsRequest());
 
     try {
-        const { data } = await axios.get("/settings/get", credentials);
+        const { data } = await axios.get("/settings/get");
 
         token.set(data.access_token);
         dispatch(settingsSuccess([data]));
@@ -37,9 +37,12 @@ const postSettingsCountTask = (credentials) => async (dispatch) => {
     }
 };
 
-const postSettingsGame = (credentials) => async (dispatch) => {
+const postSettingsGame = (settingsGame, man, female) => async (dispatch) => {
     try {
-        await axios.post("/settings/send", credentials);
+        await axios.post("/settings/send", [
+            settingsGame,
+            { is_man: man, is_female: female },
+        ]);
     } catch (error) {
         dispatch(settingsError(error.message));
     }

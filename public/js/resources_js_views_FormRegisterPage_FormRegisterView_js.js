@@ -2646,37 +2646,6 @@ var FormRegistration = function FormRegistration() {
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useChangeTitlePage.js":
-/*!**************************************************!*\
-  !*** ./resources/js/hooks/useChangeTitlePage.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var useChangeTitlePage = function useChangeTitlePage() {
-  var ChangeTitle = function ChangeTitle(_ref) {
-    var title = _ref.title;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      document.title = title;
-    }, [title]);
-  };
-
-  return {
-    ChangeTitle: ChangeTitle
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useChangeTitlePage);
-
-/***/ }),
-
 /***/ "./resources/js/views/FormRegisterPage/FormRegisterView.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/views/FormRegisterPage/FormRegisterView.js ***!
@@ -2688,23 +2657,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../hooks/useChangeTitlePage */ "./resources/js/hooks/useChangeTitlePage.js");
-/* harmony import */ var _components_FormRegistration_FormRegistration__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../components/FormRegistration/FormRegistration */ "./resources/js/components/FormRegistration/FormRegistration.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_FormRegistration_FormRegistration__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../components/FormRegistration/FormRegistration */ "./resources/js/components/FormRegistration/FormRegistration.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
 var FormRegisterView = function FormRegisterView(_ref) {
   var title = _ref.title;
-
-  var _useChangeTitlePage = (0,_hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-      ChangeTitlePage = _useChangeTitlePage.ChangeTitlePage;
-
-  ChangeTitlePage(title);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_FormRegistration_FormRegistration__WEBPACK_IMPORTED_MODULE_1__["default"], {})
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_FormRegistration_FormRegistration__WEBPACK_IMPORTED_MODULE_0__["default"], {})
   });
 };
 

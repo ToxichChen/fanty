@@ -19708,7 +19708,7 @@ __webpack_require__.r(__webpack_exports__);
 var routes = {
   home: "/",
   settingsGame: {
-    main: "/settingsGame/:id",
+    main: "/settingsGame",
     complexity: "/settingsGame/complexity"
   },
   blogs: {
@@ -19718,8 +19718,8 @@ var routes = {
   formLogin: "/formLogin",
   formRegister: "/formRegister",
   taskGame: {
-    main: "/taskGame/:id",
-    info: "/taskGame/info/:id"
+    main: "/taskGame/task/:id",
+    info: "/taskGame/info"
   },
   musicFromSex: "/musicForSex",
   profileUser: "/profileUser",
@@ -19758,71 +19758,67 @@ var BlogsPage = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(functio
 var ArticlePage = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_views_BlogsPage_Article_ArticleView_js").then(__webpack_require__.bind(__webpack_require__, /*! ./views/BlogsPage/Article/ArticleView */ "./resources/js/views/BlogsPage/Article/ArticleView.js"));
 });
+var LayoutProfile = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_hoc_LayoutProfile_js").then(__webpack_require__.bind(__webpack_require__, /*! ./hoc/LayoutProfile */ "./resources/js/hoc/LayoutProfile.js"));
+});
 
 var Router = function Router() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.home,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(Home, {
-        title: "Home"
+        title: "Home page"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.settingsGame.complexity,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGameComplexity, {
         title: "Settings Game Complexity"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.settingsGame.main,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGame, {
         title: "Settings Game"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.formLogin,
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(FormLogin, {
-        title: "Form Login"
+      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(LayoutProfile, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(FormLogin, {
+          title: "Form Login"
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.formRegister,
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(FormRegister, {
-        title: "Form Register"
+      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(LayoutProfile, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(FormRegister, {
+          title: "Form Register"
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.taskGame.main,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TaskGame, {
         title: "Task Game"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.taskGame.info,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(TaskInfo, {
         title: "Task Game Info"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.musicFromSex,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(MusicPage, {
         title: "Music"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.blogs.main,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(BlogsPage, {
         title: "Blogs"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.blogs.article,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ArticlePage, {
         title: "Article"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
-      exact: true,
       path: routes.notFound,
       element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(NotFound, {
         title: "Not Found"
@@ -20490,7 +20486,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _redux_formFeatures_formFeaturesOperation__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../redux/formFeatures/formFeaturesOperation */ "./resources/js/redux/formFeatures/formFeaturesOperation.js");
 /* harmony import */ var _redux_alertFeatures_AlertActions__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../redux/alertFeatures/AlertActions */ "./resources/js/redux/alertFeatures/AlertActions.js");
 /* harmony import */ var _redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../redux/settingsFeatures/SettingsOperation */ "./resources/js/redux/settingsFeatures/SettingsOperation.js");
-/* harmony import */ var _redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/settingsFeatures/SettingsAction */ "./resources/js/redux/settingsFeatures/SettingsAction.js");
+/* harmony import */ var _redux_activeFantyFeatures_activeFantyFeaturesOperation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../redux/activeFantyFeatures/activeFantyFeaturesOperation */ "./resources/js/redux/activeFantyFeatures/activeFantyFeaturesOperation.js");
+/* harmony import */ var _redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../redux/settingsFeatures/SettingsAction */ "./resources/js/redux/settingsFeatures/SettingsAction.js");
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -20502,6 +20499,7 @@ function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symb
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
 
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 
 
 
@@ -20522,7 +20520,10 @@ function useActionsWithRedux() {
     return state.settings.isLoadingSettings;
   });
   var profile = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
-    return state.authForm.user;
+    return state.authForm.user.response;
+  });
+  var premium = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
+    return state.authForm.user.response.is_premium;
   });
   var alertMessage = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.alertMessage;
@@ -20535,6 +20536,9 @@ function useActionsWithRedux() {
   });
   var disLikesFanty = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.activeFanty.fanty.disLikes;
+  });
+  var isLoadingFanty = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
+    return state.activeFanty.isLoadingFanty;
   });
   var showMiniPlayer = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.musicData.miniPlayer;
@@ -20572,8 +20576,8 @@ function useActionsWithRedux() {
   var settings = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
     dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.getSettings)());
   }, [dispatch]);
-  var settingsCountTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
-    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsCountTask)());
+  var settingsCountTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
+    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsCountTask)(data));
   }, [dispatch]);
   var settingsGameTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
     var newArr = _toConsumableArray(settingsGame);
@@ -20586,16 +20590,15 @@ function useActionsWithRedux() {
       newArr.push(data.id);
     }
 
-    dispatch((0,_redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_5__.settingsGameData)(newArr));
+    dispatch((0,_redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_6__.settingsGameData)(newArr));
   }, [dispatch, settingsGame]);
-  var sendSettingsGame = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function () {
-    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsGame)(settingsGame));
+  var sendSettingsGame = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (man, female) {
+    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsGame)(settingsGame, man, female));
   }, [dispatch, settingsGame]);
-  var sendPlayersGame = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
-    dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postPlayersGame)(data));
+  var getFant = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (obj, setFant) {
+    dispatch((0,_redux_activeFantyFeatures_activeFantyFeaturesOperation__WEBPACK_IMPORTED_MODULE_5__.getActiveFanty)(obj, setFant));
   }, [dispatch]);
   return {
-    sendPlayersGame: sendPlayersGame,
     settingsGameTask: settingsGameTask,
     alertHidden: alertHidden,
     NotifySuccess: NotifySuccess,
@@ -20605,6 +20608,8 @@ function useActionsWithRedux() {
     registerUser: registerUser,
     userLogout: userLogout,
     settingsCountTask: settingsCountTask,
+    getFant: getFant,
+    sendSettingsGame: sendSettingsGame,
     alertMessage: alertMessage,
     getAllSettings: getAllSettings,
     profile: profile,
@@ -20614,7 +20619,8 @@ function useActionsWithRedux() {
     showMiniPlayer: showMiniPlayer,
     loadingSettings: loadingSettings,
     settingsGame: settingsGame,
-    sendSettingsGame: sendSettingsGame
+    isLoadingFanty: isLoadingFanty,
+    premium: premium
   };
 }
 
@@ -20668,6 +20674,169 @@ var fantyError = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_0__.createAction)(
 
 /***/ }),
 
+/***/ "./resources/js/redux/activeFantyFeatures/activeFantyFeaturesOperation.js":
+/*!********************************************************************************!*\
+  !*** ./resources/js/redux/activeFantyFeatures/activeFantyFeaturesOperation.js ***!
+  \********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "activeFantyLikeFanty": () => (/* binding */ activeFantyLikeFanty),
+/* harmony export */   "activeFantyDisLikeFanty": () => (/* binding */ activeFantyDisLikeFanty),
+/* harmony export */   "getActiveFanty": () => (/* binding */ getActiveFanty)
+/* harmony export */ });
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./activeFantyFeaturesActions */ "./resources/js/redux/activeFantyFeatures/activeFantyFeaturesActions.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
+
+(axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.baseURL) = "http://localhost/api";
+var token = {
+  set: function set(tok) {
+    (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "".concat(tok);
+  },
+  unset: function unset() {
+    (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "";
+  }
+};
+
+var getActiveFanty = function getActiveFanty(obj, setFant) {
+  return /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(dispatch) {
+      var _yield$axios$post, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantyRequest)());
+              _context.prev = 1;
+              _context.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/fant/generate", obj);
+
+            case 4:
+              _yield$axios$post = _context.sent;
+              data = _yield$axios$post.data;
+              token.set(data.access_token);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantySuccess)(data));
+              console.log(data);
+              setFant(data);
+              _context.next = 15;
+              break;
+
+            case 12:
+              _context.prev = 12;
+              _context.t0 = _context["catch"](1);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantyError)(_context.t0.message));
+
+            case 15:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee, null, [[1, 12]]);
+    }));
+
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+};
+
+var activeFantyLikeFanty = function activeFantyLikeFanty(credentials) {
+  return /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2(dispatch) {
+      var _yield$axios$post2, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              _context2.prev = 0;
+              _context2.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("", credentials);
+
+            case 3:
+              _yield$axios$post2 = _context2.sent;
+              data = _yield$axios$post2.data;
+              token.set(data.access_token);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantySuccess)(data));
+              _context2.next = 12;
+              break;
+
+            case 9:
+              _context2.prev = 9;
+              _context2.t0 = _context2["catch"](0);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantyError)(_context2.t0.message));
+
+            case 12:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2, null, [[0, 9]]);
+    }));
+
+    return function (_x2) {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+};
+
+var activeFantyDisLikeFanty = function activeFantyDisLikeFanty(credentials) {
+  return /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(dispatch) {
+      var _yield$axios$post3, data;
+
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.prev = 0;
+              _context3.next = 3;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("", credentials);
+
+            case 3:
+              _yield$axios$post3 = _context3.sent;
+              data = _yield$axios$post3.data;
+              token.set(data.access_token);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantySuccess)(data));
+              _context3.next = 12;
+              break;
+
+            case 9:
+              _context3.prev = 9;
+              _context3.t0 = _context3["catch"](0);
+              dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantyError)(_context3.t0.message));
+
+            case 12:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3, null, [[0, 9]]);
+    }));
+
+    return function (_x3) {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+};
+
+
+
+/***/ }),
+
 /***/ "./resources/js/redux/activeFantyFeatures/activeFantyFeaturesReducer.js":
 /*!******************************************************************************!*\
   !*** ./resources/js/redux/activeFantyFeatures/activeFantyFeaturesReducer.js ***!
@@ -20682,6 +20851,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @reduxjs/toolkit */ "./node_modules/@reduxjs/toolkit/dist/redux-toolkit.esm.js");
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
 /* harmony import */ var _activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./activeFantyFeaturesActions */ "./resources/js/redux/activeFantyFeatures/activeFantyFeaturesActions.js");
+var _createReducer3;
+
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -20702,9 +20873,15 @@ var activeFantyError = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createRe
   var payload = _ref2.payload;
   return payload;
 }));
+var isLoadingFanty = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(false, (_createReducer3 = {}, _defineProperty(_createReducer3, _activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.fantyRequest.type, function () {
+  return true;
+}), _defineProperty(_createReducer3, _activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.fantySuccess.type, function () {
+  return false;
+}), _createReducer3));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
   fanty: fanty,
-  activeFantyError: activeFantyError
+  activeFantyError: activeFantyError,
+  isLoadingFanty: isLoadingFanty
 }));
 
 /***/ }),
@@ -21102,7 +21279,11 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 
-var user = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)({}, _defineProperty({}, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.getUserProfileSuccess, function (_, _ref) {
+var user = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)({
+  response: {
+    is_premium: 0
+  }
+}, _defineProperty({}, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.getUserProfileSuccess, function (_, _ref) {
   var payload = _ref.payload;
   return _objectSpread({}, payload);
 }));
@@ -21279,7 +21460,7 @@ var token = {
   }
 };
 
-var getSettings = function getSettings(credentials) {
+var getSettings = function getSettings() {
   return /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(dispatch) {
       var _yield$axios$get, data;
@@ -21291,7 +21472,7 @@ var getSettings = function getSettings(credentials) {
               dispatch((0,_SettingsAction__WEBPACK_IMPORTED_MODULE_2__.settingsRequest)());
               _context.prev = 1;
               _context.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get", credentials);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/settings/get");
 
             case 4:
               _yield$axios$get = _context.sent;
@@ -21354,7 +21535,7 @@ var postSettingsCountTask = function postSettingsCountTask(credentials) {
   }();
 };
 
-var postSettingsGame = function postSettingsGame(credentials) {
+var postSettingsGame = function postSettingsGame(settingsGame, man, female) {
   return /*#__PURE__*/function () {
     var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3(dispatch) {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
@@ -21363,7 +21544,10 @@ var postSettingsGame = function postSettingsGame(credentials) {
             case 0:
               _context3.prev = 0;
               _context3.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/settings/send", credentials);
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post("/settings/send", [settingsGame, {
+                is_man: man,
+                is_female: female
+              }]);
 
             case 3:
               _context3.next = 8;
@@ -80820,7 +81004,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_HomePage_HomeView_js":1,"resources_js_views_FormLoginPage_FormLoginView_js":1,"resources_js_views_FormRegisterPage_FormRegisterView_js":1,"resources_js_views_TaskGamePage_TaskGameView_js":1,"resources_js_views_NotFoundPage_NotFoundPageView_js":1,"resources_js_views_SettingsGamePage_SettingsGameView_js":1,"resources_js_views_SettingsGameComplexityPage_SettingsGameComplexityView_js":1,"resources_js_views_TaskInfoPage_TaskInfo_js":1,"resources_js_views_MusicPage_MusicPage_js":1,"resources_js_views_BlogsPage_BlogsView_js":1,"resources_js_views_BlogsPage_Article_ArticleView_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_HomePage_HomeView_js":1,"resources_js_views_FormLoginPage_FormLoginView_js":1,"resources_js_views_FormRegisterPage_FormRegisterView_js":1,"resources_js_views_TaskGamePage_TaskGameView_js":1,"resources_js_views_NotFoundPage_NotFoundPageView_js":1,"resources_js_views_SettingsGamePage_SettingsGameView_js":1,"resources_js_views_SettingsGameComplexityPage_SettingsGameComplexityView_js":1,"resources_js_views_TaskInfoPage_TaskInfo_js":1,"resources_js_views_MusicPage_MusicPage_js":1,"resources_js_views_BlogsPage_BlogsView_js":1,"resources_js_views_BlogsPage_Article_ArticleView_js":1,"resources_js_hoc_LayoutProfile_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

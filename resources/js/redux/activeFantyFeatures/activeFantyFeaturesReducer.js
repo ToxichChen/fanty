@@ -1,22 +1,32 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
 
-import { fantySuccess, fantyError } from './activeFantyFeaturesActions';
+import {
+    fantySuccess,
+    fantyRequest,
+    fantyError,
+} from "./activeFantyFeaturesActions";
 
 const fanty = createReducer(
-  { likes: 0, disLikes: 0 },
-  {
-    [fantySuccess]: (_, { payload }) => ({
-      ...payload,
-    }),
-  }
+    { likes: 0, disLikes: 0 },
+    {
+        [fantySuccess]: (_, { payload }) => ({
+            ...payload,
+        }),
+    }
 );
 
 const activeFantyError = createReducer(null, {
-  [fantyError]: (_, { payload }) => payload,
+    [fantyError]: (_, { payload }) => payload,
+});
+
+const isLoadingFanty = createReducer(false, {
+    [fantyRequest.type]: () => true,
+    [fantySuccess.type]: () => false,
 });
 
 export default combineReducers({
-  fanty,
-  activeFantyError,
+    fanty,
+    activeFantyError,
+    isLoadingFanty,
 });

@@ -69,9 +69,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _assets_icons_icon_girl_svg__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./../../assets/icons/icon-girl.svg */ "./resources/js/assets/icons/icon-girl.svg");
 /* harmony import */ var _SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../SettingsGame/CheckBox/CheckBox */ "./resources/js/components/SettingsGame/CheckBox/CheckBox.js");
 /* harmony import */ var _SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../SettingsGame/RadioBox/RadioBox */ "./resources/js/components/SettingsGame/RadioBox/RadioBox.js");
-/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -85,77 +83,74 @@ __webpack_require__.r(__webpack_exports__);
 var ModalSettings = function ModalSettings(_ref) {
   var visible = _ref.visible,
       switchVisible = _ref.switchVisible,
-      item = _ref.item;
-
-  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_7__["default"])(),
-      profile = _useActionsWithRedux.profile;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylModalSettings, {
+      item = _ref.item,
+      vip = _ref.vip;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylModalSettings, {
     isVisible: visible,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylBtnCardSettings, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylBtnCardSettings, {
       type: "button",
       onClick: switchVisible,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
         className: "fas fa-times"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTitleModalSettings, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTitleModalSettings, {
       children: item.title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylVipStatusModal, {
-      isVip: false,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_VipStatusSettings_SettingsGameVipStatus_styled__WEBPACK_IMPORTED_MODULE_1__.StylVipText, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylVipStatusModal, {
+      isVip: vip,
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_VipStatusSettings_SettingsGameVipStatus_styled__WEBPACK_IMPORTED_MODULE_1__.StylVipText, {
         isLowWidth: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("b", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("b", {
           children: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438 \u0437\u0430\u0431\u043B\u043E\u043A\u0438\u0440\u043E\u0432\u0430\u043D\u044B "
         }), " \u0438 \u0431\u0443\u0434\u0443\u0442 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u044B \u0432 \u043F\u043E\u043B\u043D\u043E\u0439 \u0432\u0435\u0440\u0441\u0438\u0438 \u0438\u0433\u0440\u044B."]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_VipStatusSettings_SettingsGameVipStatus_styled__WEBPACK_IMPORTED_MODULE_1__.StylBtnVip, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_VipStatusSettings_SettingsGameVipStatus_styled__WEBPACK_IMPORTED_MODULE_1__.StylBtnVip, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
           className: "fas fa-gem"
         }), " \u041F\u043E\u043B\u043D\u0430\u044F \u0432\u0435\u0440\u0441\u0438\u044F \u043E\u0442 159 \u0440\u0443\u0431"]
       })]
-    }), item.has_sex_difference ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
+    }), item.has_sex_difference ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
       isColumn: true,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperCenterContent, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylImgModal, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperCenterContent, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylImgModal, {
             src: _assets_icons_icon_man_svg__WEBPACK_IMPORTED_MODULE_3__["default"],
             alt: "man"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTextModal, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTextModal, {
             children: "\u041C\u0443\u0436\u0447\u0438\u043D\u0430"
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperCenterContent, {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylImgModal, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperCenterContent, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylImgModal, {
             src: _assets_icons_icon_girl_svg__WEBPACK_IMPORTED_MODULE_4__["default"],
             alt: "girl"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTextModal, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylTextModal, {
             children: "\u0416\u0435\u043D\u0449\u0438\u043D\u0430"
           })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
-          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
+          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
             item: item,
             optionsBasic: item.subsettings,
-            subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+            subsettings: item.is_premium === 1 && vip === 0
           }) : item.subsettings.map(function (elem, index) {
             if (elem.sex === 1) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 elem: elem,
-                premium: item.is_premium === 1 && profile.response.is_premium === 0
+                premium: item.is_premium === 1 && vip === 0
               }, index);
             }
 
             return false;
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
-          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
+          children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
             item: item,
             optionsBasic: item.subsettings,
-            subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+            subsettings: item.is_premium === 1 && vip === 0
           }) : item.subsettings.map(function (elem, index) {
             if (elem.sex === 2) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
                 elem: elem,
-                premium: item.is_premium === 1 && profile.response.is_premium === 0
+                premium: item.is_premium === 1 && vip === 0
               }, index);
             }
 
@@ -163,21 +158,21 @@ var ModalSettings = function ModalSettings(_ref) {
           })
         })]
       })]
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
+    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylWrapperAllSettings, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_0__.StylOptionsAddedWrapper, {
         isFullWidth: true,
-        children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        children: item.is_finish ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
           item: item,
           optionsBasic: item.subsettings,
-          subsettings: item.is_premium === 1 && profile.response.is_premium === 0
+          subsettings: item.is_premium === 1 && vip === 0
         }) : item.subsettings.map(function (elem, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_SettingsGame_CheckBox_CheckBox__WEBPACK_IMPORTED_MODULE_5__["default"], {
             elem: elem,
-            premium: item.is_premium === 1 && profile.response.is_premium === 0
+            premium: item.is_premium === 1 && vip === 0
           }, index);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylBtnSaveAndClose, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_ModalSettings_styled__WEBPACK_IMPORTED_MODULE_2__.StylBtnSaveAndClose, {
       onClick: switchVisible,
       children: "\u0421\u043E\u0445\u0440\u0430\u043D\u0438\u0442\u044C \u0438 \u0437\u0430\u043A\u0440\u044B\u0442\u044C"
     })]
@@ -209,10 +204,10 @@ var _templateObject, _templateObject2, _templateObject3, _templateObject4, _temp
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
-var StylModalSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  position: absolute;\n  display: ", ";\n  top: 50%;\n  left: 50%;\n  margin-right: -50%;\n  transform: translate(-50%, -50%);\n  flex-direction: column;\n  align-items: flex-start;\n  justify-content: flex-start;\n  max-width: 850px;\n  width: 100%;\n  background: rgba(42, 46, 66, 0.97);\n  border-radius: 31px;\n  border: 1px solid rgba(0, 0, 0, 0.2);\n  padding: 25px;\n  z-index: 100;\n"])), function (props) {
-  return props.isVisible ? 'flex !important' : 'none !important';
+var StylModalSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: absolute;\n    display: ", ";\n    top: 50%;\n    left: 50%;\n    margin-right: -50%;\n    transform: translate(-50%, -50%);\n    flex-direction: column;\n    align-items: flex-start;\n    justify-content: flex-start;\n    max-width: 850px;\n    width: 100%;\n    background: rgba(42, 46, 66, 0.97);\n    border-radius: 31px;\n    border: 1px solid rgba(0, 0, 0, 0.2);\n    padding: 25px;\n    z-index: 100;\n"])), function (props) {
+  return props.isVisible ? "flex !important" : "none !important";
 });
-var StylTitleModalSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n"])), function (props) {
+var StylTitleModalSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].h3(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";'\n"])), function (props) {
   return props.theme.typography.textLarge.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -221,9 +216,9 @@ var StylTitleModalSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["def
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnSaveAndClose = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  display: block;\n  padding: 5px 10px;\n  align-self: flex-end;\n  border: 3px solid #555abf;\n  background: -webkit-gradient(\n    linear,\n    left top,\n    left bottom,\n    from(#32325d),\n    color-stop(90.87%, #555abf)\n  );\n  background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);\n  box-shadow: 0 2px 10px #257cff;\n  border-radius: 69px;\n  height: 50px;\n  color: #fff;\n  text-decoration: none;\n"])));
-var StylImgModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  margin-right: 10px;\n"])));
-var StylTextModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n"])), function (props) {
+var StylBtnSaveAndClose = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: block;\n    padding: 5px 10px;\n    align-self: flex-end;\n    border: 3px solid #555abf;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#32325d),\n        color-stop(90.87%, #555abf)\n    );\n    background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);\n    box-shadow: 0 2px 10px #257cff;\n    border-radius: 69px;\n    height: 50px;\n    color: #fff;\n    text-decoration: none;\n"])));
+var StylImgModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].img(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    margin-right: 10px;\n"])));
+var StylTextModal = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -425,7 +420,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ModalWindow_ModalSettings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../ModalWindow/ModalSettings */ "./resources/js/components/ModalWindow/ModalSettings.js");
 /* harmony import */ var _RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./../RadioBox/RadioBox */ "./resources/js/components/SettingsGame/RadioBox/RadioBox.js");
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -449,8 +445,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SettingGameOptions = function SettingGameOptions(_ref) {
   var item = _ref.item;
+
+  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_8__["default"])(),
+      premium = _useActionsWithRedux.premium;
+
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     aos__WEBPACK_IMPORTED_MODULE_1___default().init({
       duration: 1000
@@ -475,29 +476,30 @@ var SettingGameOptions = function SettingGameOptions(_ref) {
     setShowModal(!isShowModal);
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_3__.StylBoxSettingsGame, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnOpenSetting, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_3__.StylBoxSettingsGame, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnOpenSetting, {
       onClick: showAnotherOption,
       isShow: isShowOption,
-      children: [item.title, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+      children: [item.title, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
         className: "fas fa-chevron-right"
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_4__.StylWrapperSettings, {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_SettingGameOptions_styled__WEBPACK_IMPORTED_MODULE_4__.StylWrapperSettings, {
       isShow: isShowOption,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RadioBox_RadioBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
         optionsBasic: _constants__WEBPACK_IMPORTED_MODULE_7__.optionsBasic,
         item: item
-      }), item.is_premium === 1 && "Доступно в полной версии игры", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_3__.BtnMoreSettings, {
+      }), item.is_premium === 1 && premium === 0 ? "Доступно в полной версии игры" : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_3__.BtnMoreSettings, {
         type: "button",
         onClick: handleModal,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("i", {
           className: "fas fa-cog"
-        }), item.is_premium === 0 ? "Настройки" : "Смотреть настройки"]
+        }), item.is_premium === 1 && premium === 0 ? " Смотреть настройки " : "Настройки"]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_ModalWindow_ModalSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_ModalWindow_ModalSettings__WEBPACK_IMPORTED_MODULE_5__["default"], {
       visible: isShowModal,
       switchVisible: handleModal,
-      item: item
+      item: item,
+      vip: premium
     })]
   }, item.id);
 };
@@ -593,7 +595,8 @@ var RadioBox = function RadioBox(_ref) {
       subsettings = _ref.subsettings;
 
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_3__["default"])(),
-      settingsGameTask = _useActionsWithRedux.settingsGameTask;
+      settingsGameTask = _useActionsWithRedux.settingsGameTask,
+      profile = _useActionsWithRedux.profile;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(optionsBasic[0].title),
       _useState2 = _slicedToArray(_useState, 2),
@@ -613,7 +616,7 @@ var RadioBox = function RadioBox(_ref) {
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("form", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylBoxWrapperOptions, {
-      isVip: subsettings ? "red" : item.is_premium === 0 ? true : false,
+      isVip: subsettings ? "red" : item.is_premium === 1 && profile.is_premium === 0 ? false : true,
       children: optionsBasic.map(function (elem) {
         return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylWrapperRadioBtn, {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_RadioBox_styled__WEBPACK_IMPORTED_MODULE_1__.StylRadioSetting, {
@@ -710,7 +713,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _GameOptions_SettingGameOptions__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./GameOptions/SettingGameOptions */ "./resources/js/components/SettingsGame/GameOptions/SettingGameOptions.js");
 /* harmony import */ var _SettingsGameFooter__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SettingsGameFooter */ "./resources/js/components/SettingsGame/SettingsGameFooter.js");
@@ -741,11 +743,7 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
 var SettingsGame = function SettingsGame() {
-  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_8__.useParams)(),
-      id = _useParams.id;
-
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(""),
       _useState2 = _slicedToArray(_useState, 2),
       isChangeMan = _useState2[0],
@@ -762,8 +760,8 @@ var SettingsGame = function SettingsGame() {
       settings = _useActionsWithRedux.settings;
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    settings(id);
-  }, [id, settings]);
+    settings();
+  }, [settings]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_TaskGame_TaskGamePage_styled__WEBPACK_IMPORTED_MODULE_3__.SectionTaskGame, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_SettingsGame_styled__WEBPACK_IMPORTED_MODULE_4__.StylBoxFeaturesGame, {
       "data-aos": "fade-right",
@@ -897,7 +895,17 @@ var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["d
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnFooterSettings)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])));
+var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n    box-shadow: 0 2px 10px #f53131;\n    padding: 15px 20px;\n    border-radius: 100px;\n    border: 3px solid #f32d2d;\n    margin-bottom: 20px;\n    transition: all 0.2s ease;\n\n    & > i {\n        color: ", ";\n        margin-right: 10px;\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 0;\n        width: auto;\n        justify-content: flex-start;\n\n        &:not(:last-child) {\n            margin-right: 15px;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.main;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.light;
+}, function (props) {
+  return props.theme.palette.main;
+});
 var StylBoxFooterSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center;\n    max-width: 1140px;\n    width: 100%;\n    border-radius: 40px;\n    padding: 25px;\n    background: rgba(25, 28, 43, 0.95);\n"])));
 var StylSectionDiscount = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    display: ", ";\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    margin-bottom: ", ";\n\n    & > span {\n        color: #f32d2d;\n        margin-left: 5px;\n    }\n"])), function (props) {
   return props.isVip ? "none" : "block";
@@ -1002,12 +1010,10 @@ var SettingsGameFooter = function SettingsGameFooter(_ref) {
       female = _ref.female;
 
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_5__["default"])(),
-      sendSettingsGame = _useActionsWithRedux.sendSettingsGame,
-      sendPlayersGame = _useActionsWithRedux.sendPlayersGame;
+      sendSettingsGame = _useActionsWithRedux.sendSettingsGame;
 
   var sendDataSettingsGame = function sendDataSettingsGame() {
-    sendSettingsGame();
-    sendPlayersGame(man, female);
+    sendSettingsGame(man, female);
   };
 
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
@@ -1238,37 +1244,6 @@ var BtnReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useChangeTitlePage.js":
-/*!**************************************************!*\
-  !*** ./resources/js/hooks/useChangeTitlePage.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var useChangeTitlePage = function useChangeTitlePage() {
-  var ChangeTitle = function ChangeTitle(_ref) {
-    var title = _ref.title;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      document.title = title;
-    }, [title]);
-  };
-
-  return {
-    ChangeTitle: ChangeTitle
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useChangeTitlePage);
-
-/***/ }),
-
 /***/ "./resources/js/views/SettingsGamePage/SettingsGameView.js":
 /*!*****************************************************************!*\
   !*** ./resources/js/views/SettingsGamePage/SettingsGameView.js ***!
@@ -1280,7 +1255,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../hooks/useChangeTitlePage */ "./resources/js/hooks/useChangeTitlePage.js");
+/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
 /* harmony import */ var _components_SettingsGame_SettingsGame__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/SettingsGame/SettingsGame */ "./resources/js/components/SettingsGame/SettingsGame.js");
 /* harmony import */ var _components_SettingsGame_VipStatusSettings_SettingsGameVipStatus__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../components/SettingsGame/VipStatusSettings/SettingsGameVipStatus */ "./resources/js/components/SettingsGame/VipStatusSettings/SettingsGameVipStatus.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
@@ -1294,13 +1269,12 @@ __webpack_require__.r(__webpack_exports__);
 var SettingsGameView = function SettingsGameView(_ref) {
   var title = _ref.title;
 
-  var _useChangeTitlePage = (0,_hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-      ChangeTitlePage = _useChangeTitlePage.ChangeTitlePage;
+  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_0__["default"])(),
+      premium = _useActionsWithRedux.premium;
 
-  ChangeTitlePage(title);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_SettingsGame_VipStatusSettings_SettingsGameVipStatus__WEBPACK_IMPORTED_MODULE_2__["default"], {
-      vip: false
+      vip: premium
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_SettingsGame_SettingsGame__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 };

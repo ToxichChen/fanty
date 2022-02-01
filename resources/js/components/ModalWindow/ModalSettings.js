@@ -22,18 +22,15 @@ import iconGirlSVG from "./../../assets/icons/icon-girl.svg";
 
 import Checkbox from "../SettingsGame/CheckBox/CheckBox";
 import RadioBox from "./../SettingsGame/RadioBox/RadioBox";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
-const ModalSettings = ({ visible, switchVisible, item }) => {
-    const { profile } = useActionsWithRedux();
-
+const ModalSettings = ({ visible, switchVisible, item, vip }) => {
     return (
         <StylModalSettings isVisible={visible}>
             <StylBtnCardSettings type="button" onClick={switchVisible}>
                 <i className="fas fa-times"></i>
             </StylBtnCardSettings>
             <StylTitleModalSettings>{item.title}</StylTitleModalSettings>
-            <StylVipStatusModal isVip={false}>
+            <StylVipStatusModal isVip={vip}>
                 <StylVipText isLowWidth={true}>
                     <b>Настройки заблокированы </b> и будут доступны в полной
                     версии игры.
@@ -62,8 +59,7 @@ const ModalSettings = ({ visible, switchVisible, item }) => {
                                     item={item}
                                     optionsBasic={item.subsettings}
                                     subsettings={
-                                        item.is_premium === 1 &&
-                                        profile.response.is_premium === 0
+                                        item.is_premium === 1 && vip === 0
                                     }
                                 />
                             ) : (
@@ -75,8 +71,7 @@ const ModalSettings = ({ visible, switchVisible, item }) => {
                                                 elem={elem}
                                                 premium={
                                                     item.is_premium === 1 &&
-                                                    profile.response
-                                                        .is_premium === 0
+                                                    vip === 0
                                                 }
                                             />
                                         );
@@ -92,8 +87,7 @@ const ModalSettings = ({ visible, switchVisible, item }) => {
                                     item={item}
                                     optionsBasic={item.subsettings}
                                     subsettings={
-                                        item.is_premium === 1 &&
-                                        profile.response.is_premium === 0
+                                        item.is_premium === 1 && vip === 0
                                     }
                                 />
                             ) : (
@@ -105,8 +99,7 @@ const ModalSettings = ({ visible, switchVisible, item }) => {
                                                 elem={elem}
                                                 premium={
                                                     item.is_premium === 1 &&
-                                                    profile.response
-                                                        .is_premium === 0
+                                                    vip === 0
                                                 }
                                             />
                                         );
@@ -124,20 +117,14 @@ const ModalSettings = ({ visible, switchVisible, item }) => {
                             <RadioBox
                                 item={item}
                                 optionsBasic={item.subsettings}
-                                subsettings={
-                                    item.is_premium === 1 &&
-                                    profile.response.is_premium === 0
-                                }
+                                subsettings={item.is_premium === 1 && vip === 0}
                             />
                         ) : (
                             item.subsettings.map((elem, index) => (
                                 <Checkbox
                                     key={index}
                                     elem={elem}
-                                    premium={
-                                        item.is_premium === 1 &&
-                                        profile.response.is_premium === 0
-                                    }
+                                    premium={item.is_premium === 1 && vip === 0}
                                 />
                             ))
                         )}

@@ -85,7 +85,7 @@ const BtnSettings = styled(NavLink)`
     }
 `;
 
-const StylStartBtn = styled(NavLink)`
+const StylStartBtn = styled.button`
     width: 100%;
     font-size: ${(props) => props.theme.typography.textMedium.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};

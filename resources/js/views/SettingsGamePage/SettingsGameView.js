@@ -1,13 +1,13 @@
-import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
+import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import SettingsGame from "./../../components/SettingsGame/SettingsGame";
 import SettingsGameVipStatus from "./../../components/SettingsGame/VipStatusSettings/SettingsGameVipStatus";
 
 const SettingsGameView = ({ title }) => {
-    const { ChangeTitlePage } = useChangeTitlePage();
-    ChangeTitlePage(title);
+    const { premium } = useActionsWithRedux();
+
     return (
         <>
-            <SettingsGameVipStatus vip={false} />
+            <SettingsGameVipStatus vip={premium} />
             <SettingsGame />
         </>
     );

@@ -1,63 +1,56 @@
-import axios from 'axios';
-import useActionsWithRedux from '../../hooks/useActionsWithRedux';
+import axios from "axios";
 import {
-  fantyRequest,
-  fantySuccess,
-  fantyError,
-} from './activeFantyFeaturesActions';
+    fantyRequest,
+    fantySuccess,
+    fantyError,
+} from "./activeFantyFeaturesActions";
 
-axios.defaults.baseURL = 'http://localhost/api';
+axios.defaults.baseURL = "http://localhost/api";
 
 const token = {
-  set(tok) {
-    axios.defaults.headers.common.Authorization = `${tok}`;
-  },
-  unset() {
-    axios.defaults.headers.common.Authorization = '';
-  },
+    set(tok) {
+        axios.defaults.headers.common.Authorization = `${tok}`;
+    },
+    unset() {
+        axios.defaults.headers.common.Authorization = "";
+    },
 };
 
-const activeFanty = (credentials) => async (dispatch) => {
-  const { NotifyError } = useActionsWithRedux();
-  dispatch(fantyRequest());
+const getActiveFanty = (obj, setFant) => async (dispatch) => {
+    dispatch(fantyRequest());
 
-  try {
-    const { data } = await axios.post('', credentials);
-    token.set(data.access_token);
+    try {
+        const { data } = await axios.post(`/fant/generate`, obj);
+        token.set(data.access_token);
+        dispatch(fantySuccess(data));
 
-    dispatch(fantySuccess(data));
-  } catch (error) {
-    dispatch(fantyError(error.message));
-    NotifyError(error.message);
-  }
+        console.log(data);
+        setFant(data);
+    } catch (error) {
+        dispatch(fantyError(error.message));
+    }
 };
 
 const activeFantyLikeFanty = (credentials) => async (dispatch) => {
-  const { NotifyError } = useActionsWithRedux();
+    try {
+        const { data } = await axios.post("", credentials);
+        token.set(data.access_token);
 
-  try {
-    const { data } = await axios.post('', credentials);
-    token.set(data.access_token);
-
-    dispatch(fantySuccess(data));
-  } catch (error) {
-    dispatch(fantyError(error.message));
-    NotifyError(error.message);
-  }
+        dispatch(fantySuccess(data));
+    } catch (error) {
+        dispatch(fantyError(error.message));
+    }
 };
 
 const activeFantyDisLikeFanty = (credentials) => async (dispatch) => {
-  const { NotifyError } = useActionsWithRedux();
+    try {
+        const { data } = await axios.post("", credentials);
+        token.set(data.access_token);
 
-  try {
-    const { data } = await axios.post('', credentials);
-    token.set(data.access_token);
-
-    dispatch(fantySuccess(data));
-  } catch (error) {
-    dispatch(fantyError(error.message));
-    NotifyError(error.message);
-  }
+        dispatch(fantySuccess(data));
+    } catch (error) {
+        dispatch(fantyError(error.message));
+    }
 };
 
-export { activeFantyLikeFanty, activeFantyDisLikeFanty, activeFanty };
+export { activeFantyLikeFanty, activeFantyDisLikeFanty, getActiveFanty };

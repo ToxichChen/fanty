@@ -821,7 +821,7 @@ var SliderCard = function SliderCard(_ref) {
         children: text
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_SliderCard_styled__WEBPACK_IMPORTED_MODULE_4__.StylBtnReadMore, {
-      to: _Router__WEBPACK_IMPORTED_MODULE_1__.routes.settingsGame.complexity,
+      to: _Router__WEBPACK_IMPORTED_MODULE_1__.routes.taskGame.info,
       children: ["\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_common_ImgLogo_ImgLogo_styled__WEBPACK_IMPORTED_MODULE_2__.StylImgDoubleArrow, {
         src: _assets_icons_icon_double_arrow_png__WEBPACK_IMPORTED_MODULE_5__["default"],
         alt: "double arrow"
@@ -906,10 +906,10 @@ var StylBoxContentHeaderPageHome = (0,styled_components__WEBPACK_IMPORTED_MODULE
 
 /***/ }),
 
-/***/ "./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.js":
-/*!***************************************************************************************!*\
-  !*** ./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.js ***!
-  \***************************************************************************************/
+/***/ "./resources/js/components/PageHome/SectionIntroCard/IntroCard.js":
+/*!************************************************************************!*\
+  !*** ./resources/js/components/PageHome/SectionIntroCard/IntroCard.js ***!
+  \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -921,8 +921,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! aos/dist/aos.css */ "./node_modules/aos/dist/aos.css");
-/* harmony import */ var _CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./CardIntroPageHome.styled */ "./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.styled.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _assets_icons_icon_double_arrow_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../../assets/icons/icon-double-arrow.png */ "./resources/js/assets/icons/icon-double-arrow.png");
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants/index.js");
+/* harmony import */ var _common_ImgLogo_ImgLogo_styled__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./../../common/ImgLogo/ImgLogo.styled */ "./resources/js/components/common/ImgLogo/ImgLogo.styled.js");
+/* harmony import */ var _IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./IntroCard.styled */ "./resources/js/components/PageHome/SectionIntroCard/IntroCard.styled.js");
+/* harmony import */ var _Router__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../Router */ "./resources/js/Router.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -930,151 +934,126 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var CardIntroPageHome = function CardIntroPageHome(_ref) {
-  var svg = _ref.svg,
-      title = _ref.title,
-      text = _ref.text;
+
+
+
+
+var IntroCard = function IntroCard() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     aos__WEBPACK_IMPORTED_MODULE_1___default().init({
       duration: 1000
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_3__.StylBoxCardIntroPageHome, {
-    "data-aos": "fade-right",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_3__.StylIconIntorCard, {
-      className: svg
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_3__.StylTitleIntroCard, {
-      children: title
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_3__.StylTextIntroCard, {
-      children: text
-    })]
-  });
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CardIntroPageHome);
-
-/***/ }),
-
-/***/ "./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.styled.js":
-/*!**********************************************************************************************!*\
-  !*** ./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.styled.js ***!
-  \**********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "StylIconIntorCard": () => (/* binding */ StylIconIntorCard),
-/* harmony export */   "StylTitleIntroCard": () => (/* binding */ StylTitleIntroCard),
-/* harmony export */   "StylLinkIntorCard": () => (/* binding */ StylLinkIntorCard),
-/* harmony export */   "StylBoxCardIntroPageHome": () => (/* binding */ StylBoxCardIntroPageHome),
-/* harmony export */   "StylBoxCenterIntroPageHome": () => (/* binding */ StylBoxCenterIntroPageHome),
-/* harmony export */   "StylTextIntroCard": () => (/* binding */ StylTextIntroCard)
-/* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _common_BasicBoxes_BasicBoxes_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../../common/BasicBoxes/BasicBoxes.styled */ "./resources/js/components/common/BasicBoxes/BasicBoxes.styled.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6;
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-
-
-var StylTitleIntroCard = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].h3(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 10px;\n    text-align: left;\n"])), function (props) {
-  return props.theme.typography.textLarge.main;
-}, function (props) {
-  return props.theme.typography.textWeigth.primary;
-}, function (props) {
-  return props.theme.typography.textFamily.main;
-}, function (props) {
-  return props.theme.palette.main;
-});
-var StylLinkIntorCard = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].a(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    text-decoration: none;\n    color: ", ";\n"])), function (props) {
-  return props.theme.palette.text.primary;
-});
-var StylBoxCardIntroPageHome = (0,styled_components__WEBPACK_IMPORTED_MODULE_1__["default"])(_common_BasicBoxes_BasicBoxes_styled__WEBPACK_IMPORTED_MODULE_0__.StylBoxFlexColumnFlexStart)(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    width: 100%;\n    padding: 20px;\n    background-color: rgba(255, 255, 255, 0.07);\n    border-radius: 5px;\n    margin-bottom: 20px;\n\n    @media (min-width: 900px) {\n        max-width: 100%;\n        width: 49%;\n    }\n\n    @media (min-width: 1150px) {\n        max-width: 360px;\n        width: 100%;\n    }\n"])));
-var StylBoxCenterIntroPageHome = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].div(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    max-width: 1140px;\n    width: 100%;\n    margin: 0 auto;\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: center;\n    align-items: stretch;\n\n    @media (min-width: 768px) {\n        justify-content: space-between;\n    }\n"])));
-var StylTextIntroCard = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].p(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n    font-family: ", ";\n    font-weight: ", ";\n    font-size: ", ";\n    color: ", ";\n    text-align: left;\n    line-height: 1.6;\n"])), function (props) {
-  return props.theme.typography.textFamily.main;
-}, function (props) {
-  return props.theme.typography.textWeigth.primary;
-}, function (props) {
-  return props.theme.typography.textSmall.primary;
-}, function (props) {
-  return props.theme.palette.text.main;
-});
-var StylIconIntorCard = styled_components__WEBPACK_IMPORTED_MODULE_1__["default"].i(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    color: ", ";\n    font-size: 50px;\n    margin-bottom: 20px;\n"])), function (props) {
-  return props.theme.palette.main;
-});
-
-
-/***/ }),
-
-/***/ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.js":
-/*!*************************************************************************!*\
-  !*** ./resources/js/components/PageHome/IntroPageHome/IntroPageHome.js ***!
-  \*************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _IntroPageHome_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./IntroPageHome.styled */ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.styled.js");
-/* harmony import */ var _CardIntro_CardIntroPageHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./CardIntro/CardIntroPageHome */ "./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.js");
-/* harmony import */ var _CardIntro_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./CardIntro/CardIntroPageHome.styled */ "./resources/js/components/PageHome/IntroPageHome/CardIntro/CardIntroPageHome.styled.js");
-/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../constants */ "./resources/js/constants/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-
-var IntroPageHome = function IntroPageHome() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_IntroPageHome_styled__WEBPACK_IMPORTED_MODULE_0__.StylBoxIntroPageHome, {
-    top: true,
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardIntro_CardIntroPageHome_styled__WEBPACK_IMPORTED_MODULE_2__.StylBoxCenterIntroPageHome, {
-      children: _constants__WEBPACK_IMPORTED_MODULE_3__.dataPostArr.map(function (item) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CardIntro_CardIntroPageHome__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          svg: item.svg,
-          title: item.title,
-          text: item.text
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylBoxIntroCard, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylBoxCenterIntroCard, {
+      children: _constants__WEBPACK_IMPORTED_MODULE_4__.dataCardGameArr.map(function (item) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylBoxCardGame, {
+          "data-aos": "fade-right",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylDataCardGame, {
+            children: [item.data, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylLinkCardGame, {
+              to: _Router__WEBPACK_IMPORTED_MODULE_7__.routes.taskGame.info,
+              children: item.link
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylTitleCardGame, {
+            children: item.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylTextCardGame, {
+            children: item.text
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(_IntroCard_styled__WEBPACK_IMPORTED_MODULE_6__.StylBtnCardGame, {
+            to: _Router__WEBPACK_IMPORTED_MODULE_7__.routes.taskGame.info,
+            children: [item.btnText, " ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_common_ImgLogo_ImgLogo_styled__WEBPACK_IMPORTED_MODULE_5__.StylImgDoubleArrow, {
+              src: _assets_icons_icon_double_arrow_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+              alt: "double arrow"
+            })]
+          })]
         }, item.id);
       })
     })
   });
 };
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IntroPageHome);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (IntroCard);
 
 /***/ }),
 
-/***/ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.styled.js":
-/*!********************************************************************************!*\
-  !*** ./resources/js/components/PageHome/IntroPageHome/IntroPageHome.styled.js ***!
-  \********************************************************************************/
+/***/ "./resources/js/components/PageHome/SectionIntroCard/IntroCard.styled.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/components/PageHome/SectionIntroCard/IntroCard.styled.js ***!
+  \*******************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "StylBoxIntroPageHome": () => (/* binding */ StylBoxIntroPageHome)
+/* harmony export */   "StylBoxIntroCard": () => (/* binding */ StylBoxIntroCard),
+/* harmony export */   "StylBoxCenterIntroCard": () => (/* binding */ StylBoxCenterIntroCard),
+/* harmony export */   "StylBoxCardGame": () => (/* binding */ StylBoxCardGame),
+/* harmony export */   "StylDataCardGame": () => (/* binding */ StylDataCardGame),
+/* harmony export */   "StylLinkCardGame": () => (/* binding */ StylLinkCardGame),
+/* harmony export */   "StylTitleCardGame": () => (/* binding */ StylTitleCardGame),
+/* harmony export */   "StylTextCardGame": () => (/* binding */ StylTextCardGame),
+/* harmony export */   "StylBtnCardGame": () => (/* binding */ StylBtnCardGame)
 /* harmony export */ });
-/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
-/* harmony import */ var _common_BasicBoxes_BasicBoxes_styled__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../common/BasicBoxes/BasicBoxes.styled */ "./resources/js/components/common/BasicBoxes/BasicBoxes.styled.js");
-/* harmony import */ var _assets_bg_bg_image_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../../assets/bg/bg-image.jpg */ "./resources/js/assets/bg/bg-image.jpg");
-/* harmony import */ var _assets_bg_bg_image_mobile_jpg__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../../assets/bg/bg-image-mobile.jpg */ "./resources/js/assets/bg/bg-image-mobile.jpg");
-var _templateObject, _templateObject2;
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 
 
-
-
-var StylBoxIntroPageHome = (0,styled_components__WEBPACK_IMPORTED_MODULE_3__["default"])(_common_BasicBoxes_BasicBoxes_styled__WEBPACK_IMPORTED_MODULE_0__.StylBoxFlexColumnFlexStart)(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    background-blend-mode: multiply;\n    background-image: url(", ");\n    background-color: rgba(111, 43, 149, 0.8);\n    background-attachment: fixed;\n    background-repeat: no-repeat;\n    background-size: cover;\n    padding: 0 20px 50px 20px;\n\n    @media (min-width: 1024px) {\n        padding: 0 20px 115px 20px;\n        background-image: url(", ");\n    }\n\n    ", "\n"])), _assets_bg_bg_image_mobile_jpg__WEBPACK_IMPORTED_MODULE_2__["default"], _assets_bg_bg_image_jpg__WEBPACK_IMPORTED_MODULE_1__["default"], function (props) {
-  return props.top && (0,styled_components__WEBPACK_IMPORTED_MODULE_3__.css)(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n            padding: 50px 20px;\n\n            @media (min-width: 1024px) {\n                padding: 115px 20px;\n            }\n        "])));
+var StylBoxIntroCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  padding: 115px 20px;\n  background-color: ", ";\n"])), function (props) {
+  return props.theme.palette.backgroundColor.primary;
+});
+var StylBoxCenterIntroCard = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  max-width: 1140px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-direction: column;\n  flex-wrap: wrap;\n\n  @media (min-width: 1200px) {\n    justify-content: space-between;\n    flex-direction: row;\n  }\n"])));
+var StylBoxCardGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].article(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  max-width: 370px;\n  width: 100%;\n  margin-bottom: 40px;\n\n  @media (min-width: 1200px) {\n    margin: 0;\n  }\n"])));
+var StylDataCardGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 20px;\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.primary;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.main;
+});
+var StylLinkCardGame = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-decoration: none;\n  margin-left: 5px;\n  transition: all 0.2s ease;\n\n  @media (min-width: 1024px) {\n    &:hover {\n      color: ", ";\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.primary;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.primary;
+}, function (props) {
+  return props.theme.palette.text.light;
+});
+var StylTitleCardGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 40px;\n"])), function (props) {
+  return props.theme.typography.textLarge.main;
+}, function (props) {
+  return props.theme.typography.textWeigth.primary;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.light;
+});
+var StylTextCardGame = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 35px;\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.primary;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.main;
+});
+var StylBtnCardGame = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  text-decoration: none;\n  text-transform: uppercase;\n  font-style: italic;\n  transition: all 0.2s ease;\n\n  @media (min-width: 1024px) {\n    &:hover {\n      color: ", ";\n\n      & > img {\n        transform: translateX(10px);\n      }\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.primary;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.light;
+}, function (props) {
+  return props.theme.palette.text.primary;
 });
 
 
@@ -1158,37 +1137,6 @@ var StylImgDoubleArrow = styled_components__WEBPACK_IMPORTED_MODULE_0__["default
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useChangeTitlePage.js":
-/*!**************************************************!*\
-  !*** ./resources/js/hooks/useChangeTitlePage.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var useChangeTitlePage = function useChangeTitlePage() {
-  var ChangeTitle = function ChangeTitle(_ref) {
-    var title = _ref.title;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      document.title = title;
-    }, [title]);
-  };
-
-  return {
-    ChangeTitle: ChangeTitle
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useChangeTitlePage);
-
-/***/ }),
-
 /***/ "./resources/js/views/HomePage/HomeView.js":
 /*!*************************************************!*\
   !*** ./resources/js/views/HomePage/HomeView.js ***!
@@ -1200,12 +1148,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../hooks/useChangeTitlePage */ "./resources/js/hooks/useChangeTitlePage.js");
-/* harmony import */ var _components_PageHome_HeaderPageHome_HeaderPageHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/PageHome/HeaderPageHome/HeaderPageHome */ "./resources/js/components/PageHome/HeaderPageHome/HeaderPageHome.js");
-/* harmony import */ var _components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../components/PageHome/FooterPageHome/FooterPageHome */ "./resources/js/components/PageHome/FooterPageHome/FooterPageHome.js");
-/* harmony import */ var _components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./../../components/PageHome/IntroPageHome/IntroPageHome */ "./resources/js/components/PageHome/IntroPageHome/IntroPageHome.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_PageHome_HeaderPageHome_HeaderPageHome__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/PageHome/HeaderPageHome/HeaderPageHome */ "./resources/js/components/PageHome/HeaderPageHome/HeaderPageHome.js");
+/* harmony import */ var _components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/PageHome/FooterPageHome/FooterPageHome */ "./resources/js/components/PageHome/FooterPageHome/FooterPageHome.js");
+/* harmony import */ var _components_PageHome_SectionIntroCard_IntroCard__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../components/PageHome/SectionIntroCard/IntroCard */ "./resources/js/components/PageHome/SectionIntroCard/IntroCard.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -1215,13 +1161,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var HomeView = function HomeView(_ref) {
   var title = _ref.title;
-
-  var _useChangeTitlePage = (0,_hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-      ChangeTitlePage = _useChangeTitlePage.ChangeTitlePage;
-
-  ChangeTitlePage(title);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_PageHome_HeaderPageHome_HeaderPageHome__WEBPACK_IMPORTED_MODULE_1__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_PageHome_IntroPageHome_IntroPageHome__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_2__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_PageHome_HeaderPageHome_HeaderPageHome__WEBPACK_IMPORTED_MODULE_0__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_PageHome_SectionIntroCard_IntroCard__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_PageHome_FooterPageHome_FooterPageHome__WEBPACK_IMPORTED_MODULE_1__["default"], {})]
   });
 };
 
@@ -1250,36 +1191,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "[data-aos][data-aos][data-aos-duration
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
-
-/***/ }),
-
-/***/ "./resources/js/assets/bg/bg-image-mobile.jpg":
-/*!****************************************************!*\
-  !*** ./resources/js/assets/bg/bg-image-mobile.jpg ***!
-  \****************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg-image-mobile.jpg?5f7d7180ab1f07f0b482ad2f3c0c61e9");
-
-/***/ }),
-
-/***/ "./resources/js/assets/bg/bg-image.jpg":
-/*!*********************************************!*\
-  !*** ./resources/js/assets/bg/bg-image.jpg ***!
-  \*********************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ("/images/bg-image.jpg?acf3c9aba9be476f04d37e76aad7be7b");
 
 /***/ }),
 

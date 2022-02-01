@@ -1,12 +1,8 @@
-import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 import HeaderPageHome from "./../../components/PageHome/HeaderPageHome/HeaderPageHome";
 import FooterPageHome from "./../../components/PageHome/FooterPageHome/FooterPageHome";
-import IntroCard from "./../../components/PageHome/IntroPageHome/IntroPageHome";
+import IntroCard from "./../../components/PageHome/SectionIntroCard/IntroCard";
 
 const HomeView = ({ title }) => {
-    const { ChangeTitlePage } = useChangeTitlePage();
-    ChangeTitlePage(title);
-
     return (
         <>
             <HeaderPageHome />

@@ -1,4 +1,3 @@
-import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 import IntroPageHome from "../../components/PageHome/IntroPageHome/IntroPageHome";
 import FeaturePageHome from "../../components/PageHome/FeaturesPageHome/FeaturePageHome";
 import ComplexityHome from "./../../components/PageHome/ComplexityHome/ComplexityHome";
@@ -6,9 +5,6 @@ import FooterPageHome from "../../components/PageHome/FooterPageHome/FooterPageH
 import TaskInfoSlider from "../../components/TaskInfo/TaskInfoSlider";
 
 const TaskInfo = ({ title }) => {
-    const { ChangeTitlePage } = useChangeTitlePage();
-    ChangeTitlePage(title);
-
     return (
         <>
             <TaskInfoSlider

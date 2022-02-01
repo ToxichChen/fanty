@@ -22,6 +22,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! aos */ "./node_modules/aos/dist/aos.js");
 /* harmony import */ var aos__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(aos__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var aos_dist_aos_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! aos/dist/aos.css */ "./node_modules/aos/dist/aos.css");
@@ -54,45 +55,41 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 var SettingGameComplexity = function SettingGameComplexity() {
   var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_7__["default"])(),
-      profile = _useActionsWithRedux.profile,
+      premium = _useActionsWithRedux.premium,
       NotifyError = _useActionsWithRedux.NotifyError,
       settingsCountTask = _useActionsWithRedux.settingsCountTask;
 
+  var navigate = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_9__.useNavigate)();
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     aos__WEBPACK_IMPORTED_MODULE_1___default().init({
       duration: 1000
     });
   }, []);
-  var vip = profile.response.is_premiume === 1 ? true : false;
+  var vip = premium === 1 ? true : false;
 
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 4),
       _useState2 = _slicedToArray(_useState, 2),
-      isRanges = _useState2[0],
-      setRanges = _useState2[1];
+      isRange1 = _useState2[0],
+      setRange1 = _useState2[1];
 
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 4),
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 3),
       _useState4 = _slicedToArray(_useState3, 2),
-      isRange1 = _useState4[0],
-      setRange1 = _useState4[1];
+      isRange2 = _useState4[0],
+      setRange2 = _useState4[1];
 
-  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 3),
+  var _useState5 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 2),
       _useState6 = _slicedToArray(_useState5, 2),
-      isRange2 = _useState6[0],
-      setRange2 = _useState6[1];
-
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(vip ? 4 : 2),
-      _useState8 = _slicedToArray(_useState7, 2),
-      isRange3 = _useState8[0],
-      setRange3 = _useState8[1];
+      isRange3 = _useState6[0],
+      setRange3 = _useState6[1];
 
   var checkRanges = function checkRanges() {
     if (isRange1 === "1" && isRange2 === "1" && isRange3 === "1") {
       NotifyError("Ошибка, выберите хотя-бы минимальное количество игр");
-      setRanges(false);
     } else {
-      setRanges(true);
+      navigate("/taskGame/task/1");
       settingsCountTask({
         is_green: isRange1,
         is_orange: isRange2,
@@ -392,7 +389,6 @@ var SettingGameComplexity = function SettingGameComplexity() {
               }), " \u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_SettingGameComplexity_styled__WEBPACK_IMPORTED_MODULE_5__.StylStartBtn, {
-            to: isRanges ? _Router__WEBPACK_IMPORTED_MODULE_6__.routes.taskGame.main : _Router__WEBPACK_IMPORTED_MODULE_6__.routes.settingsGame.complexity,
             onClick: checkRanges,
             children: "\u0418\u0433\u0440\u0430\u0442\u044C"
           })]
@@ -459,7 +455,7 @@ var BtnSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(
 }, function (props) {
   return props.theme.palette.text.light;
 });
-var StylStartBtn = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    padding: 15px 60px;\n    border-radius: 100px;\n    align-self: center;\n    border: 3px solid #982926;\n    background: linear-gradient(180deg, #bd2726 0, #982926 90.87%);\n    transition: all 0.2s ease;\n\n    @media (min-width: 768px) {\n        width: auto;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            box-shadow: 0 0 10px 2px #982926;\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n"])), function (props) {
+var StylStartBtn = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    padding: 15px 60px;\n    border-radius: 100px;\n    align-self: center;\n    border: 3px solid #982926;\n    background: linear-gradient(180deg, #bd2726 0, #982926 90.87%);\n    transition: all 0.2s ease;\n\n    @media (min-width: 768px) {\n        width: auto;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            box-shadow: 0 0 10px 2px #982926;\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textMedium.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -594,7 +590,17 @@ var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["d
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(StylBtnFooterSettings)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])));
+var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n    box-shadow: 0 2px 10px #f53131;\n    padding: 15px 20px;\n    border-radius: 100px;\n    border: 3px solid #f32d2d;\n    margin-bottom: 20px;\n    transition: all 0.2s ease;\n\n    & > i {\n        color: ", ";\n        margin-right: 10px;\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 0;\n        width: auto;\n        justify-content: flex-start;\n\n        &:not(:last-child) {\n            margin-right: 15px;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])), function (props) {
+  return props.theme.typography.textSmall.primary;
+}, function (props) {
+  return props.theme.typography.textWeigth.main;
+}, function (props) {
+  return props.theme.typography.textFamily.main;
+}, function (props) {
+  return props.theme.palette.text.light;
+}, function (props) {
+  return props.theme.palette.main;
+});
 var StylBoxFooterSettings = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].div(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: space-between;\n    align-items: center;\n    max-width: 1140px;\n    width: 100%;\n    border-radius: 40px;\n    padding: 25px;\n    background: rgba(25, 28, 43, 0.95);\n"])));
 var StylSectionDiscount = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    display: ", ";\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    margin-bottom: ", ";\n\n    & > span {\n        color: #f32d2d;\n        margin-left: 5px;\n    }\n"])), function (props) {
   return props.isVip ? "none" : "block";
@@ -790,37 +796,6 @@ var BtnReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button
 
 /***/ }),
 
-/***/ "./resources/js/hooks/useChangeTitlePage.js":
-/*!**************************************************!*\
-  !*** ./resources/js/hooks/useChangeTitlePage.js ***!
-  \**************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-
-
-var useChangeTitlePage = function useChangeTitlePage() {
-  var ChangeTitle = function ChangeTitle(_ref) {
-    var title = _ref.title;
-    (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-      document.title = title;
-    }, [title]);
-  };
-
-  return {
-    ChangeTitle: ChangeTitle
-  };
-};
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (useChangeTitlePage);
-
-/***/ }),
-
 /***/ "./resources/js/views/SettingsGameComplexityPage/SettingsGameComplexityView.js":
 /*!*************************************************************************************!*\
   !*** ./resources/js/views/SettingsGameComplexityPage/SettingsGameComplexityView.js ***!
@@ -832,21 +807,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../hooks/useChangeTitlePage */ "./resources/js/hooks/useChangeTitlePage.js");
-/* harmony import */ var _components_SettingGameComplexity_SettingGameComplexity__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../components/SettingGameComplexity/SettingGameComplexity */ "./resources/js/components/SettingGameComplexity/SettingGameComplexity.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_SettingGameComplexity_SettingGameComplexity__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../components/SettingGameComplexity/SettingGameComplexity */ "./resources/js/components/SettingGameComplexity/SettingGameComplexity.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 var SettingsGameComplexityView = function SettingsGameComplexityView(_ref) {
   var title = _ref.title;
-
-  var _useChangeTitlePage = (0,_hooks_useChangeTitlePage__WEBPACK_IMPORTED_MODULE_0__["default"])(),
-      ChangeTitlePage = _useChangeTitlePage.ChangeTitlePage;
-
-  ChangeTitlePage(title);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_components_SettingGameComplexity_SettingGameComplexity__WEBPACK_IMPORTED_MODULE_1__["default"], {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_components_SettingGameComplexity_SettingGameComplexity__WEBPACK_IMPORTED_MODULE_0__["default"], {});
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SettingsGameComplexityView);

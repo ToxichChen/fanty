@@ -1,50 +1,54 @@
-import { useEffect } from 'react';
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import { useEffect } from "react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
-import doubleArrow from './../../../assets/icons/icon-double-arrow.png';
-import { dataCardGameArr } from '../../../constants';
+import doubleArrow from "./../../../assets/icons/icon-double-arrow.png";
+import { dataCardGameArr } from "../../../constants";
+
+import { StylImgDoubleArrow } from "./../../common/ImgLogo/ImgLogo.styled";
 
 import {
-  StylImgDoubleArrow,
-  StylBoxIntroCard,
-  StylBoxCenterIntroCard,
-  StylBoxCardGame,
-  StylDataCardGame,
-  StylLinkCardGame,
-  StylTitleCardGame,
-  StylTextCardGame,
-  StylBtnCardGame,
-} from './../../';
-import { routes } from '../../../Router';
+    StylBoxIntroCard,
+    StylBoxCenterIntroCard,
+    StylBoxCardGame,
+    StylDataCardGame,
+    StylLinkCardGame,
+    StylTitleCardGame,
+    StylTextCardGame,
+    StylBtnCardGame,
+} from "./IntroCard.styled";
+import { routes } from "../../../Router";
 
 const IntroCard = () => {
-  useEffect(() => {
-    Aos.init({ duration: 1000 });
-  }, []);
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
 
-  return (
-    <StylBoxIntroCard>
-      <StylBoxCenterIntroCard>
-        {dataCardGameArr.map((item) => (
-          <StylBoxCardGame key={item.id} data-aos='fade-right'>
-            <StylDataCardGame>
-              {item.data}
-              <StylLinkCardGame to={routes.taskGame.main}>
-                {item.link}
-              </StylLinkCardGame>
-            </StylDataCardGame>
-            <StylTitleCardGame>{item.title}</StylTitleCardGame>
-            <StylTextCardGame>{item.text}</StylTextCardGame>
-            <StylBtnCardGame to={item.linkUrl}>
-              {item.btnText}{' '}
-              <StylImgDoubleArrow src={doubleArrow} alt='double arrow' />
-            </StylBtnCardGame>
-          </StylBoxCardGame>
-        ))}
-      </StylBoxCenterIntroCard>
-    </StylBoxIntroCard>
-  );
+    return (
+        <StylBoxIntroCard>
+            <StylBoxCenterIntroCard>
+                {dataCardGameArr.map((item) => (
+                    <StylBoxCardGame key={item.id} data-aos="fade-right">
+                        <StylDataCardGame>
+                            {item.data}
+                            <StylLinkCardGame to={routes.taskGame.info}>
+                                {item.link}
+                            </StylLinkCardGame>
+                        </StylDataCardGame>
+                        <StylTitleCardGame>{item.title}</StylTitleCardGame>
+                        <StylTextCardGame>{item.text}</StylTextCardGame>
+                        <StylBtnCardGame to={routes.taskGame.info}>
+                            {item.btnText}{" "}
+                            <StylImgDoubleArrow
+                                src={doubleArrow}
+                                alt="double arrow"
+                            />
+                        </StylBtnCardGame>
+                    </StylBoxCardGame>
+                ))}
+            </StylBoxCenterIntroCard>
+        </StylBoxIntroCard>
+    );
 };
 
 export default IntroCard;

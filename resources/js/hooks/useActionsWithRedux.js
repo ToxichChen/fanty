@@ -10,8 +10,8 @@ import {
     getSettings,
     postSettingsCountTask,
     postSettingsGame,
-    postPlayersGame,
 } from "../redux/settingsFeatures/SettingsOperation";
+import { getActiveFanty } from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
 import { settingsGameData } from "../redux/settingsFeatures/SettingsAction";
 
 function useActionsWithRedux() {
@@ -21,12 +21,18 @@ function useActionsWithRedux() {
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
     );
-    const profile = useSelector((state) => state.authForm.user);
+    const profile = useSelector((state) => state.authForm.user.response);
+    const premium = useSelector(
+        (state) => state.authForm.user.response.is_premium
+    );
     const alertMessage = useSelector((state) => state.alertMessage);
     const vip = useSelector((state) => state.authForm.user.vip);
     const likesFanty = useSelector((state) => state.activeFanty.fanty.likes);
     const disLikesFanty = useSelector(
         (state) => state.activeFanty.fanty.disLikes
+    );
+    const isLoadingFanty = useSelector(
+        (state) => state.activeFanty.isLoadingFanty
     );
     const showMiniPlayer = useSelector((state) => state.musicData.miniPlayer);
 
@@ -88,9 +94,12 @@ function useActionsWithRedux() {
         dispatch(getSettings());
     }, [dispatch]);
 
-    const settingsCountTask = useCallback(() => {
-        dispatch(postSettingsCountTask());
-    }, [dispatch]);
+    const settingsCountTask = useCallback(
+        (data) => {
+            dispatch(postSettingsCountTask(data));
+        },
+        [dispatch]
+    );
 
     const settingsGameTask = useCallback(
         (data) => {
@@ -98,7 +107,8 @@ function useActionsWithRedux() {
 
             if (settingsGame.includes(data.id)) {
                 settingsGame.find(
-                    (item, index) => item.id === data.id && newArr.splice(index, 1)
+                    (item, index) =>
+                        item.id === data.id && newArr.splice(index, 1)
                 );
             } else {
                 newArr.push(data.id);
@@ -109,19 +119,21 @@ function useActionsWithRedux() {
         [dispatch, settingsGame]
     );
 
-    const sendSettingsGame = useCallback(() => {
-        dispatch(postSettingsGame(settingsGame));
-    }, [dispatch, settingsGame]);
+    const sendSettingsGame = useCallback(
+        (man, female) => {
+            dispatch(postSettingsGame(settingsGame, man, female));
+        },
+        [dispatch, settingsGame]
+    );
 
-    const sendPlayersGame = useCallback(
-        (data) => {
-            dispatch(postPlayersGame(data));
+    const getFant = useCallback(
+        (obj, setFant) => {
+            dispatch(getActiveFanty(obj, setFant));
         },
         [dispatch]
     );
 
     return {
-        sendPlayersGame,
         settingsGameTask,
         alertHidden,
         NotifySuccess,
@@ -131,6 +143,8 @@ function useActionsWithRedux() {
         registerUser,
         userLogout,
         settingsCountTask,
+        getFant,
+        sendSettingsGame,
         alertMessage,
         getAllSettings,
         profile,
@@ -140,7 +154,8 @@ function useActionsWithRedux() {
         showMiniPlayer,
         loadingSettings,
         settingsGame,
-        sendSettingsGame,
+        isLoadingFanty,
+        premium,
     };
 }
 

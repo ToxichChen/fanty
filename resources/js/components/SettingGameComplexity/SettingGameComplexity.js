@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -29,14 +30,14 @@ import { routes } from "../../Router";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
 const SettingGameComplexity = () => {
-    const { profile, NotifyError, settingsCountTask } = useActionsWithRedux();
+    const { premium, NotifyError, settingsCountTask } = useActionsWithRedux();
+    const navigate = useNavigate();
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
     }, []);
 
-    const vip = profile.response.is_premiume === 1 ? true : false;
-    const [isRanges, setRanges] = useState(false);
+    const vip = premium === 1 ? true : false;
     const [isRange1, setRange1] = useState(vip ? 4 : 4);
     const [isRange2, setRange2] = useState(vip ? 4 : 3);
     const [isRange3, setRange3] = useState(vip ? 4 : 2);
@@ -44,9 +45,8 @@ const SettingGameComplexity = () => {
     const checkRanges = () => {
         if (isRange1 === "1" && isRange2 === "1" && isRange3 === "1") {
             NotifyError("Ошибка, выберите хотя-бы минимальное количество игр");
-            setRanges(false);
         } else {
-            setRanges(true);
+            navigate("/taskGame/task/1");
             settingsCountTask({
                 is_green: isRange1,
                 is_orange: isRange2,
@@ -391,14 +391,7 @@ const SettingGameComplexity = () => {
                                 <i className="fas fa-cog"></i> Настройки
                             </BtnSettings>
                         </StylBoxFlexStartColumn>
-                        <StylStartBtn
-                            to={
-                                isRanges
-                                    ? routes.taskGame.main
-                                    : routes.settingsGame.complexity
-                            }
-                            onClick={checkRanges}
-                        >
+                        <StylStartBtn onClick={checkRanges}>
                             Играть
                         </StylStartBtn>
                     </StylBoxFooterSettings>

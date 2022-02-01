@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -15,34 +15,52 @@ import {
     StylImgTask,
     StylBoxFeatures,
 } from "./TaskGamePage.styled";
+import imgBgJPG from "./../../assets/bg/bg-image.jpg";
+import MiniLoader from "./../Loader/MiniLoader";
+import { useParams } from "react-router-dom";
+import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
-const TaskGamePage = ({ title, text, img, isTime, level, isTimeDuration }) => {
+const TaskGamePage = () => {
+    const [isFant, setFant] = useState({});
+    const { getFant, isLoadingFanty } = useActionsWithRedux();
+    const { id } = useParams();
+
+    useEffect(() => {
+        getFant({ current_level: "green", fant_number: id, sex: 1 }, setFant);
+    }, [id, getFant]);
+
     useEffect(() => {
         Aos.init({ duration: 1000 });
-    }, []);
+        console.log(isFant);
+    }, [isFant]);
 
     return (
         <SectionTaskGame>
-            <StylBoxContentTask data-aos="fade-right">
-                <StylBoxTask data-aos="fade-right" data-aos-duration="2000">
-                    <StylTitleTask>{title}, твой ход!</StylTitleTask>
-                    <StylTextTask>{text}</StylTextTask>
-                    <StylImgTask src={img} alt="img task" />
-                    <TaskGameBar
-                        isTimeDuration={isTimeDuration}
-                        isTime={isTime}
-                    />
-                    <TaskGameReview idFanty={1} />
-                </StylBoxTask>
-                <StylBoxFeatures>
-                    <StylBtnTask isType={level} isPreLastBtn={true}>
-                        <i className="fas fa-arrow-up"></i>Следующий уровень
-                    </StylBtnTask>
-                    <StylBtnTask isType="task" isLastBtn={true}>
-                        <i className="fas fa-arrow-down"></i>Следующее задание
-                    </StylBtnTask>
-                </StylBoxFeatures>
-            </StylBoxContentTask>
+            {isLoadingFanty ? (
+                <MiniLoader />
+            ) : (
+                <StylBoxContentTask data-aos="fade-right">
+                    {/* <StylBoxTask data-aos="fade-right" data-aos-duration="2000">
+                        <StylTitleTask>{isFant.title}, твой ход!</StylTitleTask>
+                        <StylTextTask>{isFant.text}</StylTextTask>
+                        <StylImgTask src={imgBgJPG} alt="img task" />
+                        <TaskGameBar
+                            isTimeDuration={isFant.isTimeDuration}
+                            isTime={isFant.isTime}
+                        />
+                        <TaskGameReview idFanty={1} />
+                    </StylBoxTask>
+                    <StylBoxFeatures>
+                        <StylBtnTask isType={isFant.level} isPreLastBtn={true}>
+                            <i className="fas fa-arrow-up"></i>Следующий уровень
+                        </StylBtnTask>
+                        <StylBtnTask isType="task" isLastBtn={true}>
+                            <i className="fas fa-arrow-down"></i>Следующее
+                            задание
+                        </StylBtnTask>
+                    </StylBoxFeatures> */}
+                </StylBoxContentTask>
+            )}
         </SectionTaskGame>
     );
 };

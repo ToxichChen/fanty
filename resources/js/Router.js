@@ -4,7 +4,7 @@ import { Route, Routes } from "react-router-dom";
 const routes = {
     home: "/",
     settingsGame: {
-        main: "/settingsGame/:id",
+        main: "/settingsGame",
         complexity: "/settingsGame/complexity",
     },
     blogs: {
@@ -13,7 +13,7 @@ const routes = {
     },
     formLogin: "/formLogin",
     formRegister: "/formRegister",
-    taskGame: { main: "/taskGame/:id", info: "/taskGame/info/:id" },
+    taskGame: { main: "/taskGame/task/:id", info: "/taskGame/info" },
     musicFromSex: "/musicForSex",
     profileUser: "/profileUser",
     notFound: "*",
@@ -36,60 +36,59 @@ const TaskInfo = lazy(() => import("./views/TaskInfoPage/TaskInfo"));
 const MusicPage = lazy(() => import("./views/MusicPage/MusicPage"));
 const BlogsPage = lazy(() => import("./views/BlogsPage/BlogsView"));
 const ArticlePage = lazy(() => import("./views/BlogsPage/Article/ArticleView"));
+const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 
 const Router = () => {
     return (
         <Routes>
-            <Route exact path={routes.home} element={<Home title="Home" />} />
+            <Route path={routes.home} element={<Home title="Home page" />} />
             <Route
-                exact
                 path={routes.settingsGame.complexity}
                 element={
                     <SettingsGameComplexity title="Settings Game Complexity" />
                 }
             />
             <Route
-                exact
                 path={routes.settingsGame.main}
                 element={<SettingsGame title="Settings Game" />}
             />
             <Route
-                exact
                 path={routes.formLogin}
-                element={<FormLogin title="Form Login" />}
+                element={
+                    <LayoutProfile>
+                        <FormLogin title="Form Login" />
+                    </LayoutProfile>
+                }
             />
             <Route
-                exact
                 path={routes.formRegister}
-                element={<FormRegister title="Form Register" />}
+                element={
+                    <LayoutProfile>
+                        <FormRegister title="Form Register" />
+                    </LayoutProfile>
+                }
             />
             <Route
-                exact
                 path={routes.taskGame.main}
                 element={<TaskGame title="Task Game" />}
             />
             <Route
-                exact
                 path={routes.taskGame.info}
                 element={<TaskInfo title="Task Game Info" />}
             />
             <Route
-                exact
                 path={routes.musicFromSex}
                 element={<MusicPage title="Music" />}
             />
             <Route
-                exact
                 path={routes.blogs.main}
                 element={<BlogsPage title="Blogs" />}
             />
             <Route
-                exact
                 path={routes.blogs.article}
                 element={<ArticlePage title="Article" />}
             />
             <Route
-                exact
                 path={routes.notFound}
                 element={<NotFound title="Not Found" />}
             />

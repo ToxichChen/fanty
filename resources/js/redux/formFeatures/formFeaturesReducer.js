@@ -11,7 +11,11 @@ import {
 } from "./formFeaturesActions";
 
 const user = createReducer(
-    {},
+    {
+        response: {
+            is_premium: 0,
+        },
+    },
     {
         [getUserProfileSuccess]: (_, { payload }) => ({
             ...payload,

@@ -11,11 +11,7 @@ import {
 import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
 import useActionWithRedux from "./../../hooks/useActionsWithRedux";
 
-const TaskInfoSlider = ({
-    title,
-    description,
-    taskUrl = "/settingsGame/1",
-}) => {
+const TaskInfoSlider = ({ title, description, taskUrl = "/settingsGame" }) => {
     const { settings } = useActionWithRedux();
     return (
         <StylTaskInfoSlider>
