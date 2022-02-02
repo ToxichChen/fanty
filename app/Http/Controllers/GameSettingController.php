@@ -91,7 +91,7 @@ class GameSettingController extends Controller
     public function sendSettings(Request $request)
     {
         if (is_array($request->all())) {
-            $_SESSION['settings'] = $request->all();
+            $_SESSION = $request->all();
         } else {
             $_SESSION['settings'] = [];
         }

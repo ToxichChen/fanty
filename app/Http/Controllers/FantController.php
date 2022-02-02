@@ -49,7 +49,7 @@ class FantController extends Controller
         ]);
         $path = '';
 
-        if ( $request->file('media') !== null && $request->file()) {
+        if ($request->file('media') !== null && $request->file()) {
             $path = $request->file('media')->store('storage');
         }
 
@@ -97,38 +97,117 @@ class FantController extends Controller
         return redirect('/admin/fant');
     }
 
-    public function generateFant(Request $request) {
+    public function generateFant(Request $request)
+    {
         if ($request->all() !== null) {
-            $levels = Config::get('constants.levels_types');
-            if (in_array($request->current_level, $levels)) {
+            if (in_array($request->current_level, Config::get('constants.levels_types'))) {
+                $levels = Config::get('constants.levels_ids');
+
                 if ($request->current_level !== 'red') {
                     $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
                     $planSetting = $levelPlan[$request->fant_number];
                     if (in_array($planSetting, $_SESSION['settings'])) {
-                        $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex]);
+                        $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
                         return $fant;
                     } else {
-                        $fant = Fant::where(['subsetting_id' => 0,'fantGroup' => $levels[$request->current_level], 'sex' => $request->sex]);
-                        return $fant;
+                        $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
+                        return $fant->toArray();
                     }
                 } else {
-                    $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
-                    $planSetting = $levelPlan[$request->fant_number];
-                    if (!is_array($planSetting)) {
+                    if (!isset($_SESSION['fants_game']['red_plan'])) {
+                        $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
+                        $planSetting = $levelPlan[$request->fant_number];
+                    } else {
+                        $levelPlan = $_SESSION['fants_game']['red_plan'];
+                        $planSetting = $levelPlan[$request->fant_number];
+                    }
+                    if ($planSetting === -1) {
+                        $newPlan = '';
+                        if ($_SESSION['game_duration']['red'] === 'six_red' || $_SESSION['game_duration']['red'] === 'eight_red') {
+                            $newPlan = Config::get('constants.six_and_eight_hard_or_soft_preset');
+                        } elseif ($_SESSION['game_duration']['red'] === 'ten_red') {
+                            $newPlan = Config::get('constants.ten_soft_or_hard_preset');
+                        }
+                        for ($i = 0; $i < count($newPlan); $i++) {
+                            if ($newPlan[$i] === -1) {
+                                if (in_array(10, $_SESSION['settings'])) {
+                                    $newPlan[$i] = 10;
+                                } else {
+                                    $newPlan[$i] = 11;
+                                }
+                            }
+                        }
+                        $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
+                        $levelPlan = $_SESSION['fants_game']['red_plan'];
+                        $planSetting = $levelPlan[$request->fant_number];
                         if (in_array($planSetting, $_SESSION['settings'])) {
-                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex]);
+                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
                             return $fant;
                         } else {
-                            $fant = Fant::where(['subsetting_id' => 0,'fantGroup' => $levels[$request->current_level], 'sex' => $request->sex]);
+                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
+                            return $fant;
+                        }
+                    } else if ($planSetting === -2) {
+                        $newPlan = '';
+                        switch ($_SESSION['settings']) {
+                            case in_array(23, $_SESSION['settings']):
+                                $newPlan = FantController::formAnalArray(23);
+                                break;
+                            case in_array(24, $_SESSION['settings']):
+                                $newPlan = FantController::formAnalArray(24);
+                                break;
+                            case in_array(25, $_SESSION['settings']):
+                                $newPlan = FantController::formAnalArray(25);
+                                break;
+                        }
+                        if ($newPlan === '') {
+                            if ($_SESSION['game_duration']['red'] === 'eight_red' || $_SESSION['game_duration']['red'] === 'ten_red') {
+                                $newPlan = Config::get('constants.anal_off_ten_or_eight');
+                            } else {
+                                $newPlan = Config::get('constants.anal_off_six');
+                            }
+                            for ($i = 0; $i < count($newPlan); $i++) {
+                                if ($newPlan[$i] === -1) {
+                                    if (in_array(10, $_SESSION['settings'])) {
+                                        $newPlan[$i] = 10;
+                                    } else {
+                                        $newPlan[$i] = 11;
+                                    }
+                                }
+                            }
+                        }
+                        $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
+                        $levelPlan = $_SESSION['fants_game']['red_plan'];
+                        $planSetting = $levelPlan[$request->fant_number];
+                        if (in_array($planSetting, $_SESSION['settings'])) {
+                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
+                            return $fant;
+                        } else {
+                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
                             return $fant;
                         }
                     } else {
-                        // Break down point to $_SESSION
+                        if (in_array($planSetting, $_SESSION['settings'])) {
+                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
+                            return $fant;
+                        } else {
+                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
+                            return $fant;
+                        }
                     }
                 }
             }
         } else {
             return false;
         }
+    }
+
+    public static function formAnalArray($setting)
+    {
+        $plan = Config::get('constants.anal');
+        for ($i = 0; $i < count($plan); $i++) {
+            $plan[$i] = $setting;
+        }
+        return $plan;
     }
 }
