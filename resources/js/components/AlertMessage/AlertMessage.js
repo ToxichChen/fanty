@@ -11,7 +11,7 @@ const AlertMessage = () => {
     const { alertMessage, alertHidden } = useActionsWithRedux();
 
     useEffect(() => {
-        alertMessage.show && setTimeout(() => alertHidden(), 3000);
+        alertMessage.show && setTimeout(() => alertHidden(), 5000);
     }, [alertMessage.show, alertHidden]);
 
     return (
@@ -27,8 +27,8 @@ const AlertMessage = () => {
             <StylBtnClose type="button" onClick={alertHidden} />
             <StylSubTitleAlert>
                 {alertMessage.err
-                    ? "Сообщение об ошибке находится здесь"
-                    : "Сообщение об успехе идет сюда"}
+                    ? "Сообщение об ошибке"
+                    : "Сообщение об успехе"}
             </StylSubTitleAlert>
             <StylTextAlert>{alertMessage.message}</StylTextAlert>
         </StylBoxAlert>

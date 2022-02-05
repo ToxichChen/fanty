@@ -61,9 +61,8 @@ const logoutUser = () => async (dispatch) => {
 
     try {
         await axios.get("/user/logout");
-        dispatch(registerSuccess({}));
-
-        dispatch(getUserProfileSuccess({}));
+        dispatch(registerSuccess({ response: {} }));
+        dispatch(getUserProfileSuccess({ response: {} }));
     } catch (error) {
         dispatch(registerError(error.message));
         dispatch(getUserProfileError(error.message));

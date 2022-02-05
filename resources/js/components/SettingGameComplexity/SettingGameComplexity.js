@@ -48,9 +48,30 @@ const SettingGameComplexity = () => {
         } else {
             navigate("/taskGame/task/1");
             settingsCountTask({
-                is_green: isRange1,
-                is_orange: isRange2,
-                is_red: isRange3,
+                is_green:
+                    isRange1 === 4
+                        ? "10"
+                        : isRange1 === 3
+                        ? "8"
+                        : isRange1 === 2
+                        ? "6"
+                        : "0",
+                is_orange:
+                    isRange2 === 4
+                        ? "10"
+                        : isRange2 === 3
+                        ? "8"
+                        : isRange2 === 2
+                        ? "6"
+                        : "0",
+                is_red:
+                    isRange3 === 4
+                        ? "10"
+                        : isRange3 === 3
+                        ? "8"
+                        : isRange3 === 2
+                        ? "6"
+                        : "0",
             });
         }
     };

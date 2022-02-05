@@ -3,11 +3,11 @@ import SettingsGame from "./../../components/SettingsGame/SettingsGame";
 import SettingsGameVipStatus from "./../../components/SettingsGame/VipStatusSettings/SettingsGameVipStatus";
 
 const SettingsGameView = ({ title }) => {
-    const { premium } = useActionsWithRedux();
+    const { profile } = useActionsWithRedux();
 
     return (
         <>
-            <SettingsGameVipStatus vip={premium} />
+            <SettingsGameVipStatus vip={profile.is_premium} />
             <SettingsGame />
         </>
     );

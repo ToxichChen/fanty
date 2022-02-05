@@ -2158,17 +2158,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./FormLogin.styled */ "./resources/js/components/FormLogin/FormLogin.styled.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../hooks/useActionsWithRedux */ "./resources/js/hooks/useActionsWithRedux.js");
+/* harmony import */ var _FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FormLogin.styled */ "./resources/js/components/FormLogin/FormLogin.styled.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 
 var BtnSubmitForm = function BtnSubmitForm() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__.StylBtnSubmitForm, {
+  var _useActionsWithRedux = (0,_hooks_useActionsWithRedux__WEBPACK_IMPORTED_MODULE_1__["default"])(),
+      loadingProfile = _useActionsWithRedux.loadingProfile;
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__.StylBtnSubmitForm, {
     type: "submit",
-    children: ["\u041E\u0442\u043F\u0440\u0430\u0432\u0438\u0442\u044C", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_1__.StylLineBorder, {})]
+    children: [loadingProfile ? "Загрузка" : "Отправить", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__.StylLineBorder, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_FormLogin_styled__WEBPACK_IMPORTED_MODULE_2__.StylLineBorder, {})]
   });
 };
 

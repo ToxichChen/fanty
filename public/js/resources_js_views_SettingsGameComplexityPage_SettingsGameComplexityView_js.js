@@ -91,9 +91,9 @@ var SettingGameComplexity = function SettingGameComplexity() {
     } else {
       navigate("/taskGame/task/1");
       settingsCountTask({
-        is_green: isRange1,
-        is_orange: isRange2,
-        is_red: isRange3
+        is_green: isRange1 === 4 ? "10" : isRange1 === 3 ? "8" : isRange1 === 2 ? "6" : "0",
+        is_orange: isRange2 === 4 ? "10" : isRange2 === 3 ? "8" : isRange2 === 2 ? "6" : "0",
+        is_red: isRange3 === 4 ? "10" : isRange3 === 3 ? "8" : isRange3 === 2 ? "6" : "0"
       });
     }
   };
@@ -590,7 +590,7 @@ var StylBtnFooterSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["d
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylBtnFooterSettingsComplexity = (0,styled_components__WEBPACK_IMPORTED_MODULE_0__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.NavLink)(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n    box-shadow: 0 2px 10px #f53131;\n    padding: 15px 20px;\n    border-radius: 100px;\n    border: 3px solid #f32d2d;\n    margin-bottom: 20px;\n    transition: all 0.2s ease;\n\n    & > i {\n        color: ", ";\n        margin-right: 10px;\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 0;\n        width: auto;\n        justify-content: flex-start;\n\n        &:not(:last-child) {\n            margin-right: 15px;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])), function (props) {
+var StylBtnFooterSettingsComplexity = styled_components__WEBPACK_IMPORTED_MODULE_0__["default"].button(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    display: flex;\n    width: 100%;\n    align-items: center;\n    justify-content: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    text-align: center;\n    text-decoration: none;\n    background: linear-gradient(180deg, #f77 0, #f32d2d 90.87%);\n    box-shadow: 0 2px 10px #f53131;\n    padding: 15px 20px;\n    border-radius: 100px;\n    border: 3px solid #f32d2d;\n    margin-bottom: 20px;\n    transition: all 0.2s ease;\n\n    & > i {\n        color: ", ";\n        margin-right: 10px;\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 768px) {\n        margin-bottom: 0;\n        width: auto;\n        justify-content: flex-start;\n\n        &:not(:last-child) {\n            margin-right: 15px;\n        }\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #f77 0, #f32d2d 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n    border: 3px solid #005734;\n    background: #00a44f;\n    background: -webkit-gradient(\n        linear,\n        left top,\n        left bottom,\n        from(#00a44f),\n        color-stop(90.87%, #005734)\n    );\n    background: -o-linear-gradient(top, #00a44f 0, #005734 90.87%);\n    background: linear-gradient(180deg, #00a44f 0, #005734 90.87%);\n    -webkit-box-shadow: 0 2px 10px #005734;\n    box-shadow: 0 2px 10px #005734;\n\n    @media (min-width: 1024px) {\n        &:hover {\n            background: linear-gradient(0deg, #005734 0, #00a44f 90.87%);\n\n            & > i {\n                transform: rotate(45deg);\n            }\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -693,13 +693,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "StylTitleTask": () => (/* binding */ StylTitleTask),
 /* harmony export */   "StylTextTask": () => (/* binding */ StylTextTask),
 /* harmony export */   "StylImgTask": () => (/* binding */ StylImgTask),
-/* harmony export */   "StylBoxFeatures": () => (/* binding */ StylBoxFeatures)
+/* harmony export */   "StylBoxFeatures": () => (/* binding */ StylBoxFeatures),
+/* harmony export */   "StylBoxBtn": () => (/* binding */ StylBoxBtn)
 /* harmony export */ });
 /* harmony import */ var styled_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! styled-components */ "./node_modules/styled-components/dist/styled-components.browser.esm.js");
 /* harmony import */ var _assets_bg_bg_image_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./../../assets/bg/bg-image.jpg */ "./resources/js/assets/bg/bg-image.jpg");
 /* harmony import */ var _assets_bg_bg_image_mobile_jpg__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./../../assets/bg/bg-image-mobile.jpg */ "./resources/js/assets/bg/bg-image-mobile.jpg");
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
-var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16;
+var _templateObject, _templateObject2, _templateObject3, _templateObject4, _templateObject5, _templateObject6, _templateObject7, _templateObject8, _templateObject9, _templateObject10, _templateObject11, _templateObject12, _templateObject13, _templateObject14, _templateObject15, _templateObject16, _templateObject17;
 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
@@ -707,12 +708,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
 
 
 
-var SectionTaskGame = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  position: relative;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  background-image: url(", ");\n  padding: 130px 0;\n  background-repeat: no-repeat;\n  background-attachment: fixed;\n  min-height: 100vh;\n  box-shadow: 0 0 0 1000px inset rgba(0, 0, 0, 0.5);\n\n  @media (min-width: 1024px) {\n    padding: 50px 20px;\n    background-size: cover;\n    background-image: url(", ");\n  }\n"])), _assets_bg_bg_image_mobile_jpg__WEBPACK_IMPORTED_MODULE_1__["default"], _assets_bg_bg_image_jpg__WEBPACK_IMPORTED_MODULE_0__["default"]);
-var StylBoxContentTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  max-width: 800px;\n  background-color: rgba(0, 0, 0, 0.4);\n  transition: all 0.2s ease;\n  width: 100%;\n"])));
-var StylBoxTaskBtnsPeople = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: flex-end;\n  align-items: center;\n  width: 100%;\n  background-color: ", ";\n\n  @media (min-width: 500px) {\n    flex-direction: row;\n  }\n"])), function (props) {
+var SectionTaskGame = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].section(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n    position: relative;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-image: url(", ");\n    padding: 130px 0;\n    background-repeat: no-repeat;\n    background-attachment: fixed;\n    min-height: 100vh;\n    box-shadow: 0 0 0 1000px inset rgba(0, 0, 0, 0.5);\n\n    @media (min-width: 1024px) {\n        padding: 50px 20px;\n        background-size: cover;\n        background-image: url(", ");\n    }\n"])), _assets_bg_bg_image_mobile_jpg__WEBPACK_IMPORTED_MODULE_1__["default"], _assets_bg_bg_image_jpg__WEBPACK_IMPORTED_MODULE_0__["default"]);
+var StylBoxContentTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    justify-content: center;\n    max-width: 800px;\n    background-color: rgba(0, 0, 0, 0.4);\n    transition: all 0.2s ease;\n    width: 100%;\n"])));
+var StylBoxTaskBtnsPeople = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n    padding: 10px;\n    display: flex;\n    flex-direction: column;\n    justify-content: flex-end;\n    align-items: center;\n    width: 100%;\n    background-color: ", ";\n\n    @media (min-width: 500px) {\n        flex-direction: row;\n    }\n"])), function (props) {
   return props.theme.palette.backgroundColor.main;
 });
-var StylBtnTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  width: 100%;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  background-color: ", ";\n  border: none;\n  outline: none;\n  padding: 10px;\n  margin-bottom: 20px;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n\n  &:last-child {\n    margin-right: 0;\n    margin-bottom: 0;\n  }\n\n  & > i {\n    margin-right: 5px;\n    transition: all 0.2s ease;\n  }\n\n  @media (min-width: 500px) {\n    margin-right: 10px;\n    margin-bottom: 0;\n  }\n\n  @media (min-width: 768px) {\n    width: auto;\n  }\n\n  @media (min-width: 1024px) {\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n\n  ", "\n\n  ", "\n"])), function (props) {
+var StylBtnTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject4 || (_templateObject4 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    background-color: ", ";\n    border: none;\n    outline: none;\n    padding: 10px;\n    margin-bottom: 20px;\n    border-radius: 8px;\n    transition: all 0.2s ease;\n\n    &:last-child {\n        margin-right: 0;\n        margin-bottom: 0;\n    }\n\n    & > i {\n        margin-right: 5px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 500px) {\n        margin-right: 10px;\n        margin-bottom: 0;\n    }\n\n    @media (min-width: 768px) {\n        width: auto;\n    }\n\n    @media (min-width: 1024px) {\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n\n    ", "\n\n    ", "\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -721,14 +722,14 @@ var StylBtnTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].butt
 }, function (props) {
   return props.theme.palette.main;
 }, function (props) {
-  return props.isType === 'level2' ? props.theme.palette.backgroundBtn.second : props.isType === 'level3' ? props.theme.palette.error.btn : props.isType === 'task' ? props.theme.palette.backgroundBtn.primary : props.theme.palette.backgroundBtn.dark;
+  return props.isType === "level2" ? props.theme.palette.backgroundBtn.second : props.isType === "level3" ? props.theme.palette.error.btn : props.isType === "task" ? props.theme.palette.backgroundBtn.primary : props.theme.palette.backgroundBtn.dark;
 }, function (props) {
-  return props.isPreLastBtn && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n      margin-right: 0;\n      border-radius: 5px;\n\n      @media (min-width: 500px) {\n        margin-right: 0;\n      }\n\n      @media (min-width: 1024px) {\n        margin-right: 0;\n        &:hover {\n          & > i {\n            transform: translateY(-5px);\n          }\n        }\n      }\n    "])));
+  return props.isPreLastBtn && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject5 || (_templateObject5 = _taggedTemplateLiteral(["\n            margin-right: 0;\n            border-radius: 5px;\n\n            @media (min-width: 500px) {\n                margin-right: 0;\n            }\n\n            @media (min-width: 1024px) {\n                margin-right: 0;\n                &:hover {\n                    & > i {\n                        transform: translateY(-5px);\n                    }\n                }\n            }\n        "])));
 }, function (props) {
-  return props.isLastBtn && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n      border-radius: 5pxx;\n\n      @media (min-width: 1024px) {\n        &:hover {\n          & > i {\n            transform: translateY(5px);\n          }\n        }\n      }\n    "])));
+  return props.isLastBtn && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject6 || (_templateObject6 = _taggedTemplateLiteral(["\n            border-radius: 5pxx;\n\n            @media (min-width: 1024px) {\n                &:hover {\n                    & > i {\n                        transform: translateY(5px);\n                    }\n                }\n            }\n        "])));
 });
-var StylBoxTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: column;\n  align-item: center;\n  justify-content: center;\n  padding: 50px 20px;\n"])));
-var StylTitleTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h2(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 20px;\n  text-align: center;\n"])), function (props) {
+var StylBoxTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject7 || (_templateObject7 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: column;\n    align-item: center;\n    justify-content: center;\n    padding: 50px 20px;\n"])));
+var StylTitleTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h2(_templateObject8 || (_templateObject8 = _taggedTemplateLiteral(["\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 20px;\n    text-align: center;\n"])), function (props) {
   return props.theme.typography.textMedium.main;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -737,7 +738,7 @@ var StylTitleTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].h2
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylTextTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n  max-width: 600px;\n  width: 100%;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  margin-bottom: 15px;\n  text-align: center;\n"])), function (props) {
+var StylTextTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p(_templateObject9 || (_templateObject9 = _taggedTemplateLiteral(["\n    max-width: 600px;\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    margin-bottom: 15px;\n    text-align: center;\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -746,10 +747,10 @@ var StylTextTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].p(_
 }, function (props) {
   return props.theme.palette.main;
 });
-var StylImgTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n  max-width: 500px;\n  width: 100%;\n  object-fit: cover;\n  filter: blur(4px);\n  margin: 0 auto;\n  margin-bottom: 20px;\n"])));
-var StylBoxFeatures = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n  padding: 10px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  width: 100%;\n  background-color: rgba(58, 58, 58, 0.8);\n\n  @media (min-width: 500px) {\n    flex-direction: row;\n  }\n"])));
-var StylTimeTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].i(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n  display: ", ";\n  justify-content: center;\n  align-items: center;\n  width: 40px;\n  height: 40px;\n  margin: 0 auto;\n  border-radius: 50%;\n  color: ", ";\n  background-color: ", ";\n  box-shadow: 0 0 10px 2px ", ";\n"])), function (props) {
-  return props.isTime ? 'flex' : 'none';
+var StylImgTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].img(_templateObject10 || (_templateObject10 = _taggedTemplateLiteral(["\n    max-width: 500px;\n    width: 100%;\n    object-fit: cover;\n    filter: blur(4px);\n    margin: 0 auto;\n    margin-bottom: 20px;\n"])));
+var StylBoxFeatures = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject11 || (_templateObject11 = _taggedTemplateLiteral(["\n    padding: 10px;\n    display: flex;\n    flex-direction: column;\n    justify-content: space-between;\n    align-items: center;\n    width: 100%;\n    background-color: rgba(58, 58, 58, 0.8);\n\n    @media (min-width: 500px) {\n        flex-direction: row;\n    }\n"])));
+var StylTimeTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].i(_templateObject12 || (_templateObject12 = _taggedTemplateLiteral(["\n    display: ", ";\n    justify-content: center;\n    align-items: center;\n    width: 40px;\n    height: 40px;\n    margin: 0 auto;\n    border-radius: 50%;\n    color: ", ";\n    background-color: ", ";\n    box-shadow: 0 0 10px 2px ", ";\n"])), function (props) {
+  return props.isTime ? "flex" : "none";
 }, function (props) {
   return props.theme.palette.main;
 }, function (props) {
@@ -757,7 +758,7 @@ var StylTimeTask = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].i(_
 }, function (props) {
   return props.theme.palette.error.icon;
 });
-var StylLinkSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  width: 100%;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  background-color: ", ";\n  text-decoration: none;\n  border: none;\n  outline: none;\n  padding: 10px;\n  margin-bottom: 20px;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n\n  & > i {\n    margin-right: 5px;\n  }\n\n  &:last-child {\n    margin-bottom: 0;\n  }\n\n  @media (min-width: 500px) {\n    margin-right: 10px;\n    margin-bottom: 0;\n  }\n\n  @media (min-width: 768px) {\n    width: auto;\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      & > i {\n        animation: ", ";\n      }\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n\n  ", "\n\n  @keyframes rotating {\n    from {\n      transform: rotate(0deg);\n    }\n    to {\n      transform: rotate(360deg);\n    }\n  }\n"])), function (props) {
+var StylLinkSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["default"])(react_router_dom__WEBPACK_IMPORTED_MODULE_3__.NavLink)(_templateObject13 || (_templateObject13 = _taggedTemplateLiteral(["\n    cursor: pointer;\n    width: 100%;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    background-color: ", ";\n    text-decoration: none;\n    border: none;\n    outline: none;\n    padding: 10px;\n    margin-bottom: 20px;\n    border-radius: 8px;\n    transition: all 0.2s ease;\n\n    & > i {\n        margin-right: 5px;\n    }\n\n    &:last-child {\n        margin-bottom: 0;\n    }\n\n    @media (min-width: 500px) {\n        margin-right: 10px;\n        margin-bottom: 0;\n    }\n\n    @media (min-width: 768px) {\n        width: auto;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            & > i {\n                animation: ", ";\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n\n    ", "\n\n    @keyframes rotating {\n        from {\n            transform: rotate(0deg);\n        }\n        to {\n            transform: rotate(360deg);\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -768,14 +769,14 @@ var StylLinkSettings = (0,styled_components__WEBPACK_IMPORTED_MODULE_2__["defaul
 }, function (props) {
   return props.theme.palette.backgroundBtn.dark;
 }, function (props) {
-  return props.isDontRoll ? 'none' : 'rotating 1.5s linear infinite';
+  return props.isDontRoll ? "none" : "rotating 1.5s linear infinite";
 }, function (props) {
-  return props.isGameTo && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n      background-color: ", ";\n\n      & > i {\n        position: relative;\n        margin-left: 5px;\n        top: 1px;\n        transition: all 0.2s ease;\n      }\n\n      @media (min-width: 1024px) {\n        &:hover {\n          & > i {\n            animation: none;\n            transform: translateX(5px);\n          }\n        }\n      }\n    "])), function (props) {
+  return props.isGameTo && (0,styled_components__WEBPACK_IMPORTED_MODULE_2__.css)(_templateObject14 || (_templateObject14 = _taggedTemplateLiteral(["\n            background-color: ", ";\n\n            & > i {\n                position: relative;\n                margin-left: 5px;\n                top: 1px;\n                transition: all 0.2s ease;\n            }\n\n            @media (min-width: 1024px) {\n                &:hover {\n                    & > i {\n                        animation: none;\n                        transform: translateX(5px);\n                    }\n                }\n            }\n        "])), function (props) {
     return props.theme.palette.backgroundBtn.primary;
   });
 });
-var StylBoxReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  align-self: flex-end;\n  margin-top: 15px;\n"])));
-var BtnReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n  display: flex;\n  flex-direction: row;\n  align-items: center;\n  font-size: ", ";\n  font-weight: ", ";\n  font-family: ", ";\n  color: ", ";\n  pointer-events: ", ";\n  opacity: ", ";\n  cursor: pointer;\n  border: none;\n  outline: none;\n  background-color: transparent;\n\n  &:first-child {\n    margin-right: 10px;\n  }\n\n  & > i {\n    color: ", ";\n    font-size: 20px;\n    transition: all 0.2s ease;\n  }\n\n  @media (min-width: 1024px) {\n    &:hover {\n      & > i {\n        color: ", ";\n      }\n    }\n\n    &:active {\n      transform: scale(1.1);\n    }\n  }\n"])), function (props) {
+var StylBoxReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject15 || (_templateObject15 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    align-self: flex-end;\n    margin-top: 15px;\n"])));
+var BtnReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button(_templateObject16 || (_templateObject16 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n    align-items: center;\n    font-size: ", ";\n    font-weight: ", ";\n    font-family: ", ";\n    color: ", ";\n    pointer-events: ", ";\n    opacity: ", ";\n    cursor: pointer;\n    border: none;\n    outline: none;\n    background-color: transparent;\n\n    &:first-child {\n        margin-right: 10px;\n    }\n\n    & > i {\n        color: ", ";\n        font-size: 20px;\n        transition: all 0.2s ease;\n    }\n\n    @media (min-width: 1024px) {\n        &:hover {\n            & > i {\n                color: ", ";\n            }\n        }\n\n        &:active {\n            transform: scale(1.1);\n        }\n    }\n"])), function (props) {
   return props.theme.typography.textSmall.primary;
 }, function (props) {
   return props.theme.typography.textWeigth.main;
@@ -784,14 +785,15 @@ var BtnReview = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].button
 }, function (props) {
   return props.theme.palette.main;
 }, function (props) {
-  return props.isClick && 'none';
+  return props.isClick && "none";
 }, function (props) {
-  return props.isClick ? '0.5' : '1';
+  return props.isClick ? "0.5" : "1";
 }, function (props) {
   return props.theme.palette.text.light;
 }, function (props) {
   return props.theme.palette.text.primary;
 });
+var StylBoxBtn = styled_components__WEBPACK_IMPORTED_MODULE_2__["default"].div(_templateObject17 || (_templateObject17 = _taggedTemplateLiteral(["\n    display: flex;\n    flex-direction: row;\n"])));
 
 
 /***/ }),

@@ -4,6 +4,7 @@ import { combineReducers } from "redux";
 import {
     registerSuccess,
     getUserProfileSuccess,
+    getUserProfileRequest,
     loginSuccess,
     registerError,
     loginError,
@@ -11,11 +12,7 @@ import {
 } from "./formFeaturesActions";
 
 const user = createReducer(
-    {
-        response: {
-            is_premium: 0,
-        },
-    },
+    { response: {} },
     {
         [getUserProfileSuccess]: (_, { payload }) => ({
             ...payload,
@@ -35,10 +32,8 @@ const error = createReducer(null, {
 });
 
 const isAuthenticated = createReducer(false, {
-    [registerSuccess]: () => true,
-    [loginSuccess]: () => true,
-    [registerError]: () => false,
-    [loginError]: () => false,
+    [getUserProfileRequest]: () => true,
+    [getUserProfileSuccess]: () => false,
 });
 
 export default combineReducers({

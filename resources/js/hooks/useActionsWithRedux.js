@@ -21,10 +21,10 @@ function useActionsWithRedux() {
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
     );
-    const profile = useSelector((state) => state.authForm.user.response);
-    const premium = useSelector(
-        (state) => state.authForm.user.response.is_premium
+    const loadingProfile = useSelector(
+        (state) => state.authForm.isAuthenticated
     );
+    const profile = useSelector((state) => state.authForm.user.response);
     const alertMessage = useSelector((state) => state.alertMessage);
     const vip = useSelector((state) => state.authForm.user.vip);
     const likesFanty = useSelector((state) => state.activeFanty.fanty.likes);
@@ -102,18 +102,51 @@ function useActionsWithRedux() {
     );
 
     const settingsGameTask = useCallback(
-        (data) => {
+        (data, clear = false, radio) => {
             const newArr = [...settingsGame];
 
-            if (settingsGame.includes(data.id)) {
-                settingsGame.find(
-                    (item, index) =>
-                        item.id === data.id && newArr.splice(index, 1)
-                );
-            } else {
-                newArr.push(data.id);
-            }
+            if (Object.prototype.toString.call(data) === "[object Array]") {
+                if (clear) {
+                    data.map((item) => {
+                        newArr.map((elem, index) => {
+                            if (elem === item.id) {
+                                newArr.splice(index, 1);
+                            }
+                            return true;
+                        });
 
+                        return true;
+                    });
+                } else {
+                    data.map(
+                        (item) =>
+                            !settingsGame.includes(item.id) &&
+                            newArr.push(item.id)
+                    );
+                }
+            } else {
+                if (clear === "radio") {
+                    radio.map((item) => {
+                        newArr.map((elem, index) => {
+                            if (elem === item.id) {
+                                newArr.splice(index, 1);
+                            }
+                            return true;
+                        });
+
+                        return true;
+                    });
+
+                    newArr.push(data.id);
+                } else if (settingsGame.includes(data.id)) {
+                    settingsGame.find(
+                        (item, index) =>
+                            item === data.id && newArr.splice(index, 1)
+                    );
+                } else {
+                    newArr.push(data.id);
+                }
+            }
             dispatch(settingsGameData(newArr));
         },
         [dispatch, settingsGame]
@@ -155,7 +188,7 @@ function useActionsWithRedux() {
         loadingSettings,
         settingsGame,
         isLoadingFanty,
-        premium,
+        loadingProfile,
     };
 }
 

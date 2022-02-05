@@ -24,7 +24,6 @@ const getActiveFanty = (obj, setFant) => async (dispatch) => {
         token.set(data.access_token);
         dispatch(fantySuccess(data));
 
-        console.log(data);
         setFant(data);
     } catch (error) {
         dispatch(fantyError(error.message));

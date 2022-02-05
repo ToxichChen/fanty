@@ -19761,6 +19761,9 @@ var ArticlePage = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(funct
 var LayoutProfile = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return __webpack_require__.e(/*! import() */ "resources_js_hoc_LayoutProfile_js").then(__webpack_require__.bind(__webpack_require__, /*! ./hoc/LayoutProfile */ "./resources/js/hoc/LayoutProfile.js"));
 });
+var LayoutProfileSettings = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return __webpack_require__.e(/*! import() */ "resources_js_hoc_LayoutProfileSettings_js").then(__webpack_require__.bind(__webpack_require__, /*! ./hoc/LayoutProfileSettings */ "./resources/js/hoc/LayoutProfileSettings.js"));
+});
 
 var Router = function Router() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Routes, {
@@ -19771,13 +19774,17 @@ var Router = function Router() {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
       path: routes.settingsGame.complexity,
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGameComplexity, {
-        title: "Settings Game Complexity"
+      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(LayoutProfileSettings, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGameComplexity, {
+          title: "Settings Game Complexity"
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
       path: routes.settingsGame.main,
-      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGame, {
-        title: "Settings Game"
+      element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(LayoutProfileSettings, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(SettingsGame, {
+          title: "Settings Game"
+        })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Route, {
       path: routes.formLogin,
@@ -19916,7 +19923,7 @@ var AlertMessage = function AlertMessage() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     alertMessage.show && setTimeout(function () {
       return alertHidden();
-    }, 3000);
+    }, 5000);
   }, [alertMessage.show, alertHidden]);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_AlertMessage_styled__WEBPACK_IMPORTED_MODULE_1__.StylBoxAlert, {
     err: alertMessage.err,
@@ -19926,7 +19933,7 @@ var AlertMessage = function AlertMessage() {
       type: "button",
       onClick: alertHidden
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AlertMessage_styled__WEBPACK_IMPORTED_MODULE_1__.StylSubTitleAlert, {
-      children: alertMessage.err ? "Сообщение об ошибке находится здесь" : "Сообщение об успехе идет сюда"
+      children: alertMessage.err ? "Сообщение об ошибке" : "Сообщение об успехе"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_AlertMessage_styled__WEBPACK_IMPORTED_MODULE_1__.StylTextAlert, {
       children: alertMessage.message
     })]
@@ -20519,11 +20526,11 @@ function useActionsWithRedux() {
   var loadingSettings = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.settings.isLoadingSettings;
   });
+  var loadingProfile = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
+    return state.authForm.isAuthenticated;
+  });
   var profile = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.authForm.user.response;
-  });
-  var premium = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
-    return state.authForm.user.response.is_premium;
   });
   var alertMessage = (0,react_redux__WEBPACK_IMPORTED_MODULE_0__.useSelector)(function (state) {
     return state.alertMessage;
@@ -20580,14 +20587,48 @@ function useActionsWithRedux() {
     dispatch((0,_redux_settingsFeatures_SettingsOperation__WEBPACK_IMPORTED_MODULE_4__.postSettingsCountTask)(data));
   }, [dispatch]);
   var settingsGameTask = (0,react__WEBPACK_IMPORTED_MODULE_1__.useCallback)(function (data) {
+    var clear = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+    var radio = arguments.length > 2 ? arguments[2] : undefined;
+
     var newArr = _toConsumableArray(settingsGame);
 
-    if (settingsGame.includes(data.id)) {
-      settingsGame.find(function (item, index) {
-        return item.id === data.id && newArr.splice(index, 1);
-      });
+    if (Object.prototype.toString.call(data) === "[object Array]") {
+      if (clear) {
+        data.map(function (item) {
+          newArr.map(function (elem, index) {
+            if (elem === item.id) {
+              newArr.splice(index, 1);
+            }
+
+            return true;
+          });
+          return true;
+        });
+      } else {
+        data.map(function (item) {
+          return !settingsGame.includes(item.id) && newArr.push(item.id);
+        });
+      }
     } else {
-      newArr.push(data.id);
+      if (clear === "radio") {
+        radio.map(function (item) {
+          newArr.map(function (elem, index) {
+            if (elem === item.id) {
+              newArr.splice(index, 1);
+            }
+
+            return true;
+          });
+          return true;
+        });
+        newArr.push(data.id);
+      } else if (settingsGame.includes(data.id)) {
+        settingsGame.find(function (item, index) {
+          return item === data.id && newArr.splice(index, 1);
+        });
+      } else {
+        newArr.push(data.id);
+      }
     }
 
     dispatch((0,_redux_settingsFeatures_SettingsAction__WEBPACK_IMPORTED_MODULE_6__.settingsGameData)(newArr));
@@ -20620,7 +20661,7 @@ function useActionsWithRedux() {
     loadingSettings: loadingSettings,
     settingsGame: settingsGame,
     isLoadingFanty: isLoadingFanty,
-    premium: premium
+    loadingProfile: loadingProfile
   };
 }
 
@@ -20729,22 +20770,21 @@ var getActiveFanty = function getActiveFanty(obj, setFant) {
               data = _yield$axios$post.data;
               token.set(data.access_token);
               dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantySuccess)(data));
-              console.log(data);
               setFant(data);
-              _context.next = 15;
+              _context.next = 14;
               break;
 
-            case 12:
-              _context.prev = 12;
+            case 11:
+              _context.prev = 11;
               _context.t0 = _context["catch"](1);
               dispatch((0,_activeFantyFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.fantyError)(_context.t0.message));
 
-            case 15:
+            case 14:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, null, [[1, 12]]);
+      }, _callee, null, [[1, 11]]);
     }));
 
     return function (_x) {
@@ -21225,8 +21265,12 @@ var logoutUser = function logoutUser() {
               return axios__WEBPACK_IMPORTED_MODULE_1___default().get("/user/logout");
 
             case 5:
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerSuccess)({}));
-              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileSuccess)({}));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.registerSuccess)({
+                response: {}
+              }));
+              dispatch((0,_formFeaturesActions__WEBPACK_IMPORTED_MODULE_2__.getUserProfileSuccess)({
+                response: {}
+              }));
               _context3.next = 13;
               break;
 
@@ -21280,9 +21324,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var user = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)({
-  response: {
-    is_premium: 0
-  }
+  response: {}
 }, _defineProperty({}, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.getUserProfileSuccess, function (_, _ref) {
   var payload = _ref.payload;
   return _objectSpread({}, payload);
@@ -21304,13 +21346,9 @@ var error = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(null
   var payload = _ref6.payload;
   return payload;
 }), _createReducer3));
-var isAuthenticated = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(false, (_createReducer4 = {}, _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.registerSuccess, function () {
+var isAuthenticated = (0,_reduxjs_toolkit__WEBPACK_IMPORTED_MODULE_1__.createReducer)(false, (_createReducer4 = {}, _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.getUserProfileRequest, function () {
   return true;
-}), _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.loginSuccess, function () {
-  return true;
-}), _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.registerError, function () {
-  return false;
-}), _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.loginError, function () {
+}), _defineProperty(_createReducer4, _formFeaturesActions__WEBPACK_IMPORTED_MODULE_0__.getUserProfileSuccess, function () {
   return false;
 }), _createReducer4));
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,redux__WEBPACK_IMPORTED_MODULE_2__.combineReducers)({
@@ -81004,7 +81042,7 @@ module.exports = JSON.parse('{"name":"axios","version":"0.21.4","description":"P
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames not based on template
-/******/ 			if ({"resources_js_views_HomePage_HomeView_js":1,"resources_js_views_FormLoginPage_FormLoginView_js":1,"resources_js_views_FormRegisterPage_FormRegisterView_js":1,"resources_js_views_TaskGamePage_TaskGameView_js":1,"resources_js_views_NotFoundPage_NotFoundPageView_js":1,"resources_js_views_SettingsGamePage_SettingsGameView_js":1,"resources_js_views_SettingsGameComplexityPage_SettingsGameComplexityView_js":1,"resources_js_views_TaskInfoPage_TaskInfo_js":1,"resources_js_views_MusicPage_MusicPage_js":1,"resources_js_views_BlogsPage_BlogsView_js":1,"resources_js_views_BlogsPage_Article_ArticleView_js":1,"resources_js_hoc_LayoutProfile_js":1}[chunkId]) return "js/" + chunkId + ".js";
+/******/ 			if ({"resources_js_views_HomePage_HomeView_js":1,"resources_js_views_FormLoginPage_FormLoginView_js":1,"resources_js_views_FormRegisterPage_FormRegisterView_js":1,"resources_js_views_TaskGamePage_TaskGameView_js":1,"resources_js_views_NotFoundPage_NotFoundPageView_js":1,"resources_js_views_SettingsGamePage_SettingsGameView_js":1,"resources_js_views_SettingsGameComplexityPage_SettingsGameComplexityView_js":1,"resources_js_views_TaskInfoPage_TaskInfo_js":1,"resources_js_views_MusicPage_MusicPage_js":1,"resources_js_views_BlogsPage_BlogsView_js":1,"resources_js_views_BlogsPage_Article_ArticleView_js":1,"resources_js_hoc_LayoutProfile_js":1,"resources_js_hoc_LayoutProfileSettings_js":1}[chunkId]) return "js/" + chunkId + ".js";
 /******/ 			// return url for filenames based on template
 /******/ 			return undefined;
 /******/ 		};

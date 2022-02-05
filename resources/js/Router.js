@@ -37,6 +37,7 @@ const MusicPage = lazy(() => import("./views/MusicPage/MusicPage"));
 const BlogsPage = lazy(() => import("./views/BlogsPage/BlogsView"));
 const ArticlePage = lazy(() => import("./views/BlogsPage/Article/ArticleView"));
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
+const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
 
 const Router = () => {
     return (
@@ -45,12 +46,18 @@ const Router = () => {
             <Route
                 path={routes.settingsGame.complexity}
                 element={
-                    <SettingsGameComplexity title="Settings Game Complexity" />
+                    <LayoutProfileSettings>
+                        <SettingsGameComplexity title="Settings Game Complexity" />
+                    </LayoutProfileSettings>
                 }
             />
             <Route
                 path={routes.settingsGame.main}
-                element={<SettingsGame title="Settings Game" />}
+                element={
+                    <LayoutProfileSettings>
+                        <SettingsGame title="Settings Game" />
+                    </LayoutProfileSettings>
+                }
             />
             <Route
                 path={routes.formLogin}

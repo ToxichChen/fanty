@@ -13,7 +13,7 @@ import { optionsBasic } from "../../../constants";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const SettingGameOptions = ({ item }) => {
-    const { premium } = useActionsWithRedux();
+    const { profile } = useActionsWithRedux();
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
@@ -40,13 +40,17 @@ const SettingGameOptions = ({ item }) => {
             </StylBtnOpenSetting>
 
             <StylWrapperSettings isShow={isShowOption}>
-                <RadioBox optionsBasic={optionsBasic} item={item} />
-                {item.is_premium === 1 && premium === 0
+                <RadioBox
+                    optionsBasic={optionsBasic}
+                    item={item}
+                    openModal={isShowModal}
+                />
+                {item.is_premium === 1 && profile.is_premium === 0
                     ? "Доступно в полной версии игры"
                     : ""}
                 <BtnMoreSettings type="button" onClick={handleModal}>
                     <i className="fas fa-cog"></i>
-                    {item.is_premium === 1 && premium === 0
+                    {item.is_premium === 1 && profile.is_premium === 0
                         ? " Смотреть настройки "
                         : "Настройки"}
                 </BtnMoreSettings>
@@ -55,7 +59,7 @@ const SettingGameOptions = ({ item }) => {
                 visible={isShowModal}
                 switchVisible={handleModal}
                 item={item}
-                vip={premium}
+                vip={profile.is_premium}
             />
         </StylBoxSettingsGame>
     );

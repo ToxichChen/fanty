@@ -10,12 +10,19 @@ import {
 } from "./SettingsGame.styled";
 import { routes } from "../../Router";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import { useNavigate } from "react-router-dom";
 
 const SettingsGameFooter = ({ man, female }) => {
-    const { sendSettingsGame } = useActionsWithRedux();
+    const { sendSettingsGame, NotifyError } = useActionsWithRedux();
+    const navigate = useNavigate();
 
     const sendDataSettingsGame = () => {
-        sendSettingsGame(man, female);
+        if (man === "" || female === "") {
+            NotifyError("Заполните поле мужчины и женщины");
+        } else {
+            sendSettingsGame(man, female);
+            navigate(routes.settingsGame.complexity);
+        }
     };
 
     useEffect(() => {
@@ -30,10 +37,7 @@ const SettingsGameFooter = ({ man, female }) => {
                     Выйти из игры
                 </StylBtnFooterSettings>
             </StylBoxFlexStartColumn>
-            <StylBtnFooterSettingsComplexity
-                to={routes.settingsGame.complexity}
-                onClick={sendDataSettingsGame}
-            >
+            <StylBtnFooterSettingsComplexity onClick={sendDataSettingsGame}>
                 <i className="fas fa-align-left"></i>
                 Количество заданий
             </StylBtnFooterSettingsComplexity>

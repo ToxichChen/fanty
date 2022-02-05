@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     CheckboxContainer,
     Icon,
@@ -12,7 +12,7 @@ import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
 const Checkbox = ({ elem, premium }) => {
-    const { settingsGameTask } = useActionsWithRedux();
+    const { settingsGameTask, settingsGame } = useActionsWithRedux();
 
     const [isCheck, setCheck] = useState(false);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
@@ -21,6 +21,12 @@ const Checkbox = ({ elem, premium }) => {
         setCheck(event.target.checked);
         settingsGameTask(elem);
     };
+
+    useEffect(
+        () =>
+            settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false),
+        [settingsGame, elem.id]
+    );
 
     return (
         <StylLabel>

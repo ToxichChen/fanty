@@ -14,6 +14,7 @@ import {
     StylTextTask,
     StylImgTask,
     StylBoxFeatures,
+    StylBoxBtn,
 } from "./TaskGamePage.styled";
 import imgBgJPG from "./../../assets/bg/bg-image.jpg";
 import MiniLoader from "./../Loader/MiniLoader";
@@ -31,8 +32,7 @@ const TaskGamePage = () => {
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
-        console.log(isFant);
-    }, [isFant]);
+    }, []);
 
     return (
         <SectionTaskGame>
@@ -40,7 +40,7 @@ const TaskGamePage = () => {
                 <MiniLoader />
             ) : (
                 <StylBoxContentTask data-aos="fade-right">
-                    {/* <StylBoxTask data-aos="fade-right" data-aos-duration="2000">
+                    <StylBoxTask data-aos="fade-right" data-aos-duration="2000">
                         <StylTitleTask>{isFant.title}, твой ход!</StylTitleTask>
                         <StylTextTask>{isFant.text}</StylTextTask>
                         <StylImgTask src={imgBgJPG} alt="img task" />
@@ -51,14 +51,33 @@ const TaskGamePage = () => {
                         <TaskGameReview idFanty={1} />
                     </StylBoxTask>
                     <StylBoxFeatures>
-                        <StylBtnTask isType={isFant.level} isPreLastBtn={true}>
-                            <i className="fas fa-arrow-up"></i>Следующий уровень
-                        </StylBtnTask>
-                        <StylBtnTask isType="task" isLastBtn={true}>
-                            <i className="fas fa-arrow-down"></i>Следующее
-                            задание
-                        </StylBtnTask>
-                    </StylBoxFeatures> */}
+                        <StylBoxBtn>
+                            <StylBtnTask
+                                isType={isFant.level}
+                                isPreLastBtn={true}
+                            >
+                                <i className="fas fa-arrow-up"></i>Следующий
+                                уровень
+                            </StylBtnTask>
+                            <StylBtnTask
+                                isType={isFant.level}
+                                isPreLastBtn={true}
+                            >
+                                <i className="fas fa-arrow-down"></i>Понизить
+                                уровень уровень
+                            </StylBtnTask>
+                        </StylBoxBtn>
+                        <StylBoxBtn>
+                            <StylBtnTask isType="task" isLastBtn={true}>
+                                <i className="fas fa-arrow-down"></i>Отказаться
+                                от задания
+                            </StylBtnTask>
+                            <StylBtnTask isType="task" isLastBtn={true}>
+                                <i className="fas fa-arrow-down"></i>Следующее
+                                задание
+                            </StylBtnTask>
+                        </StylBoxBtn>
+                    </StylBoxFeatures>
                 </StylBoxContentTask>
             )}
         </SectionTaskGame>

@@ -181,7 +181,7 @@ const StylBtnFooterSettings = styled(NavLink)`
     }
 `;
 
-const StylBtnFooterSettingsComplexity = styled(NavLink)`
+const StylBtnFooterSettingsComplexity = styled.button`
     cursor: pointer;
     display: flex;
     width: 100%;

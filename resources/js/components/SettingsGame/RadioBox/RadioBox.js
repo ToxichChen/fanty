@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
     StylBoxWrapperOptions,
@@ -9,7 +9,7 @@ import {
 import { StylBoxAddInfoTask, StylBoxInfo } from "./../CheckBox/CheckBox.styled";
 import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
 
-const RadioBox = ({ item, optionsBasic, subsettings }) => {
+const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
     const { settingsGameTask, profile } = useActionsWithRedux();
     const [isSelect, setSelect] = useState(optionsBasic[0].title);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
@@ -18,8 +18,20 @@ const RadioBox = ({ item, optionsBasic, subsettings }) => {
         const value = e.currentTarget.value;
         setSelect(value);
 
-        subsettings && settingsGameTask(elem);
+        if (profile.is_premium && item.is_finish) {
+            settingsGameTask(elem, "radio", item.subsettings);
+        }
     };
+
+    useEffect(() => {
+        openModal && setSelect("Своя настройка");
+
+        if (isSelect === "Включить всё") {
+            settingsGameTask(item.subsettings);
+        } else if (isSelect === "По умолчанию") {
+            settingsGameTask(item.subsettings, true);
+        }
+    }, [openModal, isSelect]);
 
     return (
         <form>
@@ -32,37 +44,41 @@ const RadioBox = ({ item, optionsBasic, subsettings }) => {
                         : true
                 }
             >
-                {optionsBasic.map((elem) => (
-                    <StylWrapperRadioBtn key={elem.title}>
-                        <StylRadioSetting
-                            id={elem.title}
-                            type="radio"
-                            name="radio"
-                            checked={isSelect === elem.title}
-                            value={elem.title}
-                            onChange={handleSelectChange}
-                            isVip={subsettings}
-                        />
-                        <StylLabelRadio
-                            htmlFor={elem.title}
-                            isVip={subsettings}
-                        />
-                        {elem.title}
-                        {subsettings && (
-                            <StylBoxAddInfoTask
-                                type="button"
-                                onClick={() => setHiddenInfo(!isHiddenInfo)}
-                                onFocus={() => setHiddenInfo(true)}
-                                onBlur={() => setHiddenInfo(false)}
-                            >
-                                <i className="fas fa-question"></i>
-                                <StylBoxInfo isHidden={isHiddenInfo}>
-                                    {elem.description}
-                                </StylBoxInfo>
-                            </StylBoxAddInfoTask>
-                        )}
-                    </StylWrapperRadioBtn>
-                ))}
+                {optionsBasic.map((elem) =>
+                    item.is_finish && elem.title === "Включить всё" ? (
+                        ""
+                    ) : (
+                        <StylWrapperRadioBtn key={elem.title}>
+                            <StylRadioSetting
+                                id={elem.title}
+                                type="radio"
+                                name="radio"
+                                checked={isSelect === elem.title}
+                                value={elem.title}
+                                onChange={(e) => handleSelectChange(e, elem)}
+                                isVip={subsettings}
+                            />
+                            <StylLabelRadio
+                                htmlFor={elem.title}
+                                isVip={subsettings}
+                            />
+                            {elem.title}
+                            {subsettings && (
+                                <StylBoxAddInfoTask
+                                    type="button"
+                                    onClick={() => setHiddenInfo(!isHiddenInfo)}
+                                    onFocus={() => setHiddenInfo(true)}
+                                    onBlur={() => setHiddenInfo(false)}
+                                >
+                                    <i className="fas fa-question"></i>
+                                    <StylBoxInfo isHidden={isHiddenInfo}>
+                                        {elem.description}
+                                    </StylBoxInfo>
+                                </StylBoxAddInfoTask>
+                            )}
+                        </StylWrapperRadioBtn>
+                    )
+                )}
             </StylBoxWrapperOptions>
         </form>
     );
