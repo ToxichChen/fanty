@@ -59,13 +59,6 @@ const TaskGamePage = () => {
                                 <i className="fas fa-arrow-up"></i>Следующий
                                 уровень
                             </StylBtnTask>
-                            <StylBtnTask
-                                isType={isFant.level}
-                                isPreLastBtn={true}
-                            >
-                                <i className="fas fa-arrow-down"></i>Понизить
-                                уровень уровень
-                            </StylBtnTask>
                         </StylBoxBtn>
                         <StylBoxBtn>
                             <StylBtnTask isType="task" isLastBtn={true}>

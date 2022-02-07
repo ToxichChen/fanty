@@ -56,7 +56,7 @@ const SettingGameComplexity = () => {
                         : isRange1 === 2
                         ? "6"
                         : "0",
-                is_orange:
+                is_yellow:
                     isRange2 === 4
                         ? "10"
                         : isRange2 === 3
