@@ -101,18 +101,14 @@ class FantController extends Controller
     {
         if ($request->all() !== null) {
             if (in_array($request->current_level, Config::get('constants.levels_types'))) {
-                $levels = Config::get('constants.levels_ids');
-
+                if ($_SESSION['game_duration'][$request->current_level] === "") {
+                    return null;
+                }
                 if ($request->current_level !== 'red') {
                     $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
                     $planSetting = $levelPlan[$request->fant_number];
-                    if (in_array($planSetting, $_SESSION['settings'])) {
-                        $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
-                        return $fant;
-                    } else {
-                        $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
-                        return $fant->toArray();
-                    }
+                    $fant = FantController::getFant($planSetting, $request);
+                    return $fant;
                 } else {
                     if (!isset($_SESSION['fants_game']['red_plan'])) {
                         $levelPlan = Config::get('constants.' . $_SESSION['game_duration'][$request->current_level]);
@@ -140,13 +136,8 @@ class FantController extends Controller
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
-                        if (in_array($planSetting, $_SESSION['settings'])) {
-                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
-                            return $fant;
-                        } else {
-                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
-                            return $fant;
-                        }
+                    $fant = FantController::getFant($planSetting, $request);
+                    return $fant;
                     } else if ($planSetting === -2) {
                         $newPlan = '';
                         switch ($_SESSION['settings']) {
@@ -179,21 +170,11 @@ class FantController extends Controller
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
-                        if (in_array($planSetting, $_SESSION['settings'])) {
-                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
-                            return $fant;
-                        } else {
-                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
-                            return $fant;
-                        }
+                    $fant = FantController::getFant($planSetting, $request);
+                    return $fant;
                     } else {
-                        if (in_array($planSetting, $_SESSION['settings'])) {
-                            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
-                            return $fant;
-                        } else {
-                            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
-                            return $fant;
-                        }
+                    $fant = FantController::getFant($planSetting, $request);
+                    return $fant;
                     }
                 }
             }
@@ -209,5 +190,26 @@ class FantController extends Controller
             $plan[$i] = $setting;
         }
         return $plan;
+    }
+
+    public static function getFant($planSetting, $request)
+    {
+        $levels = Config::get('constants.levels_ids');
+
+        if (in_array($planSetting, $_SESSION['settings'])) {
+            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
+            return $fant;
+        } else {
+            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
+            return $fant;
+        }
+    }
+
+    public function likeFant () {
+
+    }
+
+    public function dislikeFant () {
+
     }
 }
