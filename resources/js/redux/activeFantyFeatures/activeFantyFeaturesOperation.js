@@ -16,15 +16,13 @@ const token = {
     },
 };
 
-const getActiveFanty = (obj, setFant) => async (dispatch) => {
+const getActiveFanty = (obj) => async (dispatch) => {
     dispatch(fantyRequest());
 
     try {
         const { data } = await axios.post(`/fant/generate`, obj);
-        token.set(data.access_token);
+        console.log(data, "ok");
         dispatch(fantySuccess(data));
-
-        setFant(data);
     } catch (error) {
         dispatch(fantyError(error.message));
     }

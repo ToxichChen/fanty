@@ -11,12 +11,20 @@ import {
     postSettingsCountTask,
     postSettingsGame,
 } from "../redux/settingsFeatures/SettingsOperation";
-import { getActiveFanty } from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
-import { settingsGameData } from "../redux/settingsFeatures/SettingsAction";
+import {
+    getActiveFanty,
+    activeFantyError,
+} from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
+import { fantyCounterCanceledTask } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
+import {
+    settingsGameData,
+    settingsErrorMessage,
+} from "../redux/settingsFeatures/SettingsAction";
+import { fantyError } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
 
 function useActionsWithRedux() {
     const dispatch = useDispatch();
-    const getAllSettings = useSelector((state) => state.settings.settings[0]);
+    const getAllSettings = useSelector((state) => state.settings.settings);
     const settingsGame = useSelector((state) => state.settings.settingsGame);
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
@@ -27,14 +35,24 @@ function useActionsWithRedux() {
     const profile = useSelector((state) => state.authForm.user.response);
     const alertMessage = useSelector((state) => state.alertMessage);
     const vip = useSelector((state) => state.authForm.user.vip);
-    const likesFanty = useSelector((state) => state.activeFanty.fanty.likes);
-    const disLikesFanty = useSelector(
-        (state) => state.activeFanty.fanty.disLikes
-    );
     const isLoadingFanty = useSelector(
         (state) => state.activeFanty.isLoadingFanty
     );
     const showMiniPlayer = useSelector((state) => state.musicData.miniPlayer);
+    const getFanty = useSelector((state) => state.activeFanty.fanty);
+    const getCountTask = useSelector(
+        (state) => state.activeFanty.activeFantyError
+    );
+    const getCountCanceledTask = useSelector(
+        (state) => state.activeFanty.countCanceledTask.payload
+    );
+
+    const countTask = useCallback(
+        (data) => {
+            dispatch(fantyError(data));
+        },
+        [dispatch]
+    );
 
     const alertHidden = useCallback(() => {
         dispatch(
@@ -160,11 +178,24 @@ function useActionsWithRedux() {
     );
 
     const getFant = useCallback(
-        (obj, setFant) => {
-            dispatch(getActiveFanty(obj, setFant));
+        (obj) => {
+            dispatch(getActiveFanty(obj));
         },
         [dispatch]
     );
+
+    const clearDataSettingAndFant = useCallback(() => {
+        dispatch(settingsGameData([]));
+        dispatch(settingsErrorMessage(null));
+        dispatch(activeFantyError({}));
+        dispatch(getActiveFanty({}));
+    }, [dispatch]);
+
+    const canceledTask = useCallback(() => {
+        let counter = getCountCanceledTask + 1;
+        console.log(counter);
+        dispatch(fantyCounterCanceledTask(getCountCanceledTask + 1));
+    }, [dispatch, getCountCanceledTask]);
 
     return {
         settingsGameTask,
@@ -178,17 +209,21 @@ function useActionsWithRedux() {
         settingsCountTask,
         getFant,
         sendSettingsGame,
+        countTask,
+        clearDataSettingAndFant,
+        canceledTask,
         alertMessage,
         getAllSettings,
         profile,
         vip,
-        likesFanty,
-        disLikesFanty,
         showMiniPlayer,
         loadingSettings,
         settingsGame,
         isLoadingFanty,
         loadingProfile,
+        getFanty,
+        getCountTask,
+        getCountCanceledTask,
     };
 }
 

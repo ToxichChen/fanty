@@ -59,6 +59,7 @@ const FormRegistration = () => {
                         : setCheckPassword(false);
                 }}
                 onSubmit={handleSubmitForm}
+                autocomplete="off"
             >
                 {({ values, errors, handleChange, handleSubmit }) => (
                     <StylFormLogin onSubmit={handleSubmit}>

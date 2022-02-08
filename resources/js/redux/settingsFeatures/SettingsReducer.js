@@ -9,9 +9,7 @@ import {
 } from "./SettingsAction";
 
 const settings = createReducer([], {
-    [settingsSuccess.type]: (_, { payload }) => ({
-        ...payload,
-    }),
+    [settingsSuccess.type]: (_, { payload }) => [...payload],
 });
 
 const settingsErrorMessage = createReducer(null, {

@@ -23,7 +23,7 @@ const getSettings = () => async (dispatch) => {
         const { data } = await axios.get("/settings/get");
 
         token.set(data.access_token);
-        dispatch(settingsSuccess([data]));
+        dispatch(settingsSuccess(data));
     } catch (error) {
         dispatch(settingsError(error.message));
     }

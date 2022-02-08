@@ -49,18 +49,26 @@ const StylBoxTaskBtnsPeople = styled.div`
 
 const StylBtnTask = styled.button`
     cursor: pointer;
+    pointer-events: ${(props) =>
+        props.isType === "green"
+            ? "auto"
+            : props.isType === "yellow"
+            ? "auto"
+            : props.isType === "red"
+            ? "auto"
+            : "none"};
     width: 100%;
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.main};
     background-color: ${(props) =>
-        props.isType === "level2"
-            ? props.theme.palette.backgroundBtn.second
-            : props.isType === "level3"
-            ? props.theme.palette.error.btn
-            : props.isType === "task"
+        props.isType === "green"
             ? props.theme.palette.backgroundBtn.primary
+            : props.isType === "yellow"
+            ? props.theme.palette.backgroundBtn.second
+            : props.isType === "red"
+            ? props.theme.palette.error.btn
             : props.theme.palette.backgroundBtn.dark};
     border: none;
     outline: none;
@@ -97,6 +105,10 @@ const StylBtnTask = styled.button`
     ${(props) =>
         props.isPreLastBtn &&
         css`
+            pointer-events: ${(props) => props.isType === "red" && "none"};
+            backgroun-color: ${(props) =>
+                props.isType === "red" &&
+                props.theme.palette.backgroundBtn.dark};
             margin-right: 0;
             border-radius: 5px;
 
@@ -286,6 +298,7 @@ const BtnReview = styled.button`
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-right: 10px;
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
@@ -296,10 +309,6 @@ const BtnReview = styled.button`
     border: none;
     outline: none;
     background-color: transparent;
-
-    &:first-child {
-        margin-right: 10px;
-    }
 
     & > i {
         color: ${(props) => props.theme.palette.text.light};
@@ -325,6 +334,16 @@ const StylBoxBtn = styled.div`
     flex-direction: row;
 `;
 
+const CountTask = styled.p`
+    position: absolute;
+    top: 20px;
+    right: 0;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.main};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.main};
+`;
+
 export {
     StylBoxReview,
     BtnReview,
@@ -340,4 +359,5 @@ export {
     StylImgTask,
     StylBoxFeatures,
     StylBoxBtn,
+    CountTask,
 };

@@ -13,7 +13,7 @@ const routes = {
     },
     formLogin: "/formLogin",
     formRegister: "/formRegister",
-    taskGame: { main: "/taskGame/task/:id", info: "/taskGame/info" },
+    taskGame: { main: "/taskGame/task", info: "/taskGame/info" },
     musicFromSex: "/musicForSex",
     profileUser: "/profileUser",
     notFound: "*",

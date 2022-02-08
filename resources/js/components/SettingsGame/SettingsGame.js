@@ -19,9 +19,7 @@ const SettingsGame = () => {
     const [isChangeFemale, setChangeFemala] = useState("");
     const { getAllSettings, loadingSettings, settings } = useActionsWithRedux();
 
-    useEffect(() => {
-        settings();
-    }, [settings]);
+    useEffect(() => getAllSettings.length === 0 && settings(), []);
 
     return (
         <SectionTaskGame>

@@ -30,46 +30,73 @@ import { routes } from "../../Router";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
 const SettingGameComplexity = () => {
-    const { premium, NotifyError, settingsCountTask } = useActionsWithRedux();
+    const { profile, NotifyError, settingsCountTask, countTask } =
+        useActionsWithRedux();
     const navigate = useNavigate();
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
     }, []);
 
-    const vip = premium === 1 ? true : false;
-    const [isRange1, setRange1] = useState(vip ? 4 : 4);
-    const [isRange2, setRange2] = useState(vip ? 4 : 3);
-    const [isRange3, setRange3] = useState(vip ? 4 : 2);
+    const vip = profile.is_premium === 1 ? true : false;
+    const [isRange1, setRange1] = useState(vip ? "4" : "4");
+    const [isRange2, setRange2] = useState(vip ? "4" : "3");
+    const [isRange3, setRange3] = useState(vip ? "4" : "2");
 
     const checkRanges = () => {
         if (isRange1 === "1" && isRange2 === "1" && isRange3 === "1") {
             NotifyError("Ошибка, выберите хотя-бы минимальное количество игр");
         } else {
-            navigate("/taskGame/task/1");
+            navigate("/taskGame/task");
+            countTask({
+                is_green:
+                    isRange1 === "4"
+                        ? "20"
+                        : isRange1 === "3"
+                        ? "16"
+                        : isRange1 === "2"
+                        ? "12"
+                        : "0",
+                is_yellow:
+                    isRange2 === "4"
+                        ? "20"
+                        : isRange2 === "3"
+                        ? "16"
+                        : isRange2 === "2"
+                        ? "12"
+                        : "0",
+                is_red:
+                    isRange3 === "4"
+                        ? "20"
+                        : isRange3 === "3"
+                        ? "16"
+                        : isRange3 === "2"
+                        ? "12"
+                        : "0",
+            });
             settingsCountTask({
                 is_green:
-                    isRange1 === 4
+                    isRange1 === "4"
                         ? "10"
-                        : isRange1 === 3
+                        : isRange1 === "3"
                         ? "8"
-                        : isRange1 === 2
+                        : isRange1 === "2"
                         ? "6"
                         : "0",
                 is_yellow:
-                    isRange2 === 4
+                    isRange2 === "4"
                         ? "10"
-                        : isRange2 === 3
+                        : isRange2 === "3"
                         ? "8"
-                        : isRange2 === 2
+                        : isRange2 === "2"
                         ? "6"
                         : "0",
                 is_red:
-                    isRange3 === 4
+                    isRange3 === "4"
                         ? "10"
-                        : isRange3 === 3
+                        : isRange3 === "3"
                         ? "8"
-                        : isRange3 === 2
+                        : isRange3 === "2"
                         ? "6"
                         : "0",
             });

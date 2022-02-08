@@ -14,11 +14,17 @@ const authPersistConfig = {
     whitelist: ["user"],
 };
 
+const settignsPersistConfig = {
+    key: "settings",
+    storage,
+    whitelist: ["settings"],
+};
+
 const store = configureStore({
     reducer: {
         authForm: persistReducer(authPersistConfig, authReducer),
         alertMessage,
-        settings,
+        settings: persistReducer(settignsPersistConfig, settings),
         activeFanty,
         blogsData,
         musicData,
