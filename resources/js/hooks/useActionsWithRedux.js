@@ -11,14 +11,11 @@ import {
     postSettingsCountTask,
     postSettingsGame,
 } from "../redux/settingsFeatures/SettingsOperation";
-import {
-    getActiveFanty,
-    activeFantyError,
-} from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
+import { getActiveFanty } from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
 import { fantyCounterCanceledTask } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
 import {
     settingsGameData,
-    settingsErrorMessage,
+    settingsError,
 } from "../redux/settingsFeatures/SettingsAction";
 import { fantyError } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
 
@@ -186,8 +183,8 @@ function useActionsWithRedux() {
 
     const clearDataSettingAndFant = useCallback(() => {
         dispatch(settingsGameData([]));
-        dispatch(settingsErrorMessage(null));
-        dispatch(activeFantyError({}));
+        dispatch(settingsError(null));
+        dispatch(fantyError({}));
         dispatch(getActiveFanty({}));
     }, [dispatch]);
 
