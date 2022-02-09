@@ -23,7 +23,6 @@ const token = {
 };
 
 const loginForm = (credentials) => async (dispatch) => {
-    const { getErrorUser } = useActionsWithRedux();
     dispatch(loginRequest());
     dispatch(getUserProfileRequest());
 
@@ -36,19 +35,10 @@ const loginForm = (credentials) => async (dispatch) => {
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
     } catch (error) {
         dispatch(loginError(error.message));
-        console.log(getErrorUser);
-        /* dispatch(
-            alert({
-                show: true,
-                err: true,
-                message: message,
-            })
-        ); */
     }
 };
 
 const registerForm = (credentials) => async (dispatch) => {
-    const { getErrorUser } = useActionsWithRedux();
     dispatch(registerRequest());
     dispatch(getUserProfileRequest());
 
@@ -60,14 +50,6 @@ const registerForm = (credentials) => async (dispatch) => {
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
     } catch (error) {
         dispatch(registerError(error.message));
-        console.log(getErrorUser);
-        /*  dispatch(
-            alert({
-                show: true,
-                err: true,
-                message: message,
-            })
-        ); */
     }
 };
 
