@@ -1,4 +1,5 @@
 import axios from "axios";
+import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import {
     registerRequest,
     registerSuccess,
@@ -8,7 +9,6 @@ import {
     loginError,
     getUserProfileRequest,
     getUserProfileSuccess,
-    getUserProfileError,
 } from "./formFeaturesActions";
 
 axios.defaults.baseURL = "http://localhost/api";
@@ -23,6 +23,7 @@ const token = {
 };
 
 const loginForm = (credentials) => async (dispatch) => {
+    const { getErrorUser } = useActionsWithRedux();
     dispatch(loginRequest());
     dispatch(getUserProfileRequest());
 
@@ -32,14 +33,22 @@ const loginForm = (credentials) => async (dispatch) => {
         token.set(data.access_token);
         dispatch(loginSuccess(data));
 
-        dispatch(getUserProfileSuccess(data));
+        dispatch(getUserProfileSuccess({ response: {}, ...data }));
     } catch (error) {
         dispatch(loginError(error.message));
-        dispatch(getUserProfileError(error.message));
+        console.log(getErrorUser);
+        /* dispatch(
+            alert({
+                show: true,
+                err: true,
+                message: message,
+            })
+        ); */
     }
 };
 
 const registerForm = (credentials) => async (dispatch) => {
+    const { getErrorUser } = useActionsWithRedux();
     dispatch(registerRequest());
     dispatch(getUserProfileRequest());
 
@@ -48,10 +57,17 @@ const registerForm = (credentials) => async (dispatch) => {
         token.set(data.access_token);
         dispatch(registerSuccess(data));
 
-        dispatch(getUserProfileSuccess(data));
+        dispatch(getUserProfileSuccess({ response: {}, ...data }));
     } catch (error) {
         dispatch(registerError(error.message));
-        dispatch(getUserProfileError(error.message));
+        console.log(getErrorUser);
+        /*  dispatch(
+            alert({
+                show: true,
+                err: true,
+                message: message,
+            })
+        ); */
     }
 };
 
@@ -65,7 +81,6 @@ const logoutUser = () => async (dispatch) => {
         dispatch(getUserProfileSuccess({ response: {} }));
     } catch (error) {
         dispatch(registerError(error.message));
-        dispatch(getUserProfileError(error.message));
     }
 };
 

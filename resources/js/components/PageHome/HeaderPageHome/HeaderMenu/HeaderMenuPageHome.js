@@ -45,9 +45,7 @@ const HeaderMenuPageHome = () => {
             <StylBoxMainMenuPageHome open={isOpenMainMenu}>
                 <StylItemMainNav>
                     <StylLinkMainNav onClick={handleMenu}>
-                        <NavLink exact to={routes.home}>
-                            Домой
-                        </NavLink>
+                        <NavLink to={routes.home}>Домой</NavLink>
                     </StylLinkMainNav>
                 </StylItemMainNav>
                 <StylItemMainNav>
@@ -65,31 +63,27 @@ const HeaderMenuPageHome = () => {
                 </StylItemMainNav>
                 <StylItemMainNav>
                     <StylLinkMainNav onClick={handleMenu}>
-                        <NavLink exact to={routes.musicFromSex}>
+                        <NavLink to={routes.musicFromSex}>
                             Музыка для секса
                         </NavLink>
                     </StylLinkMainNav>
                 </StylItemMainNav>
                 <StylItemMainNav>
                     <StylLinkMainNav onClick={handleMenu}>
-                        <NavLink exact to={routes.blogs.main}>
-                            Блог
-                        </NavLink>
+                        <NavLink to={routes.blogs.main}>Блог</NavLink>
                     </StylLinkMainNav>
                 </StylItemMainNav>
                 {Object.keys(profile).length === 0 && (
                     <StylItemMainNav>
                         <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink exact to={routes.formLogin}>
-                                Логин
-                            </NavLink>
+                            <NavLink to={routes.formLogin}>Логин</NavLink>
                         </StylLinkMainNav>
                     </StylItemMainNav>
                 )}{" "}
                 {Object.keys(profile).length === 0 && (
                     <StylItemMainNav>
                         <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink exact to={routes.formRegister}>
+                            <NavLink to={routes.formRegister}>
                                 Регистрация
                             </NavLink>
                         </StylLinkMainNav>
@@ -98,18 +92,14 @@ const HeaderMenuPageHome = () => {
                 {Object.keys(profile).length !== 0 && (
                     <StylItemMainNav>
                         <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink exact to={routes.profileUser}>
-                                Профиль
-                            </NavLink>
+                            <NavLink to={routes.profileUser}>Профиль</NavLink>
                         </StylLinkMainNav>
                     </StylItemMainNav>
                 )}
                 {Object.keys(profile).length !== 0 && (
                     <StylItemMainNav>
                         <StylLinkMainNav onClick={profileRequest}>
-                            <NavLink exact to={routes.home}>
-                                Выйти
-                            </NavLink>
+                            <NavLink to={routes.home}>Выйти</NavLink>
                         </StylLinkMainNav>
                     </StylItemMainNav>
                 )}

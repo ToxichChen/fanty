@@ -46,9 +46,9 @@ const FormLogin = () => {
                 autocomplete="off"
             >
                 {({ values, errors, handleChange, handleSubmit }) => (
-                    <StylFormLogin onSubmit={handleSubmit} method="POST">
+                    <StylFormLogin onSubmit={handleSubmit}>
                         <StylTitleForm>
-                            <ArrowBack exact to={routes.home} />
+                            <ArrowBack to={routes.home} />
                             Вход
                         </StylTitleForm>
                         <FormInput

@@ -43,6 +43,7 @@ function useActionsWithRedux() {
     const getCountCanceledTask = useSelector(
         (state) => state.activeFanty.countCanceledTask.payload
     );
+    const getErrorUser = useSelector((state) => state.authForm.user[0]);
 
     const countTask = useCallback(
         (data) => {
@@ -221,6 +222,7 @@ function useActionsWithRedux() {
         getFanty,
         getCountTask,
         getCountCanceledTask,
+        getErrorUser,
     };
 }
 

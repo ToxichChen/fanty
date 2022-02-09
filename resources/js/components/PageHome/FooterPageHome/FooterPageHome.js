@@ -35,9 +35,7 @@ const FooterPageHome = () => {
                     <StylMenuFooterPageHome>
                         <StylItemMenuFooter>
                             <StylLinkMenuFooter>
-                                <NavLink exact to={routes.home}>
-                                    Домой
-                                </NavLink>
+                                <NavLink to={routes.home}>Домой</NavLink>
                             </StylLinkMenuFooter>
                         </StylItemMenuFooter>
                         <StylItemMenuFooter>
@@ -55,22 +53,20 @@ const FooterPageHome = () => {
                         </StylItemMenuFooter>
                         <StylItemMenuFooter>
                             <StylLinkMenuFooter>
-                                <NavLink exact to={routes.musicFromSex}>
+                                <NavLink to={routes.musicFromSex}>
                                     Музыка для секса
                                 </NavLink>
                             </StylLinkMenuFooter>
                         </StylItemMenuFooter>
                         <StylItemMenuFooter>
                             <StylLinkMenuFooter>
-                                <NavLink exact to={routes.blogs.main}>
-                                    Блог
-                                </NavLink>
+                                <NavLink to={routes.blogs.main}>Блог</NavLink>
                             </StylLinkMenuFooter>
                         </StylItemMenuFooter>
                         {Object.keys(profile).length === 0 && (
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
-                                    <NavLink exact to={routes.formLogin}>
+                                    <NavLink to={routes.formLogin}>
                                         Логин
                                     </NavLink>
                                 </StylLinkMenuFooter>
@@ -79,7 +75,7 @@ const FooterPageHome = () => {
                         {Object.keys(profile).length === 0 && (
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
-                                    <NavLink exact to={routes.formRegister}>
+                                    <NavLink to={routes.formRegister}>
                                         Регистрация
                                     </NavLink>
                                 </StylLinkMenuFooter>
@@ -88,7 +84,7 @@ const FooterPageHome = () => {
                         {Object.keys(profile).length !== 0 && (
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
-                                    <NavLink exact to={routes.profileUser}>
+                                    <NavLink to={routes.profileUser}>
                                         Профиль
                                     </NavLink>
                                 </StylLinkMenuFooter>
@@ -98,7 +94,6 @@ const FooterPageHome = () => {
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
                                     <NavLink
-                                        exact
                                         to={routes.profileUser}
                                         onClick={userLogout}
                                     >
