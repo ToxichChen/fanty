@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Fant;
 use App\Models\FantGroup;
 use App\Models\GameSetting;
+use App\Models\Like;
 use App\Models\Subsetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -101,6 +102,9 @@ class FantController extends Controller
     {
         if ($request->all() !== null) {
             if (in_array($request->current_level, Config::get('constants.levels_types'))) {
+                if (!isset($_SESSION['settings'])) {
+                    $_SESSION['settings'] = [];
+                }
                 if ($_SESSION['game_duration'][$request->current_level] === "") {
                     return null;
                 }
@@ -196,17 +200,26 @@ class FantController extends Controller
     {
         $levels = Config::get('constants.levels_ids');
 
+        $fant = '';
         if (in_array($planSetting, $_SESSION['settings'])) {
             $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
-            return $fant;
         } else {
             $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
-            return $fant;
         }
+
+        $_SESSION['fants_game']['current_fant'] = $fant;
+
+        return $fant;
     }
 
-    public function likeFant () {
-
+    public function likeFant (Request $request) {
+        if (!isset($_SESSION['user'])) {
+            return null;
+        }
+        if (isset($_SESSION['fants_game']['current_fant']) && !empty($_SESSION['fants_game']['current_fant'])) {
+            $like = new Like();
+            $like->user_id = $_SESSION['user'][''];
+        }
     }
 
     public function dislikeFant () {

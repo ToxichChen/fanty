@@ -17,7 +17,7 @@ class CreateFantsTable extends Migration
             $table->id();
             $table->string('title');
             $table->string('content');
-            $table->string('media');
+            $table->string('media')->default('');
             $table->integer('game_setting_id');
             $table->integer('fant_group_id');
             $table->integer('sex')->default(0);

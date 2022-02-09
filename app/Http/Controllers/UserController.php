@@ -24,6 +24,7 @@ class UserController extends Controller
             $user = User::where('email', $request->email)->first();
             if (Hash::check($request->password, $user->password)) {
                 $_SESSION['user']['username'] = $user->name;
+                $_SESSION['user']['id'] = $user->id;
                 $_SESSION['user']['is_premium'] = $user->is_premium;
                 $_SESSION['user']['email'] = $user->email;
                 $_SESSION['user']['premium_expires_at'] = $user->premium_expires_at;
@@ -37,7 +38,7 @@ class UserController extends Controller
         }
     }
 
-    public function register(Request $request)
+    public function register(Request $request): array
     {
         $response = array('response' => '', 'errors' => '', 'success' => false);
         $validator = Validator::make($request->all(), [
