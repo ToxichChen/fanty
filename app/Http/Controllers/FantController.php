@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Dislike;
 use App\Models\Fant;
 use App\Models\FantGroup;
 use App\Models\GameSetting;
@@ -140,8 +141,8 @@ class FantController extends Controller
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
-                    $fant = FantController::getFant($planSetting, $request);
-                    return $fant;
+                        $fant = FantController::getFant($planSetting, $request);
+                        return $fant;
                     } else if ($planSetting === -2) {
                         $newPlan = '';
                         switch ($_SESSION['settings']) {
@@ -174,11 +175,11 @@ class FantController extends Controller
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
-                    $fant = FantController::getFant($planSetting, $request);
-                    return $fant;
+                        $fant = FantController::getFant($planSetting, $request);
+                        return $fant;
                     } else {
-                    $fant = FantController::getFant($planSetting, $request);
-                    return $fant;
+                        $fant = FantController::getFant($planSetting, $request);
+                        return $fant;
                     }
                 }
             }
@@ -196,7 +197,29 @@ class FantController extends Controller
         return $plan;
     }
 
-    public static function getFant($planSetting, $request)
+    public static function checkLikedOrDisliked()
+    {
+        if (!isset($_SESSION['user'])) {
+            return false;
+        }
+        if (isset($_SESSION['fants_game']['current_fant']) && !empty($_SESSION['fants_game']['current_fant'])) {
+            $like = Like::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id ])->first();
+            if ($like !== null) {
+                return 1;
+            } else {
+                $dislike = Dislike::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id ])->first();
+                if ($dislike !== null) {
+                    return -1;
+                } else {
+                    return 0;
+                }
+            }
+        } else {
+            return false;
+        }
+    }
+
+    public static function getFant($planSetting, $request): array
     {
         $levels = Config::get('constants.levels_ids');
 
@@ -208,21 +231,40 @@ class FantController extends Controller
         }
 
         $_SESSION['fants_game']['current_fant'] = $fant;
-
-        return $fant;
+        $fantInfo['fant'] = $fant;
+        $fantInfo['is_liked'] = FantController::checkLikedOrDisliked();
+        return $fantInfo;
     }
 
-    public function likeFant (Request $request) {
+    public function likeFant(): ?bool
+    {
         if (!isset($_SESSION['user'])) {
             return null;
         }
         if (isset($_SESSION['fants_game']['current_fant']) && !empty($_SESSION['fants_game']['current_fant'])) {
             $like = new Like();
-            $like->user_id = $_SESSION['user'][''];
+            $like->user_id = $_SESSION['user']['id'];
+            $like->fant_id = $_SESSION['fants_game']['current_fant']->id;
+            $like->save();
+            return true;
+        } else {
+            return null;
         }
     }
 
-    public function dislikeFant () {
-
+    public function dislikeFant(): ?bool
+    {
+        if (!isset($_SESSION['user'])) {
+            return null;
+        }
+        if (isset($_SESSION['fants_game']['current_fant']) && !empty($_SESSION['fants_game']['current_fant'])) {
+            $dislike = new Dislike();
+            $dislike->user_id = $_SESSION['user']['id'];
+            $dislike->fant_id = $_SESSION['fants_game']['current_fant']->id;
+            $dislike->save();
+            return true;
+        } else {
+            return null;
+        }
     }
 }

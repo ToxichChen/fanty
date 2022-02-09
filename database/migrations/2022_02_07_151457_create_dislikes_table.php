@@ -19,6 +19,7 @@ class CreateDislikesTable extends Migration
             $table->integer('user_id');
             $table->integer('fant_id');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'));
         });
     }
 

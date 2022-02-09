@@ -30,7 +30,8 @@ Route::get('/settings/get', [GameSettingController::class, 'getSettings']);
 Route::post('/settings/send', [GameSettingController::class, 'sendSettings']);
 Route::post('/settings/gameDuration/send', [GameSettingController::class, 'gameDurationSend']);
 Route::post('/fant/generate', [FantController::class, 'generateFant']);
-Route::get('/fant/likeFant', [FantController::class, 'likeFant']);
+Route::post('/fant/likeFant', [FantController::class, 'likeFant']);
+Route::post('/fant/dislikeFant', [FantController::class, 'dislikeFant']);
 /*
  * Incoming data:
  *  current_level: ('red', 'yellow', 'green')
