@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback } from "react";
+import { useCallback, useEffect } from "react";
 import {
     loginForm,
     logoutUser,
@@ -194,6 +194,18 @@ function useActionsWithRedux() {
         console.log(counter);
         dispatch(fantyCounterCanceledTask(getCountCanceledTask + 1));
     }, [dispatch, getCountCanceledTask]);
+
+    useEffect(
+        () => getErrorUser !== undefined && NotifyError(getErrorUser),
+        [getErrorUser, NotifyError]
+    );
+
+    useEffect(
+        () =>
+            Object.keys(profile).length !== 0 &&
+            NotifySuccess("Авторизация прошла успешно"),
+        [profile, NotifySuccess]
+    );
 
     return {
         settingsGameTask,

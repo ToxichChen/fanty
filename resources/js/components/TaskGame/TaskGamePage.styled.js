@@ -73,27 +73,22 @@ const StylBtnTask = styled.button`
     border: none;
     outline: none;
     padding: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     border-radius: 8px;
     transition: all 0.2s ease;
-
-    &:last-child {
-        margin-right: 0;
-        margin-bottom: 0;
-    }
 
     & > i {
         margin-right: 5px;
         transition: all 0.2s ease;
     }
 
-    @media (min-width: 500px) {
-        margin-right: 10px;
-        margin-bottom: 0;
-    }
-
     @media (min-width: 768px) {
         width: auto;
+        margin-bottom: 0;
+
+        &:last-child {
+            margin-left: 5px;
+        }
     }
 
     @media (min-width: 1024px) {
@@ -127,6 +122,30 @@ const StylBtnTask = styled.button`
         `}
 
     ${(props) =>
+        props.isArrowRight &&
+        css`
+            @media (min-width: 1024px) {
+                &:hover {
+                    & > i {
+                        transform: translateX(5px);
+                    }
+                }
+            }
+        `}
+
+        ${(props) =>
+        props.isCancel &&
+        css`
+            @media (min-width: 1024px) {
+                &:hover {
+                    & > i {
+                        animation: 5s rotate-circle linear infinite;
+                    }
+                }
+            }
+        `}
+
+    ${(props) =>
         props.isLastBtn &&
         css`
             border-radius: 5pxx;
@@ -139,6 +158,12 @@ const StylBtnTask = styled.button`
                 }
             }
         `}
+
+        @keyframes rotate-circle {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
 `;
 
 const StylBoxTask = styled.div`
@@ -180,10 +205,12 @@ const StylImgTask = styled.img`
 
 const StylBoxFeatures = styled.div`
     padding: 10px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     background-color: rgba(58, 58, 58, 0.8);
 
@@ -332,6 +359,12 @@ const BtnReview = styled.button`
 const StylBoxBtn = styled.div`
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+
+    @media (min-width: 768px) {
+        width: auto;
+    }
 `;
 
 const CountTask = styled.p`

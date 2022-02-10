@@ -33,12 +33,14 @@ const TaskGamePage = () => {
     const navigate = useNavigate();
     const [isNumberFant, setNumberFant] = useState(0);
     const [isLevelFant, setLevelFant] = useState(
-        getCountTask.is_green === 0
-            ? "yellow"
-            : getCountTask.is_yellow === 0
+        getCountTask.is_green === "0" && getCountTask.is_yellow === "0"
             ? "red"
+            : getCountTask.is_green === "0"
+            ? "yellow"
             : "green"
     );
+
+    console.log(isLevelFant);
 
     useEffect(
         () =>
@@ -55,11 +57,11 @@ const TaskGamePage = () => {
         if (isLevelFant === "green") {
             setLevelFant("yellow");
             setNumberFant(0);
-            getFant({ current_level: isLevelFant, fant_number: 0, sex: 0 });
+            getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
         } else {
             setLevelFant("red");
             setNumberFant(0);
-            getFant({ current_level: isLevelFant, fant_number: 0, sex: 0 });
+            getFant({ current_level: "red", fant_number: 0, sex: 0 });
         }
     };
 
@@ -68,15 +70,16 @@ const TaskGamePage = () => {
             setNumberFant(isNumberFant + 1);
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant,
-                sex: getFanty ? 0 : 1,
+                fant_number: isNumberFant + 1,
+                sex: getFanty.sex ? 0 : 1,
             });
         } else if (
             isNumberFant === getCountTask.is_green &&
             isLevelFant === "green"
         ) {
+            getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
             setLevelFant("yellow");
-            getFant({ current_level: isLevelFant, fant_number: 0, sex: 0 });
+            setNumberFant(0);
         } else if (
             isNumberFant < getCountTask.is_yellow &&
             isLevelFant === "yellow"
@@ -84,25 +87,26 @@ const TaskGamePage = () => {
             setNumberFant(isNumberFant + 1);
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant,
-                sex: getFanty ? 0 : 1,
+                fant_number: isNumberFant + 1,
+                sex: getFanty.sex ? 0 : 1,
             });
         } else if (
             isNumberFant === getCountTask.is_yellow &&
             isLevelFant === "yellow"
         ) {
             setLevelFant("red");
-            getFant({ current_level: isLevelFant, fant_number: 0, sex: 0 });
+            getFant({ current_level: "red", fant_number: 0, sex: 0 });
+            setNumberFant(0);
         } else if (
             isNumberFant < getCountTask.is_red &&
             isLevelFant === "red"
         ) {
-            setNumberFant(isNumberFant + 1);
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant,
-                sex: getFanty ? 0 : 1,
+                fant_number: isNumberFant + 1,
+                sex: getFanty.sex ? 0 : 1,
             });
+            setNumberFant(isNumberFant + 1);
         } else if (
             isNumberFant === getCountTask.is_red &&
             isLevelFant === "red"
@@ -120,55 +124,62 @@ const TaskGamePage = () => {
 
     return (
         <SectionTaskGame>
-            {isLoadingFanty ? (
-                <MiniLoader />
-            ) : (
-                <StylBoxContentTask data-aos="fade-right">
-                    <StylBoxTask data-aos="fade-right" data-aos-duration="2000">
-                        <StylTitleTask>
-                            {getFanty.title}, твой ход!
-                        </StylTitleTask>
-                        <StylTextTask>{getFanty.text}</StylTextTask>
-                        <StylImgTask src={imgBgJPG} alt="img task" />
-                        <TaskGameBar
-                            isTimeDuration={getFanty.isTimeDuration}
-                            isTime={getFanty.isTime}
-                        />
-                        <TaskGameReview idFanty={getFanty.id} />
-                    </StylBoxTask>
-                    <StylBoxFeatures>
-                        <StylBoxBtn>
-                            <StylBtnTask
-                                type="button"
-                                isType={isLevelFant}
-                                isPreLastBtn={true}
-                                onClick={upLevelFant}
-                            >
-                                <i className="fas fa-arrow-up"></i>Следующий
-                                уровень
-                            </StylBtnTask>
-                        </StylBoxBtn>
-                        <StylBoxBtn>
-                            <StylBtnTask
-                                type="button"
-                                isType={isLevelFant}
-                                onClick={cancelTask}
-                            >
-                                <i className="fas fa-ban"></i>Отказаться от
-                                задания
-                            </StylBtnTask>
-                            <StylBtnTask
-                                type="button"
-                                onClick={nextTask}
-                                isType={isLevelFant}
-                            >
-                                <i className="fas fa-arrow-down"></i>Следующее
-                                задание
-                            </StylBtnTask>
-                        </StylBoxBtn>
-                    </StylBoxFeatures>
-                </StylBoxContentTask>
-            )}
+            <StylBoxContentTask data-aos="fade-right">
+                {isLoadingFanty ? (
+                    <MiniLoader />
+                ) : (
+                    <>
+                        <StylBoxTask
+                            data-aos="fade-right"
+                            data-aos-duration="2000"
+                        >
+                            <StylTitleTask>
+                                {getFanty.title}, твой ход!
+                            </StylTitleTask>
+                            <StylTextTask>{getFanty.text}</StylTextTask>
+                            <StylImgTask src={imgBgJPG} alt="img task" />
+                            <TaskGameBar
+                                isTimeDuration={getFanty.isTimeDuration}
+                                isTime={getFanty.isTime}
+                            />
+                            <TaskGameReview idFanty={getFanty.id} />
+                        </StylBoxTask>
+                        <StylBoxFeatures>
+                            <StylBoxBtn>
+                                <StylBtnTask
+                                    type="button"
+                                    isType={isLevelFant}
+                                    isPreLastBtn={true}
+                                    onClick={upLevelFant}
+                                >
+                                    <i className="fas fa-arrow-up"></i>Следующий
+                                    уровень
+                                </StylBtnTask>
+                            </StylBoxBtn>
+                            <StylBoxBtn>
+                                <StylBtnTask
+                                    type="button"
+                                    isType={isLevelFant}
+                                    onClick={cancelTask}
+                                    isCancel={true}
+                                >
+                                    <i className="fas fa-ban"></i>Отказаться от
+                                    задания
+                                </StylBtnTask>
+                                <StylBtnTask
+                                    type="button"
+                                    onClick={nextTask}
+                                    isType={isLevelFant}
+                                    isArrowRight={true}
+                                >
+                                    <i className="fas fa-arrow-right"></i>
+                                    Следующее задание
+                                </StylBtnTask>
+                            </StylBoxBtn>
+                        </StylBoxFeatures>
+                    </>
+                )}
+            </StylBoxContentTask>
         </SectionTaskGame>
     );
 };
