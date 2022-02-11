@@ -51,5 +51,6 @@ return [
         'green' => 3,
         'yellow' => 2,
         'red' => 1
-    ]
+    ],
+    'final_punishment_id' => 26
 ];

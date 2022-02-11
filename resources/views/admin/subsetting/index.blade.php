@@ -27,7 +27,7 @@
                     <td>{{ $subsetting->updated_at }}</td>
                     <td>
                         <a role="button" href="/admin/subsetting/edit/{{$subsetting->id}}" class="btn btn-primary">Изменить</a>
-                        <a role="button" href="/admin/subsetting/delete/{{$subsetting->id}}" class="btn btn-danger">Удалить</a>
+{{--                        <a role="button" href="/admin/subsetting/delete/{{$subsetting->id}}" class="btn btn-danger">Удалить</a>--}}
                     </td>
                 </tr>
             @endforeach

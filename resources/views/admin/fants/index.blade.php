@@ -1,7 +1,7 @@
 @extends('admin.layouts.app')
 @section('content')
     <h1>Список Фантов: </h1>
-    <a role="button" href="/admin/fant/create" class="btn btn-success m-4">Создать новую</a>
+    <a role="button" href="/admin/fant/create" class="btn btn-success m-4">Создать новый</a>
     <div style="width: 1200px; border: 1px solid;">
         <div style="margin: 10px">
             <table id="table_id" class="display">

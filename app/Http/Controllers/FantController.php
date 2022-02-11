@@ -52,7 +52,7 @@ class FantController extends Controller
         $path = '';
 
         if ($request->file('media') !== null && $request->file()) {
-            $path = $request->file('media')->store('storage');
+            $path = $request->file('media')->store('public');
         }
 
         $fant = new Fant();
@@ -203,11 +203,11 @@ class FantController extends Controller
             return false;
         }
         if (isset($_SESSION['fants_game']['current_fant']) && !empty($_SESSION['fants_game']['current_fant'])) {
-            $like = Like::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id ])->first();
+            $like = Like::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id])->first();
             if ($like !== null) {
                 return 1;
             } else {
-                $dislike = Dislike::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id ])->first();
+                $dislike = Dislike::where(['user_id' => $_SESSION['user']['id'], 'fant_id' => $_SESSION['fants_game']['current_fant']->id])->first();
                 if ($dislike !== null) {
                     return -1;
                 } else {
@@ -219,21 +219,49 @@ class FantController extends Controller
         }
     }
 
-    public static function getFant($planSetting, $request): array
+    public static function getFant($planSetting, $request)
     {
         $levels = Config::get('constants.levels_ids');
 
-        $fant = '';
         if (in_array($planSetting, $_SESSION['settings'])) {
-            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->first();
+            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->inRandomOrder()->first();
         } else {
-            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->first();
+            $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->inRandomOrder()->first();
+        }
+
+        if ($fant === null) {
+            return null;
         }
 
         $_SESSION['fants_game']['current_fant'] = $fant;
-        $fantInfo['fant'] = $fant;
-        $fantInfo['is_liked'] = FantController::checkLikedOrDisliked();
-        return $fantInfo;
+        $fant = $fant->toArray();
+        if (trim($fant["media"]) !== '') {
+            $fant["media"] = str_replace("public/", "storage/", $fant["media"]);
+            $fant["media"] = asset($fant["media"]);
+        }
+        return $fant;
+    }
+
+    public function getPunishment(Request $request)
+    {
+        if ($request->all() !== null && $request->current_level != null && $request->sex != null) {
+            if (in_array(1, $_SESSION['settings'])) {
+                return FantController::getFant(1, $request);
+            } else {
+                return false;
+            }
+        } else {
+            return null;
+        }
+    }
+
+    public function getFinalPunishment()
+    {
+        $fant = Fant::where(['id' =>Config::get('constants.final_punishment_id')])->get();
+        if ($fant === null) {
+            return false;
+        }
+        return $fant->toArray();
     }
 
     public function likeFant(): ?bool

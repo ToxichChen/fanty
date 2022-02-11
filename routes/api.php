@@ -30,12 +30,19 @@ Route::get('/settings/get', [GameSettingController::class, 'getSettings']);
 Route::post('/settings/send', [GameSettingController::class, 'sendSettings']);
 Route::post('/settings/gameDuration/send', [GameSettingController::class, 'gameDurationSend']);
 Route::post('/fant/generate', [FantController::class, 'generateFant']);
-Route::post('/fant/likeFant', [FantController::class, 'likeFant']);
-Route::post('/fant/dislikeFant', [FantController::class, 'dislikeFant']);
 /*
  * Incoming data:
  *  current_level: ('red', 'yellow', 'green')
  *  fant_number: 1 (refresh to 0 with each level)
  *  sex: 0 (men)/ 1 (women)
  *  */
+Route::post('/fant/likeFant', [FantController::class, 'likeFant']);
+Route::post('/fant/dislikeFant', [FantController::class, 'dislikeFant']);
 
+Route::post('/fant/getPunishment', [FantController::class, 'getPunishment']);
+/*
+ * Incoming data:
+ *  current_level: ('red', 'yellow', 'green')
+ *  sex: 0 (men)/ 1 (women)
+ */
+Route::get('/fant/getFinalPunishment', [FantController::class, 'getFinalPunishment']);

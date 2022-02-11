@@ -58,5 +58,10 @@ Route::prefix('admin')->group(function () {
     Route::get('/login/', [AdminController::class, 'adminLogin'])->name('admin.login');
     Route::post('/login/', [AdminController::class, 'adminLoginPost']);
 });
-Route::get('/fant/form_fant_array', [FantController::class, 'formFantsArray']);
-Route::view('/{path?}', 'app');
+
+//Route::view('/{path?}', 'app');
+
+Route::any('{catchall}', function() {
+    return view('app');
+})->where('catchall', '.*');
+
