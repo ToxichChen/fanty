@@ -23,6 +23,7 @@ const SectionTaskGame = styled.section`
 `;
 
 const StylBoxContentTask = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -370,7 +371,7 @@ const StylBoxBtn = styled.div`
 const CountTask = styled.p`
     position: absolute;
     top: 20px;
-    right: 0;
+    right: 50px;
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};

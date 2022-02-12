@@ -190,21 +190,12 @@ function useActionsWithRedux() {
     }, [dispatch]);
 
     const canceledTask = useCallback(() => {
-        let counter = getCountCanceledTask + 1;
-        console.log(counter);
         dispatch(fantyCounterCanceledTask(getCountCanceledTask + 1));
     }, [dispatch, getCountCanceledTask]);
 
     useEffect(
         () => getErrorUser !== undefined && NotifyError(getErrorUser),
         [getErrorUser, NotifyError]
-    );
-
-    useEffect(
-        () =>
-            Object.keys(profile).length !== 0 &&
-            NotifySuccess("Авторизация прошла успешно"),
-        [profile, NotifySuccess]
     );
 
     return {

@@ -21,7 +21,6 @@ const getActiveFanty = (obj) => async (dispatch) => {
 
     try {
         const { data } = await axios.post(`/fant/generate`, obj);
-        console.log(data, "ok");
         dispatch(fantySuccess(data));
     } catch (error) {
         dispatch(fantyError(error.message));

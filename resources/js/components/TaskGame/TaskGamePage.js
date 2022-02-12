@@ -22,11 +22,11 @@ import { useNavigate } from "react-router";
 
 const TaskGamePage = () => {
     const {
-        getFant,
         isLoadingFanty,
         getFanty,
-        NotifySuccess,
         getCountTask,
+        getFant,
+        NotifySuccess,
         clearDataSettingAndFant,
         canceledTask,
     } = useActionsWithRedux();
@@ -40,8 +40,6 @@ const TaskGamePage = () => {
             : "green"
     );
 
-    console.log(isLevelFant);
-
     useEffect(
         () =>
             Object.keys(getFanty).length === 0 &&
@@ -54,11 +52,11 @@ const TaskGamePage = () => {
     );
 
     const upLevelFant = () => {
-        if (isLevelFant === "green") {
+        if (isLevelFant === "green" && getCountTask.is_yellow !== "0") {
             setLevelFant("yellow");
             setNumberFant(0);
             getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
-        } else {
+        } else if (getCountTask.red !== "0") {
             setLevelFant("red");
             setNumberFant(0);
             getFant({ current_level: "red", fant_number: 0, sex: 0 });
@@ -122,17 +120,16 @@ const TaskGamePage = () => {
         canceledTask();
     };
 
+    console.log(getFanty);
+
     return (
         <SectionTaskGame>
-            <StylBoxContentTask data-aos="fade-right">
+            <StylBoxContentTask>
                 {isLoadingFanty ? (
                     <MiniLoader />
                 ) : (
                     <>
-                        <StylBoxTask
-                            data-aos="fade-right"
-                            data-aos-duration="2000"
-                        >
+                        <StylBoxTask>
                             <StylTitleTask>
                                 {getFanty.title}, твой ход!
                             </StylTitleTask>
