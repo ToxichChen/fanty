@@ -38,6 +38,13 @@ Route::post('/fant/generate', [FantController::class, 'generateFant']);
  *  */
 Route::post('/fant/likeFant', [FantController::class, 'likeFant']);
 Route::post('/fant/dislikeFant', [FantController::class, 'dislikeFant']);
+Route::get('/fant/checkLikedOrDisliked', [FantController::class, 'checkLikedOrDisliked']);
+/*
+ * Outgoing data:
+ * -1: disliked
+ *  0: not liked/disliked
+ *  1: liked
+ */
 
 Route::post('/fant/getPunishment', [FantController::class, 'getPunishment']);
 /*

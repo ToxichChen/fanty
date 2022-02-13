@@ -199,7 +199,6 @@ const StylImgTask = styled.img`
     max-width: 500px;
     width: 100%;
     object-fit: cover;
-    filter: blur(4px);
     margin: 0 auto;
     margin-bottom: 20px;
 `;

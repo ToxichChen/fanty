@@ -134,7 +134,7 @@ const TaskGamePage = () => {
                                 {getFanty.title}, твой ход!
                             </StylTitleTask>
                             <StylTextTask>{getFanty.text}</StylTextTask>
-                            <StylImgTask src={imgBgJPG} alt="img task" />
+                            <StylImgTask src={getFanty.media === '' ? imgBgJPG : getFanty.media} alt="img task" />
                             <TaskGameBar
                                 isTimeDuration={getFanty.isTimeDuration}
                                 isTime={getFanty.isTime}

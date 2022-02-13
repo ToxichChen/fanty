@@ -197,7 +197,7 @@ class FantController extends Controller
         return $plan;
     }
 
-    public static function checkLikedOrDisliked()
+    public function checkLikedOrDisliked()
     {
         if (!isset($_SESSION['user'])) {
             return false;
