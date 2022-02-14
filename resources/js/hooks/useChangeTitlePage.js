@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 
 const useChangeTitlePage = () => {
-    const ChangeTitle = ({ title }) => {
+    const ChangeTitle = (title) => {
         useEffect(() => {
             document.title = title;
         }, [title]);

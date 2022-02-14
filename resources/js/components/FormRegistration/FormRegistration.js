@@ -59,10 +59,9 @@ const FormRegistration = () => {
                         : setCheckPassword(false);
                 }}
                 onSubmit={handleSubmitForm}
-                autocomplete="off"
             >
                 {({ values, errors, handleChange, handleSubmit }) => (
-                    <StylFormLogin onSubmit={handleSubmit}>
+                    <StylFormLogin onSubmit={handleSubmit} autocomplete="off">
                         <StylTitleForm>
                             <ArrowBack exact to={routes.home} />
                             Регистрация

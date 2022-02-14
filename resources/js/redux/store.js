@@ -17,13 +17,20 @@ const authPersistConfig = {
 const settignsPersistConfig = {
     key: "settings",
     storage,
-    whitelist: ["settings"],
+    whitelist: ["settings", "users", "durationGame"],
 };
 
 const fantyPersistConfig = {
     key: "activeFanty",
     storage,
-    whitelist: ["fanty", "activeFantyError"],
+    whitelist: [
+        "fanty",
+        "countCanceledTask",
+        "levelFanty",
+        "numberFanty",
+        "like",
+        "fantyPunishmentUser",
+    ],
 };
 
 const store = configureStore({

@@ -50,6 +50,14 @@ const StylBoxTaskBtnsPeople = styled.div`
 
 const StylBtnTask = styled.button`
     cursor: pointer;
+    opacity: ${(props) =>
+        props.isType === "green"
+            ? "1"
+            : props.isType === "yellow"
+            ? "1"
+            : props.isType === "red"
+            ? "1"
+            : "0.5"};
     pointer-events: ${(props) =>
         props.isType === "green"
             ? "auto"
@@ -107,6 +115,8 @@ const StylBtnTask = styled.button`
                 props.theme.palette.backgroundBtn.dark};
             margin-right: 0;
             border-radius: 5px;
+
+            opacity: ${(props) => props.isType === "red" && "0.5"};
 
             @media (min-width: 500px) {
                 margin-right: 0;
@@ -377,6 +387,15 @@ const CountTask = styled.p`
     color: ${(props) => props.theme.palette.main};
 `;
 
+const StylSubTitleTask = styled.h4`
+    text-align: center;
+    font-size: ${(props) => props.theme.typography.textMedium.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.main};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.main};
+    margin-bottom: 10px;
+`;
+
 export {
     StylBoxReview,
     BtnReview,
@@ -393,4 +412,5 @@ export {
     StylBoxFeatures,
     StylBoxBtn,
     CountTask,
+    StylSubTitleTask,
 };

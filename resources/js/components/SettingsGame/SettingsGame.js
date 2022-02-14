@@ -15,9 +15,10 @@ import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import MiniLoader from "./../Loader/MiniLoader";
 
 const SettingsGame = () => {
-    const [isChangeMan, setChangeMan] = useState("");
-    const [isChangeFemale, setChangeFemala] = useState("");
-    const { getAllSettings, loadingSettings, settings } = useActionsWithRedux();
+    const { getAllSettings, loadingSettings, settingsUsers, settings } =
+        useActionsWithRedux();
+    const [isChangeMan, setChangeMan] = useState(settingsUsers.is_man);
+    const [isChangeFemale, setChangeFemala] = useState(settingsUsers.is_female);
 
     useEffect(() => getAllSettings.length === 0 && settings(), []);
 

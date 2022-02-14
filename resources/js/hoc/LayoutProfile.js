@@ -1,11 +1,12 @@
 import useActionsWithRedux from "../hooks/useActionsWithRedux";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LayoutProfile = ({ children }) => {
+    const navigate = useNavigate();
     const { profile } = useActionsWithRedux();
 
     if (Object.keys(profile).length !== 0) {
-        return <Navigate to={"/"} />;
+        navigate("/");
     }
 
     return children;

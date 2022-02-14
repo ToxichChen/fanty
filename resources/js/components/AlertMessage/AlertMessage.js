@@ -12,7 +12,7 @@ const AlertMessage = () => {
 
     useEffect(() => {
         alertMessage.show && setTimeout(() => alertHidden(), 5000);
-    }, [alertMessage.show, alertHidden]);
+    }, [alertMessage, alertHidden]);
 
     return (
         <StylBoxAlert

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { StylBoxReview, BtnReview, CountTask } from "./TaskGamePage.styled";
 import {
     activeFantyDisLikeFanty,
@@ -7,13 +7,23 @@ import {
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 
 const TaskGameReview = ({ id }) => {
-    const { getCountCanceledTask } = useActionsWithRedux();
-    const [isChooseUser, setChooseUser] = useState(false);
+    const {
+        getCountCanceledTask,
+        getFantLike,
+        getLikeFanty,
+        likeFantNow,
+        disLikeFantNow,
+    } = useActionsWithRedux();
+    useEffect(() => getFantLike(), [id]);
+
+    const [isChooseUser, setChooseUser] = useState(
+        getLikeFanty === 0 ? false : true
+    );
 
     const selectUser = (state) => {
         setChooseUser(true);
 
-        state === 1 ? activeFantyLikeFanty(id) : activeFantyDisLikeFanty(id);
+        state ? likeFantNow(id) : disLikeFantNow(id);
     };
 
     return (

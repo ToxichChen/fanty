@@ -43,10 +43,9 @@ const FormLogin = () => {
                     password: "",
                 }}
                 onSubmit={handleSubmitForm}
-                autocomplete="off"
             >
                 {({ values, errors, handleChange, handleSubmit }) => (
-                    <StylFormLogin onSubmit={handleSubmit}>
+                    <StylFormLogin onSubmit={handleSubmit} autocomplete="off">
                         <StylTitleForm>
                             <ArrowBack to={routes.home} />
                             Вход

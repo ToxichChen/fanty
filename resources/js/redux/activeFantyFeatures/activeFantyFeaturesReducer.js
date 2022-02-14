@@ -4,12 +4,15 @@ import { combineReducers } from "redux";
 import {
     fantySuccess,
     fantyRequest,
-    fantyError,
     fantyCounterCanceledTask,
+    fantyLevel,
+    fantyNumberTask,
+    fantyLike,
+    fantyPunishment,
 } from "./activeFantyFeaturesActions";
 
 const fanty = createReducer(
-    {},
+    { media: "" },
     {
         [fantySuccess]: (_, { payload }) => ({
             ...payload,
@@ -17,10 +20,12 @@ const fanty = createReducer(
     }
 );
 
-const activeFantyError = createReducer(
-    {},
+const fantyPunishmentUser = createReducer(
+    { media: "" },
     {
-        [fantyError]: (_, { payload }) => payload,
+        [fantyPunishment.type]: (_, { payload }) => ({
+            ...payload,
+        }),
     }
 );
 
@@ -29,6 +34,17 @@ const isLoadingFanty = createReducer(false, {
     [fantySuccess.type]: () => false,
 });
 
+const levelFanty = createReducer("", {
+    [fantyLevel.type]: (_, { payload }) => payload,
+});
+
+const numberFanty = createReducer(
+    { type: "fanty/fantyNumberTask", payload: 0 },
+    {
+        [fantyNumberTask]: (_, payload) => payload,
+    }
+);
+
 const countCanceledTask = createReducer(
     { type: "fanty/fantyCanceledTask", payload: 0 },
     {
@@ -36,9 +52,16 @@ const countCanceledTask = createReducer(
     }
 );
 
+const like = createReducer("", {
+    [fantyLike.type]: (_, { payload }) => payload,
+});
+
 export default combineReducers({
     fanty,
-    activeFantyError,
     isLoadingFanty,
     countCanceledTask,
+    levelFanty,
+    numberFanty,
+    like,
+    fantyPunishmentUser,
 });

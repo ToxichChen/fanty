@@ -11,18 +11,34 @@ import {
     postSettingsCountTask,
     postSettingsGame,
 } from "../redux/settingsFeatures/SettingsOperation";
-import { getActiveFanty } from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
-import { fantyCounterCanceledTask } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
+import {
+    getActiveFanty,
+    getFantyLike,
+    likeFanty,
+    disLikeFanty,
+    getPunishment,
+    getFinalPunishment,
+} from "./../redux/activeFantyFeatures/activeFantyFeaturesOperation";
+import {
+    fantyCounterCanceledTask,
+    fantyLevel,
+    fantyNumberTask,
+    fantySuccess,
+    fantyPunishment,
+} from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
 import {
     settingsGameData,
     settingsError,
+    settingsSuccess,
+    usersSetting,
+    durationGameData,
 } from "../redux/settingsFeatures/SettingsAction";
-import { fantyError } from "../redux/activeFantyFeatures/activeFantyFeaturesActions";
 
 function useActionsWithRedux() {
     const dispatch = useDispatch();
     const getAllSettings = useSelector((state) => state.settings.settings);
     const settingsGame = useSelector((state) => state.settings.settingsGame);
+    const settingsUsers = useSelector((state) => state.settings.users);
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
     );
@@ -37,17 +53,23 @@ function useActionsWithRedux() {
     );
     const showMiniPlayer = useSelector((state) => state.musicData.miniPlayer);
     const getFanty = useSelector((state) => state.activeFanty.fanty);
-    const getCountTask = useSelector(
-        (state) => state.activeFanty.activeFantyError
-    );
+    const getCountTask = useSelector((state) => state.settings.durationGame);
     const getCountCanceledTask = useSelector(
         (state) => state.activeFanty.countCanceledTask.payload
     );
+    const getNumberFanty = useSelector(
+        (state) => state.activeFanty.numberFanty.payload
+    );
+    const getLevelFanty = useSelector((state) => state.activeFanty.levelFanty);
+    const getLikeFanty = useSelector((state) => state.activeFanty.like);
     const getErrorUser = useSelector((state) => state.authForm.user[0]);
+    const getFantyPunishment = useSelector(
+        (state) => state.activeFanty.fantyPunishmentUser
+    );
 
     const countTask = useCallback(
         (data) => {
-            dispatch(fantyError(data));
+            dispatch(durationGameData(data));
         },
         [dispatch]
     );
@@ -94,10 +116,6 @@ function useActionsWithRedux() {
         },
         [dispatch]
     );
-
-    const userLogout = useCallback(() => {
-        dispatch(logoutUser());
-    }, [dispatch]);
 
     const registerUser = useCallback(
         (data) => {
@@ -171,27 +189,85 @@ function useActionsWithRedux() {
     const sendSettingsGame = useCallback(
         (man, female) => {
             dispatch(postSettingsGame(settingsGame, man, female));
+            dispatch(usersSetting({ is_man: man, is_female: female }));
         },
         [dispatch, settingsGame]
     );
 
     const getFant = useCallback(
         (obj) => {
-            dispatch(getActiveFanty(obj));
+            dispatch(getActiveFanty({ media: "", ...obj }));
         },
         [dispatch]
     );
 
     const clearDataSettingAndFant = useCallback(() => {
+        dispatch(settingsSuccess([]));
         dispatch(settingsGameData([]));
         dispatch(settingsError(null));
-        dispatch(fantyError({}));
-        dispatch(getActiveFanty({}));
+        dispatch(fantyNumberTask(0));
+        dispatch(fantyLevel(""));
+        dispatch(fantyCounterCanceledTask(0));
+        dispatch(durationGameData({ is_green: "", is_yellow: "", is_red: "" }));
+        dispatch(fantySuccess({ media: "" }));
+        dispatch(usersSetting({ is_man: "", is_female: "" }));
     }, [dispatch]);
+
+    const userLogout = useCallback(() => {
+        dispatch(logoutUser());
+        clearDataSettingAndFant();
+    }, [dispatch, clearDataSettingAndFant]);
 
     const canceledTask = useCallback(() => {
         dispatch(fantyCounterCanceledTask(getCountCanceledTask + 1));
     }, [dispatch, getCountCanceledTask]);
+
+    const sendNumberFanty = useCallback(
+        (data) => {
+            dispatch(fantyNumberTask(data));
+        },
+        [dispatch]
+    );
+
+    const sendLevelFanty = useCallback(
+        (data) => {
+            dispatch(fantyLevel(data));
+        },
+        [dispatch]
+    );
+
+    const getFantLike = useCallback(() => {
+        dispatch(getFantyLike());
+    }, [dispatch]);
+
+    const likeFantNow = useCallback(
+        (data) => {
+            dispatch(likeFanty(data));
+        },
+        [dispatch]
+    );
+
+    const disLikeFantNow = useCallback(
+        (data) => {
+            dispatch(disLikeFanty(data));
+        },
+        [dispatch]
+    );
+
+    const punishmentFant = useCallback(
+        (data) => dispatch(getPunishment(data)),
+        [dispatch]
+    );
+
+    const punishmentFinalFant = useCallback(
+        () => dispatch(getFinalPunishment()),
+        [dispatch]
+    );
+
+    const clearPunishmentFant = useCallback(
+        () => dispatch(fantyPunishment({ media: "" })),
+        [dispatch]
+    );
 
     useEffect(
         () => getErrorUser !== undefined && NotifyError(getErrorUser),
@@ -213,6 +289,14 @@ function useActionsWithRedux() {
         countTask,
         clearDataSettingAndFant,
         canceledTask,
+        sendNumberFanty,
+        sendLevelFanty,
+        getFantLike,
+        disLikeFantNow,
+        likeFantNow,
+        punishmentFant,
+        punishmentFinalFant,
+        clearPunishmentFant,
         alertMessage,
         getAllSettings,
         profile,
@@ -226,6 +310,11 @@ function useActionsWithRedux() {
         getCountTask,
         getCountCanceledTask,
         getErrorUser,
+        settingsUsers,
+        getNumberFanty,
+        getLevelFanty,
+        getLikeFanty,
+        getFantyPunishment,
     };
 }
 

@@ -6,6 +6,8 @@ import {
     settingsError,
     settingsRequest,
     settingsGameData,
+    usersSetting,
+    durationGameData,
 } from "./SettingsAction";
 
 const settings = createReducer([], {
@@ -27,9 +29,25 @@ const isLoadingSettings = createReducer(false, {
     [settingsSuccess.type]: () => false,
 });
 
+const users = createReducer(
+    { is_man: "", is_female: "" },
+    {
+        [usersSetting.type]: (_, { payload }) => ({ ...payload }),
+    }
+);
+
+const durationGame = createReducer(
+    { is_green: "", is_yellow: "", is_red: "" },
+    {
+        [durationGameData.type]: (_, { payload }) => ({ ...payload }),
+    }
+);
+
 export default combineReducers({
     settings,
     settingsErrorMessage,
     isLoadingSettings,
     settingsGame,
+    users,
+    durationGame,
 });

@@ -10,5 +10,19 @@ const settingsSuccess = createAction("settings/settingsSuccess", (payload) => ({
 const settingsError = createAction("settings/settingsError", (payload) => ({
     payload,
 }));
+const usersSetting = createAction("settings/users", (payload) => ({
+    payload,
+}));
 
-export { settingsRequest, settingsSuccess, settingsError, settingsGameData };
+const durationGameData = createAction("settings/gameDuration", (payload) => ({
+    payload,
+}));
+
+export {
+    settingsRequest,
+    settingsSuccess,
+    settingsError,
+    settingsGameData,
+    usersSetting,
+    durationGameData,
+};

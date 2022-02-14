@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "aos/dist/aos.css";
 
+import { useNavigate } from "react-router-dom";
+
 import TaskGameReview from "./TaskGameReview";
 import TaskGameBar from "./TaskGameBar";
 
@@ -14,99 +16,138 @@ import {
     StylImgTask,
     StylBoxFeatures,
     StylBoxBtn,
+    StylSubTitleTask,
 } from "./TaskGamePage.styled";
 import imgBgJPG from "./../../assets/bg/bg-image.jpg";
 import MiniLoader from "./../Loader/MiniLoader";
 import useActionsWithRedux from "../../hooks/useActionsWithRedux";
-import { useNavigate } from "react-router";
 
 const TaskGamePage = () => {
+    const navigate = useNavigate();
     const {
         isLoadingFanty,
         getFanty,
         getCountTask,
+        getCountCanceledTask,
+        settingsUsers,
+        getNumberFanty,
+        getLevelFanty,
+        getFantyPunishment,
+        clearPunishmentFant,
         getFant,
         NotifySuccess,
         clearDataSettingAndFant,
         canceledTask,
+        sendNumberFanty,
+        sendLevelFanty,
+        punishmentFant,
+        punishmentFinalFant,
     } = useActionsWithRedux();
-    const navigate = useNavigate();
-    const [isNumberFant, setNumberFant] = useState(0);
     const [isLevelFant, setLevelFant] = useState(
-        getCountTask.is_green === "0" && getCountTask.is_yellow === "0"
+        getLevelFanty !== ""
+            ? getLevelFanty
+            : getCountTask.is_green === "0" && getCountTask.is_yellow === "0"
             ? "red"
             : getCountTask.is_green === "0"
             ? "yellow"
             : "green"
     );
 
-    useEffect(
-        () =>
-            Object.keys(getFanty).length === 0 &&
+    useEffect(() => {
+        sendLevelFanty(
+            getCountTask.is_green === "0" && getCountTask.is_yellow === "0"
+                ? "red"
+                : getCountTask.is_green === "0"
+                ? "yellow"
+                : "green"
+        );
+        Object.keys(getFanty).length <= 1 &&
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant,
+                fant_number: getNumberFanty,
                 sex: 0,
-            }),
-        []
-    );
+            });
+    }, []);
 
     const upLevelFant = () => {
+        clearPunishmentFant();
+
+        if (getCountCanceledTask === 3) {
+            clearDataSettingAndFant();
+            NotifySuccess("Вы прошли последнее наказание. Игра окончена");
+            navigate("/");
+        }
+
         if (isLevelFant === "green" && getCountTask.is_yellow !== "0") {
             setLevelFant("yellow");
-            setNumberFant(0);
+            sendNumberFanty(0);
+            sendLevelFanty("yellow");
             getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
-        } else if (getCountTask.red !== "0") {
+        } else if (getCountTask.is_red !== "0") {
             setLevelFant("red");
-            setNumberFant(0);
+            sendNumberFanty(0);
+            sendLevelFanty("red");
             getFant({ current_level: "red", fant_number: 0, sex: 0 });
         }
     };
 
     const nextTask = () => {
-        if (isNumberFant < getCountTask.is_green && isLevelFant === "green") {
-            setNumberFant(isNumberFant + 1);
+        clearPunishmentFant();
+
+        if (getCountCanceledTask === 3) {
+            clearDataSettingAndFant();
+            NotifySuccess("Вы прошли последнее наказание. Игра окончена");
+            navigate("/");
+        }
+
+        if (
+            getNumberFanty < getCountTask.is_green - 1 &&
+            isLevelFant === "green"
+        ) {
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant + 1,
+                fant_number: getNumberFanty + 1,
                 sex: getFanty.sex ? 0 : 1,
             });
+            sendNumberFanty(getNumberFanty + 1);
         } else if (
-            isNumberFant === getCountTask.is_green &&
+            getNumberFanty === getCountTask.is_green - 1 &&
             isLevelFant === "green"
         ) {
             getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
             setLevelFant("yellow");
-            setNumberFant(0);
+            sendNumberFanty(0);
+            sendLevelFanty("yellow");
         } else if (
-            isNumberFant < getCountTask.is_yellow &&
+            getNumberFanty < getCountTask.is_yellow - 1 &&
             isLevelFant === "yellow"
         ) {
-            setNumberFant(isNumberFant + 1);
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant + 1,
+                fant_number: getNumberFanty + 1,
                 sex: getFanty.sex ? 0 : 1,
             });
+            sendNumberFanty(getNumberFanty + 1);
         } else if (
-            isNumberFant === getCountTask.is_yellow &&
+            getNumberFanty === getCountTask.is_yellow - 1 &&
             isLevelFant === "yellow"
         ) {
-            setLevelFant("red");
             getFant({ current_level: "red", fant_number: 0, sex: 0 });
-            setNumberFant(0);
+            setLevelFant("red");
+            sendNumberFanty(0);
+            sendLevelFanty("red");
         } else if (
-            isNumberFant < getCountTask.is_red &&
+            getNumberFanty < getCountTask.is_red &&
             isLevelFant === "red"
         ) {
             getFant({
                 current_level: isLevelFant,
-                fant_number: isNumberFant + 1,
+                fant_number: getNumberFanty + 1,
                 sex: getFanty.sex ? 0 : 1,
             });
-            setNumberFant(isNumberFant + 1);
+            sendNumberFanty(getNumberFanty + 1);
         } else if (
-            isNumberFant === getCountTask.is_red &&
+            getNumberFanty === getCountTask.is_red &&
             isLevelFant === "red"
         ) {
             navigate("/", { replace: true });
@@ -116,11 +157,13 @@ const TaskGamePage = () => {
     };
 
     const cancelTask = () => {
-        nextTask();
-        canceledTask();
+        if (getCountCanceledTask === 3) {
+            punishmentFinalFant();
+        } else {
+            canceledTask();
+            punishmentFant({ current_level: isLevelFant, sex: getFanty.sex });
+        }
     };
-
-    console.log(getFanty);
 
     return (
         <SectionTaskGame>
@@ -131,15 +174,51 @@ const TaskGamePage = () => {
                     <>
                         <StylBoxTask>
                             <StylTitleTask>
-                                {getFanty.title}, твой ход!
+                                {getFanty.sex
+                                    ? settingsUsers.is_man
+                                    : settingsUsers.is_female}
+                                , твой ход!
                             </StylTitleTask>
-                            <StylTextTask>{getFanty.text}</StylTextTask>
-                            <StylImgTask src={getFanty.media === '' ? imgBgJPG : getFanty.media} alt="img task" />
-                            <TaskGameBar
-                                isTimeDuration={getFanty.isTimeDuration}
-                                isTime={getFanty.isTime}
+                            <StylSubTitleTask>
+                                {Object.keys(getFantyPunishment).length <= 1
+                                    ? getFantyPunishment.title
+                                    : getFanty.title}
+                            </StylSubTitleTask>
+                            <StylTextTask>{getFanty.content}</StylTextTask>
+                            <StylImgTask
+                                src={
+                                    Object.keys(getFantyPunishment).length <=
+                                        1 &&
+                                    getFantyPunishment.media.trim() === ""
+                                        ? imgBgJPG
+                                        : Object.keys(getFanty).length <= 1
+                                        ? getFantyPunishment.media
+                                        : getFanty.media.trim() === ""
+                                        ? imgBgJPG
+                                        : getFanty.media
+                                }
+                                alt="img task"
                             />
-                            <TaskGameReview idFanty={getFanty.id} />
+                            <TaskGameBar
+                                isTimeDuration={
+                                    Object.keys(getFantyPunishment).length <= 1
+                                        ? getFantyPunishment.isTimget
+                                        : getFanty.isTimeDuration
+                                }
+                                isTime={
+                                    Object.keys(getFantyPunishment).length <= 1
+                                        ? getFantyPunishment.isTime
+                                        : getFanty.isTime
+                                }
+                                nextTask={nextTask}
+                            />
+                            <TaskGameReview
+                                idFanty={
+                                    Object.keys(getFantyPunishment).length <= 1
+                                        ? getFantyPunishment.id
+                                        : getFanty.id
+                                }
+                            />
                         </StylBoxTask>
                         <StylBoxFeatures>
                             <StylBoxBtn>
@@ -156,7 +235,13 @@ const TaskGamePage = () => {
                             <StylBoxBtn>
                                 <StylBtnTask
                                     type="button"
-                                    isType={isLevelFant}
+                                    isType={
+                                        isLevelFant === "green"
+                                            ? "none"
+                                            : getCountCanceledTask === 4
+                                            ? "none"
+                                            : isLevelFant
+                                    }
                                     onClick={cancelTask}
                                     isCancel={true}
                                 >

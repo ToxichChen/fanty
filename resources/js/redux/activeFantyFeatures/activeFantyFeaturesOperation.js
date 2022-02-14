@@ -3,18 +3,11 @@ import {
     fantyRequest,
     fantySuccess,
     fantyError,
+    fantyLike,
+    fantyPunishment,
 } from "./activeFantyFeaturesActions";
 
 axios.defaults.baseURL = "http://localhost/api";
-
-const token = {
-    set(tok) {
-        axios.defaults.headers.common.Authorization = `${tok}`;
-    },
-    unset() {
-        axios.defaults.headers.common.Authorization = "";
-    },
-};
 
 const getActiveFanty = (obj) => async (dispatch) => {
     dispatch(fantyRequest());
@@ -27,26 +20,63 @@ const getActiveFanty = (obj) => async (dispatch) => {
     }
 };
 
-const activeFantyLikeFanty = (credentials) => async (dispatch) => {
+const likeFanty = (credentials) => async (dispatch) => {
     try {
-        const { data } = await axios.post("", credentials);
-        token.set(data.access_token);
-
-        dispatch(fantySuccess(data));
+        await axios.post("/fant/likeFant", credentials);
     } catch (error) {
         dispatch(fantyError(error.message));
     }
 };
 
-const activeFantyDisLikeFanty = (credentials) => async (dispatch) => {
+const disLikeFanty = (credentials) => async (dispatch) => {
     try {
-        const { data } = await axios.post("", credentials);
-        token.set(data.access_token);
-
-        dispatch(fantySuccess(data));
+        await axios.post("/fant/dislikeFan", credentials);
     } catch (error) {
         dispatch(fantyError(error.message));
     }
 };
 
-export { activeFantyLikeFanty, activeFantyDisLikeFanty, getActiveFanty };
+const getFantyLike = (credentials) => async (dispatch) => {
+    try {
+        const { data } = await axios.get(
+            "/fant/checkLikedOrDisliked",
+            credentials
+        );
+
+        dispatch(fantyLike(data));
+    } catch (error) {
+        dispatch(fantyError(error.message));
+    }
+};
+
+const getPunishment = (credentials) => async (dispatch) => {
+    try {
+        const { data } = await axios.post("/fant/getPunishment", credentials);
+
+        dispatch(fantyPunishment({ media: "", ...data }));
+    } catch (error) {
+        dispatch(fantyPunishment(error.message));
+    }
+};
+
+const getFinalPunishment = (credentials) => async (dispatch) => {
+    try {
+        const { data } = await axios.get(
+            "/fant/getFinalPunishment",
+            credentials
+        );
+
+        dispatch(fantyPunishment({ media: "", ...data }));
+    } catch (error) {
+        dispatch(fantyPunishment(error.message));
+    }
+};
+
+export {
+    likeFanty,
+    disLikeFanty,
+    getActiveFanty,
+    getFantyLike,
+    getPunishment,
+    getFinalPunishment,
+};

@@ -3,8 +3,12 @@ import FeaturePageHome from "../../components/PageHome/FeaturesPageHome/FeatureP
 import ComplexityHome from "./../../components/PageHome/ComplexityHome/ComplexityHome";
 import FooterPageHome from "../../components/PageHome/FooterPageHome/FooterPageHome";
 import TaskInfoSlider from "../../components/TaskInfo/TaskInfoSlider";
+import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 
 const TaskInfo = ({ title }) => {
+    const { ChangeTitle } = useChangeTitlePage();
+    ChangeTitle(title);
+
     return (
         <>
             <TaskInfoSlider

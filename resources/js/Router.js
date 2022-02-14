@@ -77,7 +77,11 @@ const Router = () => {
             />
             <Route
                 path={routes.taskGame.main}
-                element={<TaskGame title="Task Game" />}
+                element={
+                    <LayoutProfileSettings>
+                        <TaskGame title="Task Game" />
+                    </LayoutProfileSettings>
+                }
             />
             <Route
                 path={routes.taskGame.info}
