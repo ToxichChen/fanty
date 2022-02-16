@@ -53,3 +53,5 @@ Route::post('/fant/getPunishment', [FantController::class, 'getPunishment']);
  *  sex: 0 (men)/ 1 (women)
  */
 Route::get('/fant/getFinalPunishment', [FantController::class, 'getFinalPunishment']);
+
+Route::get('/fant/getFinishFant', [FantController::class, 'getFinishFant']);

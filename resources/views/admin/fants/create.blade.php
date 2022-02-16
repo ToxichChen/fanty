@@ -14,9 +14,6 @@
     <form action="/admin/fant/createNew" enctype="multipart/form-data" method="post">
         @csrf
         <div class="form-group col-lg-10">
-            <label for="title">Название</label>
-            <input type="text" class="form-control" name="title" id="title" placeholder="Название">
-            <small id="emailHelp" class="form-text text-muted">Впишите название фанта.</small>
             <label for="title">Задание</label>
             <div class="form-floating">
                 <textarea class="form-control" name="content" placeholder="Задание фанта" id="floatingTextarea2" style="height: 100px"></textarea>

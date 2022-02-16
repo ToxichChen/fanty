@@ -25,9 +25,9 @@
             </label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" {{$gameSetting->is_finish === 0 ? '' : 'checked'}} name="finish" id="finish">
+            <input class="form-check-input" type="checkbox" {{$gameSetting->is_radio === 0 ? '' : 'checked'}} name="finish" id="finish">
             <label class="form-check-label" for="finish">
-                Окончание
+                Радио кнопка
             </label>
         </div>
 

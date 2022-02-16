@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
     <h1>Настройки игры: </h1>
-    <a role="button" href="/admin/gameSettings/create" class="btn btn-success m-4">Создать новую</a>
     <div style="width: 1200px; border: 1px solid;">
         <div style="margin: 10px">
         <table id="table_id" class="display">

@@ -40,7 +40,6 @@ class FantController extends Controller
     public function create(Request $request)
     {
         $validated = $request->validate([
-            'title' => 'required|unique:fants|max:255',
             'content' => 'required',
             'setting' => 'required',
             'subsetting' => 'required',
@@ -56,7 +55,6 @@ class FantController extends Controller
         }
 
         $fant = new Fant();
-        $fant->title = $validated['title'];
         $fant->content = $validated['content'];
         $fant->game_setting_id = $validated['setting'];
         $fant->fant_group_id = $validated['fantGroup'];
@@ -257,11 +255,34 @@ class FantController extends Controller
 
     public function getFinalPunishment()
     {
-        $fant = Fant::where(['id' =>Config::get('constants.final_punishment_id')])->get();
+        $fant = Fant::where(['id' => Config::get('constants.final_punishment_id')])->get();
         if ($fant === null) {
             return false;
         }
         return $fant->toArray();
+    }
+
+    public function getFinishFant()
+    {
+        if (!isset($_SESSION['settings'])) {
+            $_SESSION['settings'] = [];
+        }
+        $finishSetting = '';
+        $finishArray = Config::get('constants.finish_ids');
+        foreach ($finishArray as $key) {
+            if (in_array($key, $_SESSION['settings'])) {
+                $finishSetting = $key;
+            }
+        }
+        if ($finishSetting === '') {
+            $finishSetting = 29;
+        }
+        $fant = Fant::where(['subsetting_id' => $finishSetting])->inRandomOrder()->first();
+        if ($fant === null) {
+            return null;
+        } else {
+            return $fant->toArray();
+        }
     }
 
     public function likeFant(): ?bool

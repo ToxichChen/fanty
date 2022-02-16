@@ -15,7 +15,6 @@ class CreateFantsTable extends Migration
     {
         Schema::create('fants', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
             $table->string('content');
             $table->string('media')->default('');
             $table->integer('game_setting_id');

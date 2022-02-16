@@ -32,7 +32,7 @@ class GameSettingController extends Controller
         $gameSetting = new GameSetting();
         $gameSetting->title = $validated['title'];
         $gameSetting->is_premium = $request->premium === null ? false : true;
-        $gameSetting->is_finish = $request->finish === null ? false : true;
+        $gameSetting->is_radio = $request->finish === null ? false : true;
         $gameSetting->save();
         return redirect('/admin/gameSetting');
     }
@@ -66,7 +66,7 @@ class GameSettingController extends Controller
         $gameSettings = GameSetting::find($id);
         $gameSettings->title = $validated['title'];
         $gameSettings->is_premium = $request->premium === null ? false : true;
-        $gameSettings->is_finish = $request->finish === null ? false : true;
+        $gameSettings->is_radio = $request->finish === null ? false : true;
         $gameSettings->save();
         return redirect('/admin/gameSetting');
     }
