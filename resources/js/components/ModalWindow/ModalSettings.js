@@ -30,15 +30,17 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                 <i className="fas fa-times"></i>
             </StylBtnCardSettings>
             <StylTitleModalSettings>{item.title}</StylTitleModalSettings>
-            <StylVipStatusModal isVip={vip}>
-                <StylVipText isLowWidth={true}>
-                    <b>Настройки заблокированы </b> и будут доступны в полной
-                    версии игры.
-                </StylVipText>
-                <StylBtnVip>
-                    <i className="fas fa-gem"></i> Полная версия от 159 руб
-                </StylBtnVip>
-            </StylVipStatusModal>
+            {vip && (
+                <StylVipStatusModal>
+                    <StylVipText isLowWidth={true}>
+                        <b>Настройки заблокированы </b> и будут доступны в
+                        полной версии игры.
+                    </StylVipText>
+                    <StylBtnVip>
+                        <i className="fas fa-gem"></i> Полная версия от 159 руб
+                    </StylBtnVip>
+                </StylVipStatusModal>
+            )}
             {item.has_sex_difference ? (
                 <StylWrapperAllSettings isColumn={true}>
                     <StylWrapperAllSettings>

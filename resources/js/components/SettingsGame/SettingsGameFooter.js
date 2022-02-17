@@ -9,11 +9,13 @@ import {
     StylBtnFooterSettingsComplexity,
 } from "./SettingsGame.styled";
 import { routes } from "../../Router";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
 import { useNavigate } from "react-router-dom";
+import useActionSettings from "../../hooks/redux/useActionSettings";
+import useActionAlert from "../../hooks/redux/useActionAlert";
 
 const SettingsGameFooter = ({ man, female }) => {
-    const { sendSettingsGame, NotifyError } = useActionsWithRedux();
+    const { NotifyError } = useActionAlert();
+    const { sendSettingsGame } = useActionSettings();
     const navigate = useNavigate();
 
     const sendDataSettingsGame = () => {

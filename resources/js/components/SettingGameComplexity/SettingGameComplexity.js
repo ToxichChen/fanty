@@ -27,12 +27,17 @@ import {
 } from "./SettingGameComplexity.styled";
 
 import { routes } from "../../Router";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionUsers from "../../hooks/redux/useActionUsers";
+import useActionFanty from "../../hooks/redux/useActionFanty";
+import useActionAlert from "../../hooks/redux/useActionAlert";
+import useActionSettings from "../../hooks/redux/useActionSettings";
 
 const SettingGameComplexity = () => {
-    const { profile, NotifyError, settingsCountTask, countTask } =
-        useActionsWithRedux();
     const navigate = useNavigate();
+    const { profile } = useActionUsers();
+    const { NotifyError } = useActionAlert();
+    const { settingsCountTask, countTask } = useActionSettings();
+    const { sendLevelFanty } = useActionFanty();
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
@@ -47,7 +52,6 @@ const SettingGameComplexity = () => {
         if (isRange1 === "1" && isRange2 === "1" && isRange3 === "1") {
             NotifyError("Ошибка, выберите хотя-бы минимальное количество игр");
         } else {
-            navigate("/taskGame/task");
             countTask({
                 is_green:
                     isRange1 === "4"
@@ -100,6 +104,16 @@ const SettingGameComplexity = () => {
                         ? "6"
                         : "0",
             });
+
+            sendLevelFanty(
+                isRange1 === "1" && isRange2 === "1"
+                    ? "red"
+                    : isRange1 === "1"
+                    ? "yellow"
+                    : "green"
+            );
+
+            navigate("/taskGame/task");
         }
     };
 

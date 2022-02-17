@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import { useState, useEffect } from "react";
+import useActionAlert from "../../hooks/redux/useActionAlert";
 
 const TaskGameBar = ({ isTime = false, isTimeDuration = 0, nextTask }) => {
-    const { NotifySuccess } = useActionsWithRedux();
+    const { NotifySuccess } = useActionAlert();
     const [isCompleted, setCompleted] = useState(100);
     const [isBgColor, setBgColor] = useState("");
 
@@ -60,7 +60,7 @@ const TaskGameBar = ({ isTime = false, isTimeDuration = 0, nextTask }) => {
 
     return (
         <div style={containerStyles}>
-            <div style={fillerStyles}></div>
+            <div style={fillerStyles} />
         </div>
     );
 };

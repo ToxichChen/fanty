@@ -16,10 +16,10 @@ import checkImgSvg from "./../../assets/icons/icon-check.svg";
 import userImgSvg from "./../../assets/icons/icon-user.svg";
 import passwordlImgSvg from "./../../assets/icons/icon-lock.svg";
 import { routes } from "../../Router";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 
 const FormRegistration = () => {
-    const { registerUser } = useActionsWithRedux();
+    const { registerUser } = useActionUsers();
     const [isCheckPassowrd, setCheckPassword] = useState(false);
 
     const handleSubmitForm = (initialValues) => {
@@ -63,7 +63,7 @@ const FormRegistration = () => {
                 {({ values, errors, handleChange, handleSubmit }) => (
                     <StylFormLogin onSubmit={handleSubmit} autocomplete="off">
                         <StylTitleForm>
-                            <ArrowBack exact to={routes.home} />
+                            <ArrowBack to={routes.home} />
                             Регистрация
                         </StylTitleForm>
                         <FormInput

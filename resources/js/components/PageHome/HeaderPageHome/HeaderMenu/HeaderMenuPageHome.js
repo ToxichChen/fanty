@@ -14,10 +14,10 @@ import {
 } from "./HeaderMenu.styled";
 
 import { routes } from "./../../../../Router";
-import useActionsWithRedux from "../../../../hooks/useActionsWithRedux";
+import useActionUsers from "../../../../hooks/redux/useActionUsers";
 
 const HeaderMenuPageHome = () => {
-    const { profile, userLogout } = useActionsWithRedux();
+    const { profile, userLogout } = useActionUsers();
     const [isOpenMainMenu, setOpenMainMenu] = useState(false),
         [isOpenAdditional, setOpenAdditiona] = useState(false);
 

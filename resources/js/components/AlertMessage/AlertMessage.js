@@ -5,10 +5,10 @@ import {
     StylTextAlert,
     StylBtnClose,
 } from "./AlertMessage.styled";
-import useActionsWithRedux from "./../../hooks/useActionsWithRedux";
+import useActionAlert from "../../hooks/redux/useActionAlert";
 
 const AlertMessage = () => {
-    const { alertMessage, alertHidden } = useActionsWithRedux();
+    const { alertMessage, alertHidden } = useActionAlert();
 
     useEffect(() => {
         alertMessage.show && setTimeout(() => alertHidden(), 5000);

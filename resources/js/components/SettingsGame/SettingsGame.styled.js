@@ -114,6 +114,7 @@ const StylWrapperAllSettings = styled.div`
     justify-content: center;
     flex-direction: ${(props) => (props.isColumn ? "column" : "row")};
     flex-direction: column;
+    margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
 
@@ -471,13 +472,12 @@ const StylInputUserSettings = styled.input`
 `;
 
 const StylVipStatusModal = styled.div`
-    display: ${(props) => (props.isVip ? "none" : "flex")};
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     padding: 40px;
     border-radius: 20px;
     margin-top: 30px;
-    margin-bottom: 10px;
     width: 100%;
     background-color: rgba(255, 255, 255, 0.1);
 `;

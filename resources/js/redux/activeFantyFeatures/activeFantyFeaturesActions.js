@@ -7,6 +7,7 @@ const fantyCounterCanceledTask = createAction("fanty/fantyCanceledTask");
 const fantyLevel = createAction("fanty/fantyLevel");
 const fantyNumberTask = createAction("fanty/fantyNumberTask");
 const fantyLike = createAction("fanty/fantyLikes");
+const fantyPunishmentRequest = createAction("fanty/fantyPunishment/Request");
 const fantyPunishment = createAction("fanty/fantyPunishment");
 
 export {
@@ -18,4 +19,5 @@ export {
     fantyNumberTask,
     fantyLike,
     fantyPunishment,
+    fantyPunishmentRequest,
 };

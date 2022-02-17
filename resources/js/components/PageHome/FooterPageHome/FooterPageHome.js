@@ -17,10 +17,10 @@ import {
 } from "./../../common/BasicBoxes/BasicBoxes.styled";
 
 import logo from "./../../../assets/logo.png";
-import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
+import useActionUsers from "../../../hooks/redux/useActionUsers";
 
 const FooterPageHome = () => {
-    const { profile, userLogout } = useActionsWithRedux();
+    const { profile, userLogout } = useActionUsers();
     const [isOpenAdditional, setOpenAdditiona] = useState(false);
 
     const handleAdditionalMenu = () => {

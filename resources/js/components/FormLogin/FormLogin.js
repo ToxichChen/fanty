@@ -14,10 +14,10 @@ import {
 import emailImgSvg from "./../../assets/icons/icon-email.svg";
 import passwordlImgSvg from "./../../assets/icons/icon-lock.svg";
 import { routes } from "../../Router";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 
 const FormLogin = () => {
-    const { loginUser } = useActionsWithRedux();
+    const { loginUser } = useActionUsers();
     const handleSubmitForm = (initialValues) => {
         loginUser(initialValues);
     };

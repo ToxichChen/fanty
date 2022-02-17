@@ -396,6 +396,26 @@ const StylSubTitleTask = styled.h4`
     margin-bottom: 10px;
 `;
 
+const StylArrowBackToHome = styled(NavLink)`
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    text-decoration: none;
+
+    & > i {
+        color: ${(props) => props.theme.palette.icon.light};
+        transition: all 0.2s ease;
+    }
+
+    @media (min-width: 1024px) {
+        &:hover {
+            color: ${(props) => props.theme.palette.icon.main};
+        }
+    }
+`;
+
 export {
     StylBoxReview,
     BtnReview,
@@ -413,4 +433,5 @@ export {
     StylBoxBtn,
     CountTask,
     StylSubTitleTask,
+    StylArrowBackToHome,
 };

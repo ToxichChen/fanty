@@ -1,9 +1,9 @@
 import React from "react";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 import { StylBtnSubmitForm, StylLineBorder } from "./FormLogin.styled";
 
 const BtnSubmitForm = () => {
-    const { loadingProfile } = useActionsWithRedux();
+    const { loadingProfile } = useActionUsers();
     return (
         <StylBtnSubmitForm type="submit">
             {loadingProfile ? "Загрузка" : "Отправить"}

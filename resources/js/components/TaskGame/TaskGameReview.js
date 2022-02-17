@@ -1,10 +1,15 @@
 import { useEffect, useState } from "react";
-import { StylBoxReview, BtnReview, CountTask } from "./TaskGamePage.styled";
 import {
-    activeFantyDisLikeFanty,
-    activeFantyLikeFanty,
-} from "./../../redux/activeFantyFeatures/activeFantyFeaturesOperation";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+    StylBoxReview,
+    BtnReview,
+    CountTask,
+    StylArrowBackToHome,
+} from "./TaskGamePage.styled";
+import useActionFanty from "../../hooks/redux/useActionFanty";
+import {
+    StylBoxAddInfoTask,
+    StylBoxInfo,
+} from "../SettingsGame/CheckBox/CheckBox.styled";
 
 const TaskGameReview = ({ id }) => {
     const {
@@ -13,11 +18,13 @@ const TaskGameReview = ({ id }) => {
         getLikeFanty,
         likeFantNow,
         disLikeFantNow,
-    } = useActionsWithRedux();
+    } = useActionFanty();
+
     useEffect(() => getFantLike(), [id]);
 
+    const [isHiddenInfo, setHiddenInfo] = useState(false);
     const [isChooseUser, setChooseUser] = useState(
-        getLikeFanty === 0 ? false : true
+        getLikeFanty === 0 || getLikeFanty === "" ? false : true
     );
 
     const selectUser = (state) => {
@@ -43,6 +50,22 @@ const TaskGameReview = ({ id }) => {
             >
                 <i className="far fa-thumbs-down" />
             </BtnReview>
+            <StylBoxAddInfoTask
+                isTask={true}
+                type="button"
+                onClick={() => setHiddenInfo(!isHiddenInfo)}
+                onFocus={() => setHiddenInfo(true)}
+                onBlur={() => setHiddenInfo(false)}
+            >
+                <i className="fas fa-question"></i>
+                <StylBoxInfo isHidden={isHiddenInfo}>
+                    У вас есть возможность отказаться от 3 заданий. На 4 раз вы
+                    получить последнее наказание и на этом игра закончится!
+                </StylBoxInfo>
+            </StylBoxAddInfoTask>
+            <StylArrowBackToHome to="/">
+                <i className="fa fa-door-open" />
+            </StylArrowBackToHome>
         </StylBoxReview>
     );
 };

@@ -9,6 +9,7 @@ import {
     fantyNumberTask,
     fantyLike,
     fantyPunishment,
+    fantyPunishmentRequest,
 } from "./activeFantyFeaturesActions";
 
 const fanty = createReducer(
@@ -23,7 +24,7 @@ const fanty = createReducer(
 const fantyPunishmentUser = createReducer(
     { media: "" },
     {
-        [fantyPunishment.type]: (_, { payload }) => ({
+        [fantyPunishment]: (_, { payload }) => ({
             ...payload,
         }),
     }
@@ -32,6 +33,8 @@ const fantyPunishmentUser = createReducer(
 const isLoadingFanty = createReducer(false, {
     [fantyRequest.type]: () => true,
     [fantySuccess.type]: () => false,
+    [fantyPunishmentRequest.type]: () => true,
+    [fantyPunishment.type]: () => false,
 });
 
 const levelFanty = createReducer("", {

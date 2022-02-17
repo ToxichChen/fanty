@@ -9,10 +9,10 @@ import {
 } from "./CheckBox.styled";
 
 import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
-import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
+import useActionSettings from "../../../hooks/redux/useActionSettings";
 
 const Checkbox = ({ elem, premium }) => {
-    const { settingsGameTask, settingsGame } = useActionsWithRedux();
+    const { settingsGameTask, settingsGame } = useActionSettings();
 
     const [isCheck, setCheck] = useState(false);
     const [isHiddenInfo, setHiddenInfo] = useState(false);

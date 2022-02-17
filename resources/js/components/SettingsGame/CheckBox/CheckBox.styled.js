@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import iconCloseSVG from "./../../../assets/icons/icon-close.svg";
 
 const CheckboxContainer = styled.div`
@@ -78,6 +78,7 @@ const StylBoxInfo = styled.p`
     position: absolute;
     bottom: calc(100% + 10px);
     right: calc(-100% - 35px);
+    height: auto;
     max-width: 200px;
     font-size: ${(props) => props.theme.typography.textSmall.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
@@ -107,6 +108,19 @@ const StylBoxAddInfoTask = styled.button`
         font-size: 10px;
         color: ${(props) => props.theme.palette.icon.light};
     }
+
+    ${(props) =>
+        props.isTask &&
+        css`
+            right: 45px;
+            top: 45px;
+            max-width: 180px;
+
+            ${StylBoxInfo} {
+                top: calc(100% + 10px);
+                bottom: auto;
+            }
+        `}
 
     @media (min-width: 1024px) {
         &:hover {

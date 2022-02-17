@@ -1,10 +1,10 @@
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 import SettingsGame from "./../../components/SettingsGame/SettingsGame";
 import SettingsGameVipStatus from "./../../components/SettingsGame/VipStatusSettings/SettingsGameVipStatus";
 import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 
 const SettingsGameView = ({ title }) => {
-    const { profile } = useActionsWithRedux();
+    const { profile } = useActionUsers();
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 

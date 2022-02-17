@@ -7,10 +7,12 @@ import {
     StylLabelRadio,
 } from "./RadioBox.styled";
 import { StylBoxAddInfoTask, StylBoxInfo } from "./../CheckBox/CheckBox.styled";
-import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
+import useActionSettings from "../../../hooks/redux/useActionSettings";
+import useActionUsers from "../../../hooks/redux/useActionUsers";
 
 const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
-    const { settingsGameTask, profile } = useActionsWithRedux();
+    const { profile } = useActionUsers();
+    const { settingsGameTask } = useActionSettings();
     const [isSelect, setSelect] = useState(optionsBasic[0].title);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
 

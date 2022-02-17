@@ -11,12 +11,12 @@ import {
     StylWrapperInput,
 } from "./SettingsGame.styled";
 
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import useActionSettings from "../../hooks/redux/useActionSettings";
 import MiniLoader from "./../Loader/MiniLoader";
 
 const SettingsGame = () => {
     const { getAllSettings, loadingSettings, settingsUsers, settings } =
-        useActionsWithRedux();
+        useActionSettings();
     const [isChangeMan, setChangeMan] = useState(settingsUsers.is_man);
     const [isChangeFemale, setChangeFemala] = useState(settingsUsers.is_female);
 

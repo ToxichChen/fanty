@@ -10,10 +10,10 @@ import {
 import ModalSettings from "./../../ModalWindow/ModalSettings";
 import RadioBox from "./../RadioBox/RadioBox";
 import { optionsBasic } from "../../../constants";
-import useActionsWithRedux from "../../../hooks/useActionsWithRedux";
+import useActionUsers from "../../../hooks/redux/useActionUsers";
 
 const SettingGameOptions = ({ item }) => {
-    const { profile } = useActionsWithRedux();
+    const { profile } = useActionUsers();
 
     useEffect(() => {
         Aos.init({ duration: 1000 });

@@ -1,5 +1,5 @@
 import axios from "axios";
-import useActionsWithRedux from "../../hooks/useActionsWithRedux";
+import { alert } from "../alertFeatures/AlertActions";
 import {
     registerRequest,
     registerSuccess,
@@ -33,6 +33,13 @@ const loginForm = (credentials) => async (dispatch) => {
         dispatch(loginSuccess(data));
 
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Авторизация прошло успешно",
+            })
+        );
     } catch (error) {
         dispatch(loginError(error.message));
     }
@@ -48,6 +55,13 @@ const registerForm = (credentials) => async (dispatch) => {
         dispatch(registerSuccess(data));
 
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Регистрация прошло успешно",
+            })
+        );
     } catch (error) {
         dispatch(registerError(error.message));
     }
@@ -61,6 +75,13 @@ const logoutUser = () => async (dispatch) => {
         await axios.get("/user/logout");
         dispatch(registerSuccess({ response: {} }));
         dispatch(getUserProfileSuccess({ response: {} }));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Выход из аккаунта прошло успешно",
+            })
+        );
     } catch (error) {
         dispatch(registerError(error.message));
     }
