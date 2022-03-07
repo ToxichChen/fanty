@@ -18,6 +18,7 @@ const StylLinkIntorCard = styled.a`
 
 const StylBoxCardIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
     width: 100%;
+    max-width: auto;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.07);
     border-radius: 5px;
@@ -41,11 +42,12 @@ const StylBoxCenterIntroPageHome = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-around;
     align-items: stretch;
 
     @media (min-width: 768px) {
         justify-content: space-between;
+        flex-direction: row;
     }
 `;
 

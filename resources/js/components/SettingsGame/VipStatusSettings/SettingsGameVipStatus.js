@@ -4,6 +4,7 @@ import {
     StylVipText,
     StylBtnVip,
 } from "./SettingsGameVipStatus.styled";
+import { routes } from "../../../Router";
 
 const SettingsGameVipStatus = ({ vip }) => {
     return (
@@ -12,7 +13,7 @@ const SettingsGameVipStatus = ({ vip }) => {
                 <b>Настройки заблокированы </b> и будут доступны в полной версии
                 игры.
             </StylVipText>
-            <StylBtnVip>
+            <StylBtnVip to={routes.payGame}>
                 <i className="fas fa-gem"></i> Полная версия от 159 руб
             </StylBtnVip>
         </StylWrapperVip>

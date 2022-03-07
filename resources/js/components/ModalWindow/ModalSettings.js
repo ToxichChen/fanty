@@ -16,6 +16,7 @@ import {
     StylImgModal,
     StylTextModal,
 } from "./ModalSettings.styled";
+import { routes } from "../../Router";
 
 import iconManSVG from "./../../assets/icons/icon-man.svg";
 import iconGirlSVG from "./../../assets/icons/icon-girl.svg";
@@ -30,13 +31,13 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                 <i className="fas fa-times"></i>
             </StylBtnCardSettings>
             <StylTitleModalSettings>{item.title}</StylTitleModalSettings>
-            {vip && (
+            {vip === 0 && (
                 <StylVipStatusModal>
                     <StylVipText isLowWidth={true}>
                         <b>Настройки заблокированы </b> и будут доступны в
                         полной версии игры.
                     </StylVipText>
-                    <StylBtnVip>
+                    <StylBtnVip to={routes.payGame}>
                         <i className="fas fa-gem"></i> Полная версия от 159 руб
                     </StylBtnVip>
                 </StylVipStatusModal>

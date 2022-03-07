@@ -5,6 +5,7 @@ import {
     loginForm,
     logoutUser,
     registerForm,
+    checkUser,
 } from "./../../redux/formFeatures/formFeaturesOperation";
 import {
     fantyCounterCanceledTask,
@@ -60,6 +61,10 @@ function useActionUsers() {
         clearDataSettingAndFant();
     }, [dispatch, clearDataSettingAndFant]);
 
+    const userHave = useCallback(() => {
+        dispatch(checkUser());
+    }, [dispatch]);
+
     return {
         profile,
         vip,
@@ -69,6 +74,7 @@ function useActionUsers() {
         userLogout,
         registerUser,
         clearDataSettingAndFant,
+        userHave,
     };
 }
 

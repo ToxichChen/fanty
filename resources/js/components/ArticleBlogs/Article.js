@@ -16,38 +16,44 @@ import {
 } from "../Blogs/Blogs.styled";
 import Categories from "../Blogs/Categories/Categories";
 import Trend from "../Blogs/BlogsTrends/Trend";
+import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import FooterPageHome from "./../PageHome/FooterPageHome/FooterPageHome";
 
 import { article, blogTrendsArr } from "../../constants";
 
 const Article = () => {
     return (
-        <SectionArticle>
-            <BoxArticle>
-                <StylBoxCenter>
-                    <WrapperArticle>
-                        <WrapperImgArticle>
-                            <ImgArticle
-                                src={article.imgUrl}
-                                alt="article img"
-                            />
-                        </WrapperImgArticle>
-                        <DateArticle>{article.data}</DateArticle>
-                        <TitleArticle>{article.title}</TitleArticle>
-                        <TextArticle>{article.text}</TextArticle>
-                    </WrapperArticle>
-                    <StylBoxOtherContent>
-                        <StylBoxTrending>
-                            <StylTrendTitle>Trending</StylTrendTitle>
-                            {!!blogTrendsArr.length &&
-                                blogTrendsArr.map((item, index) => (
-                                    <Trend item={item} key={index} />
-                                ))}
-                        </StylBoxTrending>
-                        <Categories />
-                    </StylBoxOtherContent>
-                </StylBoxCenter>
-            </BoxArticle>
-        </SectionArticle>
+        <>
+            <SectionArticle>
+                <HeaderMenuPageHome />
+                <BoxArticle>
+                    <StylBoxCenter>
+                        <WrapperArticle>
+                            <WrapperImgArticle>
+                                <ImgArticle
+                                    src={article.imgUrl}
+                                    alt="article img"
+                                />
+                            </WrapperImgArticle>
+                            <DateArticle>{article.data}</DateArticle>
+                            <TitleArticle>{article.title}</TitleArticle>
+                            <TextArticle>{article.text}</TextArticle>
+                        </WrapperArticle>
+                        <StylBoxOtherContent>
+                            <StylBoxTrending>
+                                <StylTrendTitle>Trending</StylTrendTitle>
+                                {!!blogTrendsArr.length &&
+                                    blogTrendsArr.map((item, index) => (
+                                        <Trend item={item} key={index} />
+                                    ))}
+                            </StylBoxTrending>
+                            <Categories />
+                        </StylBoxOtherContent>
+                    </StylBoxCenter>
+                </BoxArticle>
+            </SectionArticle>
+            <FooterPageHome />
+        </>
     );
 };
 

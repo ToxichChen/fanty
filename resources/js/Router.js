@@ -1,5 +1,6 @@
-import React, { lazy } from "react";
+import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import useActionUsers from "./hooks/redux/useActionUsers";
 
 const routes = {
     home: "/",
@@ -16,6 +17,8 @@ const routes = {
     taskGame: { main: "/taskGame/task", info: "/taskGame/info" },
     musicFromSex: "/musicForSex",
     profileUser: "/profileUser",
+    politics: "/politics",
+    payGame: "/payGame",
     notFound: "*",
 };
 
@@ -36,18 +39,30 @@ const TaskInfo = lazy(() => import("./views/TaskInfoPage/TaskInfo"));
 const MusicPage = lazy(() => import("./views/MusicPage/MusicPage"));
 const BlogsPage = lazy(() => import("./views/BlogsPage/BlogsView"));
 const ArticlePage = lazy(() => import("./views/BlogsPage/Article/ArticleView"));
+const PoliticsView = lazy(() => import("./views/PoliticsPage/PoliticsView"));
+const PayGameView = lazy(() => import("./views/PayGamePage/PayGameView"));
+
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
 
 const Router = () => {
+    const { userHave } = useActionUsers();
+
+    useEffect(() => {
+        userHave();
+    }, [userHave]);
+
     return (
         <Routes>
-            <Route path={routes.home} element={<Home title="Home page" />} />
+            <Route
+                path={routes.home}
+                element={<Home title="Домашняя страница" />}
+            />
             <Route
                 path={routes.settingsGame.complexity}
                 element={
                     <LayoutProfileSettings>
-                        <SettingsGameComplexity title="Settings Game Complexity" />
+                        <SettingsGameComplexity title="Количество заданий" />
                     </LayoutProfileSettings>
                 }
             />
@@ -55,7 +70,7 @@ const Router = () => {
                 path={routes.settingsGame.main}
                 element={
                     <LayoutProfileSettings>
-                        <SettingsGame title="Settings Game" />
+                        <SettingsGame title="Настройки игры" />
                     </LayoutProfileSettings>
                 }
             />
@@ -63,7 +78,7 @@ const Router = () => {
                 path={routes.formLogin}
                 element={
                     <LayoutProfile>
-                        <FormLogin title="Form Login" />
+                        <FormLogin title="Форма авторизации" />
                     </LayoutProfile>
                 }
             />
@@ -71,7 +86,7 @@ const Router = () => {
                 path={routes.formRegister}
                 element={
                     <LayoutProfile>
-                        <FormRegister title="Form Register" />
+                        <FormRegister title="Форма регистрации" />
                     </LayoutProfile>
                 }
             />
@@ -79,29 +94,41 @@ const Router = () => {
                 path={routes.taskGame.main}
                 element={
                     <LayoutProfileSettings>
-                        <TaskGame title="Task Game" />
+                        <TaskGame title="Задание игры" />
                     </LayoutProfileSettings>
                 }
             />
             <Route
                 path={routes.taskGame.info}
-                element={<TaskInfo title="Task Game Info" />}
+                element={<TaskInfo title="Информация об игре" />}
             />
             <Route
                 path={routes.musicFromSex}
-                element={<MusicPage title="Music" />}
+                element={<MusicPage title="Музыка" />}
             />
             <Route
                 path={routes.blogs.main}
-                element={<BlogsPage title="Blogs" />}
+                element={<BlogsPage title="Статьи" />}
             />
             <Route
                 path={routes.blogs.article}
-                element={<ArticlePage title="Article" />}
+                element={<ArticlePage title="Статья" />}
+            />
+            <Route
+                path={routes.politics}
+                element={<PoliticsView title="Политика" />}
+            />
+            <Route
+                path={routes.payGame}
+                element={
+                    <LayoutProfileSettings>
+                        <PayGameView title="Оплата за игру" />
+                    </LayoutProfileSettings>
+                }
             />
             <Route
                 path={routes.notFound}
-                element={<NotFound title="Not Found" />}
+                element={<NotFound title="Страница не найдена" />}
             />
         </Routes>
     );

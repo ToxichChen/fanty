@@ -9,7 +9,7 @@ const BoxAddMenu = styled.ul`
     display: flex;
     top: 30px;
     left: 10px;
-    width: 200px;
+    min-width: 150px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;

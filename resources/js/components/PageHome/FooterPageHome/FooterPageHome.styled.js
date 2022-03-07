@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 import {
     StylImgLogo,
@@ -9,6 +10,7 @@ const StylBoxFooterPageHome = styled.div`
         ${(props) => props.theme.palette.backgroundGradien.primary}
     );
     padding: 60px 15px 25px;
+    width: 100%;
 `;
 
 const StylImgLogoMagin = styled(StylImgLogo)`
@@ -20,12 +22,16 @@ const StylImgLogoMagin = styled(StylImgLogo)`
 `;
 
 const StylCopyrightFooter = styled.p`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
     font-size: ${(props) => props.theme.typography.textSmall.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.text.main};
     text-align: center;
-    opacity: 0.2;
 `;
 
 const StylItemMenuFooter = styled.li`
@@ -95,6 +101,33 @@ const StylMenuFooterPageHome = styled.ul`
     }
 `;
 
+const LinkFooter = styled(NavLink)`
+    cursor: pointer;
+    font-size: ${(props) => props.theme.typography.textSmall.main};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.light};
+    text-decoration: none;
+    transition: all 0.2s ease;
+
+    @media (min-width: 1024px) {
+        width: auto;
+
+        &:hover {
+            color: ${(props) => props.theme.palette.text.primary};
+            & > a {
+                color: ${(props) => props.theme.palette.text.primary};
+            }
+        }
+
+        &:active {
+            & > a {
+                transform: scale(1.1);
+            }
+        }
+    }
+`;
+
 export {
     StylBoxFooterPageHome,
     StylImgLogoMagin,
@@ -102,4 +135,5 @@ export {
     StylItemMenuFooter,
     StylLinkMenuFooter,
     StylMenuFooterPageHome,
+    LinkFooter,
 };

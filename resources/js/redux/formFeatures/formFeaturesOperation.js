@@ -10,6 +10,19 @@ import {
     getUserProfileRequest,
     getUserProfileSuccess,
 } from "./formFeaturesActions";
+import {
+    fantyCounterCanceledTask,
+    fantyLevel,
+    fantyNumberTask,
+    fantySuccess,
+} from "../../redux/activeFantyFeatures/activeFantyFeaturesActions";
+import {
+    settingsGameData,
+    settingsError,
+    settingsSuccess,
+    usersSetting,
+    durationGameData,
+} from "../../redux/settingsFeatures/SettingsAction";
 
 axios.defaults.baseURL = "http://localhost/api";
 
@@ -87,4 +100,32 @@ const logoutUser = () => async (dispatch) => {
     }
 };
 
-export { loginForm, registerForm, logoutUser };
+const checkUser = () => async (dispatch) => {
+    dispatch(registerRequest());
+    dispatch(getUserProfileRequest());
+
+    try {
+        const { data } = await axios.get("/user/checkIfLoggedIn");
+        if (data !== "") {
+            dispatch(getUserProfileSuccess({ response: { ...data } }));
+        } else {
+            dispatch(getUserProfileSuccess({ response: {} }));
+            dispatch(registerSuccess({ response: {} }));
+            dispatch(settingsSuccess([]));
+            dispatch(settingsGameData([]));
+            dispatch(settingsError(null));
+            dispatch(fantyNumberTask(0));
+            dispatch(fantyLevel(""));
+            dispatch(fantyCounterCanceledTask(0));
+            dispatch(
+                durationGameData({ is_green: "", is_yellow: "", is_red: "" })
+            );
+            dispatch(fantySuccess({ media: "" }));
+            dispatch(usersSetting({ is_man: "", is_female: "" }));
+        }
+    } catch (error) {
+        dispatch(registerError(error.message));
+    }
+};
+
+export { loginForm, registerForm, logoutUser, checkUser };

@@ -10,6 +10,7 @@ import {
     StylItemMenuFooter,
     StylLinkMenuFooter,
     StylMenuFooterPageHome,
+    LinkFooter,
 } from "./FooterPageHome.styled";
 import {
     StylBoxContainerMaxWidth,
@@ -106,6 +107,9 @@ const FooterPageHome = () => {
                     <HeaderFollowUs />
                     <StylCopyrightFooter>
                         ColorLib 2018 @ All rights reserved
+                        <LinkFooter to={routes.politics}>
+                            Политика и конфиденцальность
+                        </LinkFooter>
                     </StylCopyrightFooter>
                 </StylBoxFlexColumnCenter>
             </StylBoxContainerMaxWidth>

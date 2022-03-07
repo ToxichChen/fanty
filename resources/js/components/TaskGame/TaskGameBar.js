@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import useActionAlert from "../../hooks/redux/useActionAlert";
 
-const TaskGameBar = ({ isTime = false, isTimeDuration = 0, nextTask }) => {
+const TaskGameBar = ({ isTimeDuration = 0, nextTask }) => {
+    let isTime = isTimeDuration <= 0 ? false : true;
     const { NotifySuccess } = useActionAlert();
     const [isCompleted, setCompleted] = useState(100);
     const [isBgColor, setBgColor] = useState("");

@@ -230,11 +230,6 @@ const TaskGamePage = () => {
                                         ? getFantyPunishment.isTimeDuration
                                         : getFanty.isTimeDuration
                                 }
-                                isTime={
-                                    Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.isTime
-                                        : getFanty.isTime
-                                }
                                 nextTask={nextTask}
                             />
                             <TaskGameReview
@@ -251,7 +246,8 @@ const TaskGamePage = () => {
                                     type="button"
                                     isType={
                                         isLevelFant === "green" &&
-                                        getCountTask.is_yellow === "0"
+                                        getCountTask.is_yellow === "0" &&
+                                        getCountCanceledTask.is_red === "0"
                                             ? "none"
                                             : isLevelFant === "yellow" &&
                                               getCountTask.is_red === "0"
