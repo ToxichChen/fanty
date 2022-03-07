@@ -55,3 +55,5 @@ Route::post('/fant/getPunishment', [FantController::class, 'getPunishment']);
 Route::get('/fant/getFinalPunishment', [FantController::class, 'getFinalPunishment']);
 
 Route::get('/fant/getFinishFant', [FantController::class, 'getFinishFant']);
+
+Route::get('/user/checkIfLoggedIn', [UserController::class, 'checkIfLoggedIn']);

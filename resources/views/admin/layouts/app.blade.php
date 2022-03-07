@@ -46,8 +46,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/admin/gameSettings" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
-                                    class="fa fa-user text-light fa-lg mr-3" aria-hidden="true"></i> Настройки игры
+                            <a href="/admin/user" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-user text-light fa-lg mr-3" aria-hidden="true"></i> Пользователи
                             </a>
                         </li>
                         <li class="nav-item">
@@ -66,8 +66,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
-                                    class="fas fa-table text-light fa-lg mr-3" aria-hidden="true"></i> Charts
+                            <a href="/admin/gameSettings" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-wrench text-light fa-lg mr-3" aria-hidden="true"></i> Настройки игры
                             </a>
                         </li>
                         <li class="nav-item">

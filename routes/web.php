@@ -54,6 +54,14 @@ Route::prefix('admin')->group(function () {
             Route::post('/update/{id}', [FantController::class, 'update'])->name('admin.fant.update');
             Route::get('/delete/{id}', [FantController::class, 'delete'])->name('admin.fant.delete');
         });
+        Route::prefix('user')->group(function () {
+            Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
+            Route::get('/create', [UserController::class, 'createPage'])->name('admin.users.createPage');
+            Route::post('/createNew', [UserController::class, 'create'])->name('admin.users.create');
+            Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
+            Route::post('/update/{id}', [UserController::class, 'update'])->name('admin.users.update');
+            Route::get('/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete');
+        });
     });
     Route::get('/login/', [AdminController::class, 'adminLogin'])->name('admin.login');
     Route::post('/login/', [AdminController::class, 'adminLoginPost']);
