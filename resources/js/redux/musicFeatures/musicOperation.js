@@ -1,7 +1,7 @@
 import axios from "axios";
 import { musicRequest, musicSuccess, musicError } from "./musicAction";
 
-axios.defaults.baseURL = "http://localhost/api";
+axios.defaults.baseURL = `http://${document.location.host}/api`;
 
 const token = {
     set(tok) {

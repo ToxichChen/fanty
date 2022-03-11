@@ -36,7 +36,9 @@ const HeaderMenuPageHome = () => {
 
     return (
         <StylBoxNavMenuPageHome>
-            <StylImgLogo src={logo} alt="logo" />
+            <NavLink to={routes.home} style={{ margin: 0 }}>
+                <StylImgLogo src={logo} alt="logo" />
+            </NavLink>
             <StylBtnMenuNavPageHome
                 type="button"
                 onClick={handleMenu}

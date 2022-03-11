@@ -11,6 +11,7 @@ import {
     StylLinkMenuFooter,
     StylMenuFooterPageHome,
     LinkFooter,
+    LinkImg,
 } from "./FooterPageHome.styled";
 import {
     StylBoxContainerMaxWidth,
@@ -32,7 +33,9 @@ const FooterPageHome = () => {
         <StylBoxFooterPageHome>
             <StylBoxContainerMaxWidth>
                 <StylBoxFlexColumnCenter>
-                    <StylImgLogoMagin src={logo} alt="logo" />
+                    <LinkImg to={routes.home}>
+                        <StylImgLogoMagin src={logo} alt="logo" />
+                    </LinkImg>
                     <StylMenuFooterPageHome>
                         <StylItemMenuFooter>
                             <StylLinkMenuFooter>

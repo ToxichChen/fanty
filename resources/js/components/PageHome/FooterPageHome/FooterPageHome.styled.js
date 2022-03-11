@@ -18,7 +18,6 @@ const StylImgLogoMagin = styled(StylImgLogo)`
     max-height: 40px;
     width: 100%;
     height: 100%;
-    margin-bottom: 62px;
 `;
 
 const StylCopyrightFooter = styled.p`
@@ -101,6 +100,19 @@ const StylMenuFooterPageHome = styled.ul`
     }
 `;
 
+const LinkImg = styled(NavLink)`
+    max-width: 200px;
+    max-height: 40px;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 62px;
+    align-self: center;
+
+    @media (min-width: 768px) {
+        align-self: center;
+    }
+`;
+
 const LinkFooter = styled(NavLink)`
     cursor: pointer;
     font-size: ${(props) => props.theme.typography.textSmall.main};
@@ -136,4 +148,5 @@ export {
     StylLinkMenuFooter,
     StylMenuFooterPageHome,
     LinkFooter,
+    LinkImg,
 };

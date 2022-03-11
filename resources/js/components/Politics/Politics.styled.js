@@ -1,17 +1,23 @@
 import styled from "styled-components";
+import imageBGJPG from "./../../assets/bg/bg-image.jpg";
+import imageMobileBGJPG from "./../../assets/bg/bg-image-mobile.jpg";
 
 const SectionPolitics = styled.section`
-    background-color: rgba(52, 22, 75, 0.8);
-    min-height: 100vh;
-    padding: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    width: 100%;
+    align-items: flex-start;
+    background-blend-mode: multiply;
+    background-image: url(${imageMobileBGJPG});
+    background-color: rgba(111, 43, 149, 0.8);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px 20px;
+    min-height: 100vh;
 
-    @media (min-width: 768px) {
-        padding: 20px;
+    @media (min-width: 1024px) {
+        padding: 20px 20px;
+        background-image: url(${imageBGJPG});
     }
 `;
 
@@ -76,6 +82,16 @@ const DataPublic = styled.p`
     text-align: center;
 `;
 
+const BoxPolitics = styled.div`
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    margin: 30px 0 10px;
+    background-color: rgba(52, 22, 75, 0.8);
+`;
+
 export {
     SectionPolitics,
     ShortText,
@@ -84,4 +100,5 @@ export {
     LinkEdit,
     DataPublic,
     CenterPolitics,
+    BoxPolitics,
 };

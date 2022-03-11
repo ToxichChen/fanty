@@ -6,6 +6,7 @@ const StylImgLogo = styled.img`
     position: relative;
     width: 120px;
     height: 20px;
+    margin: 0;
     align-self: center;
     object-fit: contain;
 

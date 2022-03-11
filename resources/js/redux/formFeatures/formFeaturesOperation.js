@@ -24,7 +24,7 @@ import {
     durationGameData,
 } from "../../redux/settingsFeatures/SettingsAction";
 
-axios.defaults.baseURL = "http://localhost/api";
+axios.defaults.baseURL = `http://${document.location.host}/api`;
 
 const token = {
     set(tok) {
