@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { StylBoxFlexColumnSpaceBetween } from "./../../../common/BasicBoxes/BasicBoxes.styled";
 import { NavLink } from "react-router-dom";
 
@@ -124,6 +124,14 @@ const StylBoxContentHeaderPageHome = styled(StylBoxFlexColumnSpaceBetween)`
     background-image: url(${(props) => props.imgUrl});
     transition: all 0.2s ease;
     border-bottom: 2px solid ${(props) => props.theme.palette.border.main};
+
+    ${(props) =>
+        props.isSelect &&
+        css`
+            z-index: 2;
+            visibility: visible;
+            opacity: 1;
+        `}
 
     animation: ${(props) =>
         props.isSelect ? "2s opacityIn" : "1s opacityOut"};

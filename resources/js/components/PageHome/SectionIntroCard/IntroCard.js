@@ -31,14 +31,14 @@ const IntroCard = () => {
                     <StylBoxCardGame key={item.id} data-aos="fade-right">
                         <StylDataCardGame>
                             {item.data}
-                            <StylLinkCardGame to={routes.taskGame.info}>
+                            <StylLinkCardGame to={item.url}>
                                 {item.link}
                             </StylLinkCardGame>
                         </StylDataCardGame>
                         <StylTitleCardGame>{item.title}</StylTitleCardGame>
                         <StylTextCardGame>{item.text}</StylTextCardGame>
-                        <StylBtnCardGame to={routes.taskGame.info}>
-                            {item.btnText}{" "}
+                        <StylBtnCardGame to={item.url}>
+                            {item.btnText}
                             <StylImgDoubleArrow
                                 src={doubleArrow}
                                 alt="double arrow"

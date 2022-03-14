@@ -4,28 +4,49 @@ import bgImage2 from "./../assets/bg/bg-image-2.jpg";
 const sliderDataArr = [
     {
         id: 1,
-        title: "Игра началась!",
-        text: "Dying Light — компьютерная игра в жанре survival horror и action-adventure от первого лица с открытым миром, разработанная польской студией Techland и изданная Warner Bros. Interactive Entertainment в 2015 году для PlayStation 4, Xbox One, Microsoft Windows и Linux.",
+        title: "Секс фанты!",
+        text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
         img: bgImage1,
         counter: "01.",
         pageUrl: "/taskGame/info",
     },
     {
         id: 2,
-        title: "Игра началась!",
-        text: "loodborne — компьютерная игра в жанре Action/RPG, разработанная совместно японскими компаниями FromSoftware и SCE Japan Studio эксклюзивно для игровой приставки PlayStation 4 под руководством геймдизайнера Хидэтаки",
+        title: "Черное и белое!",
+        text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
 
         img: bgImage2,
         counter: "02.",
-        pageUrl: "/taskGame/info",
+        pageUrl: "/chernoe-i-beloe",
+    },
+    {
+        id: 3,
+        title: "Ролевые игры!",
+        text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
+
+        img: bgImage2,
+        counter: "03.",
+        pageUrl: "/rolevye-igru",
     },
 ];
 
 const linkFollowsArr = [
-    "fab fa-pinterest",
-    "fab fa-facebook",
-    "fab fa-twitter",
-    "fab fa-behance",
+    {
+        class: "fab fa-cc-visa",
+        link: "https://vk.com/dip.baby",
+        deactive: true,
+    },
+    {
+        class: "fab fa-cc-mastercard",
+        link: "https://vk.com/dip.baby",
+        deactive: true,
+    },
+    { class: "fab fa-vk", link: "https://vk.com/dip.baby", deactive: false },
+    {
+        class: "fab fa-instagram",
+        link: "https://www.instagram.com/dip.baby/",
+        deactive: false,
+    },
 ];
 
 const dataPostArr = [
@@ -109,28 +130,31 @@ const dataPostFeatureArr = [
 const dataCardGameArr = [
     {
         id: 1,
-        data: "11.11.18 / in",
-        link: "Games",
-        title: "The best online game is out now!",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
-        btnText: "Read More",
+        data: "14.03.2022 / в",
+        link: "Игра доработанная",
+        title: "Секс фанты",
+        text: "Нежность и пошлость в переплёте с классическим сексом подарят новый взгляд на взаимные наслаждения",
+        btnText: "Играть 18+",
+        url: "/taskGame/info",
     },
     {
         id: 2,
-        data: "11.11.18 / in",
-        link: "Playstation",
-        title: "Top 5 best games in november",
+        data: "11.11.18 / в",
+        link: "Игра в стадии разработки",
+        title: "Черное и белое",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
-        btnText: "Read More",
+        btnText: "Играть 18+",
+        url: "/chernoe-i-beloe",
     },
 
     {
         id: 3,
-        data: "11.11.18 / in",
-        link: "Reviews",
-        title: "Get this game at a promo price",
+        data: "11.11.18 / в",
+        link: "Игра в стадии разработки",
+        title: "Ролевые игры",
         text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
-        btnText: "Read More",
+        btnText: "Играть 18+",
+        url: "/role-playing",
     },
 ];
 

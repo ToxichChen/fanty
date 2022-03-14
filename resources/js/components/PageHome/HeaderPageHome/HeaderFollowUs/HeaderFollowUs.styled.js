@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { StylBoxFlexRowFlexEnd } from "./../../../common/BasicBoxes/BasicBoxes.styled";
 
 const StylBoxFollowUs = styled(StylBoxFlexRowFlexEnd)`
@@ -15,7 +15,7 @@ const StylFollowUsPageHome = styled.p`
     margin-right: 12px;
 `;
 
-const StylIconPageHome = styled.i`
+const StylIconPageHome = styled.a`
     position: relative;
     cursor: pointer;
     top: -7px;
@@ -35,6 +35,14 @@ const StylIconPageHome = styled.i`
             transform: scale(1.1);
         }
     }
+
+    ${(props) =>
+        props.isDeactive &&
+        css`
+            cursor: none;
+            pointer-events: none;
+            opacity: 0.5;
+        `}
 `;
 
 export { StylBoxFollowUs, StylFollowUsPageHome, StylIconPageHome };

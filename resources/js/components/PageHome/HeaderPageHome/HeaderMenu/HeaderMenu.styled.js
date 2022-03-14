@@ -7,12 +7,14 @@ const StylImgLogo = styled.img`
     width: 120px;
     height: 20px;
     margin: 0;
+    margin-top: 5px;
     align-self: center;
     object-fit: contain;
 
     @media (min-width: 768px) {
         min-width: 170px;
         min-height: 30px;
+        margin: 0;
     }
 `;
 
@@ -76,12 +78,19 @@ const StylBoxMainMenuPageHome = styled.ul`
     @media (min-width: 1024px) {
         display: flex;
         flex-direction: row;
-        justify-content: flex-start;
+        justify-content: center;
         position: static;
+        margin-right: 100px;
+        margin-left: -10%;
+        width: 80%;
     }
 
-    @media (min-width: 1024px) {
-        width: auto;
+    @media (min-width: 1250px) {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        position: static;
+        width: 85%;
     }
 
     @keyframes slidein {
@@ -110,6 +119,22 @@ const StylItemMainNav = styled.li`
     @media (min-width: 1024px) {
         width: auto;
     }
+
+    ${(props) =>
+        props.isSpace &&
+        css`
+            dispay: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            margin-right: 200px;
+
+            @media (min-width: 1024px) {
+                flex-direction: row;
+                position: absolute;
+                right: -170px;
+            }
+        `}
 `;
 
 const StylLinkMainNav = styled.div`
@@ -140,6 +165,9 @@ const StylLinkMainNav = styled.div`
 
     @media (min-width: 768px) {
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @media (min-width: 1024px) {

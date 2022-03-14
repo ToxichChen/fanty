@@ -75,36 +75,40 @@ const HeaderMenuPageHome = () => {
                         <NavLink to={routes.blogs.main}>Блог</NavLink>
                     </StylLinkMainNav>
                 </StylItemMainNav>
-                {Object.keys(profile).length === 0 && (
-                    <StylItemMainNav>
-                        <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink to={routes.formLogin}>Логин</NavLink>
-                        </StylLinkMainNav>
-                    </StylItemMainNav>
-                )}{" "}
-                {Object.keys(profile).length === 0 && (
-                    <StylItemMainNav>
-                        <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink to={routes.formRegister}>
-                                Регистрация
-                            </NavLink>
-                        </StylLinkMainNav>
-                    </StylItemMainNav>
-                )}{" "}
-                {Object.keys(profile).length !== 0 && (
-                    <StylItemMainNav>
-                        <StylLinkMainNav onClick={handleMenu}>
-                            <NavLink to={routes.profileUser}>Профиль</NavLink>
-                        </StylLinkMainNav>
-                    </StylItemMainNav>
-                )}
-                {Object.keys(profile).length !== 0 && (
-                    <StylItemMainNav>
-                        <StylLinkMainNav onClick={profileRequest}>
-                            <NavLink to={routes.home}>Выйти</NavLink>
-                        </StylLinkMainNav>
-                    </StylItemMainNav>
-                )}
+                <StylItemMainNav isSpace={true}>
+                    {Object.keys(profile).length === 0 && (
+                        <StylItemMainNav>
+                            <StylLinkMainNav onClick={handleMenu}>
+                                <NavLink to={routes.formLogin}>Логин</NavLink>
+                            </StylLinkMainNav>
+                        </StylItemMainNav>
+                    )}{" "}
+                    {Object.keys(profile).length === 0 && (
+                        <StylItemMainNav>
+                            <StylLinkMainNav onClick={handleMenu}>
+                                <NavLink to={routes.formRegister}>
+                                    Регистрация
+                                </NavLink>
+                            </StylLinkMainNav>
+                        </StylItemMainNav>
+                    )}{" "}
+                    {Object.keys(profile).length !== 0 && (
+                        <StylItemMainNav>
+                            <StylLinkMainNav onClick={handleMenu}>
+                                <NavLink to={routes.profileUser}>
+                                    Профиль
+                                </NavLink>
+                            </StylLinkMainNav>
+                        </StylItemMainNav>
+                    )}
+                    {Object.keys(profile).length !== 0 && (
+                        <StylItemMainNav>
+                            <StylLinkMainNav onClick={profileRequest}>
+                                <NavLink to={routes.home}>Выйти</NavLink>
+                            </StylLinkMainNav>
+                        </StylItemMainNav>
+                    )}
+                </StylItemMainNav>
             </StylBoxMainMenuPageHome>
         </StylBoxNavMenuPageHome>
     );

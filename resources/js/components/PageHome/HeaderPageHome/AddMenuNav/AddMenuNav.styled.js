@@ -1,3 +1,4 @@
+import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
 const BoxAddMenu = styled.ul`
@@ -61,7 +62,7 @@ const StylItemAddMenu = styled.li`
     }
 `;
 
-const StylLinkAddMenu = styled.a`
+const StylLinkAddMenu = styled(NavLink)`
     cursor: pointer;
     text-decoration: none;
     font-size: ${(props) => props.theme.typography.textSmall.primary};

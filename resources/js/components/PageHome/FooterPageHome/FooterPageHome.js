@@ -109,7 +109,7 @@ const FooterPageHome = () => {
                     </StylMenuFooterPageHome>
                     <HeaderFollowUs />
                     <StylCopyrightFooter>
-                        ColorLib 2018 @ All rights reserved
+                        Публичная оферта
                         <LinkFooter to={routes.politics}>
                             Политика и конфиденцальность
                         </LinkFooter>

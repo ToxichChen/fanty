@@ -17,7 +17,14 @@ const HeaderFollowUs = ({ isFollow }) => {
                     </StylFollowUsPageHome>
                 )}
                 {linkFollowsArr.map((item, index) => (
-                    <StylIconPageHome className={item} key={index} />
+                    <StylIconPageHome
+                        key={index}
+                        href={item.link}
+                        target="_blank"
+                        isDeactive={item.deactive}
+                    >
+                        <i className={item.class} />
+                    </StylIconPageHome>
                 ))}
             </StylBoxFollowUs>
         </StylBoxContainerMaxWidth>

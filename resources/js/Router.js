@@ -19,6 +19,8 @@ const routes = {
     profileUser: "/profileUser",
     politics: "/politics",
     payGame: "/payGame",
+    blackAndWhite: "/chernoe-i-beloe",
+    rolePlaying: "/role-playing",
     notFound: "*",
 };
 
@@ -124,6 +126,24 @@ const Router = () => {
                     <LayoutProfileSettings>
                         <PayGameView title="Оплата за игру" />
                     </LayoutProfileSettings>
+                }
+            />
+            <Route
+                path={routes.blackAndWhite}
+                element={
+                    <NotFound
+                        title="Страница не найдена"
+                        text={"Игра в стадии разработки"}
+                    />
+                }
+            />
+            <Route
+                path={routes.rolePlaying}
+                element={
+                    <NotFound
+                        title="Страница не найдена"
+                        text={"Игра в стадии разработки"}
+                    />
                 }
             />
             <Route

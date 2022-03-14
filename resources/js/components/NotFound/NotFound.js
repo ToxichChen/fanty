@@ -2,7 +2,7 @@ import React from "react";
 import { StylTitleNotFound, StylWrapperSvg } from "./NotFound.styled";
 import { StylBoxCenterSpiner } from "./../Loader/Loader.styled";
 
-const NotFound = () => {
+const NotFound = ({ text }) => {
     return (
         <StylBoxCenterSpiner>
             <StylWrapperSvg
@@ -71,7 +71,9 @@ const NotFound = () => {
                 </defs>
             </StylWrapperSvg>
 
-            <StylTitleNotFound>Page Not Found</StylTitleNotFound>
+            <StylTitleNotFound>
+                {text ? text : "Страница не найдена"}
+            </StylTitleNotFound>
         </StylBoxCenterSpiner>
     );
 };

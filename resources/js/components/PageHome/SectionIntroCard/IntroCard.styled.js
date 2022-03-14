@@ -1,117 +1,121 @@
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const StylBoxIntroCard = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 115px 20px;
-  background-color: ${(props) => props.theme.palette.backgroundColor.primary};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 115px 20px;
+    background-color: ${(props) => props.theme.palette.backgroundColor.primary};
 `;
 
 const StylBoxCenterIntroCard = styled.div`
-  max-width: 1140px;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+    max-width: 1140px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
 
-  @media (min-width: 1200px) {
-    justify-content: space-between;
-    flex-direction: row;
-  }
+    @media (min-width: 1200px) {
+        justify-content: space-between;
+        flex-direction: row;
+    }
 `;
 
 const StylBoxCardGame = styled.article`
-  max-width: 370px;
-  width: 100%;
-  margin-bottom: 40px;
+    max-width: auto;
+    width: 100%;
+    margin-bottom: 40px;
 
-  @media (min-width: 1200px) {
-    margin: 0;
-  }
+    @media (min-width: 768px) {
+        max-width: 370px;
+    }
+
+    @media (min-width: 1200px) {
+        margin: 0;
+    }
 `;
 
 const StylDataCardGame = styled.p`
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
-  font-weight: ${(props) => props.theme.typography.textWeigth.primary};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) => props.theme.palette.main};
-  margin-bottom: 20px;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.main};
+    margin-bottom: 20px;
 `;
 
 const StylLinkCardGame = styled(NavLink)`
-  cursor: pointer;
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
-  font-weight: ${(props) => props.theme.typography.textWeigth.primary};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) => props.theme.palette.text.primary};
-  text-decoration: none;
-  margin-left: 5px;
-  transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.primary};
+    text-decoration: none;
+    margin-left: 5px;
+    transition: all 0.2s ease;
 
-  @media (min-width: 1024px) {
-    &:hover {
-      color: ${(props) => props.theme.palette.text.light};
-    }
+    @media (min-width: 1024px) {
+        &:hover {
+            color: ${(props) => props.theme.palette.text.light};
+        }
 
-    &:active {
-      transform: scale(1.1);
+        &:active {
+            transform: scale(1.1);
+        }
     }
-  }
 `;
 
 const StylTitleCardGame = styled.p`
-  font-size: ${(props) => props.theme.typography.textLarge.main};
-  font-weight: ${(props) => props.theme.typography.textWeigth.primary};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) => props.theme.palette.text.light};
-  margin-bottom: 40px;
+    font-size: ${(props) => props.theme.typography.textLarge.main};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.light};
+    margin-bottom: 40px;
 `;
 
 const StylTextCardGame = styled.p`
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
-  font-weight: ${(props) => props.theme.typography.textWeigth.primary};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) => props.theme.palette.text.main};
-  margin-bottom: 35px;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.main};
+    margin-bottom: 35px;
 `;
 
 const StylBtnCardGame = styled(NavLink)`
-  cursor: pointer;
-  font-size: ${(props) => props.theme.typography.textSmall.primary};
-  font-weight: ${(props) => props.theme.typography.textWeigth.primary};
-  font-family: ${(props) => props.theme.typography.textFamily.main};
-  color: ${(props) => props.theme.palette.text.light};
-  text-decoration: none;
-  text-transform: uppercase;
-  font-style: italic;
-  transition: all 0.2s ease;
+    cursor: pointer;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.light};
+    text-decoration: none;
+    text-transform: uppercase;
+    font-style: italic;
+    transition: all 0.2s ease;
 
-  @media (min-width: 1024px) {
-    &:hover {
-      color: ${(props) => props.theme.palette.text.primary};
+    @media (min-width: 1024px) {
+        &:hover {
+            color: ${(props) => props.theme.palette.text.primary};
 
-      & > img {
-        transform: translateX(10px);
-      }
+            & > img {
+                transform: translateX(10px);
+            }
+        }
+
+        &:active {
+            transform: scale(1.1);
+        }
     }
-
-    &:active {
-      transform: scale(1.1);
-    }
-  }
 `;
 
 export {
-  StylBoxIntroCard,
-  StylBoxCenterIntroCard,
-  StylBoxCardGame,
-  StylDataCardGame,
-  StylLinkCardGame,
-  StylTitleCardGame,
-  StylTextCardGame,
-  StylBtnCardGame,
+    StylBoxIntroCard,
+    StylBoxCenterIntroCard,
+    StylBoxCardGame,
+    StylDataCardGame,
+    StylLinkCardGame,
+    StylTitleCardGame,
+    StylTextCardGame,
+    StylBtnCardGame,
 };
