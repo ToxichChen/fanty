@@ -23,7 +23,7 @@ const SettingsGameFooter = ({ man, female }) => {
             NotifyError("Заполните поле мужчины и женщины");
         } else {
             sendSettingsGame(man, female);
-            navigate(routes.settingsGame.complexity);
+            navigate(routes.seksFanty.duration);
         }
     };
 

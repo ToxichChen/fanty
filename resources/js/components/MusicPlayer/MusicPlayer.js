@@ -22,25 +22,135 @@ import {
 } from "./MusicPlayer.styled";
 
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
-import { musicPlayer } from "../../constants";
+import { music_list } from "../../constants";
 
 const MusicPlayer = () => {
     useEffect(() => {
         Aos.init({ duration: 1000 });
+        loadTrack(track_index);
     });
 
     const [isActiveLike, setActiveLike] = useState(false);
     const [isActivePlayer, setActivePlayer] = useState(false);
     const [isVolume, setVolume] = useState(true);
     const [isRange, setRange] = useState(0);
+    const [isCurrTime, setCurrTime] = useState("");
+    const [isTotalDuration, setTotalDuration] = useState("");
 
-    const playerMusic = () => {
-        if (isActivePlayer) {
-            setActivePlayer(false);
+    let track_index = 0;
+    let isPlaying = false;
+    let isRandom = false;
+    let updateTimer;
+    let curr_track = document.createElement("audio");
+
+    function loadTrack(track_index) {
+        clearInterval(updateTimer);
+        reset();
+
+        curr_track.src = "03087b";
+        curr_track.load();
+        updateTimer = setInterval(setUpdate, 1000);
+        curr_track.addEventListener("ended", nextTrack);
+    }
+
+    function reset() {
+        setCurrTime("00:00");
+        setTotalDuration("00:00");
+        setRange(0);
+    }
+
+    function randomTrack() {
+        isRandom ? pauseRandom() : playRandom();
+    }
+
+    function playRandom() {
+        isRandom = true;
+    }
+    function pauseRandom() {
+        isRandom = false;
+    }
+
+    function playpauseTrack() {
+        isPlaying ? pauseTrack() : playTrack();
+        setActivePlayer(!isActivePlayer);
+    }
+
+    function playTrack() {
+        curr_track.play();
+        isPlaying = true;
+        setActivePlayer(true);
+    }
+
+    function pauseTrack() {
+        curr_track.pause();
+        isPlaying = false;
+        setActivePlayer(false);
+    }
+
+    function nextTrack() {
+        if (track_index < music_list.length - 1 && isRandom === false) {
+            track_index += 1;
+        } else if (track_index < music_list.length - 1 && isRandom === true) {
+            let random_index = Number.parseInt(
+                Math.random() * music_list.length
+            );
+            track_index = random_index;
         } else {
-            setActivePlayer(true);
+            track_index = 0;
         }
-    };
+        loadTrack(track_index);
+        playTrack();
+    }
+
+    function prevTrack() {
+        if (track_index > 0) {
+            track_index -= 1;
+        } else {
+            track_index = music_list.length - 1;
+        }
+        loadTrack(track_index);
+        playTrack();
+    }
+
+    function seekTo(e) {
+        setRange(e.target.value);
+        let seekto = curr_track.duration * (e.target.value / 100);
+        curr_track.currentTime = seekto;
+    }
+
+    function setUpdate() {
+        let seekPosition = 0;
+
+        if (!isNaN(curr_track.duration)) {
+            seekPosition = curr_track.currentTime * (100 / curr_track.duration);
+            setRange(seekPosition);
+
+            let currentMinutes = Math.floor(curr_track.currentTime / 60);
+            let currentSeconds = Math.floor(
+                curr_track.currentTime - currentMinutes * 60
+            );
+            let durationMinutes = Math.floor(curr_track.duration / 60);
+            let durationSeconds = Math.floor(
+                curr_track.duration - durationMinutes * 60
+            );
+
+            if (currentSeconds < 10) {
+                currentSeconds = "0" + currentSeconds;
+            }
+            if (durationSeconds < 10) {
+                durationSeconds = "0" + durationSeconds;
+            }
+            if (currentMinutes < 10) {
+                currentMinutes = "0" + currentMinutes;
+            }
+            if (durationMinutes < 10) {
+                durationMinutes = "0" + durationMinutes;
+            }
+
+            setCurrTime(currentMinutes + ":" + currentSeconds);
+            setTotalDuration(durationMinutes + ":" + durationMinutes);
+        }
+    }
 
     const regulatorMusic = () => {
         if (isActivePlayer) {
@@ -48,10 +158,6 @@ const MusicPlayer = () => {
         } else {
             setVolume(true);
         }
-    };
-
-    const changeRange = (e) => {
-        setRange(e.target.value);
     };
 
     return (
@@ -67,33 +173,35 @@ const MusicPlayer = () => {
                             >
                                 <i className="fas fa-heart"></i>
                             </StylBtnPlayer>
-                            <StylBtnPlayer>
+                            <StylBtnPlayer onClick={randomTrack}>
                                 <i className="fas fa-random"></i>
                             </StylBtnPlayer>
                         </StylBoxFuncPlayer>
                         <StylImgPlayer
-                            src={musicPlayer.imgUrl}
+                            src={music_list[track_index].img}
                             alt="album music"
                         />
                         <StylInfoPlayer>
                             <StylTitlePlayer>
-                                {musicPlayer.title}
+                                {music_list[track_index].name}
                             </StylTitlePlayer>
                             <StylArtistPlayer>
-                                {musicPlayer.artist}
+                                {music_list[track_index].artist}
                             </StylArtistPlayer>
                             <StylAlbumPlayer>
-                                {musicPlayer.album}
+                                {music_list[track_index].album}
                             </StylAlbumPlayer>
                         </StylInfoPlayer>
                         <StylLinePlayer />
                         <StylControlMusic>
-                            <StylSecondsMusicNow>0:00</StylSecondsMusicNow>
+                            <StylSecondsMusicNow>
+                                {isCurrTime}
+                            </StylSecondsMusicNow>
                             <StylBoxPlayMusic>
-                                <StylBtnNavMusic>
+                                <StylBtnNavMusic onClick={prevTrack}>
                                     <i className="fas fa-step-backward"></i>
                                 </StylBtnNavMusic>
-                                <StylBtnNavMusic onClick={playerMusic}>
+                                <StylBtnNavMusic onClick={playpauseTrack}>
                                     <i
                                         className={
                                             isActivePlayer
@@ -102,7 +210,7 @@ const MusicPlayer = () => {
                                         }
                                     ></i>
                                 </StylBtnNavMusic>
-                                <StylBtnNavMusic>
+                                <StylBtnNavMusic onClick={nextTrack}>
                                     <i className="fas fa-step-forward"></i>
                                 </StylBtnNavMusic>
                                 <StylBtnNavMusic onClick={regulatorMusic}>
@@ -116,22 +224,18 @@ const MusicPlayer = () => {
                                 </StylBtnNavMusic>
                             </StylBoxPlayMusic>
                             <StylSecondsMusicDuration>
-                                2:55
+                                {isTotalDuration}
                             </StylSecondsMusicDuration>
                         </StylControlMusic>
                         <StylLinePlayerNow
                             type="range"
-                            id="seek-slider"
+                            min="1"
                             max="100"
-                            onInput={changeRange}
-                            onChange={changeRange}
+                            value="0"
+                            onInput={seekTo}
+                            onChange={seekTo}
                             isWidth={isRange}
                         />
-                        <audio
-                            src="https://assets.codepen.io/4358584/Anitek_-_Komorebi.mp3"
-                            preload="metadata"
-                            loop
-                        ></audio>
                     </StylBoxCenterPlayer>
                 </StylWrapperPlayer>
             </StylBoxPagePlayer>

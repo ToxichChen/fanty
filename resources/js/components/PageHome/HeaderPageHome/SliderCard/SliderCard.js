@@ -24,7 +24,7 @@ const SliderCard = ({ id, title, text, isSelect, index, imgUrl }) => {
                 <StylHeaderTitlePageHome>{title}</StylHeaderTitlePageHome>
                 <StylHeaderTextPageHome>{text}</StylHeaderTextPageHome>
             </StylBoxFlexColumnFlexStart>
-            <StylBtnReadMore to={routes.taskGame.info}>
+            <StylBtnReadMore to={routes.seksFanty.info}>
                 Играть 18+
                 <StylImgDoubleArrow src={doubleArrow} alt="double arrow" />
             </StylBtnReadMore>

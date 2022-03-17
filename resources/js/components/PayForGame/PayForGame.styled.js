@@ -23,15 +23,16 @@ const SectionPay = styled.section`
 `;
 
 const CenterPay = styled.div`
-    max-width: 600px;
+    max-width: 800px;
+    min-height: 400px;
     width: 100%;
     padding: 30px;
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
     flex-direction: column;
     border-radius: 8px;
-    border: 1px solid #fff;
+    box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     border-radius: 8px;
     margin: 30px 0 10px;
     background-color: rgba(52, 22, 75, 0.8);
@@ -59,7 +60,7 @@ const BoxSelectPay = styled.div`
     width: 100%;
     background-color: rgba(12, 6, 46, 0.5);
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     border-radius: 8px;
 `;
 

@@ -27,7 +27,10 @@ const MiniPlayer = () => {
     };
 
     return (
-        <StylPlayerMiniMusic isShow={isShowBlock}>
+        <StylPlayerMiniMusic
+            isShow={isShowBlock}
+            isShowPlayer={showMiniPlayer.showPlayer}
+        >
             <StylArrow
                 isShowPlayer={showMiniPlayer.showPlayer}
                 isShow={isShowBlock}

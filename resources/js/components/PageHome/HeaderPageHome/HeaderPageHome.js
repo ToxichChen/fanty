@@ -45,7 +45,7 @@ const HeaderPageHome = () => {
     return (
         <StylHeaderPageHome>
             <StylBoxFlexColumnFlexStart>
-                <HeaderFollowUs isFollow={true} />
+                <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
                 <HeaderMenuPageHome />
             </StylBoxFlexColumnFlexStart>
 

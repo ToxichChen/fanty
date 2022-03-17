@@ -5,7 +5,7 @@ import iconBurgerSvg from "./../../../../assets/icons/icon-burger-menu.svg";
 const StylImgLogo = styled.img`
     position: relative;
     width: 120px;
-    height: 20px;
+    height: 40px;
     margin: 0;
     margin-top: 5px;
     align-self: center;
@@ -13,7 +13,7 @@ const StylImgLogo = styled.img`
 
     @media (min-width: 768px) {
         min-width: 170px;
-        min-height: 30px;
+        min-height: 50px;
         margin: 0;
     }
 `;
@@ -26,6 +26,7 @@ const StylBtnMenuNavPageHome = styled.a`
     height: 30px;
     border-radius: 8px;
     transition: all 0.2s ease;
+    align-self: center;
 
     transform: ${(props) => props.open && "rotate(90deg)"};
 
@@ -133,6 +134,7 @@ const StylItemMainNav = styled.li`
                 flex-direction: row;
                 position: absolute;
                 right: -170px;
+                min-height: 55%;
             }
         `}
 `;
@@ -227,6 +229,15 @@ const StylLinkMainNav = styled.div`
         `}
 `;
 
+const BoxItemMenu = styled.div`
+    width: 100%;
+    display: flex;
+
+    @media (min-width: 1024px) {
+        width: auto;
+    }
+`;
+
 export {
     StylImgLogo,
     StylBtnMenuNavPageHome,
@@ -234,4 +245,5 @@ export {
     StylBoxMainMenuPageHome,
     StylItemMainNav,
     StylLinkMainNav,
+    BoxItemMenu,
 };

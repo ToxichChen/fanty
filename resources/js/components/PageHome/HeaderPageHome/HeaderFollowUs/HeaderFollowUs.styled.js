@@ -16,6 +16,7 @@ const StylFollowUsPageHome = styled.p`
 `;
 
 const StylIconPageHome = styled.a`
+    display: ${(props) => (props.isHidden ? "none" : "block")};
     position: relative;
     cursor: pointer;
     top: -7px;

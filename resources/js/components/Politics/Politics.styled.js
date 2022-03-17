@@ -86,7 +86,7 @@ const BoxPolitics = styled.div`
     display: flex;
     flex-direction: column;
     padding: 20px;
-    border: 1px solid #fff;
+    box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     border-radius: 8px;
     margin: 30px 0 10px;
     background-color: rgba(52, 22, 75, 0.8);

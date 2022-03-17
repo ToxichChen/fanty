@@ -1,5 +1,14 @@
 import bgImage1 from "./../assets/bg/bg-image-1.jpg";
 import bgImage2 from "./../assets/bg/bg-image-2.jpg";
+import musicImgStay from "./../assets/images/stay.png";
+import musicImgFaling from "./../assets/images/fallingdown.jpg";
+import musicImgFaded from "./../assets/images/faded.png";
+import musicImgRatherbe from "./../assets/images/ratherbe.jpg";
+
+const musicStay = new Audio("assets/music/stay.mp3");
+const musicFalling = new Audio("assets/music/fallingdown.mp3");
+const musicFaded = new Audio("assets/music/Faded.mp3");
+const musicRather = new Audio("assets/music/Rather Be.mp3");
 
 const sliderDataArr = [
     {
@@ -8,7 +17,7 @@ const sliderDataArr = [
         text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
         img: bgImage1,
         counter: "01.",
-        pageUrl: "/taskGame/info",
+        pageUrl: "/seks-fanty/info",
     },
     {
         id: 2,
@@ -131,11 +140,11 @@ const dataCardGameArr = [
     {
         id: 1,
         data: "14.03.2022 / в",
-        link: "Игра доработанная",
+        link: "Играть",
         title: "Секс фанты",
         text: "Нежность и пошлость в переплёте с классическим сексом подарят новый взгляд на взаимные наслаждения",
         btnText: "Играть 18+",
-        url: "/taskGame/info",
+        url: "/seks-fanty/info",
     },
     {
         id: 2,
@@ -158,12 +167,32 @@ const dataCardGameArr = [
     },
 ];
 
-const musicPlayer = {
-    imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
-    title: "Leave Your Lover",
-    artist: "Artist - Echos",
-    album: "Album - Echos",
-};
+const music_list = [
+    {
+        img: musicImgStay,
+        name: "Stay",
+        artist: "The Kid LAROI, Justin Bieber",
+        music: musicStay,
+    },
+    {
+        img: musicImgFaling,
+        name: "Falling Down",
+        artist: "Wid Cards",
+        music: musicFalling,
+    },
+    {
+        img: musicImgFaded,
+        name: "Faded",
+        artist: "Alan Walker",
+        music: musicFaded,
+    },
+    {
+        img: musicImgRatherbe,
+        name: "Rather Be",
+        artist: "Clean Bandit",
+        music: musicRather,
+    },
+];
 
 const blogPostsArr = [
     {
@@ -287,6 +316,6 @@ export {
     dataPostArr,
     dataPostFeatureArr,
     dataCardGameArr,
-    musicPlayer,
+    music_list,
     blogTrendsArr,
 };

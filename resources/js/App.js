@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Loader from "./components/Loader/Loader";
@@ -8,6 +8,7 @@ import { Router } from "./Router";
 import { Provider } from "react-redux";
 import theme from "./theme";
 import { store } from "./redux/store";
+import BtnToTop from "./components/BtnToTop/BtnToTop";
 
 const App = () => {
     return (
@@ -21,6 +22,7 @@ const App = () => {
                     </div>
                     <AlertMessage />
                     <MiniPlayer />
+                    <BtnToTop />
                 </BrowserRouter>
             </Provider>
         </ThemeProvider>

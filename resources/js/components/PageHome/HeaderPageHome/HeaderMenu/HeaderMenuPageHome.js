@@ -11,6 +11,7 @@ import {
     StylImgLogo,
     StylBtnMenuNavPageHome,
     StylBoxNavMenuPageHome,
+    BoxItemMenu,
 } from "./HeaderMenu.styled";
 
 import { routes } from "./../../../../Router";
@@ -75,38 +76,43 @@ const HeaderMenuPageHome = () => {
                         <NavLink to={routes.blogs.main}>Блог</NavLink>
                     </StylLinkMainNav>
                 </StylItemMainNav>
+                <StylItemMainNav>
+                    <StylLinkMainNav onClick={handleMenu}>
+                        <NavLink to={routes.support}>Поддержка</NavLink>
+                    </StylLinkMainNav>
+                </StylItemMainNav>
                 <StylItemMainNav isSpace={true}>
                     {Object.keys(profile).length === 0 && (
-                        <StylItemMainNav>
+                        <BoxItemMenu>
                             <StylLinkMainNav onClick={handleMenu}>
                                 <NavLink to={routes.formLogin}>Логин</NavLink>
                             </StylLinkMainNav>
-                        </StylItemMainNav>
+                        </BoxItemMenu>
                     )}{" "}
                     {Object.keys(profile).length === 0 && (
-                        <StylItemMainNav>
+                        <BoxItemMenu>
                             <StylLinkMainNav onClick={handleMenu}>
                                 <NavLink to={routes.formRegister}>
                                     Регистрация
                                 </NavLink>
                             </StylLinkMainNav>
-                        </StylItemMainNav>
+                        </BoxItemMenu>
                     )}{" "}
                     {Object.keys(profile).length !== 0 && (
-                        <StylItemMainNav>
+                        <BoxItemMenu>
                             <StylLinkMainNav onClick={handleMenu}>
                                 <NavLink to={routes.profileUser}>
                                     Профиль
                                 </NavLink>
                             </StylLinkMainNav>
-                        </StylItemMainNav>
+                        </BoxItemMenu>
                     )}
                     {Object.keys(profile).length !== 0 && (
-                        <StylItemMainNav>
+                        <BoxItemMenu>
                             <StylLinkMainNav onClick={profileRequest}>
                                 <NavLink to={routes.home}>Выйти</NavLink>
                             </StylLinkMainNav>
-                        </StylItemMainNav>
+                        </BoxItemMenu>
                     )}
                 </StylItemMainNav>
             </StylBoxMainMenuPageHome>

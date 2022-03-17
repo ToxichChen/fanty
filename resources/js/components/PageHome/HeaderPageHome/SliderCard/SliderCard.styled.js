@@ -76,7 +76,7 @@ const StylHeaderTitlePageHome = styled.h1`
     }
 
     @media (min-width: 1024px) {
-        font-size: 160px;
+        font-size: 120px;
     }
 `;
 

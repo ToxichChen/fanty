@@ -12,6 +12,14 @@ const AddMenuNav = ({ typeMenu, visibleContent, handleContent }) => {
             <StylItemAddMenu>
                 <StylLinkAddMenu
                     onClick={handleContent}
+                    to={routes.seksFanty.info}
+                >
+                    Секс фанты
+                </StylLinkAddMenu>
+            </StylItemAddMenu>
+            <StylItemAddMenu>
+                <StylLinkAddMenu
+                    onClick={handleContent}
                     to={routes.blackAndWhite}
                 >
                     Черное и белое
@@ -23,14 +31,6 @@ const AddMenuNav = ({ typeMenu, visibleContent, handleContent }) => {
                     to={routes.rolePlaying}
                 >
                     Ролевые игры
-                </StylLinkAddMenu>
-            </StylItemAddMenu>
-            <StylItemAddMenu>
-                <StylLinkAddMenu
-                    onClick={handleContent}
-                    to={routes.taskGame.info}
-                >
-                    Секс фанты
                 </StylLinkAddMenu>
             </StylItemAddMenu>
         </BoxAddMenu>

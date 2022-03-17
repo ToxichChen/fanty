@@ -67,6 +67,11 @@ const FooterPageHome = () => {
                                 <NavLink to={routes.blogs.main}>Блог</NavLink>
                             </StylLinkMenuFooter>
                         </StylItemMenuFooter>
+                        <StylItemMenuFooter>
+                            <StylLinkMenuFooter>
+                                <NavLink to={routes.support}>Поддержка</NavLink>
+                            </StylLinkMenuFooter>
+                        </StylItemMenuFooter>
                         {Object.keys(profile).length === 0 && (
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
@@ -109,7 +114,9 @@ const FooterPageHome = () => {
                     </StylMenuFooterPageHome>
                     <HeaderFollowUs />
                     <StylCopyrightFooter>
-                        Публичная оферта
+                        <LinkFooter to={routes.offer}>
+                            Публичная оферта
+                        </LinkFooter>
                         <LinkFooter to={routes.politics}>
                             Политика и конфиденцальность
                         </LinkFooter>

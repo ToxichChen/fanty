@@ -10,7 +10,11 @@ import {
 } from "./TaskInfoSlider.styled";
 import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
 
-const TaskInfoSlider = ({ title, description, taskUrl = "/settingsGame" }) => {
+const TaskInfoSlider = ({
+    title,
+    description,
+    taskUrl = "/seks-fanty/settings",
+}) => {
     return (
         <StylTaskInfoSlider>
             <HeaderMenuPageHome />

@@ -7,7 +7,7 @@ import {
 
 import { linkFollowsArr } from "./../../../../constants";
 
-const HeaderFollowUs = ({ isFollow }) => {
+const HeaderFollowUs = ({ isFollow, isOnlyNetworks }) => {
     return (
         <StylBoxContainerMaxWidth>
             <StylBoxFollowUs isFollow={isFollow}>
@@ -22,6 +22,12 @@ const HeaderFollowUs = ({ isFollow }) => {
                         href={item.link}
                         target="_blank"
                         isDeactive={item.deactive}
+                        isHidden={
+                            (isOnlyNetworks &&
+                                item.class === "fab fa-cc-visa") ||
+                            (isOnlyNetworks &&
+                                item.class === "fab fa-cc-mastercard")
+                        }
                     >
                         <i className={item.class} />
                     </StylIconPageHome>

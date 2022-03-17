@@ -15,7 +15,7 @@ const StylBoxFooterPageHome = styled.div`
 
 const StylImgLogoMagin = styled(StylImgLogo)`
     max-width: 200px;
-    max-height: 40px;
+    max-height: 70px;
     width: 100%;
     height: 100%;
 `;

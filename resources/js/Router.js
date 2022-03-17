@@ -1,26 +1,30 @@
 import { lazy, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
+import useActionMusic from "./hooks/redux/useActionMusic";
 import useActionUsers from "./hooks/redux/useActionUsers";
 
 const routes = {
     home: "/",
-    settingsGame: {
-        main: "/settingsGame",
-        complexity: "/settingsGame/complexity",
-    },
     blogs: {
         main: "/blogs",
         article: "/blogs/article/:id",
     },
     formLogin: "/formLogin",
     formRegister: "/formRegister",
-    taskGame: { main: "/taskGame/task", info: "/taskGame/info" },
     musicFromSex: "/musicForSex",
     profileUser: "/profileUser",
     politics: "/politics",
     payGame: "/payGame",
+    seksFanty: {
+        main: "/seks-fanty",
+        info: "/seks-fanty/info",
+        settings: "/seks-fanty/settings",
+        duration: "/seks-fanty/duration",
+    },
     blackAndWhite: "/chernoe-i-beloe",
     rolePlaying: "/role-playing",
+    support: "/support",
+    offer: "/offer",
     notFound: "*",
 };
 
@@ -43,16 +47,28 @@ const BlogsPage = lazy(() => import("./views/BlogsPage/BlogsView"));
 const ArticlePage = lazy(() => import("./views/BlogsPage/Article/ArticleView"));
 const PoliticsView = lazy(() => import("./views/PoliticsPage/PoliticsView"));
 const PayGameView = lazy(() => import("./views/PayGamePage/PayGameView"));
+const SupportView = lazy(() => import("./views/SupportPage/SupportView.js"));
+const OfferView = lazy(() => import("./views/OfferPage/OfferView.js"));
 
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
+const LayoutMiniPlayer = lazy(() => import("./hoc/LayoutMiniPlayer"));
+const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
+    const location = useLocation();
     const { userHave } = useActionUsers();
+    const { showMiniPlayer, showPlayer } = useActionMusic();
 
     useEffect(() => {
         userHave();
     }, [userHave]);
+
+    useEffect(() => {
+        if (location !== routes.musicFromSex && !showMiniPlayer.showPlayer) {
+            showPlayer();
+        }
+    }, [showMiniPlayer, location, showPlayer]);
 
     return (
         <Routes>
@@ -61,7 +77,7 @@ const Router = () => {
                 element={<Home title="Домашняя страница" />}
             />
             <Route
-                path={routes.settingsGame.complexity}
+                path={routes.seksFanty.duration}
                 element={
                     <LayoutProfileSettings>
                         <SettingsGameComplexity title="Количество заданий" />
@@ -69,7 +85,7 @@ const Router = () => {
                 }
             />
             <Route
-                path={routes.settingsGame.main}
+                path={routes.seksFanty.settings}
                 element={
                     <LayoutProfileSettings>
                         <SettingsGame title="Настройки игры" />
@@ -93,20 +109,18 @@ const Router = () => {
                 }
             />
             <Route
-                path={routes.taskGame.main}
+                path={routes.seksFanty.main}
                 element={
                     <LayoutProfileSettings>
-                        <TaskGame title="Задание игры" />
+                        <LayoutCheckFanty>
+                            <TaskGame title="Задание игры" />
+                        </LayoutCheckFanty>
                     </LayoutProfileSettings>
                 }
             />
             <Route
-                path={routes.taskGame.info}
+                path={routes.seksFanty.info}
                 element={<TaskInfo title="Информация об игре" />}
-            />
-            <Route
-                path={routes.musicFromSex}
-                element={<MusicPage title="Музыка" />}
             />
             <Route
                 path={routes.blogs.main}
@@ -128,6 +142,19 @@ const Router = () => {
                     </LayoutProfileSettings>
                 }
             />
+            <Route
+                path={routes.support}
+                element={<SupportView title="Поддержка" />}
+            />
+            <Route
+                path={routes.musicFromSex}
+                element={
+                    <LayoutMiniPlayer>
+                        <MusicPage title="Музыка" />
+                    </LayoutMiniPlayer>
+                }
+            />
+            <Route path={routes.offer} element={<OfferView title="Оферта" />} />
             <Route
                 path={routes.blackAndWhite}
                 element={

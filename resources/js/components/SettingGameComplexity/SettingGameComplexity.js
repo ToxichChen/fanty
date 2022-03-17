@@ -449,7 +449,7 @@ const SettingGameComplexity = () => {
                     </StylOptionsAddedWrapper>
                     <StylBoxFooterSettings>
                         <StylBoxFlexStartColumn>
-                            <BtnSettings to={routes.settingsGame.main}>
+                            <BtnSettings to={routes.seksFanty.settings}>
                                 <i className="fas fa-cog"></i> Настройки
                             </BtnSettings>
                         </StylBoxFlexStartColumn>
