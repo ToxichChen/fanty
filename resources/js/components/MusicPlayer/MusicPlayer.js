@@ -26,6 +26,7 @@ import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFo
 import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 
 import { music_list } from "../../constants";
+import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
 
 const MusicPlayer = () => {
     useEffect(() => {
@@ -247,6 +248,7 @@ const MusicPlayer = () => {
                     </StylBoxCenterPlayer>
                 </StylWrapperPlayer>
             </StylBoxPagePlayer>
+            <FooterPageHome />
         </>
     );
 };

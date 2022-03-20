@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import imageMobileBGJPG from "./../../assets/bg/fanty.png";
+import imageMobileBGJPG from "./../../assets/bg/muzyka.png";
 
 const SectionPolitics = styled.section`
     display: flex;
