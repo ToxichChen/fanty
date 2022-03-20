@@ -1,24 +1,16 @@
 import styled from "styled-components";
-import imageBGJPG from "./../../assets/bg/bg-image.jpg";
-import imageMobileBGJPG from "./../../assets/bg/bg-image-mobile.jpg";
+import imageMobileBGJPG from "./../../assets/bg/fanty.png";
 
 const SectionPolitics = styled.section`
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    background-blend-mode: multiply;
     background-image: url(${imageMobileBGJPG});
-    background-color: rgba(111, 43, 149, 0.8);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px 20px;
     min-height: 100vh;
-
-    @media (min-width: 1024px) {
-        padding: 20px 20px;
-        background-image: url(${imageBGJPG});
-    }
 `;
 
 const CenterPolitics = styled.div`

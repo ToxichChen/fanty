@@ -5,14 +5,14 @@ import useActionFanty from "../hooks/redux/useActionFanty";
 
 const LayoutCheckFanty = ({ children }) => {
     const { profile } = useActionUsers();
-    const { getFanty } = useActionFanty();
+    const { getCountTask } = useActionFanty();
     const { NotifyError } = useActionAlert();
 
     if (Object.keys(profile).length === 0) {
         NotifyError("Пожалуйста, перед началом игры авторизируйтесь!");
 
         return <Navigate to={"/formLogin"} />;
-    } else if (Object.keys(getFanty).length <= 1) {
+    } else if (getCountTask.is_green === '0' && getCountTask.is_yellow === '0' && getCountTask.is_red === '0') {
         NotifyError("Пожалуйста, перед началом игры выберите настройки!");
 
         return <Navigate to={"/seks-fanty/settings"} />;

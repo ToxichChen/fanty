@@ -17,7 +17,7 @@ import {
     StylBoxBtn,
     StylSubTitleTask,
 } from "./TaskGamePage.styled";
-import imgBgJPG from "./../../assets/bg/bg-image.jpg";
+import imgBgJPG from "./../../assets/bg/fanty.png";
 import MiniLoader from "./../Loader/MiniLoader";
 import useActionFanty from "../../hooks/redux/useActionFanty";
 import useActionUsers from "../../hooks/redux/useActionUsers";
@@ -51,10 +51,10 @@ const TaskGamePage = () => {
         getLevelFanty !== ""
             ? getLevelFanty
             : getCountTask.is_green === "0" && getCountTask.is_yellow === "0"
-            ? "red"
-            : getCountTask.is_yellow === "0"
-            ? "green"
-            : "yellow"
+                ? "red"
+                : getCountTask.is_yellow === "0"
+                    ? "green"
+                    : "yellow"
     );
 
     useEffect(() => {
@@ -211,16 +211,16 @@ const TaskGamePage = () => {
                                 src={
                                     Object.keys(getFantyPunishment).length >
                                         1 &&
-                                    getFantyPunishment.media.trim() === ""
+                                        getFantyPunishment.media.trim() === ""
                                         ? imgBgJPG
                                         : Object.keys(getFantyPunishment)
-                                              .length > 1 &&
-                                          getFantyPunishment.media.trim() !== ""
-                                        ? getFantyPunishment.media
-                                        : Object.keys(getFanty).length >= 1 &&
-                                          getFanty.media.trim() === ""
-                                        ? imgBgJPG
-                                        : getFanty.media
+                                            .length > 1 &&
+                                            getFantyPunishment.media.trim() !== ""
+                                            ? getFantyPunishment.media
+                                            : Object.keys(getFanty).length >= 1 &&
+                                                getFanty.media.trim() === ""
+                                                ? imgBgJPG
+                                                : getFanty.media
                                 }
                                 alt="img task"
                             />
@@ -246,15 +246,15 @@ const TaskGamePage = () => {
                                     type="button"
                                     isType={
                                         isLevelFant === "green" &&
-                                        getCountTask.is_yellow === "0" &&
-                                        getCountCanceledTask.is_red === "0"
+                                            getCountTask.is_yellow === "0" &&
+                                            getCountCanceledTask.is_red === "0"
                                             ? "none"
                                             : isLevelFant === "yellow" &&
-                                              getCountTask.is_red === "0"
-                                            ? "none"
-                                            : isLevelFant === "red"
-                                            ? "none"
-                                            : isLevelFant
+                                                getCountTask.is_red === "0"
+                                                ? "none"
+                                                : isLevelFant === "red"
+                                                    ? "none"
+                                                    : isLevelFant
                                     }
                                     isPreLastBtn={true}
                                     onClick={upLevelFant}
@@ -270,10 +270,10 @@ const TaskGamePage = () => {
                                         isLastFant
                                             ? "none"
                                             : isLevelFant === "green"
-                                            ? "none"
-                                            : getCountCanceledTask === 4
-                                            ? "none"
-                                            : isLevelFant
+                                                ? "none"
+                                                : getCountCanceledTask === 4
+                                                    ? "none"
+                                                    : isLevelFant
                                     }
                                     onClick={() =>
                                         cancelTask(getFanty.sex ? 1 : 0)

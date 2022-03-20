@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
-import imgBGFromGameJPG from "./../../assets/bg/bg-image.jpg";
-import imgBGMobileFromGameJPG from "./../../assets/bg/bg-image-mobile.jpg";
+import imgBGMobileFromGameJPG from "./../../assets/bg/fanty.png";
 import { NavLink } from "react-router-dom";
 
 const SectionTaskGame = styled.section`
@@ -18,7 +17,6 @@ const SectionTaskGame = styled.section`
     @media (min-width: 1024px) {
         padding: 50px 20px;
         background-size: cover;
-        background-image: url(${imgBGFromGameJPG});
     }
 `;
 
@@ -54,18 +52,18 @@ const StylBtnTask = styled.button`
         props.isType === "green"
             ? "1"
             : props.isType === "yellow"
-            ? "1"
-            : props.isType === "red"
-            ? "1"
-            : "0.5"};
+                ? "1"
+                : props.isType === "red"
+                    ? "1"
+                    : "0.5"};
     pointer-events: ${(props) =>
         props.isType === "green"
             ? "auto"
             : props.isType === "yellow"
-            ? "auto"
-            : props.isType === "red"
-            ? "auto"
-            : "none"};
+                ? "auto"
+                : props.isType === "red"
+                    ? "auto"
+                    : "none"};
     width: 100%;
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
@@ -75,10 +73,10 @@ const StylBtnTask = styled.button`
         props.isType === "green"
             ? props.theme.palette.backgroundBtn.primary
             : props.isType === "yellow"
-            ? props.theme.palette.backgroundBtn.second
-            : props.isType === "red"
-            ? props.theme.palette.error.btn
-            : props.theme.palette.backgroundBtn.dark};
+                ? props.theme.palette.backgroundBtn.second
+                : props.isType === "red"
+                    ? props.theme.palette.error.btn
+                    : props.theme.palette.backgroundBtn.dark};
     border: none;
     outline: none;
     padding: 10px;
@@ -279,9 +277,9 @@ const StylLinkSettings = styled(NavLink)`
         &:hover {
             & > i {
                 animation: ${(props) =>
-                    props.isDontRoll
-                        ? "none"
-                        : "rotating 1.5s linear infinite"};
+        props.isDontRoll
+            ? "none"
+            : "rotating 1.5s linear infinite"};
             }
         }
 

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import imageBGJPG from "./../../assets/bg/bg-image.jpg";
-import imageMobileBGJPG from "./../../assets/bg/bg-image-mobile.jpg";
+import imageMobileBGJPG from "./../../assets/bg/muzyka.png";
 
 const SectionSupport = styled.section`
     isplay: flex;
@@ -9,17 +8,11 @@ const SectionSupport = styled.section`
     align-items: center;
     background-blend-mode: multiply;
     background-image: url(${imageMobileBGJPG});
-    background-color: rgba(111, 43, 149, 0.8);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px 20px;
     min-height: 100vh;
-
-    @media (min-width: 1024px) {
-        padding: 20px 20px;
-        background-image: url(${imageBGJPG});
-    }
 `;
 
 const CenterSupport = styled.div`
@@ -155,7 +148,7 @@ const BtnSendForm = styled.button`
         top: 0;
         left: 0;
         background-color: ${(props) =>
-            props.theme.palette.backgroundColor.light};
+        props.theme.palette.backgroundColor.light};
         border-radius: 8px;
         z-index: -1;
     }

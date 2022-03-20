@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import imageBGJPG from "./../../assets/bg/bg-image.jpg";
-import imageMobileBGJPG from "./../../assets/bg/bg-image-mobile.jpg";
+import imageMobileBGJPG from "./../../assets/bg/fanty.png";
 
 const SectionPay = styled.section`
     display: flex;
@@ -15,11 +14,6 @@ const SectionPay = styled.section`
     background-size: cover;
     padding: 20px 20px;
     min-height: 100vh;
-
-    @media (min-width: 1024px) {
-        padding: 20px 20px;
-        background-image: url(${imageBGJPG});
-    }
 `;
 
 const CenterPay = styled.div`
@@ -82,7 +76,7 @@ const Select = styled.select`
     option {
         color: ${(props) => props.theme.palette.text.light};
         background-color: ${(props) =>
-            props.theme.palette.backgroundColor.second};
+        props.theme.palette.backgroundColor.second};
         border: none;
         display: flex;
         white-space: pre;

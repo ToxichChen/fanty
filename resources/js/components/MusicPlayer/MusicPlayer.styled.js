@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
-import bgMobileFantyPNG from './../../assets/bg/bg-image-mobile.jpg';
-import bgFantyPNG from './../../assets/bg/bg-image.jpg';
+import bgMobileFantyPNG from './../../assets/bg/muzyka.png';
 
 const StylBoxPagePlayer = styled.section`
   min-height: 100vh;
@@ -15,10 +14,6 @@ const StylBoxPagePlayer = styled.section`
   background-attachment: fixed;
   background-size: cover;
   background-image: url(${bgMobileFantyPNG});
-
-  @media (min-width: 1024px) {
-    background-image: url(${bgFantyPNG});
-  }
 `;
 
 const StylBoxCenterPlayer = styled.div`

@@ -57,63 +57,63 @@ const SettingGameComplexity = () => {
                     isRange1 === "4"
                         ? "20"
                         : isRange1 === "3"
-                        ? "16"
-                        : isRange1 === "2"
-                        ? "12"
-                        : "0",
+                            ? "16"
+                            : isRange1 === "2"
+                                ? "12"
+                                : "0",
                 is_yellow:
                     isRange2 === "4"
                         ? "20"
                         : isRange2 === "3"
-                        ? "16"
-                        : isRange2 === "2"
-                        ? "12"
-                        : "0",
+                            ? "16"
+                            : isRange2 === "2"
+                                ? "12"
+                                : "0",
                 is_red:
                     isRange3 === "4"
                         ? "20"
                         : isRange3 === "3"
-                        ? "16"
-                        : isRange3 === "2"
-                        ? "12"
-                        : "0",
+                            ? "16"
+                            : isRange3 === "2"
+                                ? "12"
+                                : "0",
             });
             settingsCountTask({
                 is_green:
                     isRange1 === "4"
                         ? "10"
                         : isRange1 === "3"
-                        ? "8"
-                        : isRange1 === "2"
-                        ? "6"
-                        : "0",
+                            ? "8"
+                            : isRange1 === "2"
+                                ? "6"
+                                : "0",
                 is_yellow:
                     isRange2 === "4"
                         ? "10"
                         : isRange2 === "3"
-                        ? "8"
-                        : isRange2 === "2"
-                        ? "6"
-                        : "0",
+                            ? "8"
+                            : isRange2 === "2"
+                                ? "6"
+                                : "0",
                 is_red:
                     isRange3 === "4"
                         ? "10"
                         : isRange3 === "3"
-                        ? "8"
-                        : isRange3 === "2"
-                        ? "6"
-                        : "0",
+                            ? "8"
+                            : isRange3 === "2"
+                                ? "6"
+                                : "0",
             });
 
             sendLevelFanty(
                 isRange1 === "1" && isRange2 === "1"
                     ? "red"
                     : isRange1 === "1"
-                    ? "yellow"
-                    : "green"
+                        ? "yellow"
+                        : "green"
             );
 
-            navigate("/taskGame/task");
+            navigate("/seks-fanty");
         }
     };
 

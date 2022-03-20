@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import bgMobileFantyPNG from "./../../assets/bg/bg-image-mobile.jpg";
-import bgFantyPNG from "./../../assets/bg/bg-image.jpg";
+import bgMobileFantyPNG from "./../../assets/bg/fanty.png";
 
 const SectionArticle = styled.section`
     display: flex;
@@ -16,9 +15,6 @@ const SectionArticle = styled.section`
     min-height: 100vh;
     padding: 20px 20px;
 
-    @media (min-width: 1024px) {
-        background-image: url(${bgFantyPNG});
-    }
 `;
 
 const BoxArticle = styled.div`
