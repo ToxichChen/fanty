@@ -10,6 +10,8 @@ import {
     StylBoxWrapper,
 } from "./Blogs.styled";
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
 import Categories from "./Categories/Categories";
 import Post from "./BlogsPosts/Post";
@@ -76,7 +78,12 @@ const Blogs = () => {
     return (
         <>
             <StylBoxBlogs>
-                <HeaderMenuPageHome />
+                <StylBoxContainerMaxWidth>
+                    <StylBoxFlexColumnFlexStart>
+                        <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                        <HeaderMenuPageHome />
+                    </StylBoxFlexColumnFlexStart>
+                </StylBoxContainerMaxWidth>
                 <StylBoxWrapper>
                     <StylBoxCenter>
                         <PaginatedItems itemsPerPage={3} />

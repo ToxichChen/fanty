@@ -8,8 +8,8 @@ const BoxAddMenu = styled.ul`
     z-index: ${(props) => (props.isShow ? "1" : "-1")};
     visibility: ${(props) => (props.isShow ? "visible" : "hidden")};
     display: flex;
-    top: 30px;
-    left: 10px;
+    top: 20px;
+    left: -50px;
     min-width: 150px;
     flex-direction: column;
     justify-content: flex-start;
@@ -18,6 +18,10 @@ const BoxAddMenu = styled.ul`
     border-radius: 8px;
     list-style: none;
     transition: all 0.5s ease;
+
+    @media(min-width: 768px){
+        left: 10px;
+    }
 
     @keyframes slideIn {
         0% {
@@ -41,12 +45,12 @@ const BoxAddMenu = styled.ul`
         props.typeMenu
             ? css`
                   background-color: ${(props) =>
-                      props.theme.palette.backgroundColor.dark};
+                    props.theme.palette.backgroundColor.dark};
               `
             : css`
                   background-image: linear-gradient(
                       ${(props) =>
-                          props.theme.palette.backgroundGradien.primary}
+                    props.theme.palette.backgroundGradien.primary}
                   );
               `}
 `;

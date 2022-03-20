@@ -116,6 +116,8 @@ const StylBoxMainMenuPageHome = styled.ul`
 const StylItemMainNav = styled.li`
     width: 100%;
     display: flex;
+    justify-content: center;
+    align-items: center;
 
     @media (min-width: 1024px) {
         width: auto;
@@ -150,15 +152,20 @@ const StylLinkMainNav = styled.div`
     text-align: left;
     text-transform: capitalize;
     width: 100%;
-    padding: 10px 15px;
     transition: all 0.2s ease;
+    padding: ${props => props.isAddMenu && '10px 15px'};
 
     & > a {
         text-decoration: none;
         white-space: nowrap;
         transition: all 0.2s ease;
+        padding: 10px 15px;
         width: 100%;
         color: ${(props) => props.theme.palette.text.light};
+    }
+
+    & > ul {
+        padding: 10px 15px;
     }
 
     &:visited {
@@ -211,7 +218,7 @@ const StylLinkMainNav = styled.div`
                 &:hover {
                     &:after {
                         border-color: ${(props) =>
-                            props.theme.palette.border.main};
+                props.theme.palette.border.main};
                     }
                 }
 

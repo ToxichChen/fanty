@@ -9,14 +9,22 @@ import {
     BoxPolitics,
 } from "./Politics.styled";
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
 import FooterPageHome from "./../PageHome/FooterPageHome/FooterPageHome";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
+
 
 const Politics = () => {
     return (
         <>
             <SectionPolitics>
                 <CenterPolitics>
-                    <HeaderMenuPageHome />
+                    <StylBoxContainerMaxWidth>
+                        <StylBoxFlexColumnFlexStart>
+                            <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                            <HeaderMenuPageHome />
+                        </StylBoxFlexColumnFlexStart>
+                    </StylBoxContainerMaxWidth>
                     <BoxPolitics>
                         <ShortText>
                             Настоящий документ «Политика конфиденциальности»

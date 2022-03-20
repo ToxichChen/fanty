@@ -6,12 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link
-        rel="stylesheet"
-        href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
-        crossorigin="anonymous"
-    />
+    
     <title>Tasksman</title>
     <!-- Styles -->
 {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
@@ -21,5 +16,6 @@
 <div id="root"></div>
 
 <script src="{{ asset('js/appBootstrap.js') }}"></script>
+<script src="https://kit.fontawesome.com/436a1ecd96.js" crossorigin="anonymous"></script>
 </body>
 </html>

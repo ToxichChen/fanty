@@ -12,7 +12,9 @@ import {
 } from "./Support.styled";
 
 import { Formik } from "formik";
+import { StylBoxFlexColumnFlexStart } from "./../common/BasicBoxes/BasicBoxes.styled";
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
 import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
 import { StylImgDoubleArrow } from "../common/ImgLogo/ImgLogo.styled";
 import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
@@ -24,7 +26,10 @@ const Support = () => {
     return (
         <>
             <SectionSupport>
-                <HeaderMenuPageHome />
+                <StylBoxFlexColumnFlexStart>
+                    <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                    <HeaderMenuPageHome />
+                </StylBoxFlexColumnFlexStart>
                 <CenterSupport>
                     <Formik
                         validateOnChange={false}
@@ -75,7 +80,7 @@ const Support = () => {
                     <BoxContent>
                         <TitleContent>Приветствуем Вас.</TitleContent>
                         <TextContent>
-                        Это Администрация сайта dip.baby. Если у Вас возники вопросы или трудности с игрой, и/или появились идеи и предложения, просим Вас воспользоваться формой обратной связи. До встречи в игре.
+                            Это Администрация сайта dip.baby. Если у Вас возники вопросы или трудности с игрой, и/или появились идеи и предложения, просим Вас воспользоваться формой обратной связи. До встречи в игре.
                         </TextContent>
                         <IconSupport><i className="fa fa-envelope"></i>dip.baby.game@gmail.com</IconSupport>
                     </BoxContent>

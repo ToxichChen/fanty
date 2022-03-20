@@ -22,6 +22,9 @@ import {
 } from "./MusicPlayer.styled";
 
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
+
 import { music_list } from "../../constants";
 
 const MusicPlayer = () => {
@@ -163,7 +166,12 @@ const MusicPlayer = () => {
     return (
         <>
             <StylBoxPagePlayer>
-                <HeaderMenuPageHome />
+                <StylBoxContainerMaxWidth>
+                    <StylBoxFlexColumnFlexStart>
+                        <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                        <HeaderMenuPageHome />
+                    </StylBoxFlexColumnFlexStart>
+                </StylBoxContainerMaxWidth>
                 <StylWrapperPlayer data-aos="fade-right">
                     <StylBoxCenterPlayer>
                         <StylBoxFuncPlayer>

@@ -57,7 +57,6 @@ const StylTaskInfoDescription = styled.p`
     text-align: center;
     line-height: 1.5;
     white-space: normal;
-    word-break: break-all;
     max-width: 800px;
     margin-bottom: 30px;
 

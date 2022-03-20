@@ -17,7 +17,9 @@ import {
 import Categories from "../Blogs/Categories/Categories";
 import Trend from "../Blogs/BlogsTrends/Trend";
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
 import FooterPageHome from "./../PageHome/FooterPageHome/FooterPageHome";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 
 import { article, blogTrendsArr } from "../../constants";
 
@@ -25,7 +27,12 @@ const Article = () => {
     return (
         <>
             <SectionArticle>
-                <HeaderMenuPageHome />
+                <StylBoxContainerMaxWidth>
+                    <StylBoxFlexColumnFlexStart>
+                        <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                        <HeaderMenuPageHome />
+                    </StylBoxFlexColumnFlexStart>
+                </StylBoxContainerMaxWidth>
                 <BoxArticle>
                     <StylBoxCenter>
                         <WrapperArticle>

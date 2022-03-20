@@ -1,4 +1,6 @@
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
+import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 
 import { StylImgDoubleArrow } from "./../common/ImgLogo/ImgLogo.styled";
 import { StylBtnReadMore } from "./../PageHome/HeaderPageHome/SliderCard/SliderCard.styled";
@@ -17,12 +19,17 @@ const TaskInfoSlider = ({
 }) => {
     return (
         <StylTaskInfoSlider>
-            <HeaderMenuPageHome />
+            <StylBoxContainerMaxWidth>
+                <StylBoxFlexColumnFlexStart>
+                    <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                    <HeaderMenuPageHome />
+                </StylBoxFlexColumnFlexStart>
+            </StylBoxContainerMaxWidth>
             <StylTaskInfoBoxCenter>
                 <StylTaskInfoTitle>{title}</StylTaskInfoTitle>
                 <StylTaskInfoDescription>{description}</StylTaskInfoDescription>
                 <StylBtnReadMore to={taskUrl}>
-                    Начать игру
+                    Играть 18+
                     <StylImgDoubleArrow src={doubleArrow} alt="double arrow" />
                 </StylBtnReadMore>
             </StylTaskInfoBoxCenter>
