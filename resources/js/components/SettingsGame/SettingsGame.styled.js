@@ -494,7 +494,7 @@ const StylOptionsAddedWrapper = styled.div`
 
     @media (min-width: 768px) {
         padding: ${(props) =>
-            props.isPadding ? "65px 55px 50px 45px" : "15px"};
+        props.isPadding ? "65px 55px 50px 45px" : "15px"};
     }
 `;
 

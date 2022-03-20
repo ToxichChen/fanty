@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import imageMobileBGJPG from "./../../assets/bg/fanty.png";
+import imageBGJPG from "./../../assets/bg/fanty-pk.png";
 
 const StylTaskInfoSlider = styled.div`
     display: flex;
@@ -15,6 +16,7 @@ const StylTaskInfoSlider = styled.div`
     min-height: 100vh;
 
     @media (min-width: 1024px) {
+        background-image: url(${imageBGJPG});
         padding: 20px 20px 115px 20px;
     }
 `;

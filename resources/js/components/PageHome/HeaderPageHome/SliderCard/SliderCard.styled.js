@@ -32,7 +32,7 @@ const StylBtnReadMore = styled(NavLink)`
         top: 0;
         left: 0;
         background-color: ${(props) =>
-            props.theme.palette.backgroundColor.light};
+        props.theme.palette.backgroundColor.light};
         border-radius: 8px;
         z-index: -1;
     }
@@ -82,10 +82,10 @@ const StylHeaderTitlePageHome = styled.h1`
 
 const StylHeaderTextPageHome = styled.p`
     position: relative;
-    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-size: ${(props) => props.theme.typography.textMedium.small};
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-family: ${(props) => props.theme.typography.textFamily.main};
-    color: ${(props) => props.theme.palette.text.main};
+    color: ${(props) => props.theme.palette.text.light};
     line-height: 1.6;
     text-align: center;
     transition: all 0.2s ease;
@@ -121,9 +121,14 @@ const StylBoxContentHeaderPageHome = styled(StylBoxFlexColumnSpaceBetween)`
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top center;
-    background-image: url(${(props) => props.imgUrl});
+    background-image: url(${(props) => props.imgUrl2});
     transition: all 0.2s ease;
     border-bottom: 2px solid ${(props) => props.theme.palette.border.main};
+
+    @media(min-width: 768px){
+        background-image: url(${(props) => props.imgUrl});
+        
+    }
 
     ${(props) =>
         props.isSelect &&

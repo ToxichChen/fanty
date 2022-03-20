@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import imageMobileBGJPG from "./../../assets/bg/fanty.png";
+import imageBGJPG from "./../../assets/bg/fanty-pk.png";
 
 const SectionPay = styled.section`
     display: flex;
@@ -14,6 +15,11 @@ const SectionPay = styled.section`
     background-size: cover;
     padding: 20px 20px;
     min-height: 100vh;
+
+    @media(min-width: 1024px){
+        background-image: url(${imageBGJPG});
+
+    }
 `;
 
 const CenterPay = styled.div`

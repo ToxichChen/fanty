@@ -1,15 +1,20 @@
 import styled, { css } from "styled-components";
 import { StylBoxFlexColumnFlexStart } from "./../../common/BasicBoxes/BasicBoxes.styled";
 import imageMobileBGJPG from "./../../../assets/bg/fanty.png";
+import imageJPG from "./../../../assets/bg/fanty-pk.png";
 
 const StylBoxIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
-    background-blend-mode: multiply;
+background-blend-mode: multiply;
+background-color: rgba(111, 43, 149, 0.8);
     background-image: url(${imageMobileBGJPG});
-    background-color: rgba(111, 43, 149, 0.8);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     padding: 0 20px 50px 20px;
+
+    @media(min-width: 768px){
+        background-image: url(${imageJPG});
+    }
 
     ${(props) =>
         props.top &&

@@ -9,7 +9,7 @@ const BoxAddMenu = styled.ul`
     visibility: ${(props) => (props.isShow ? "visible" : "hidden")};
     display: flex;
     top: 20px;
-    left: -50px;
+    left: ${props => props.typeMenu ? '10px' : '-50px'};
     min-width: 150px;
     flex-direction: column;
     justify-content: flex-start;

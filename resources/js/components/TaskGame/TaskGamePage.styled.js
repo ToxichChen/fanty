@@ -1,20 +1,23 @@
 import styled, { css } from "styled-components";
-import imgBGMobileFromGameJPG from "./../../assets/bg/fanty.png";
 import { NavLink } from "react-router-dom";
+import imgBGMobileFromGameJPG from "./../../assets/bg/fanty.png";
+import imgJPG from "./../../assets/bg/fanty-pk.png";
 
 const SectionTaskGame = styled.section`
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-blend-mode: multiply;
     background-image: url(${imgBGMobileFromGameJPG});
+    background-color: rgba(111, 43, 149, 0.8);
     padding: 130px 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
     min-height: 100vh;
-    box-shadow: 0 0 0 1000px inset rgba(0, 0, 0, 0.5);
 
     @media (min-width: 1024px) {
+        background-image: url(${imgJPG});
         padding: 50px 20px;
         background-size: cover;
     }

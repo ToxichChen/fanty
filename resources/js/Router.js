@@ -22,7 +22,7 @@ const routes = {
         duration: "/seks-fanty/duration",
     },
     blackAndWhite: "/chernoe-i-beloe",
-    rolePlaying: "/role-playing",
+    rolePlaying: "/rolevye-igru",
     support: "/support",
     offer: "/offer",
     notFound: "*",

@@ -1,5 +1,4 @@
 import React from "react";
-import { routes } from "../../../../Router";
 import { StylImgDoubleArrow } from "./../../../common/ImgLogo/ImgLogo.styled";
 import { StylBoxFlexColumnFlexStart } from "./../../../common/BasicBoxes/BasicBoxes.styled";
 
@@ -12,10 +11,11 @@ import {
 
 import doubleArrow from "./../../../../assets/icons/icon-double-arrow.png";
 
-const SliderCard = ({ id, title, text, isSelect, index, imgUrl }) => {
+const SliderCard = ({ id, title, text, isSelect, index, imgUrl, imgUrl2, pageUrl }) => {
     return (
         <StylBoxContentHeaderPageHome
             imgUrl={imgUrl}
+            imgUrl2={imgUrl2}
             isSelect={isSelect}
             key={index}
             id={id}
@@ -24,7 +24,7 @@ const SliderCard = ({ id, title, text, isSelect, index, imgUrl }) => {
                 <StylHeaderTitlePageHome>{title}</StylHeaderTitlePageHome>
                 <StylHeaderTextPageHome>{text}</StylHeaderTextPageHome>
             </StylBoxFlexColumnFlexStart>
-            <StylBtnReadMore to={routes.seksFanty.info}>
+            <StylBtnReadMore to={pageUrl}>
                 Играть 18+
                 <StylImgDoubleArrow src={doubleArrow} alt="double arrow" />
             </StylBtnReadMore>

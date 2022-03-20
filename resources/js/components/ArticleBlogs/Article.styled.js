@@ -1,11 +1,14 @@
 import styled from "styled-components";
 import bgMobileFantyPNG from "./../../assets/bg/fanty.png";
+import bgFantyPNG from "./../../assets/bg/fanty-pk.png";
 
 const SectionArticle = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
+    background-color: rgba(111, 43, 149, 0.8);
+    background-blend-mode: multiply;
     background-color: ${(props) => props.theme.palette.backgroundColor.second};
     background-position: center center;
     background-repeat: no-repeat;
@@ -14,6 +17,10 @@ const SectionArticle = styled.section`
     background-image: url(${bgMobileFantyPNG});
     min-height: 100vh;
     padding: 20px 20px;
+    
+    @media(min-width: 1024px){
+        background-image: url(${bgFantyPNG});
+    }
 
 `;
 

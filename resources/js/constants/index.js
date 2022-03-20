@@ -1,6 +1,9 @@
 import seksFantyJPG from "./../assets/bg/sex-fanty.png";
 import chernoeIBeloeJPG from "./../assets/bg/chernoe-i-beloe.png";
 import rolevyeJPG from "./../assets/bg/rolevye-igry.png";
+import seksFantyMOBJPG from "./../assets/bg/sex-mob.png";
+import chernoeIBeloeMOBJPG from "./../assets/bg/chernoe-i-beloe-mob.png";
+import rolevyeMOBJPG from "./../assets/bg/rolevue-mob.png";
 import musicImgStay from "./../assets/images/stay.png";
 import musicImgFaling from "./../assets/images/fallingdown.jpg";
 import musicImgFaded from "./../assets/images/faded.png";
@@ -17,6 +20,7 @@ const sliderDataArr = [
         title: "Секс фанты!",
         text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
         img: seksFantyJPG,
+        img2: seksFantyMOBJPG,
         counter: "01.",
         pageUrl: "/seks-fanty/info",
     },
@@ -25,6 +29,7 @@ const sliderDataArr = [
         title: "Черное и белое!",
         text: "Игра, в которой Вы не увидите прелюдию, игра, в которой наслаждение переплетается с сладкой болью, здесь нет классики, здесь страсть, безумие, и вожделение. Предрассудки отсувствуют, мир похоти и разврата поглотит Вас.",
         img: chernoeIBeloeJPG,
+        img2: chernoeIBeloeMOBJPG,
         counter: "02.",
         pageUrl: "/chernoe-i-beloe",
     },
@@ -33,6 +38,7 @@ const sliderDataArr = [
         title: "Ролевые игры!",
         text: "Игра, которая заставит дрожать тело от скрытых желаний - здесь отсутствует слово СТОП! Грань между моралью и вседозволенностью  размыта, экспериментируй, выбирай, чувствуй, ведь роль в этой жизни у каждого своя. А какая подходит тебе?! Добро пожаловать в мир секса без предрассудков!",
         img: rolevyeJPG,
+        img2: rolevyeMOBJPG,
         counter: "03.",
         pageUrl: "/rolevye-igru",
     },
@@ -72,7 +78,7 @@ const dataPostArr = [
     },
     {
         id: 3,
-        svg: "fa fa-bars-sort",
+        svg: "fa-solid fa-chart-simple",
         title: "Наростяющая страсть",
         text: "Игра поделена на 3 уровня: зеленый, оранжевый и красный. С каждым уровнем, шаг за шагом, Вы будете погружаться в мир удовольствий и наслаждаться друг другом.",
     },

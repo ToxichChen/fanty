@@ -15,8 +15,8 @@ import { sliderDataArr } from "../../../constants";
 
 const HeaderPageHome = () => {
     const [isSelectedSlide, setSelectedSlide] = useState(
-            sliderDataArr[0].counter
-        ),
+        sliderDataArr[0].counter
+    ),
         [isSelectedSlideImg, setSelectedSlideImg] = useState(
             sliderDataArr[0].img
         );
@@ -31,14 +31,14 @@ const HeaderPageHome = () => {
     const handleNextSlide = () => {
         sliderDataArr[isSelectedSlide.slice(1, 2)]
             ? setSelectedSlide(
-                  sliderDataArr[isSelectedSlide.slice(1, 2)].counter
-              )
+                sliderDataArr[isSelectedSlide.slice(1, 2)].counter
+            )
             : setSelectedSlide(sliderDataArr[0].counter);
 
         sliderDataArr[isSelectedSlide.slice(1, 2)]
             ? setSelectedSlideImg(
-                  sliderDataArr[isSelectedSlide.slice(1, 2)].img
-              )
+                sliderDataArr[isSelectedSlide.slice(1, 2)].img
+            )
             : setSelectedSlideImg(sliderDataArr[0].img);
     };
 
@@ -52,10 +52,12 @@ const HeaderPageHome = () => {
             {sliderDataArr.map((item, index) => (
                 <SliderCard
                     imgUrl={isSelectedSlideImg}
+                    imgUrl2={item.img2}
                     text={item.text}
                     title={item.title}
                     id={item.counter}
                     isSelect={item.counter === isSelectedSlide}
+                    pageUrl={item.pageUrl}
                     key={index}
                 />
             ))}
