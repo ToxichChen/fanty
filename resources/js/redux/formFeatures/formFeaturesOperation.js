@@ -24,7 +24,7 @@ import {
     durationGameData,
 } from "../../redux/settingsFeatures/SettingsAction";
 
-axios.defaults.baseURL = `http://${document.location.host}/api`;
+axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
 const token = {
     set(tok) {
@@ -55,6 +55,13 @@ const loginForm = (credentials) => async (dispatch) => {
         );
     } catch (error) {
         dispatch(loginError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -76,7 +83,13 @@ const registerForm = (credentials) => async (dispatch) => {
             })
         );
     } catch (error) {
-        dispatch(registerError(error.message));
+        dispatch(registerError(error.message));dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -96,7 +109,13 @@ const logoutUser = () => async (dispatch) => {
             })
         );
     } catch (error) {
-        dispatch(registerError(error.message));
+        dispatch(registerError(error.message));dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -118,13 +137,20 @@ const checkUser = () => async (dispatch) => {
             dispatch(fantyLevel(""));
             dispatch(fantyCounterCanceledTask(0));
             dispatch(
-                durationGameData({ is_green: "", is_yellow: "", is_red: "" })
+                durationGameData({ is_green: "0", is_yellow: "0", is_red: "0" })
             );
             dispatch(fantySuccess({ media: "" }));
             dispatch(usersSetting({ is_man: "", is_female: "" }));
         }
     } catch (error) {
         dispatch(registerError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 

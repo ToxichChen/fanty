@@ -1,5 +1,6 @@
-import bgImage1 from "./../assets/bg/bg-image-1.jpg";
-import bgImage2 from "./../assets/bg/bg-image-2.jpg";
+import seksFantyJPG from "./../assets/bg/seks-fanty.jpg";
+import chernoeIBeloeJPG from "./../assets/bg/chernoe-i-beloe.jpg";
+import rolevyeJPG from "./../assets/bg/rolevye.jpg";
 import musicImgStay from "./../assets/images/stay.png";
 import musicImgFaling from "./../assets/images/fallingdown.jpg";
 import musicImgFaded from "./../assets/images/faded.png";
@@ -15,25 +16,25 @@ const sliderDataArr = [
         id: 1,
         title: "Секс фанты!",
         text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
-        img: bgImage1,
+        img: seksFantyJPG,
         counter: "01.",
         pageUrl: "/seks-fanty/info",
     },
     {
         id: 2,
         title: "Черное и белое!",
-        text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
+        text: "Игра, в которой Вы не увидите прелюдию, игра, в которой наслаждение переплетается с сладкой болью, здесь нет классики, здесь страсть, безумие, и вожделение. Предрассудки отсувствуют, мир похоти и разврата поглотит Вас.",
 
-        img: bgImage2,
+        img: chernoeIBeloeJPG,
         counter: "02.",
         pageUrl: "/chernoe-i-beloe",
     },
     {
         id: 3,
         title: "Ролевые игры!",
-        text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
+        text: "Игра, которая заставит дрожать тело от скрытых желаний - здесь отсутствует слово СТОП! Грань между моралью и вседозволенностью  размыта, экспериментируй, выбирай, чувствуй, ведь роль в этой жизни у каждого своя. А какая подходит тебе?! Добро пожаловать в мир секса без предрассудков!",
 
-        img: bgImage2,
+        img: rolevyeJPG,
         counter: "03.",
         pageUrl: "/rolevye-igru",
     },
@@ -151,7 +152,7 @@ const dataCardGameArr = [
         data: "11.11.18 / в",
         link: "Игра в стадии разработки",
         title: "Черное и белое",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
+        text: "Наслаждение и  сладкая боль, непредсказуемость и неопределённость помогут взгялнуть на мир секса с другой стороны.",
         btnText: "Играть 18+",
         url: "/chernoe-i-beloe",
     },
@@ -161,7 +162,7 @@ const dataCardGameArr = [
         data: "11.11.18 / в",
         link: "Игра в стадии разработки",
         title: "Ролевые игры",
-        text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida....",
+        text: "Твоя роль в этой игре предопределена, не бойся опуститься на колени и окунуться в мир подчинения и доминирования.",
         btnText: "Играть 18+",
         url: "/role-playing",
     },

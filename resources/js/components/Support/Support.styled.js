@@ -65,7 +65,7 @@ const TextContent = styled.p`
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.text.light};
-    margin-bottom: 50px;
+    margin-bottom: 30px;
 `;
 
 const FormSupport = styled.form`
@@ -184,7 +184,20 @@ const BtnSendForm = styled.button`
     }
 `;
 
+const IconSupport = styled.p`
+font-size: ${(props) => props.theme.typography.textSmall.small};
+font-weight: ${(props) => props.theme.typography.textWeigth.second};
+font-family: ${(props) => props.theme.typography.textFamily.main};
+color: ${(props) => props.theme.palette.text.light};
+
+&>i{
+    margin-right: 20px;
+    color: ${(props) => props.theme.palette.icon.main};
+}
+`;
+
 export {
+    IconSupport,
     SectionSupport,
     CenterSupport,
     BoxContent,

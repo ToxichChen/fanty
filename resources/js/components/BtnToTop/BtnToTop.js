@@ -15,7 +15,7 @@ const BtnToTop = () => {
     };
 
     const handleScroll = () => {
-        const screenHeight = window.screen.height;
+        const screenHeight = window.screen.height - 300;
 
         screenHeight < window.scrollY ? setShowBtn(true) : setShowBtn(false);
     };

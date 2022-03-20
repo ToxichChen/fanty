@@ -1,11 +1,12 @@
 import axios from "axios";
+import {alert} from './../alertFeatures/AlertActions'
 import {
     settingsRequest,
     settingsSuccess,
     settingsError,
 } from "./SettingsAction";
 
-axios.defaults.baseURL = `http://${document.location.host}/api`;
+axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
 const token = {
     set(tok) {
@@ -26,6 +27,13 @@ const getSettings = () => async (dispatch) => {
         dispatch(settingsSuccess(data));
     } catch (error) {
         dispatch(settingsError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -34,6 +42,13 @@ const postSettingsCountTask = (credentials) => async (dispatch) => {
         await axios.post("/settings/gameDuration/send", credentials);
     } catch (error) {
         dispatch(settingsError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -45,6 +60,13 @@ const postSettingsGame = (settingsGame, man, female) => async (dispatch) => {
         ]);
     } catch (error) {
         dispatch(settingsError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -53,6 +75,13 @@ const postPlayersGame = (credentials) => async (dispatch) => {
         await axios.get("/settings/get", credentials);
     } catch (error) {
         dispatch(settingsError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 

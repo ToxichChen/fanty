@@ -1,7 +1,8 @@
 import axios from "axios";
+import {alert} from './../alertFeatures/AlertActions'
 import { musicRequest, musicSuccess, musicError } from "./musicAction";
 
-axios.defaults.baseURL = `http://${document.location.host}/api`;
+axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
 const token = {
     set(tok) {
@@ -22,6 +23,13 @@ const getMusic = (credentials) => async (dispatch) => {
         dispatch(musicSuccess(data));
     } catch (error) {
         dispatch(musicError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 

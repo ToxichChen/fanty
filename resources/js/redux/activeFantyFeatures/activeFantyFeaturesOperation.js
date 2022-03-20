@@ -9,7 +9,7 @@ import {
 } from "./activeFantyFeaturesActions";
 import { alert } from "./../alertFeatures/AlertActions";
 
-axios.defaults.baseURL = `http://${document.location.host}/api`;
+axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
 const getActiveFanty = (obj) => async (dispatch) => {
     dispatch(fantyRequest());

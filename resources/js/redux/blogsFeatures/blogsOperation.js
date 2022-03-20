@@ -13,8 +13,9 @@ import {
     blogsCurrentBlogSuccess,
     blogsCurrentBlogError,
 } from "./blogsAction";
+import {alert} from './../alertFeatures/AlertActions'
 
-axios.defaults.baseURL = `http://${document.location.host}/api`;
+axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
 const token = {
     set(tok) {
@@ -35,6 +36,13 @@ const getAllBlogs = (credentials) => async (dispatch) => {
         dispatch(blogsSuccess(data));
     } catch (error) {
         dispatch(blogsError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -48,6 +56,13 @@ const getTrendsBlogs = (credentials) => async (dispatch) => {
         dispatch(blogsTrendSuccess(data));
     } catch (error) {
         dispatch(blogsTrendError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -61,6 +76,13 @@ const getCategoriesBlogs = (credentials) => async (dispatch) => {
         dispatch(blogsCategoriesSuccess(data));
     } catch (error) {
         dispatch(blogsCategoriesError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
@@ -74,6 +96,13 @@ const getCurrentBlog = (credentials) => async (dispatch) => {
         dispatch(blogsCurrentBlogSuccess(data));
     } catch (error) {
         dispatch(blogsCurrentBlogError(error.message));
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
     }
 };
 
