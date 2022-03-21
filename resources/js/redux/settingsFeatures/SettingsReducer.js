@@ -37,7 +37,7 @@ const users = createReducer(
 );
 
 const durationGame = createReducer(
-    { is_green: "", is_yellow: "", is_red: "" },
+    { is_green: "0", is_yellow: "0", is_red: "0" },
     {
         [durationGameData.type]: (_, { payload }) => ({ ...payload }),
     }
