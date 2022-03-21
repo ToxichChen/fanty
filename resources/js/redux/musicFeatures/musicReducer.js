@@ -9,7 +9,7 @@ const musicList = createReducer(null, {
 });
 
 const miniPlayer = createReducer(
-    { showPlayer: false, track_index: 0, play: false },
+    { showPlayer: true, track_index: 0, play: false },
     {
         [musicMiniPlayer]: (_, { payload }) => payload.access_token,
     }
