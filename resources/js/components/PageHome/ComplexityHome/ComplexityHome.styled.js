@@ -20,16 +20,17 @@ const StylComplexityItem = styled.li`
   cursor: pointer;
   position: relative;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
   box-shadow: 0 0 5px rgb(0 0 0 / 50%);
   transition: all 0.2s ease;
 
   margin-bottom: 20px;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraMiddle};
+
     & > h2 {
-      background-color: rgba(0, 0, 0, 0.6);
+      background-color: ${props => props.theme.palette.backgroundRGB.ultraDark};
     }
   }
 
@@ -61,10 +62,10 @@ const StylTitleComplexity = styled.h2`
   font-family: ${(props) => props.theme.typography.textFamily.main};
   color: ${(props) =>
     props.isComplexity === 'green'
-      ? '#449D44'
+      ? props.theme.palette.durationGame.main
       : props.isComplexity === 'red'
-      ? props.theme.palette.error.text
-      : '#ffb732'};
+        ? props.theme.palette.durationGame.second
+        : props.theme.palette.durationGame.primary};
   text-align: center;
   text-transform: uppercase;
   transition: all 0.2s ease;

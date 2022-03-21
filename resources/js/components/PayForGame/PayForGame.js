@@ -8,7 +8,7 @@ import {
     BoxBonus,
 } from "./PayForGame.styled";
 
-import { StylBoxFlexColumnFlexStart } from "./../common/BasicBoxes/BasicBoxes.styled";
+import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 import { StylBtnReadMore } from "./../PageHome/HeaderPageHome/SliderCard/SliderCard.styled";
 
 import { StylImgDoubleArrow } from "./../common/ImgLogo/ImgLogo.styled";
@@ -24,10 +24,12 @@ const PayForGame = () => {
     return (
         <>
             <SectionPay>
-                <StylBoxFlexColumnFlexStart>
-                    <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
-                    <HeaderMenuPageHome />
-                </StylBoxFlexColumnFlexStart>
+                <StylBoxContainerMaxWidth>
+                    <StylBoxFlexColumnFlexStart>
+                        <HeaderFollowUs isFollow={true} isOnlyNetworks={true} />
+                        <HeaderMenuPageHome />
+                    </StylBoxFlexColumnFlexStart>
+                </StylBoxContainerMaxWidth>
                 <CenterPay>
                     <TitlePay>
                         <i className="fas fa-gem" />

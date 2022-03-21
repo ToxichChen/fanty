@@ -32,9 +32,9 @@ const StyledCheckbox = styled.div`
     height: 16px;
     background: url(${(props) => props.checked === "a" && iconCloseSVG}),
         ${(props) =>
-            props.checked === true
-                ? "linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%)"
-                : props.checked === "a"
+        props.checked === true
+            ? props.theme.palette.backgroundGradienRange.main
+            : props.checked === "a"
                 ? "red"
                 : "transparent"};
     background-repeat: no-repeat;
@@ -50,7 +50,7 @@ const StyledCheckbox = styled.div`
 
     ${Icon} {
         visibility: ${(props) =>
-            props.checked === true ? "visible" : "hidden"};
+        props.checked === true ? "visible" : "hidden"};
     }
 `;
 
@@ -84,7 +84,7 @@ const StylBoxInfo = styled.p`
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.main};
-    background-color: rgba(58, 58, 58, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.middle}
     text-align: center;
     border-radius: 8px;
     padding: 10px;

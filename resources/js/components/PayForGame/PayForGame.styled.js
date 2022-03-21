@@ -9,7 +9,7 @@ const SectionPay = styled.section`
     align-items: center;
     background-blend-mode: multiply;
     background-image: url(${imageMobileBGJPG});
-    background-color: rgba(111, 43, 149, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.main};
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -35,7 +35,7 @@ const CenterPay = styled.div`
     box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     border-radius: 8px;
     margin: 30px 0 10px;
-    background-color: rgba(52, 22, 75, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.primary};
 `;
 
 const TitlePay = styled.h2`
@@ -58,7 +58,7 @@ const BoxSelectPay = styled.div`
     flex-direction: column;
     align-items: center;
     width: 100%;
-    background-color: rgba(12, 6, 46, 0.5);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraPrimary};
     padding: 20px;
     margin-bottom: 50px;
     border-radius: 8px;

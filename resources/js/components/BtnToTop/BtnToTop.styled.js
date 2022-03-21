@@ -14,7 +14,7 @@ const BtnTop = styled.button`
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(to right, #3e0f3d 0%, #1c0f3b 100%);
+    background: linear-gradient(${props => props.theme.palette.backgroundGradien.primary});
     box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     transition: all 0.2s ease;
     animation: ${(props) =>
@@ -27,7 +27,7 @@ const BtnTop = styled.button`
     }
 
     & > i {
-        color: #fff;
+        color: ${props => props.theme.palette.icon.light};
     }
 
     @keyframes smoothSpawn {

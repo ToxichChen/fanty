@@ -27,7 +27,7 @@ const CenterSupport = styled.div`
     padding: 20px;
     box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     border-radius: 8px;
-    background-color: rgba(52, 22, 75, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.primary};
 
     @media (min-width: 1024px) {
         flex-direction: row;
@@ -136,7 +136,7 @@ const BtnSendForm = styled.button`
     text-align: center;
     align-self: center;
     margin-right: 12px;
-    box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
+    box-shadow: 0 0 9px 3px ${(props) => props.theme.palette.shadow.primary};
     border-radius: 8px;
     z-index: 2 !important;
 
@@ -162,7 +162,7 @@ const BtnSendForm = styled.button`
         top: 10px;
         background: ${(props) => props.theme.palette.border.main};
         z-index: -2;
-        box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
+        box-shadow: 0 0 9px 3px ${(props) => props.theme.palette.shadow.primary};
         border-radius: 8px;
     }
 

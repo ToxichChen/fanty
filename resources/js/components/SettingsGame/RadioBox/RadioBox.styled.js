@@ -90,7 +90,7 @@ const StylRadioSetting = styled.input`
             width: 20px;
             height: 20px;
             border-radius: 50%;
-            background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);
+            background: ${props => props.theme.palette.backgroundGradienRange.main};
         }
     }
 
@@ -99,7 +99,7 @@ const StylRadioSetting = styled.input`
         height: 20px;
         border: 4px solid #191c2b;
         border-radius: 50%;
-        background: linear-gradient(270deg, #09ffb1 0, #00a6cb 105.26%);
+        background: ${props => props.theme.palette.backgroundGradienRange.main};
     }
 `;
 

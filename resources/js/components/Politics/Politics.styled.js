@@ -81,7 +81,7 @@ const BoxPolitics = styled.div`
     box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
     border-radius: 8px;
     margin: 30px 0 10px;
-    background-color: rgba(52, 22, 75, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.primary};
 `;
 
 export {

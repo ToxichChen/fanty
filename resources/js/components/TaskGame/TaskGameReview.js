@@ -20,7 +20,7 @@ const TaskGameReview = ({ id }) => {
         disLikeFantNow,
     } = useActionFanty();
 
-    useEffect(() => getFantLike(), [id]);
+    useEffect(() => getFantLike(), [getFantLike]);
 
     const [isHiddenInfo, setHiddenInfo] = useState(false);
     const [isChooseUser, setChooseUser] = useState(

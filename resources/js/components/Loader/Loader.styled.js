@@ -7,7 +7,7 @@ const StylBoxCenterSpiner = styled.div`
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background: radial-gradient(circle, #240015 0%, #12000b 100%);
+    background: radial-gradient(${props => props.theme.palette.backgroundGradien.second});
     overflow: hidden;
     z-index: 1000;
 
@@ -32,7 +32,7 @@ const StylSpiner = styled.svg`
     & > path {
         animation: DrawLine 1.6s both infinite alternate linear;
         fill: none;
-        stroke: ${(props) => props.theme.palette.backgroundBtn.ligth};
+        stroke: ${(props) => props.theme.palette.backgroundBtn.light};
         stroke-width: 50;
     }
 
@@ -65,19 +65,6 @@ const StylBoxCenterSpinerMini = styled.div`
     background: transparent;
     overflow: hidden;
     z-index: 1000;
-
-    /*    animation: hueRotate 6s ease-in-out 3s infinite;
-    @keyframes hueRotate {
-        0% {
-            filter: hue-rotate(0deg);
-        }
-        50% {
-            filter: hue-rotate(-120deg);
-        }
-        100% {
-            filter: hue-rotate(0deg);
-        }
-    } */
 `;
 
 export { StylBoxCenterSpiner, StylSpiner, StylBoxCenterSpinerMini };

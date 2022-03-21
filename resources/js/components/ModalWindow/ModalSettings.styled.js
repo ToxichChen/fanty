@@ -13,9 +13,9 @@ const StylModalSettings = styled.div`
     justify-content: flex-start;
     max-width: 850px;
     width: 100%;
-    background: rgba(42, 46, 66, 0.97);
+    background: ${props => props.theme.palette.backgroundRGB.second};
     border-radius: 31px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid ${props => props.theme.palette.backgroundRGB.dark};
     padding: 25px;
     z-index: 100;
 `;
@@ -32,19 +32,12 @@ const StylBtnSaveAndClose = styled.button`
     display: block;
     padding: 5px 10px;
     align-self: flex-end;
-    border: 3px solid #555abf;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        from(#32325d),
-        color-stop(90.87%, #555abf)
-    );
-    background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);
-    box-shadow: 0 2px 10px #257cff;
+    border: 3px solid ${props => props.theme.palette.border.second};
+    background: linear-gradient(${props => props.theme.palette.backgroundGradien.light});
+    box-shadow: 0 2px 10px ${props => props.theme.palette.shadow.main};
     border-radius: 69px;
     height: 50px;
-    color: #fff;
+    color: ${props => props.theme.palette.text.light};
     text-decoration: none;
 `;
 

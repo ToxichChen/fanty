@@ -5,7 +5,7 @@ const StylCardFeatureBox = styled.article`
   border-radius: 5px;
   min-height: 350px;
   margin-bottom: 20px;
-  background-color: rgba(255, 255, 255, 0.07);
+  background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
   width: 100%;
   transition: all 0.5s ease-in-out;
 

@@ -10,7 +10,7 @@ const SectionTaskGame = styled.section`
     align-items: center;
     background-blend-mode: multiply;
     background-image: url(${imgBGMobileFromGameJPG});
-    background-color: rgba(111, 43, 149, 0.8);
+    background-color: ${(props) => props.theme.palette.backgroundRGB.main};
     padding: 130px 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -223,7 +223,7 @@ const StylBoxFeatures = styled.div`
     align-items: center;
     flex-wrap: wrap;
     width: 100%;
-    background-color: rgba(58, 58, 58, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.middle};
 
     @media (min-width: 500px) {
         flex-direction: row;

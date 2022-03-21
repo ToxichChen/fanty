@@ -24,7 +24,7 @@ const StylBoxCenterPlayer = styled.div`
   max-width: 800px;
   width: 100%;
   border-radius: 8px;
-  background-color: rgba(58, 58, 58, 0.8);
+  background-color: ${props => props.theme.palette.backgroundRGB.middle};
 `;
 
 const StylImgPlayer = styled.img`
@@ -207,7 +207,7 @@ const StylLinePlayerNow = styled.input`
     cursor: pointer;
     width: 100%;
     height: 5px;
-    background-color: rgba(176, 27, 165, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.light};
   }
 
   &[type='range']::before {
@@ -228,11 +228,11 @@ const StylLinePlayerNow = styled.input`
     visibility: hidden;
     -webkit-appearance: none;
     box-sizing: content-box;
-    border: 1px solid #007db5;
+    border: 1px solid ${props => props.theme.palette.border.middle};
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    background-color: #fff;
+    background-color: ${props => props.theme.palette.backgroundColor.light};
     cursor: pointer;
     margin: -7px 0 0 0;
   }
@@ -244,7 +244,7 @@ const StylLinePlayerNow = styled.input`
 `;
 
 const StylWrapperPlayer = styled.div`
-  background-color: rgba(52, 22, 75, 0.8);
+  background-color: ${props => props.theme.palette.backgroundRGB.primary};
   display: flex;
   align-items: center;
   justify-content: center;

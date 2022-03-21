@@ -20,7 +20,7 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
         const value = e.currentTarget.value;
         setSelect(value);
 
-        if (profile.is_premium && item.is_finish) {
+        if (profile.is_premium && item.is_radio) {
             settingsGameTask(elem, "radio", item.subsettings);
         }
     };
@@ -42,12 +42,12 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
                     subsettings
                         ? "red"
                         : item.is_premium === 1 && profile.is_premium === 0
-                        ? false
-                        : true
+                            ? false
+                            : true
                 }
             >
                 {optionsBasic.map((elem) =>
-                    item.is_finish && elem.title === "Включить всё" ? (
+                    item.is_radio && elem.title === "Включить всё" ? (
                         ""
                     ) : (
                         <StylWrapperRadioBtn key={elem.title}>

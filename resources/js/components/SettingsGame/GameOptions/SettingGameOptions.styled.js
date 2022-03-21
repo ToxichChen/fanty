@@ -22,7 +22,7 @@ const StylBtnOpenSetting = styled.div`
         border-radius: 50%;
         margin-left: 10px;
         font-size: 12px;
-        background: linear-gradient(180deg, #555abf 0, #32325d 90.87%);
+        background: linear-gradient(${props => props.theme.palette.backgroundGradien.middle});
         transition: all 0.2s ease;
         transform: rotate(${(props) => (props.isShow ? "90deg" : "0")});
     }

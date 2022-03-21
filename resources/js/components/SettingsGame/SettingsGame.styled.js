@@ -24,8 +24,8 @@ const StylBtnStartGame = styled(NavLink)`
     border-radius: 100px;
     align-self: center;
     margin-bottom: 30px;
-    border: 3px solid #982926;
-    background: linear-gradient(180deg, #bd2726 0, #982926 90.87%);
+    border: 3px solid ${props => props.theme.palette.error.border};
+    background: linear-gradient(${props => props.theme.palette.backgroundGradient.error});
     transition: all 0.2s ease;
 
     @media (min-width: 768px) {
@@ -34,7 +34,7 @@ const StylBtnStartGame = styled(NavLink)`
 
     @media (min-width: 1024px) {
         &:hover {
-            box-shadow: 0 0 10px 2px #982926;
+            box-shadow: 0 0 10px 2px ${props => props.theme.palette.error.shadow}
         }
 
         &:active {
@@ -46,7 +46,7 @@ const StylBtnStartGame = styled(NavLink)`
 const StylBoxSettingsGame = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
     border-radius: 20px;
     max-width: 100;
     width: 100%;
@@ -71,21 +71,11 @@ const BtnMoreSettings = styled.button`
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.text.light};
-    border: 3px solid #555abf;
-    background: -webkit-gradient(
-        linear,
-        left top,
-        left bottom,
-        from(#32325d),
-        color-stop(90.87%, #555abf)
-    );
-    background: -o-linear-gradient(top, #32325d 0, #555abf 90.87%);
-    background: linear-gradient(180deg, #32325d 0, #555abf 90.87%);
-    -webkit-box-shadow: 0 2px 10px #257cff;
-    box-shadow: 0 2px 10px #257cff;
+    border: 3px solid ${props => props.theme.palette.border.second};
+    background: linear-gradient(${props => props.theme.palette.backgroundGradien.light});
+    box-shadow: 0 2px 10px ${props => props.theme.palette.shadow.main};
     border-radius: 69px;
     height: 50px;
-    color: #fff;
     text-decoration: none;
 
     & > i {
@@ -280,7 +270,7 @@ const StylSectionDiscount = styled.p`
     margin-bottom: ${(props) => props.isMargin && "40px"};
 
     & > span {
-        color: #f32d2d;
+        color: ${(props) => props.theme.palette.error.description};
         margin-left: 5px;
     }
 `;
@@ -342,7 +332,7 @@ const StylCardSettingsText = styled.p`
             : props.theme.typography.textMedium.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
-    color: ${(props) => props.theme.palette.main};
+    color: ${(props) => props.theme.palette.text.light};
     line-height: 1.5;
     text-align: center;
     margin-bottom: 10px;
@@ -360,7 +350,7 @@ const StylBtnCardSettings = styled.button`
     border: none;
     outline: none;
     background-color: #162844;
-    color: #fff;
+    color:${(props) => props.theme.palette.text.light};
 `;
 
 const StylBoxWrapperCards = styled.div`
@@ -385,9 +375,9 @@ const StylBoxCenterCard = styled.div`
         max-width: 65px;
         width: 100%;
 
-        color: #fff;
+        color: ${(props) => props.theme.palette.text.light};
         padding: 20px;
-        border: 1px solid #fff;
+        border: 1px solid ${(props) => props.theme.palette.border.light};
         border-radius: 50%;
 
         &:first-child {
@@ -406,7 +396,7 @@ const StylImgCardSettings = styled.img`
     border-radius: 50%;
     padding: 0;
     background-color: transparent;
-    border: 2px solid #fff;
+    border: 2px solid ${(props) => props.theme.palette.border.light};
 `;
 
 const StylTitleUserSettings = styled.p`
@@ -426,7 +416,7 @@ const StylWrapperInput = styled.div`
     max-width: 100%;
     width: 100%;
     background-color: transparent;
-    border: 1px solid #fff;
+    border: 1px solid ${(props) => props.theme.palette.border.light};
     margin-bottom: 10px;
     transition: all 0.2s ease;
 
@@ -435,7 +425,7 @@ const StylWrapperInput = styled.div`
         top: 30%;
         left: 5%;
         font-size: 20px;
-        color: #fff;
+        color:${(props) => props.theme.palette.icon.light};
     }
 
     @media (min-width: 768px) {
@@ -461,7 +451,7 @@ const StylWrapperInput = styled.div`
 const StylInputUserSettings = styled.input`
     position: relative;
     font-size: 14px;
-    color: #fff;
+    color: ${(props) => props.theme.palette.text.light};
     font-weight: 600;
     height: 50px;
     max-width: 100%;
@@ -479,7 +469,7 @@ const StylVipStatusModal = styled.div`
     border-radius: 20px;
     margin-top: 30px;
     width: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
 `;
 
 const StylOptionsAddedWrapper = styled.div`
@@ -489,7 +479,7 @@ const StylOptionsAddedWrapper = styled.div`
     padding: 25px;
     margin-bottom: 10px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
     z-index: 10;
 
     @media (min-width: 768px) {

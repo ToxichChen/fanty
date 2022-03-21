@@ -5,7 +5,7 @@ import imageJPG from "./../../../assets/bg/fanty-pk.png";
 
 const StylBoxIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
 background-blend-mode: multiply;
-background-color: rgba(111, 43, 149, 0.8);
+background-color: ${props => props.theme.palette.backgroundRGB.main};
     background-image: url(${imageMobileBGJPG});
     background-attachment: fixed;
     background-repeat: no-repeat;

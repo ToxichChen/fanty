@@ -57,7 +57,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
 
                     <StylWrapperAllSettings>
                         <StylOptionsAddedWrapper>
-                            {item.is_finish ? (
+                            {item.is_radio ? (
                                 <RadioBox
                                     item={item}
                                     optionsBasic={item.subsettings}
@@ -85,7 +85,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                         </StylOptionsAddedWrapper>
 
                         <StylOptionsAddedWrapper>
-                            {item.is_finish ? (
+                            {item.is_radio ? (
                                 <RadioBox
                                     item={item}
                                     optionsBasic={item.subsettings}
@@ -116,7 +116,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
             ) : (
                 <StylWrapperAllSettings>
                     <StylOptionsAddedWrapper isFullWidth={true}>
-                        {item.is_finish ? (
+                        {item.is_radio ? (
                             <RadioBox
                                 item={item}
                                 optionsBasic={item.subsettings}

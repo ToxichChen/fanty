@@ -20,7 +20,7 @@ const StylBoxCardIntroPageHome = styled(StylBoxFlexColumnFlexStart)`
     width: 100%;
     max-width: auto;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.07);
+    background-color: ${props => props.theme.palette.backgroundRGB.ultraMain};
     border-radius: 5px;
     margin-bottom: 20px;
 

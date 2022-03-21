@@ -82,7 +82,7 @@ const StylImgPlayer = styled.img`
     width: 115px;
     height: 115px;
     border-radius: 50%;
-    box-shadow: inset 0 0 0 2px #fff;
+    box-shadow: inset 0 0 0 2px ${props => props.theme.palette.shadow.light};
     border: 5px solid ${(props) => props.theme.palette.border.primary};
     top: -50px;
     animation: 5s rotate-circle linear infinite;

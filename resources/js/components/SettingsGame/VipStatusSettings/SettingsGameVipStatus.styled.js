@@ -47,13 +47,12 @@ const StylBtnVip = styled(NavLink)`
     flex-direction: row;
     font-weight: 700;
     font-size: 11px;
-    color: #fff;
+    color:${props => props.theme.palette.text.light};
     padding: 10px 24px;
     border-radius: 45px;
     background: 0 0;
-    border: 2px solid #ffd545;
-    -webkit-box-shadow: inset 0 0 20px 6px #b48c07;
-    box-shadow: inset 0 0 20px 6px #b48c07;
+    border: 2px solid ${props => props.theme.palette.shadowRange.primary};
+    box-shadow: inset 0 0 20px 6px ${props => props.theme.palette.shadow.dark};
     transition: all 0.2s ease;
 
     & > i {
@@ -63,7 +62,7 @@ const StylBtnVip = styled(NavLink)`
 
     @media (min-width: 1024px) {
         &:hover {
-            box-shadow: inset 0 0 9px 6px #b48c077d;
+            box-shadow: inset 0 0 9px 6px ${props => props.theme.palette.shadow.dark};
         }
     }
 `;

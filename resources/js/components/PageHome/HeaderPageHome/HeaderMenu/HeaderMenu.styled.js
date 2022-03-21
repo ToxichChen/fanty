@@ -55,7 +55,7 @@ const StylBoxNavMenuPageHome = styled(StylBoxFlexRowSpaceBetween)`
     max-width: 1440px;
     width: 100%;
     margin: 0 auto;
-    box-shadow: 0 0 9px 3px rgb(226 30 228 / 24%);
+    box-shadow: 0 0 9px 3px ${props => props.theme.palette.shadow.primary};
     background-color: ${(props) => props.theme.palette.backgroundColor.dark};
     border-radius: 8px;
     padding: 20px;

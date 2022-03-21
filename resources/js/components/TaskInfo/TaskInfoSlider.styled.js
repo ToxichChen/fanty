@@ -8,7 +8,7 @@ const StylTaskInfoSlider = styled.div`
     align-items: flex-start;
     background-blend-mode: multiply;
     background-image: url(${imageMobileBGJPG});
-    background-color: rgba(111, 43, 149, 0.8);
+    background-color: ${(props) => props.theme.palette.backgroundRGB.main};
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;

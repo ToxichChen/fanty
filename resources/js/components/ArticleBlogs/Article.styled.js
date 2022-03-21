@@ -7,7 +7,7 @@ const SectionArticle = styled.section`
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background-color: rgba(111, 43, 149, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.main};
     background-blend-mode: multiply;
     background-color: ${(props) => props.theme.palette.backgroundColor.second};
     background-position: center center;
@@ -26,7 +26,7 @@ const SectionArticle = styled.section`
 
 const BoxArticle = styled.div`
     padding: 20px;
-    background-color: rgba(52, 22, 75, 0.8);
+    background-color: ${props => props.theme.palette.backgroundRGB.primary};
     margin-top: 20px;
     border-radius: 8px;
 
@@ -48,7 +48,7 @@ const WrapperImgArticle = styled.div`
     position: relative;
     width: 100%;
     max-height: 350px;
-    background-color: #9d9d9d;
+    background-color: ${props => props.theme.palette.backgroundColor.middle};
     position: relative;
     padding-bottom: 45%;
     margin-bottom: 24px;

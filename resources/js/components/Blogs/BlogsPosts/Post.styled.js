@@ -14,7 +14,7 @@ const StylWrapperImg = styled.div`
   position: relative;
   width: 100%;
   max-height: 350px;
-  background-color: #9d9d9d;
+  background-color: ${props => props.theme.palette.backgroundColor.middle};
   position: relative;
   padding-bottom: 45%;
   margin-bottom: 24px;

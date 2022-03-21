@@ -19,7 +19,7 @@ const StylBoxBlogs = styled.section`
 
 const StylBoxWrapper = styled.div`
   padding: 20px;
-  background-color: rgba(52, 22, 75, 0.8);
+  background-color: ${props => props.theme.palette.backgroundRGB.primary};
   margin-top: 20px;
   border-radius: 8px;
 
