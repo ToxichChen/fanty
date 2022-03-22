@@ -25,12 +25,9 @@ const MiniPlayer = () => {
 
     const playPlayer = useCallback(() => {
         audioEl.current.load();
-        const index = musicList[showMiniPlayer.trackIndex].path.indexOf('/music');
-        const string = '.' + musicList[showMiniPlayer.trackIndex].path.slice(index)
-        console.log(string)
-        fetch(string)
+        fetch(musicList[showMiniPlayer.trackIndex].path)
             .then(() => {
-                audioEl.current.src = string;
+                audioEl.current.src = musicList[showMiniPlayer.trackIndex].path;
             }).then(() => {
                 audioEl.current.autoplay = true;
             })
