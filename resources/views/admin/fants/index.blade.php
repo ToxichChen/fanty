@@ -8,6 +8,7 @@
                 <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Текст</th>
                     <th>Настройка</th>
                     <th>Поднастройка</th>
                     <th>Группа фантов</th>
@@ -22,6 +23,7 @@
                 @foreach ($fants as $fant)
                     <tr>
                         <td>{{ $fant->id }}</td>
+                        <td>{{ $fant->content }}</td>
                         <td>{{ $fant->setting_name }}</td>
                         <td>{{ $fant->subsetting_name }}</td>
                         <td>{{ $fant->fant_group_name }}</td>

@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
-    <h1>Изменить поднастройку: </h1>
+    <h1>Изменить Фант: </h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -11,7 +11,7 @@
             </ul>
         </div>
     @endif
-    <form action="/admin/fant/createNew" enctype="multipart/form-data" method="post">
+    <form action="/admin/fant/update/{{$fant->id}}" enctype="multipart/form-data" method="post">
         @csrf
         <div class="form-group col-lg-10">
             <label for="title">Задание</label>
@@ -92,9 +92,10 @@
             </div>
             <label for="exampleFormControlSelect1">Активировать таймер: </label>
             <input type="checkbox"
+                   @if ($fant->is_timer_active === 1) checked @endif
                    onchange="document.getElementById('timer').disabled = !this.checked;" name='is_timer_active'
                    id='is_timer_active'/>
-            <input type="number" class="form-control" disabled name="timer" id="timer" placeholder="Длительность таймера">
+            <input type="number" class="form-control" @if ($fant->is_timer_active === 0) disabled @endif name="timer" id="timer" placeholder="Длительность таймера" @if ($fant->is_timer_active === 1) value="{{$fant->timer}}" @endif>
             <br/>
             <label for="exampleFormControlFile1">Файл для фанта</label>
             <input type="file" name="media" class="form-control-file" id="exampleFormControlFile1">

@@ -18,6 +18,10 @@
             <input type="text" class="form-control" name="title" id="title" value="{{$subsetting->title}}"
                    placeholder="Название">
             <small id="emailHelp" class="form-text text-muted">Впишите название поднастройки.</small>
+            <label for="title">Описание</label>
+            <input type="text" class="form-control" name="description" id="description" value="{{$subsetting->description}}"
+                   placeholder="Описание">
+            <small id="emailHelp" class="form-text text-muted">Впишите описание поднастройки.</small>
             <label for="exampleFormControlSelect1">Настройка</label>
             <select class="form-control" id="exampleFormControlSelect1" name="setting">
                 @foreach ($settings as $setting)

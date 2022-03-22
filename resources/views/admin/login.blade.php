@@ -16,7 +16,7 @@
     @endif
     <div class="row">
         <div class=" col-md-8 offset-md-2 login-form-2">
-            <form method="POST" action="/admin/login/">
+            <form method="POST" action="/admin/login">
                 @csrf
                 <h3>Admin Login Form</h3>
                 <div class="form-group">

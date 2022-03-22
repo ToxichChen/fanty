@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameSettingController;
 use App\Http\Controllers\FantController;
+use App\Http\Controllers\MusicController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -57,3 +59,5 @@ Route::get('/fant/getFinalPunishment', [FantController::class, 'getFinalPunishme
 Route::get('/fant/getFinishFant', [FantController::class, 'getFinishFant']);
 
 Route::get('/user/checkIfLoggedIn', [UserController::class, 'checkIfLoggedIn']);
+
+Route::get('/music/getMusicList', [MusicController::class, 'getMusicList']);

@@ -32,6 +32,7 @@ class SubsettingController extends Controller
         $validated = $request->validate([
             'title' => 'required|unique:subsettings|max:255',
             'setting' => 'required',
+            'description' => 'max:255',
             'sex' => 'required|numeric|min:0|max:2',
         ]);
         $subsetting = new Subsetting();
@@ -56,11 +57,13 @@ class SubsettingController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'setting' => 'required',
+            'description' => 'max:255',
             'sex' => 'required|numeric|min:0|max:2',
         ]);
         $subsetting = Subsetting::find($id);
         $subsetting->title = $validated['title'];
         $subsetting->setting_id = $validated['setting'];
+        $subsetting->description = $validated['description'];
         $subsetting->sex = $validated['sex'];
         $subsetting->save();
         return redirect('/admin/subsetting');

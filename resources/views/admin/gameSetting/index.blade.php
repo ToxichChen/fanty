@@ -23,7 +23,7 @@
                     <td>{{ $gameSetting->title }}</td>
                     <td>{{ $gameSetting->has_sex_difference === 1 ? 'да' : 'нет' }}</td>
                     <td>{{ $gameSetting->is_premium  ? 'да' : 'нет'  }}</td>
-                    <td>{{ $gameSetting->is_finish  ? 'да' : 'нет' }}</td>
+                    <td>{{ $gameSetting->is_radio  ? 'да' : 'нет' }}</td>
                     <td>{{ $gameSetting->created_at }}</td>
                     <td>{{ $gameSetting->updated_at }}</td>
                     <td><a role="button" href="/admin/gameSettings/edit/{{$gameSetting->id}}" class="btn btn-primary">Изменить</a>

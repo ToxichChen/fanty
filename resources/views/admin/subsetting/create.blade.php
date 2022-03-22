@@ -17,6 +17,10 @@
             <label for="title">Название</label>
             <input type="text" class="form-control" name="title" id="title" placeholder="Название">
             <small id="emailHelp" class="form-text text-muted">Впишите название поднастройки.</small>
+            <label for="title">Описание</label>
+            <input type="text" class="form-control" name="description" id="description"
+                   placeholder="Описание">
+            <small id="emailHelp" class="form-text text-muted">Впишите описание поднастройки.</small>
             <label for="exampleFormControlSelect1">Настройка</label>
             <select class="form-control" id="exampleFormControlSelect1" name="setting">
                 @foreach ($settings as $setting)

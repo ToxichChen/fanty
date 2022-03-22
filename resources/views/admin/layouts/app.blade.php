@@ -71,8 +71,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
-                                    class="fa fa-table text-light fa-lg mr-3" aria-hidden="true"></i> Tables
+                            <a href="/admin/music" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-table text-light fa-lg mr-3" aria-hidden="true"></i> Музыка
                             </a>
                         </li>
                         <li class="nav-item">

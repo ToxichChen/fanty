@@ -7,6 +7,7 @@ use App\Http\Controllers\GameSettingController;
 use App\Http\Controllers\FantGroupController;
 use App\Http\Controllers\SubsettingController;
 use App\Http\Controllers\FantController;
+use App\Http\Controllers\MusicController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +21,7 @@ use App\Http\Controllers\FantController;
 */
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'check.admin'], function () {
-        Route::get('/logout/', [AdminController::class, 'adminLogout']);
+        Route::get('/logout', [AdminController::class, 'adminLogout']);
         Route::view('/', '/admin/layouts/app');
         Route::prefix('gameSettings')->group(function () {
             Route::get('/', [GameSettingController::class, 'index'])->name('admin.gameSettings.index');
@@ -62,9 +63,17 @@ Route::prefix('admin')->group(function () {
             Route::post('/update/{id}', [UserController::class, 'update'])->name('admin.users.update');
             Route::get('/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete');
         });
+        Route::prefix('music')->group(function () {
+            Route::get('/', [MusicController::class, 'index'])->name('admin.music.index');
+            Route::get('/create', [MusicController::class, 'createPage'])->name('admin.music.createPage');
+            Route::post('/createNew', [MusicController::class, 'create'])->name('admin.music.create');
+            Route::get('/edit/{id}', [MusicController::class, 'edit'])->name('admin.music.edit');
+            Route::post('/update/{id}', [MusicController::class, 'update'])->name('admin.music.update');
+            Route::get('/delete/{id}', [MusicController::class, 'delete'])->name('admin.music.delete');
+        });
     });
-    Route::get('/login/', [AdminController::class, 'adminLogin'])->name('admin.login');
-    Route::post('/login/', [AdminController::class, 'adminLoginPost']);
+    Route::get('/login', [AdminController::class, 'adminLogin'])->name('admin.login');
+    Route::post('/login', [AdminController::class, 'adminLoginPost']);
 });
 
 //Route::view('/{path?}', 'app');

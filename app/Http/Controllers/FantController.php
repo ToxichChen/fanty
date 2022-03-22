@@ -20,7 +20,7 @@ class FantController extends Controller
         $fants = DB::table('fants')
             ->join('game_settings', 'fants.game_setting_id', '=', 'game_settings.id')
             ->join('fant_groups', 'fants.fant_group_id', '=', 'fant_groups.id')
-            ->join('subsettings', 'fants.subsetting_id', '=', 'subsettings.id')
+            ->leftJoin('subsettings', 'fants.subsetting_id', '=', 'subsettings.id')
             ->select('fants.*', 'game_settings.title as setting_name', 'fant_groups.title as fant_group_name', 'subsettings.title as subsetting_name')
             ->get();
 
@@ -46,7 +46,9 @@ class FantController extends Controller
             'fantGroup' => 'required',
             'sex_type' => 'required|numeric|min:0|max:2',
             'sex' => 'required|numeric|min:0|max:2',
-            'media' => 'max:8194'
+            'is_timer_active' => '',
+            'timer' => 'numeric',
+            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
         ]);
         $path = '';
 
@@ -61,7 +63,12 @@ class FantController extends Controller
         $fant->subsetting_id = $validated['subsetting'];
         $fant->sex_type = $validated['sex_type'];
         $fant->sex = $validated['sex'];
-        $fant->media = $path;
+        if (isset($validated['is_timer_active']) && $validated['is_timer_active'] === 'on'
+            && isset($validated['timer']) && $validated['timer'] !== 0) {
+            $fant->is_timer_active = 1;
+            $fant->timer = $validated['timer'];
+        }
+        $fant->media = $path ;
         $fant->save();
         return redirect('/admin/fant');
     }
