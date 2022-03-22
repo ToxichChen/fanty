@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import useActionAlert from "../../hooks/redux/useActionAlert";
 
-const TaskGameBar = ({ isTimeDuration = 0, nextTask }) => {
-    let isTime = isTimeDuration <= 0 ? false : true;
+const TaskGameBar = ({ isTimeDuration = 0, nextTask, isTime }) => {
     const { NotifySuccess } = useActionAlert();
     const [isCompleted, setCompleted] = useState(100);
     const [isBgColor, setBgColor] = useState("");
@@ -38,15 +37,15 @@ const TaskGameBar = ({ isTimeDuration = 0, nextTask }) => {
 
                 newValue >= 60
                     ? setBgColor(
-                          `rgb(${percentColors[2].color.r}, ${percentColors[2].color.g}, ${percentColors[2].color.b})`
-                      )
+                        `rgb(${percentColors[2].color.r}, ${percentColors[2].color.g}, ${percentColors[2].color.b})`
+                    )
                     : newValue >= 25
-                    ? setBgColor(
-                          `rgb(${percentColors[1].color.r}, ${percentColors[1].color.g}, ${percentColors[1].color.b})`
-                      )
-                    : setBgColor(
-                          `rgb(${percentColors[0].color.r}, ${percentColors[0].color.g}, ${percentColors[0].color.b})`
-                      );
+                        ? setBgColor(
+                            `rgb(${percentColors[1].color.r}, ${percentColors[1].color.g}, ${percentColors[1].color.b})`
+                        )
+                        : setBgColor(
+                            `rgb(${percentColors[0].color.r}, ${percentColors[0].color.g}, ${percentColors[0].color.b})`
+                        );
 
                 if (newValue === 0 && isTime) {
                     clearInterval(intervalOutBar);

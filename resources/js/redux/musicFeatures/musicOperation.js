@@ -1,5 +1,5 @@
 import axios from "axios";
-import {alert} from './../alertFeatures/AlertActions'
+import { alert } from './../alertFeatures/AlertActions'
 import { musicRequest, musicSuccess, musicError } from "./musicAction";
 
 axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
@@ -17,7 +17,7 @@ const getMusic = (credentials) => async (dispatch) => {
     dispatch(musicRequest());
 
     try {
-        const { data } = await axios.post("/auth/login", credentials);
+        const { data } = await axios.get("/music/getMusicList", credentials);
 
         token.set(data.access_token);
         dispatch(musicSuccess(data));

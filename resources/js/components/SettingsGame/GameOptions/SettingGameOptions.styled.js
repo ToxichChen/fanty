@@ -40,6 +40,7 @@ const StylWrapperSettings = styled.div`
     display: ${(props) => (props.isShow ? "flex" : "none")};
     flex-direction: column;
     align-items: flex-start;
+    align-self: center;
 
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};

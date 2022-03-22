@@ -29,6 +29,7 @@ const StylVipText = styled.p`
     line-height: 1.5;
     margin-bottom: 14px;
     text-align: center;
+    align-self: center;
 
     max-width: ${(props) => props.isLowWidth && "440px"};
     @media (min-width: 768px) {

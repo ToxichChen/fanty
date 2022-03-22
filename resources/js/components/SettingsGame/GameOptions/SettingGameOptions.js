@@ -46,7 +46,7 @@ const SettingGameOptions = ({ item }) => {
                     openModal={isShowModal}
                 />
                 {item.is_premium === 1 && profile.is_premium === 0
-                    ? "Доступно в полной версии игры"
+                    ? "Для доступа к игре, активируйте статус VIP"
                     : ""}
                 <BtnMoreSettings type="button" onClick={handleModal}>
                     <i className="fas fa-cog"></i>

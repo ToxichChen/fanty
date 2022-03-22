@@ -117,18 +117,18 @@ const MusicPlayer = () => {
                             </StylBtnPlayer>
                         </StylBoxFuncPlayer>
                         <StylImgPlayer
-                            src={musicList[showMiniPlayer.trackIndex].img_src}
+                            src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].img_src : './images/stay.png'}
                             alt="album music"
                         />
                         <StylInfoPlayer>
                             <StylTitlePlayer>
-                                {musicList[showMiniPlayer.trackIndex].title}
+                                {musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].title : ''}
                             </StylTitlePlayer>
                             <StylArtistPlayer>
-                                {musicList[showMiniPlayer.trackIndex].artist}
+                                {musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].artist : ''}
                             </StylArtistPlayer>
                             <StylAlbumPlayer>
-                                {musicList[showMiniPlayer.trackIndex].album}
+                                {musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].album : ''}
                             </StylAlbumPlayer>
                         </StylInfoPlayer>
                         <StylLinePlayer />
@@ -137,13 +137,12 @@ const MusicPlayer = () => {
                                 {isCurrTime}
                             </StylSecondsMusicNow>
                             <StylBoxPlayMusic>
-                                <StylBtnNavMusic onClick={() =>
-                                    SkipSong(false)
+                                <StylBtnNavMusic onClick={() => musicList.length !== 0 && SkipSong(false)
                                 }>
                                     <i className="fas fa-step-backward"></i>
                                 </StylBtnNavMusic>
                                 <StylBtnNavMusic onClick={() => {
-                                    playMusic(!showMiniPlayer.play)
+                                    musicList.length !== 0 && playMusic(!showMiniPlayer.play)
                                 }}>
                                     <i
                                         className={
@@ -153,7 +152,7 @@ const MusicPlayer = () => {
                                         }
                                     ></i>
                                 </StylBtnNavMusic>
-                                <StylBtnNavMusic onClick={() => SkipSong()
+                                <StylBtnNavMusic onClick={() => musicList.length !== 0 && SkipSong()
                                 }>
                                     <i className="fas fa-step-forward"></i>
                                 </StylBtnNavMusic>

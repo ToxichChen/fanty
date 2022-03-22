@@ -227,9 +227,13 @@ const TaskGamePage = () => {
                             <TaskGameBar
                                 isTimeDuration={
                                     Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.isTimeDuration
-                                        : getFanty.isTimeDuration
+                                        ? getFantyPunishment.timer
+                                        : getFanty.timer
                                 }
+                                isTime={
+                                    Object.keys(getFantyPunishment).length > 1
+                                        ? getFantyPunishment.is_timer_active
+                                        : getFanty.is_timer_active}
                                 nextTask={nextTask}
                             />
                             <TaskGameReview

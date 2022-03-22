@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useCallback } from "react";
 import { musicMiniPlayer } from "../../redux/musicFeatures/musicAction";
+import { getMusic } from "../../redux/musicFeatures/musicOperation";
 
 function useActionMusic() {
     const dispatch = useDispatch();
@@ -66,7 +67,23 @@ function useActionMusic() {
 
     }, [dispatch, showMiniPlayer, musicList])
 
-    return { showMiniPlayer, changeDuration, changeRandom, hiddenPlayer, showPlayer, playMusic, timeMusic, changeIndex, musicList, SkipSong };
+    const getAllMusic = useCallback(() => {
+        dispatch(getMusic())
+    }, [dispatch])
+
+    return {
+        getAllMusic,
+        showMiniPlayer,
+        changeDuration,
+        changeRandom,
+        hiddenPlayer,
+        showPlayer,
+        playMusic,
+        timeMusic,
+        changeIndex,
+        musicList,
+        SkipSong
+    };
 }
 
 export default useActionMusic;

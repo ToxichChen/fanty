@@ -14,25 +14,25 @@ const music_list = [
         img_src: './images/stay.png',
         title: "Stay",
         artist: "The Kid LAROI, Justin Bieber",
-        src: "./music/stay.mp3",
+        path: "./music/stay.mp3",
     },
     {
         img_src: './images/fallingdown.jpg',
         title: "Falling Down",
         artist: "Wid Cards",
-        src: "./music/fallingdown.mp3",
+        path: "./music/fallingdown.mp3",
     },
     {
         img_src: './images/faded.png',
         title: "Faded",
         artist: "Alan Walker",
-        src: "./music/Faded.mp3",
+        path: "./music/Faded.mp3",
     },
     {
         img_src: './images/ratherbe.jpg',
         title: "Rather Be",
         artist: "Clean Bandit",
-        src: "./music/Rather Be.mp3",
+        path: "./music/Rather Be.mp3",
     },
 ];
 

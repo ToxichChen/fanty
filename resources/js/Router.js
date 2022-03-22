@@ -1,5 +1,6 @@
 import { lazy, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import useActionMusic from "./hooks/redux/useActionMusic";
 import useActionUsers from "./hooks/redux/useActionUsers";
 
 const routes = {
@@ -55,10 +56,12 @@ const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
     const { userHave } = useActionUsers();
+    const { getAllMusic } = useActionMusic()
 
     useEffect(() => {
         userHave();
-    }, [userHave]);
+        getAllMusic();
+    }, [userHave, getAllMusic]);
 
     return (
         <Routes>

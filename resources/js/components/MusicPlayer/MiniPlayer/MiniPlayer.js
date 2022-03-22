@@ -25,9 +25,12 @@ const MiniPlayer = () => {
 
     const playPlayer = useCallback(() => {
         audioEl.current.load();
-        fetch(musicList[showMiniPlayer.trackIndex].src)
+        const index = musicList[showMiniPlayer.trackIndex].path.indexOf('/music');
+        const string = '.' + musicList[showMiniPlayer.trackIndex].path.slice(index)
+        console.log(string)
+        fetch(string)
             .then(() => {
-                audioEl.current.src = musicList[showMiniPlayer.trackIndex].src;
+                audioEl.current.src = string;
             }).then(() => {
                 audioEl.current.autoplay = true;
             })
@@ -88,19 +91,18 @@ const MiniPlayer = () => {
                 <i className="fas fa-chevron-left" />
             </StylArrow>
 
-            <audio src={musicList[showMiniPlayer.trackIndex].src} ref={audioEl}></audio>
+            <audio src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].path : ''} ref={audioEl}></audio>
             <StylBoxPlayer>
-                <StylImgPlayer src={musicList[showMiniPlayer.trackIndex].img_src} alt="img music" isPlay={showMiniPlayer.play} />
+                <StylImgPlayer src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].img_src : './images/stay.png'} alt="img music" isPlay={showMiniPlayer.play} />
                 <StylWrapperOther>
-                    <StylNameMusic>{musicList[showMiniPlayer.trackIndex].title}</StylNameMusic>
+                    <StylNameMusic>{musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].title : ''}</StylNameMusic>
                     <StylBoxControl>
-                        <StylBtnControl type="button" onClick={() =>
-                            SkipSong(false)
+                        <StylBtnControl type="button" onClick={() => musicList.length !== 0 && SkipSong(false)
                         }>
                             <i className="fas fa-step-backward"></i>
                         </StylBtnControl>
                         <StylBtnControl type="button" onClick={() => {
-                            playMusic(!showMiniPlayer.play);
+                            musicList.length !== 0 && playMusic(!showMiniPlayer.play);
                         }}>
                             <i
                                 className={
@@ -108,8 +110,7 @@ const MiniPlayer = () => {
                                 }
                             ></i>
                         </StylBtnControl>
-                        <StylBtnControl type="button" onClick={() =>
-                            SkipSong()
+                        <StylBtnControl type="button" onClick={() => musicList.length !== 0 && SkipSong()
                         }>
                             <i className="fas fa-step-forward"></i>
                         </StylBtnControl>
