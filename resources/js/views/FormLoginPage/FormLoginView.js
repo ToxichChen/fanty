@@ -5,11 +5,7 @@ const FormLoginView = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 
-    return (
-        <>
-            <FormLogin />
-        </>
-    );
+    return <FormLogin />;
 };
 
 export default FormLoginView;

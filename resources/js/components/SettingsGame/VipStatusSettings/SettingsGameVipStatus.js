@@ -9,12 +9,11 @@ import { routes } from "../../../Router";
 const SettingsGameVipStatus = ({ vip }) => {
     return (
         <StylWrapperVip isVip={vip}>
-            <StylVipText>
-                <b>Настройки заблокированы </b> и будут доступны в полной версии
+            <StylVipText>Для доступа к игре, активируйте статус VIP
                 игры.
             </StylVipText>
             <StylBtnVip to={routes.payGame}>
-                <i className="fas fa-gem"></i> Полная версия от 159 руб
+                <i className="fas fa-gem"></i> Активировать  VIP
             </StylBtnVip>
         </StylWrapperVip>
     );

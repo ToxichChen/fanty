@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import {
     StylPlayerMiniMusic,
     StylArrow,
@@ -10,21 +11,67 @@ import {
     StylBtnControl,
 } from "./MiniPlayer.styled";
 
-import { miniPlayer } from "../../../constants";
 import useActionMusic from "../../../hooks/redux/useActionMusic";
+import { routes } from "../../../Router";
+import useActionAlert from "../../../hooks/redux/useActionAlert";
 
 const MiniPlayer = () => {
-    const { showMiniPlayer } = useActionMusic();
+    const location = useLocation();
+    const { NotifyError } = useActionAlert()
+    const { showMiniPlayer, playMusic, timeMusic, SkipSong, changeDuration, musicList, showPlayer, hiddenPlayer } = useActionMusic();
     const [isShowBlock, setShowBlock] = useState(false);
-    const [isPlay, setPlay] = useState(false);
+    const audioEl = useRef(null);
+    let interval = '';
 
-    const musicPlay = () => {
-        if (isPlay) {
-            setPlay(false);
+    const playPlayer = useCallback(() => {
+        audioEl.current.load();
+        fetch(musicList[showMiniPlayer.trackIndex].src)
+            .then(() => {
+                audioEl.current.src = musicList[showMiniPlayer.trackIndex].src;
+            }).then(() => {
+                audioEl.current.autoplay = true;
+            })
+            .catch(() => {
+                NotifyError('Что-то пошло не так');
+
+            })
+    }, [audioEl, showMiniPlayer])
+
+    useEffect(() => {
+
+        if (showMiniPlayer.play) {
+            playPlayer();
         } else {
-            setPlay(true);
+            audioEl.current.pause()
+            timeMusic(audioEl.current.currentTime)
         }
-    };
+
+        audioEl.current.addEventListener('ended', SkipSong)
+        audioEl.current.currentTime = showMiniPlayer.currentTime;
+    }, [showMiniPlayer.trackIndex, showMiniPlayer.play]);
+
+    useEffect(() => {
+        if (location.pathname === routes.musicFromSex) {
+            hiddenPlayer();
+            timeMusic(audioEl.current.currentTime)
+        } else {
+            showPlayer();
+        }
+    }, [location]);
+
+    useEffect(() => {
+        clearInterval(interval);
+
+        if (showMiniPlayer.play) {
+            interval = setInterval(() => {
+                changeDuration(isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration);
+                timeMusic(isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime);
+            }, 1000);
+        }
+
+        return () => clearInterval(interval);
+    }, [showMiniPlayer.trackIndex, showMiniPlayer.play])
+
 
     return (
         <StylPlayerMiniMusic
@@ -40,22 +87,30 @@ const MiniPlayer = () => {
                 <i className="fas fa-chevron-left" />
                 <i className="fas fa-chevron-left" />
             </StylArrow>
+
+            <audio src={musicList[showMiniPlayer.trackIndex].src} ref={audioEl}></audio>
             <StylBoxPlayer>
-                <StylImgPlayer src={miniPlayer.imgUrl} alt="img music" />
+                <StylImgPlayer src={musicList[showMiniPlayer.trackIndex].img_src} alt="img music" isPlay={showMiniPlayer.play} />
                 <StylWrapperOther>
-                    <StylNameMusic>{miniPlayer.title}</StylNameMusic>
+                    <StylNameMusic>{musicList[showMiniPlayer.trackIndex].title}</StylNameMusic>
                     <StylBoxControl>
-                        <StylBtnControl type="button">
+                        <StylBtnControl type="button" onClick={() =>
+                            SkipSong(false)
+                        }>
                             <i className="fas fa-step-backward"></i>
                         </StylBtnControl>
-                        <StylBtnControl type="button" onClick={musicPlay}>
+                        <StylBtnControl type="button" onClick={() => {
+                            playMusic(!showMiniPlayer.play);
+                        }}>
                             <i
                                 className={
-                                    isPlay ? "fas fa-pause" : "fas fa-play"
+                                    showMiniPlayer.play ? "fas fa-pause" : "fas fa-play"
                                 }
                             ></i>
                         </StylBtnControl>
-                        <StylBtnControl type="button">
+                        <StylBtnControl type="button" onClick={() =>
+                            SkipSong()
+                        }>
                             <i className="fas fa-step-forward"></i>
                         </StylBtnControl>
                     </StylBoxControl>

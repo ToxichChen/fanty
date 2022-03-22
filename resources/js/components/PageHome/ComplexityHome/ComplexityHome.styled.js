@@ -77,8 +77,9 @@ const StylTextTypeComplexity = styled.p`
   font-weight: ${(props) => props.theme.typography.textWeigth.primary};
   font-family: ${(props) => props.theme.typography.textFamily.main};
   color: ${(props) => props.theme.palette.main};
+  text-transform: capitalize;
   text-align: center;
-  padding: 20px 0;
+  padding: 10px 0;
 `;
 
 export {

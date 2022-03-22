@@ -42,7 +42,7 @@ const StylImgPlayer = styled.img`
 
   @media (min-width: 550px) {
     max-width: 230px;
-    max-height: 230px;
+    min-height: 230px;
   }
 `;
 
@@ -198,9 +198,9 @@ const StylLinePlayerNow = styled.input`
   height: 5px;
   border: none;
   outline: none;
-  -webkit-appearance: none;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
+  transition: all 0.2s ease;
   z-index: 10;
 
   &[type='range']::-webkit-slider-runnable-track {
@@ -208,6 +208,7 @@ const StylLinePlayerNow = styled.input`
     width: 100%;
     height: 5px;
     background-color: ${props => props.theme.palette.backgroundRGB.light};
+    transition: all 0.2s ease;
   }
 
   &[type='range']::before {
@@ -221,6 +222,7 @@ const StylLinePlayerNow = styled.input`
     background-color: ${(props) => props.theme.palette.icon.main};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
+    transition: all 0.2s ease;
   }
 
   &[type='range']::-webkit-slider-thumb {
@@ -235,11 +237,13 @@ const StylLinePlayerNow = styled.input`
     background-color: ${props => props.theme.palette.backgroundColor.light};
     cursor: pointer;
     margin: -7px 0 0 0;
+    transition: all 0.2s ease;
   }
 
   &[type='range']:active::-webkit-slider-thumb {
     transform: scale(1.2);
     background: ${(props) => props.theme.palette.icon.main};
+    transition: all 0.2s ease;
   }
 `;
 

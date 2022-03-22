@@ -24,9 +24,14 @@ const ComplexityHome = () => {
                         ЗЕЛЕНЫЙ
                     </StylTitleComplexity>
                     <StylBoxFlexColumnSpaceBetween>
-                        <StylTextTypeComplexity>Флирт</StylTextTypeComplexity>
                         <StylTextTypeComplexity>
-                            Более 200 заданий
+                            Запах
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            чувства
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            поцелуи
                         </StylTextTypeComplexity>
                     </StylBoxFlexColumnSpaceBetween>
                 </StylComplexityItem>
@@ -36,9 +41,14 @@ const ComplexityHome = () => {
                         ОРАНЖЕВЫЕ
                     </StylTitleComplexity>
                     <StylBoxFlexColumnSpaceBetween>
-                        <StylTextTypeComplexity>Ласки</StylTextTypeComplexity>
                         <StylTextTypeComplexity>
-                            Более 500 заданий
+                            Ласки
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            страсть
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            желанное тело
                         </StylTextTypeComplexity>
                     </StylBoxFlexColumnSpaceBetween>
                 </StylComplexityItem>
@@ -48,9 +58,14 @@ const ComplexityHome = () => {
                         КРАСНЫЕ
                     </StylTitleComplexity>
                     <StylBoxFlexColumnSpaceBetween>
-                        <StylTextTypeComplexity>Секс</StylTextTypeComplexity>
                         <StylTextTypeComplexity>
-                            Более 300 заданий
+                            Контакт
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            безумие
+                        </StylTextTypeComplexity>
+                        <StylTextTypeComplexity>
+                            потеря контроля
                         </StylTextTypeComplexity>
                     </StylBoxFlexColumnSpaceBetween>
                 </StylComplexityItem>

@@ -1,6 +1,5 @@
 import { lazy, useEffect } from "react";
-import { Route, Routes, useLocation } from "react-router-dom";
-import useActionMusic from "./hooks/redux/useActionMusic";
+import { Route, Routes } from "react-router-dom";
 import useActionUsers from "./hooks/redux/useActionUsers";
 
 const routes = {
@@ -52,29 +51,20 @@ const OfferView = lazy(() => import("./views/OfferPage/OfferView.js"));
 
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
-const LayoutMiniPlayer = lazy(() => import("./hoc/LayoutMiniPlayer"));
 const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
-    const location = useLocation();
     const { userHave } = useActionUsers();
-    const { showMiniPlayer, showPlayer } = useActionMusic();
 
     useEffect(() => {
         userHave();
     }, [userHave]);
 
-    useEffect(() => {
-        if (location !== routes.musicFromSex && !showMiniPlayer.showPlayer) {
-            showPlayer();
-        }
-    }, [showMiniPlayer, location, showPlayer]);
-
     return (
         <Routes>
             <Route
                 path={routes.home}
-                element={<Home title="Домашняя страница" />}
+                element={<Home title="Секс игры для пар, онлайн" />}
             />
             <Route
                 path={routes.seksFanty.duration}
@@ -149,9 +139,7 @@ const Router = () => {
             <Route
                 path={routes.musicFromSex}
                 element={
-                    <LayoutMiniPlayer>
-                        <MusicPage title="Музыка" />
-                    </LayoutMiniPlayer>
+                    <MusicPage title="Музыка" />
                 }
             />
             <Route path={routes.offer} element={<OfferView title="Оферта" />} />

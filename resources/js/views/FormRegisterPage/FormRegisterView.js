@@ -5,11 +5,7 @@ const FormRegisterView = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 
-    return (
-        <>
-            <FormRegistration />
-        </>
-    );
+    return <FormRegistration />;
 };
 
 export default FormRegisterView;

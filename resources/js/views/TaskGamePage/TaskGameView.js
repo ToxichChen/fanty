@@ -5,11 +5,7 @@ const TaskGameView = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 
-    return (
-        <>
-            <TaskGamePage />
-        </>
-    );
+    return <TaskGamePage />;
 };
 
 export default TaskGameView;

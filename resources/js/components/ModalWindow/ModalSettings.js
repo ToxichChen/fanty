@@ -33,12 +33,10 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
             <StylTitleModalSettings>{item.title}</StylTitleModalSettings>
             {vip === 0 && (
                 <StylVipStatusModal>
-                    <StylVipText isLowWidth={true}>
-                        <b>Настройки заблокированы </b> и будут доступны в
-                        полной версии игры.
+                    <StylVipText isLowWidth={true}>Для доступа к игре, активируйте статус VIP
                     </StylVipText>
                     <StylBtnVip to={routes.payGame}>
-                        <i className="fas fa-gem"></i> Полная версия от 159 руб
+                        <i className="fas fa-gem"></i> Активировать  VIP
                     </StylBtnVip>
                 </StylVipStatusModal>
             )}

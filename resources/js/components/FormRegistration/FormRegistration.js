@@ -11,10 +11,7 @@ import {
     ArrowBack,
 } from "./../FormLogin/FormLogin.styled";
 
-import emailImgSvg from "./../../assets/icons/icon-email.svg";
-import checkImgSvg from "./../../assets/icons/icon-check.svg";
-import userImgSvg from "./../../assets/icons/icon-user.svg";
-import passwordlImgSvg from "./../../assets/icons/icon-lock.svg";
+import { inputFormRegistration } from "../../constants";
 import { routes } from "../../Router";
 import useActionUsers from "../../hooks/redux/useActionUsers";
 
@@ -66,55 +63,25 @@ const FormRegistration = () => {
                             <ArrowBack to={routes.home} />
                             Регистрация
                         </StylTitleForm>
-                        <FormInput
-                            type="text"
-                            name="name"
-                            autocomplete="name"
-                            valueInput={values.name}
-                            placeholder="Имя"
-                            err={errors.name}
-                            errText={errors.name}
-                            imgStart={userImgSvg}
-                            changer={handleChange}
-                        />
-
-                        <FormInput
-                            type="email"
-                            name="email"
-                            autocomplete="userName"
-                            placeholder="Почта"
-                            valueInput={values.email}
-                            imgStart={emailImgSvg}
-                            err={errors.email}
-                            errText={errors.email}
-                            changer={handleChange}
-                        />
-
-                        <FormInput
-                            autocomplete="new-password"
-                            type="password"
-                            name="password"
-                            valueInput={values.password}
-                            placeholder="Пароль"
-                            imgStart={passwordlImgSvg}
-                            password={true}
-                            err={errors.password}
-                            errText={errors.password}
-                            changer={handleChange}
-                        />
-
-                        <FormInput
-                            autocomplete="new-password"
-                            type="password"
-                            name="checkPassword"
-                            valueInput={values.checkPassword}
-                            placeholder="Повторите пароль"
-                            imgStart={checkImgSvg}
-                            password={true}
-                            err={isCheckPassowrd}
-                            errText="Пароль не совпадает"
-                            changer={handleChange}
-                        />
+                        {inputFormRegistration.map((item, index) =>
+                            <FormInput
+                                type={item.type}
+                                name={item.name}
+                                autocomplete={item.autocomplete}
+                                valueInput={'values.name' === item.valueInput ? values.name : 'values.email' === item.valueInput ? values.email : 'values.password' === item.valueInput ? values.password : values.checkPassword}
+                                placeholder={item.placeholder}
+                                err={'errors.name' === item.err ?
+                                    errors.name : 'errors.email' === item.err ?
+                                        errors.email : 'errors.password' === item.err ?
+                                            errors.password : isCheckPassowrd}
+                                errText={'errors.name' === item.errText ?
+                                    errors.name : 'errors.email' === item.errText ?
+                                        errors.email : 'errors.password' === item.errText ?
+                                            errors.password : item.errText}
+                                imgStart={item.imgStart}
+                                changer={handleChange}
+                            />
+                        )}
                         <BtnSubmitForm />
                     </StylFormLogin>
                 )}

@@ -11,10 +11,9 @@ import {
     ArrowBack,
 } from "./FormLogin.styled";
 
-import emailImgSvg from "./../../assets/icons/icon-email.svg";
-import passwordlImgSvg from "./../../assets/icons/icon-lock.svg";
 import { routes } from "../../Router";
 import useActionUsers from "../../hooks/redux/useActionUsers";
+import { inputFormLogin } from "../../constants";
 
 const FormLogin = () => {
     const { loginUser } = useActionUsers();
@@ -50,30 +49,21 @@ const FormLogin = () => {
                             <ArrowBack to={routes.home} />
                             Вход
                         </StylTitleForm>
-                        <FormInput
-                            type="email"
-                            name="email"
-                            autocomplete="userName"
-                            placeholder="Почта"
-                            valueInput={values.email}
-                            imgStart={emailImgSvg}
-                            err={errors.email}
-                            errText={errors.email}
-                            changer={handleChange}
-                        />
-                        <FormInput
-                            type="password"
-                            name="password"
-                            autocomplete="current-password"
-                            valueInput={values.password}
-                            placeholder="Пароль"
-                            imgStart={passwordlImgSvg}
-                            password={true}
-                            err={errors.password}
-                            errText={errors.password}
-                            changer={handleChange}
-                        />
+                        {inputFormLogin.map((item, index) =>
 
+                            <FormInput
+                                key={index}
+                                type={item.type}
+                                name={item.name}
+                                autocomplete={item.autocomplete}
+                                placeholder={item.placeholder}
+                                valueInput={'values.email' === item.valueInput ? values.email : values.password}
+                                imgStart={item.imgStart}
+                                err={'errors.email' === item.err ? errors.email : errors.password}
+                                errText={'errors.email' === item.errText ? errors.email : errors.password}
+                                changer={handleChange}
+                            />
+                        )}
                         <BtnSubmitForm />
                     </StylFormLogin>
                 )}

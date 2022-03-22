@@ -4,20 +4,69 @@ import rolevyeJPG from "./../assets/bg/rolevye-igry.png";
 import seksFantyMOBJPG from "./../assets/bg/sex-mob.png";
 import chernoeIBeloeMOBJPG from "./../assets/bg/chernoe-i-beloe-mob.png";
 import rolevyeMOBJPG from "./../assets/bg/rolevue-mob.png";
-import musicImgStay from "./../assets/images/stay.png";
-import musicImgFaling from "./../assets/images/fallingdown.jpg";
-import musicImgFaded from "./../assets/images/faded.png";
-import musicImgRatherbe from "./../assets/images/ratherbe.jpg";
+import emailImgSvg from "./../assets/icons/icon-email.svg";
+import passwordlImgSvg from "./../assets/icons/icon-lock.svg";
+import checkImgSvg from "./../assets/icons/icon-check.svg";
+import userImgSvg from "./../assets/icons/icon-user.svg";
 
-const musicStay = new Audio("assets/music/stay.mp3");
-const musicFalling = new Audio("assets/music/fallingdown.mp3");
-const musicFaded = new Audio("assets/music/Faded.mp3");
-const musicRather = new Audio("assets/music/Rather Be.mp3");
+const music_list = [
+    {
+        img_src: './images/stay.png',
+        title: "Stay",
+        artist: "The Kid LAROI, Justin Bieber",
+        src: "./music/stay.mp3",
+    },
+    {
+        img_src: './images/fallingdown.jpg',
+        title: "Falling Down",
+        artist: "Wid Cards",
+        src: "./music/fallingdown.mp3",
+    },
+    {
+        img_src: './images/faded.png',
+        title: "Faded",
+        artist: "Alan Walker",
+        src: "./music/Faded.mp3",
+    },
+    {
+        img_src: './images/ratherbe.jpg',
+        title: "Rather Be",
+        artist: "Clean Bandit",
+        src: "./music/Rather Be.mp3",
+    },
+];
+
+const inputFormLogin = [
+    {
+        type: 'email',
+        name: 'email',
+        autocomplete: 'userName',
+        placeholder: "Почта",
+        valueInput: 'values.email',
+        password: false,
+        imgStart: emailImgSvg,
+        err: 'errors.email',
+        errText: 'errors.email',
+        changer: 'handleChange',
+    },
+    {
+        type: "password",
+        name: "password",
+        autocomplete: "current-password",
+        valueInput: 'values.password',
+        placeholder: "Пароль",
+        imgStart: passwordlImgSvg,
+        password: true,
+        err: 'errors.password',
+        errText: 'errors.password',
+        changer: 'handleChange',
+    }
+];
 
 const sliderDataArr = [
     {
         id: 1,
-        title: "Секс фанты!",
+        title: "Секс фанты",
         text: "Игра, которая позволит избавиться от ежедневного напряжения, убрать стеснение, получить наслаждение и при всём этом, не обидеть друг друга, а наоборот - зажечь. Здесь собрана нежность и пошлость, которая позволит разнообразить классическую модель секса. ",
         img: seksFantyJPG,
         img2: seksFantyMOBJPG,
@@ -26,7 +75,7 @@ const sliderDataArr = [
     },
     {
         id: 2,
-        title: "Черное и белое!",
+        title: "Черное и белое",
         text: "Игра, в которой Вы не увидите прелюдию, игра, в которой наслаждение переплетается с сладкой болью, здесь нет классики, здесь страсть, безумие, и вожделение. Предрассудки отсувствуют, мир похоти и разврата поглотит Вас.",
         img: chernoeIBeloeJPG,
         img2: chernoeIBeloeMOBJPG,
@@ -35,13 +84,67 @@ const sliderDataArr = [
     },
     {
         id: 3,
-        title: "Ролевые игры!",
+        title: "Ролевые игры",
         text: "Игра, которая заставит дрожать тело от скрытых желаний - здесь отсутствует слово СТОП! Грань между моралью и вседозволенностью  размыта, экспериментируй, выбирай, чувствуй, ведь роль в этой жизни у каждого своя. А какая подходит тебе?! Добро пожаловать в мир секса без предрассудков!",
         img: rolevyeJPG,
         img2: rolevyeMOBJPG,
         counter: "03.",
         pageUrl: "/rolevye-igru",
     },
+];
+
+const inputFormRegistration = [
+    {
+        type: "text",
+        name: "name",
+        autocomplete: "name",
+        valueInput: 'values.name',
+        placeholder: "Имя",
+        err: 'errors.name',
+        errText: 'errors.name',
+        imgStart: userImgSvg,
+        changer: 'handleChange',
+        password: false
+    },
+
+    {
+        type: "email",
+        name: "email",
+        autocomplete: "userName",
+        valueInput: "values.email",
+        placeholder: "Почта",
+        err: "errors.email",
+        errText: "errors.email",
+        imgStart: emailImgSvg,
+        changer: "handleChange",
+        password: false
+    },
+
+    {
+        type: "password",
+        name: "password",
+        autocomplete: "new-password",
+        valueInput: "values.password",
+        placeholder: "Пароль",
+        err: "errors.password",
+        errText: "errors.password",
+        imgStart: passwordlImgSvg,
+        changer: "handleChange",
+        password: "true",
+    },
+
+    {
+        type: "password",
+        name: "checkPassword",
+        autocomplete: "new-password",
+        valueInput: "values.checkPassword",
+        placeholder: "Повторите пароль",
+        err: "isCheckPassowrd",
+        errText: "Пароль не совпадает",
+        imgStart: checkImgSvg,
+        changer: "handleChange",
+        password: true,
+    }
 ];
 
 const linkFollowsArr = [
@@ -105,13 +208,21 @@ const dataPostArr = [
 const dataPostFeatureArr = [
     {
         id: 1,
-        title: "Классический секс",
-        text: " Интимные отношения многогранны. Впечатления от проникновения в самые сокровенные места женского тела могут создать внутреннюю связь, которую очень сложно разрушить. Во время эротической игры обычный половой акт может стать непредсказуемым спектаклем, который заставит пережить незабываемое волнение. Благодаря ресурсам игры можно получить дополнительную информацию о сексуальных позах, добавить в свой интимный контакт новые переживания, которые будут способствовать дальнейшему развитию близких отношений между партнерами. Следуя советам, которые будут появляться на экране, можно заставить себя и свою вторую половину пойти на неимоверные «подвиги» во время сексуального контакта.",
+        title: "Правила игры",
+        text: ` 1. Эта игра как для состоявшихся пар, так и для тех кто впервые окунается в яркий мир секса. Она внесет огонёк и страсть в вашу суксуальную жизнь и/или подскажет и покажет как должны вести себя партнеры во время секса. Это некий путеводитель в мир наслаждения и пошлости от разработчиков dip.baby
+        2. Начало игры подразумевает
+         - Вы соблюдаете правила гигиены - приняли душ, разделись до нижнего белья(что - бы было что снимать), девушки по желанию добавили красивые акссесуары на свое тело(чулки, корсет, подвязки и тд.)  и приготовились нажать на кнопку Играть 18 +
+    - Вместе выберите найстройки для игры.Именно от Ваших желаний будет зависеть ход игры
+    - Выберите продолжительность, кликнув на нужное количество заданий на каждом уровне.Раскройтесь для своей второй половинки, не стесняйтесь, растворитесь друг в друге. 
+        3. Суть игры: каждый поочерёдно открывает фант и выполняет задание`,
     },
     {
         id: 2,
-        title: "Анальный секс",
-        text: "Женская попка всегда является предметом вожделения со стороны противоположного пола. Два аккуратных полушария манят своей соблазнительной округлостью. Вряд ли найдется мужчина, который втайне не мечтал о том, чтобы вставить свой напряженный до предела половой орган в анальное отверстие своей соблазнительной подружки. Но не каждый может откровенно сказать о своих желаниях. Получив неожиданное задание, связанное с анальным сексом, девушка не будет готова сопротивляться. Она даже и покраснеть не успеет, когда в ее узкой попке окажется пульсирующий «гость», который проверит на эластичность эту пикантную часть женской фигуры.",
+        title: "Наказания",
+        text: `1. Эту настройку можно активирвать в меню игры. Она внесёт в процесс нотки неординарности и сумашествия. 
+        2. На оранжевом уровне  включается система наказаний котороая состоит из трёх этапов. С каждым отказом от задания наказания будут становиться более изысканными.
+        3. Лёгкая боль (а может быть и нет), крик, ошеломлённость, недоумение ждёт Вас в каждом отказе. 
+        4. После трёх отказов партнер получит полную власть над вашим телом, и игра закончится.`,
     },
     {
         id: 3,
@@ -120,24 +231,15 @@ const dataPostFeatureArr = [
     },
     {
         id: 4,
-        title: "Мастурбация",
-        text: "Стимуляция интимных зон вполне распространенное явление. Часто этим способом удовлетворяют себя одинокие люди. Однако этот процесс может принести новые впечатления партнерам. Не каждый человек сможет заняться самоудовлетворением на глазах у своей второй половины. Внутренняя скромность, стеснения, мысли о том, что происходит что-то неприличное, мешают реализации подобных идей. Игра поможет реализовать свои фантазии, не испытывая дискомфорта. Девушка сможет полностью открыться перед своим любимым. А мужчина продемонстрирует, как сложно было сохранять выдержку во время разлуки со второй половинкой.",
+        title: "Узнай друг друга",
+        text: `1. Игра разработана таким образом, что после её окончания Вы откроете в своем партнере то, о чём может быть не догадывались.
+        2. Задания, которые сближают не только на физическом уровне, но и ментально.
+        3. Пробуйте, эксперементируйте с настройками. Каждая игра не предсказуема, индивидуальна.`,
     },
     {
         id: 5,
-        title: "Парень доминирует",
-        text: " Мужчина по своим природным качествам обязан быть лидером. Это на подсознательном уровне чувствует его вторая половина. Но иногда ей необходима дополнительная демонстрация главенствующего положения представителя сильного пола. В категории игры, где доминирует парень, девчонка имеет все шансы почувствовать себя безвольной вещью в руках искушенного господина. Активизируя внутреннюю покорность в ненавязчивой форме, можно сделать эротические переживания настолько острыми, что оргазм будет накрывать участников ролевого эксперимента волна за волной. В точности следуя рекомендациям игры можно испытать все прелести манящей культуры, которая давно стала популярной в разных кругах мирового общества.",
-    },
-    {
-        id: 6,
-        title: "Девушка доминирует",
-        text: "Многим девицам хочется почувствовать себя хозяйкой положения. Мужчины слишком часто перебирают на себя всю власть в эротических отношениях. О пристрастиях второй половинки забывают, ее фантазии игнорируются. Для того, чтобы получить от жизни все, девушки нередко выбирают доминирующую роль в сексуальных отношениях. Это очень возбуждает партнеров, которые привыкли к тому, что все решения приходится принимать единолично. Такая смена ролей может подарить не только оргазм всем участникам пикантной игры, но заставить пересмотреть свое поведение в повседневной жизни.",
-    },
-
-    {
-        id: 7,
-        title: "Секс игрушки",
-        text: "    Не каждый отваживается на использование специальных устройств во время полового контакта. Однако эти вещицы способны превратить сексуальные отношения в феерическое действо, которое подарит массу новых эмоций. Для того, чтобы преступить к использованию предметов эротического характера, можно воспользоваться соответствующей категорией. Недостаток опыта поведения с подобными предметами может быть компенсирован мудрыми советами, которые в нужный момент могут появиться на экране. Отношения будут гармоничными, а новая страница в интимной биографии порадует оглушительным оргазмом.",
+        title: "Алгоритм",
+        text: `ИИ разработан таким образом, что чувствует Ваши желания, каждая дополнительная настройка активирована в меню игры добавит ей разнообразия. Активировав все настройки игра становится максимально разносторонней. Но помните! выбирайте те настройки, которые приняты в Вашей паре.`,
     },
 ];
 
@@ -172,32 +274,6 @@ const dataCardGameArr = [
     },
 ];
 
-const music_list = [
-    {
-        img: musicImgStay,
-        name: "Stay",
-        artist: "The Kid LAROI, Justin Bieber",
-        music: musicStay,
-    },
-    {
-        img: musicImgFaling,
-        name: "Falling Down",
-        artist: "Wid Cards",
-        music: musicFalling,
-    },
-    {
-        img: musicImgFaded,
-        name: "Faded",
-        artist: "Alan Walker",
-        music: musicFaded,
-    },
-    {
-        img: musicImgRatherbe,
-        name: "Rather Be",
-        artist: "Clean Bandit",
-        music: musicRather,
-    },
-];
 
 const blogPostsArr = [
     {
@@ -292,11 +368,6 @@ const blogsCategoriesListArr = [
     },
 ];
 
-const miniPlayer = {
-    title: "Limp Bizkit",
-    imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
-};
-
 const article = {
     imgUrl: "https://images.genius.com/2216a21a5494b153cb4c24005370d031.700x700x1.jpg",
     title: "Лучшие VR-игры на рынке",
@@ -305,7 +376,7 @@ const article = {
 };
 
 const optionsBasic = [
-    { title: "По умолчанию", checked: true, settings_id: 1 },
+    { title: "Выключить все", checked: true, settings_id: 1 },
     { title: "Своя настройка", checked: false, settings_id: 2 },
     { title: "Включить всё", checked: false, settings_id: 3 },
 ];
@@ -313,7 +384,6 @@ const optionsBasic = [
 export {
     optionsBasic,
     article,
-    miniPlayer,
     blogsCategoriesListArr,
     blogPostsArr,
     sliderDataArr,
@@ -323,4 +393,6 @@ export {
     dataCardGameArr,
     music_list,
     blogTrendsArr,
+    inputFormLogin,
+    inputFormRegistration
 };

@@ -5,11 +5,7 @@ const MusicPage = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 
-    return (
-        <>
-            <MusicPlayer />
-        </>
-    );
+    return <MusicPlayer />;
 };
 
 export default MusicPage;

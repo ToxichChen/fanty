@@ -4,6 +4,7 @@ import useChangeTitlePage from "./../../hooks/useChangeTitlePage";
 const SupportView = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
+
     return <Support />;
 };
 

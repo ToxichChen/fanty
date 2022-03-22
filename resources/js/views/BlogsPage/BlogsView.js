@@ -5,11 +5,7 @@ const BlogsView = ({ title }) => {
     const { ChangeTitle } = useChangeTitlePage();
     ChangeTitle(title);
 
-    return (
-        <>
-            <Blogs />
-        </>
-    );
+    return <Blogs />;
 };
 
 export default BlogsView;
