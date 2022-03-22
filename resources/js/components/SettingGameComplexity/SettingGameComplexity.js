@@ -454,7 +454,7 @@ const SettingGameComplexity = () => {
                             </BtnSettings>
                         </StylBoxFlexStartColumn>
                         <StylStartBtn onClick={checkRanges}>
-                            Играть
+                            Играть 18+
                         </StylStartBtn>
                     </StylBoxFooterSettings>
                 </StylBoxFeaturesGame>
