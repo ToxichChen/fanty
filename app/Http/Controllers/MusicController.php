@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Music;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\ValidationException;
 
 class MusicController extends Controller
 {
@@ -28,14 +28,19 @@ class MusicController extends Controller
             'title' => 'required|max:255',
             'media' => 'required|mimes:mp3|max:8194'
         ]);
-        $path = '';
 
+        if (Music::where('media', '=', $request->file('media')->getClientOriginalName())->first()) {
+            throw ValidationException::withMessages(['media' => 'Трек с таким названием файла уже существует']);
+        }
+        if (!file_exists(Config::get('constants.music_path'))) {
+            mkdir(Config::get('constants.music_path'));
+        }
         if ($request->file('media') !== null && $request->file()) {
-            $path = $request->file('media')->store('public/music');
+            file_put_contents(Config::get('constants.music_path') . $request->file('media')->getClientOriginalName() , $request->file('media'));
         }
         $music = new Music();
         $music->title = $validated['title'];
-        $music->path = $path;
+        $music->media = $request->file('media')->getClientOriginalName();
         $music->save();
         return redirect('/admin/music');
     }
@@ -62,7 +67,7 @@ class MusicController extends Controller
     public function delete($id)
     {
         $music = Music::find($id);
-        $path = Storage::disk('local')->path($music->path);
+        $path = Config::get('constants.music_path') . $music->media;
         if (file_exists($path)) {
             unlink($path);
         }
@@ -73,14 +78,6 @@ class MusicController extends Controller
     public function getMusicList()
     {
         $musicArray = Music::all()->toArray();
-        if (!$musicArray !== []) {
-            for ($i = 0;  $i < count($musicArray); $i++) {
-                if (trim($musicArray[0]["path"]) !== '') {
-                    $musicArray[0]["path"] = str_replace("public/", "storage/", $musicArray[0]["path"]);
-                    $musicArray[0]["path"] = asset($musicArray[0]["path"]);
-                }
-            }
-        }
 
         return $musicArray;
     }

@@ -55,5 +55,7 @@ return [
     'final_punishment_id' => 26,
     'finish_ids' => [
         26, 27, 28, 29, 30, 31, 32
-    ]
+    ],
+
+    'music_path' => '../public_html/music/'
 ];
