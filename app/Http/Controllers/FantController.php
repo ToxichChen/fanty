@@ -68,7 +68,7 @@ class FantController extends Controller
             $fant->is_timer_active = 1;
             $fant->timer = $validated['timer'];
         }
-        $fant->media = $path ;
+        $fant->media = $path;
         $fant->save();
         return redirect('/admin/fant');
     }
@@ -87,13 +87,36 @@ class FantController extends Controller
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255',
+            'content' => 'required',
             'setting' => 'required',
+            'subsetting' => 'required',
+            'fantGroup' => 'required',
+            'sex_type' => 'required|numeric|min:0|max:2',
+            'sex' => 'required|numeric|min:0|max:2',
+            'is_timer_active' => '',
+            'timer' => 'numeric',
+            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
         ]);
-        $subsetting = Subsetting::find($id);
-        $subsetting->title = $validated['title'];
-        $subsetting->setting_id = $validated['setting'];
-        $subsetting->save();
+        $path = '';
+
+        if ($request->file('media') !== null && $request->file()) {
+            $path = $request->file('media')->store('public');
+        }
+
+        $fant = Fant::find($id);
+        $fant->content = $validated['content'];
+        $fant->game_setting_id = $validated['setting'];
+        $fant->fant_group_id = $validated['fantGroup'];
+        $fant->subsetting_id = $validated['subsetting'];
+        $fant->sex_type = $validated['sex_type'];
+        $fant->sex = $validated['sex'];
+        if (isset($validated['is_timer_active']) && $validated['is_timer_active'] === 'on'
+            && isset($validated['timer']) && $validated['timer'] !== 0) {
+            $fant->is_timer_active = 1;
+            $fant->timer = $validated['timer'];
+        }
+        $fant->media = $path;
+        $fant->save();
         return redirect('/admin/fant');
     }
 

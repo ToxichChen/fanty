@@ -32,7 +32,12 @@
             <small id="emailHelp" class="form-text text-muted">Выберите из списка подходящую настройку.</small>
             <label for="exampleFormControlSelect1">Поднастройка</label>
             <select class="form-control" id="exampleFormControlSelect1" name="subsetting">
-                @foreach ($subsettings as $subsetting)
+                @if ($fant->subsetting_id === 0)
+                    <option value="0" selected> Общее</option>
+                @else
+                    <option value="0"> Общее</option>
+                @endif
+            @foreach ($subsettings as $subsetting)
                         @if ($subsetting->id === $fant->subsetting_id)
                             <option value="{{$subsetting->id}}" selected >{{$subsetting->title}}</option>
                         @else
@@ -101,7 +106,7 @@
             <input type="file" name="media" class="form-control-file" id="exampleFormControlFile1">
         </div>
 
-        <button type="submit" class="btn btn-primary">Создать</button>
+        <button type="submit" class="btn btn-primary">Изменить</button>
     </form>
 
 @endsection

@@ -25,7 +25,7 @@
                         <td>{{ $fant->id }}</td>
                         <td>{{ $fant->content }}</td>
                         <td>{{ $fant->setting_name }}</td>
-                        <td>{{ $fant->subsetting_name }}</td>
+                        <td>{{ ($fant->subsetting_id === 0 ? 'Общее' : $fant->subsetting_name) }}</td>
                         <td>{{ $fant->fant_group_name }}</td>
                         <td>{{ ($fant->sex === 1 ? 'М' : ($fant->sex === 2 ? 'Ж' : '')) }}</td>
                         <td>{{ ($fant->sex_type === 1 ? 'Нежный' : ($fant->sex_type === 2 ? 'Жесткий' : '')) }}</td>

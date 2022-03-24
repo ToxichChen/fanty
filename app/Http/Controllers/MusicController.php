@@ -75,9 +75,13 @@ class MusicController extends Controller
         $musicArray = Music::all()->toArray();
         if (!$musicArray !== []) {
             for ($i = 0;  $i < count($musicArray); $i++) {
-                $musicArray[$i]['path'] = Storage::disk('local')->path($musicArray[$i]['path']);
+                if (trim($musicArray[0]["path"]) !== '') {
+                    $musicArray[0]["path"] = str_replace("public/", "storage/", $musicArray[0]["path"]);
+                    $musicArray[0]["path"] = asset($musicArray[0]["path"]);
+                }
             }
         }
+
         return $musicArray;
     }
 }
