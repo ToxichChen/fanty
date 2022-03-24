@@ -20,7 +20,9 @@ const getMusic = (credentials) => async (dispatch) => {
         const { data } = await axios.get("/music/getMusicList", credentials);
 
         token.set(data.access_token);
-        dispatch(musicSuccess(data));
+        if (data.length !== 0) {
+            dispatch(musicSuccess(data))
+        }
     } catch (error) {
         dispatch(musicError(error.message));
         dispatch(
