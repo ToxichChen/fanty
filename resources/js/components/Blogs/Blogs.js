@@ -10,7 +10,6 @@ import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMe
 import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
 import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
-import Categories from "./Categories/Categories";
 import Trend from "./BlogsTrends/Trend";
 import PaginatedItems from "./PaginatedItems/PaginatedItems";
 
@@ -38,7 +37,6 @@ const Blogs = () => {
                                         <Trend item={item} key={index} />
                                     ))}
                             </StylBoxTrending>
-                            <Categories />
                         </StylBoxOtherContent>
                     </StylBoxCenter>
                 </StylBoxWrapper>

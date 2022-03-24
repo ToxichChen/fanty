@@ -42,74 +42,144 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
             )}
             {item.has_sex_difference ? (
                 <StylWrapperAllSettings isColumn={true}>
-                    <StylWrapperAllSettings>
-                        <StylWrapperCenterContent>
-                            <StylImgModal src={iconManSVG} alt="man" />
-                            <StylTextModal>Мужчина</StylTextModal>
-                        </StylWrapperCenterContent>
-                        <StylWrapperCenterContent>
-                            <StylImgModal src={iconGirlSVG} alt="girl" />
-                            <StylTextModal>Женщина</StylTextModal>
-                        </StylWrapperCenterContent>
-                    </StylWrapperAllSettings>
+                    {window.screen.width <= 768 ? (
+                        <StylWrapperAllSettings isColumn={true}>
+                            <StylWrapperAllSettings>
+                                <StylWrapperCenterContent>
+                                    <StylImgModal src={iconManSVG} alt="man" />
+                                    <StylTextModal>Мужчина</StylTextModal>
+                                </StylWrapperCenterContent>
+                                <StylOptionsAddedWrapper>
+                                    {item.is_radio ? (
+                                        <RadioBox
+                                            item={item}
+                                            optionsBasic={item.subsettings}
+                                            subsettings={
+                                                item.is_premium === 1 && vip === 0
+                                            }
+                                        />
+                                    ) : (
+                                        item.subsettings.map((elem, index) => {
+                                            if (elem.sex === 1) {
+                                                return (
+                                                    <Checkbox
+                                                        key={index}
+                                                        elem={elem}
+                                                        premium={
+                                                            item.is_premium === 1 &&
+                                                            vip === 0
+                                                        }
+                                                    />
+                                                );
+                                            }
+                                            return false;
+                                        })
+                                    )}
+                                </StylOptionsAddedWrapper>
+                            </StylWrapperAllSettings>
+                            <StylWrapperCenterContent>
+                                <StylImgModal src={iconGirlSVG} alt="girl" />
+                                <StylTextModal>Женщина</StylTextModal>
+                            </StylWrapperCenterContent>
+                            <StylOptionsAddedWrapper>
+                                {item.is_radio ? (
+                                    <RadioBox
+                                        item={item}
+                                        optionsBasic={item.subsettings}
+                                        subsettings={
+                                            item.is_premium === 1 && vip === 0
+                                        }
+                                    />
+                                ) : (
+                                    item.subsettings.map((elem, index) => {
+                                        if (elem.sex === 2) {
+                                            return (
+                                                <Checkbox
+                                                    key={index}
+                                                    elem={elem}
+                                                    premium={
+                                                        item.is_premium === 1 &&
+                                                        vip === 0
+                                                    }
+                                                />
+                                            );
+                                        }
+                                        return false;
+                                    })
+                                )}
+                            </StylOptionsAddedWrapper>
 
-                    <StylWrapperAllSettings>
-                        <StylOptionsAddedWrapper>
-                            {item.is_radio ? (
-                                <RadioBox
-                                    item={item}
-                                    optionsBasic={item.subsettings}
-                                    subsettings={
-                                        item.is_premium === 1 && vip === 0
-                                    }
-                                />
-                            ) : (
-                                item.subsettings.map((elem, index) => {
-                                    if (elem.sex === 1) {
-                                        return (
-                                            <Checkbox
-                                                key={index}
-                                                elem={elem}
-                                                premium={
-                                                    item.is_premium === 1 &&
-                                                    vip === 0
-                                                }
-                                            />
-                                        );
-                                    }
-                                    return false;
-                                })
-                            )}
-                        </StylOptionsAddedWrapper>
+                        </StylWrapperAllSettings>
+                    ) : (<StylWrapperAllSettings isColumn={true}>
+                        <StylWrapperAllSettings>
+                            <StylWrapperCenterContent>
+                                <StylImgModal src={iconManSVG} alt="man" />
+                                <StylTextModal>Мужчина</StylTextModal>
+                            </StylWrapperCenterContent>
+                            <StylWrapperCenterContent>
+                                <StylImgModal src={iconGirlSVG} alt="girl" />
+                                <StylTextModal>Женщина</StylTextModal>
+                            </StylWrapperCenterContent>
+                        </StylWrapperAllSettings>
 
-                        <StylOptionsAddedWrapper>
-                            {item.is_radio ? (
-                                <RadioBox
-                                    item={item}
-                                    optionsBasic={item.subsettings}
-                                    subsettings={
-                                        item.is_premium === 1 && vip === 0
-                                    }
-                                />
-                            ) : (
-                                item.subsettings.map((elem, index) => {
-                                    if (elem.sex === 2) {
-                                        return (
-                                            <Checkbox
-                                                key={index}
-                                                elem={elem}
-                                                premium={
-                                                    item.is_premium === 1 &&
-                                                    vip === 0
-                                                }
-                                            />
-                                        );
-                                    }
-                                    return false;
-                                })
-                            )}
-                        </StylOptionsAddedWrapper>
-                    </StylWrapperAllSettings>
+                        <StylWrapperAllSettings>
+                            <StylOptionsAddedWrapper>
+                                {item.is_radio ? (
+                                    <RadioBox
+                                        item={item}
+                                        optionsBasic={item.subsettings}
+                                        subsettings={
+                                            item.is_premium === 1 && vip === 0
+                                        }
+                                    />
+                                ) : (
+                                    item.subsettings.map((elem, index) => {
+                                        if (elem.sex === 1) {
+                                            return (
+                                                <Checkbox
+                                                    key={index}
+                                                    elem={elem}
+                                                    premium={
+                                                        item.is_premium === 1 &&
+                                                        vip === 0
+                                                    }
+                                                />
+                                            );
+                                        }
+                                        return false;
+                                    })
+                                )}
+                            </StylOptionsAddedWrapper>
+
+                            <StylOptionsAddedWrapper>
+                                {item.is_radio ? (
+                                    <RadioBox
+                                        item={item}
+                                        optionsBasic={item.subsettings}
+                                        subsettings={
+                                            item.is_premium === 1 && vip === 0
+                                        }
+                                    />
+                                ) : (
+                                    item.subsettings.map((elem, index) => {
+                                        if (elem.sex === 2) {
+                                            return (
+                                                <Checkbox
+                                                    key={index}
+                                                    elem={elem}
+                                                    premium={
+                                                        item.is_premium === 1 &&
+                                                        vip === 0
+                                                    }
+                                                />
+                                            );
+                                        }
+                                        return false;
+                                    })
+                                )}
+                            </StylOptionsAddedWrapper>
+                        </StylWrapperAllSettings>
+                    </StylWrapperAllSettings>)}
                 </StylWrapperAllSettings>
             ) : (
                 <StylWrapperAllSettings>

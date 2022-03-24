@@ -474,8 +474,8 @@ const StylVipStatusModal = styled.div`
 
 const StylOptionsAddedWrapper = styled.div`
     display: flex;
+    width: 100%;
     flex-direction: column;
-    width: ${(props) => (props.isFullWidth ? "100%" : "49%")};
     padding: 25px;
     margin-bottom: 10px;
     border-radius: 20px;
@@ -483,6 +483,7 @@ const StylOptionsAddedWrapper = styled.div`
     z-index: 10;
 
     @media (min-width: 768px) {
+        width: ${(props) => (props.isFullWidth ? "100%" : "49%")};
         padding: ${(props) =>
         props.isPadding ? "65px 55px 50px 45px" : "15px"};
     }
@@ -511,6 +512,13 @@ const StylWrapperCenterContent = styled(StylOptionsAddedWrapper)`
     align-items: center;
     margin: 0;
     margin-top: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+
+    @media(min-width: 768px){
+        width: 49%;
+        margin-bottom: 0;
+    }
 `;
 
 export {

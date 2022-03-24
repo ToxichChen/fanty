@@ -16,7 +16,8 @@ const FeatureCard = ({ title, text }) => {
     return (
         <StylCardFeatureBox data-aos="fade-right">
             <StylTitleFeature>{title}</StylTitleFeature>
-            <StylTextFeature>{text}</StylTextFeature>
+            {text.map((item, index) => (
+                <StylTextFeature key={index}>{item}</StylTextFeature>))}
         </StylCardFeatureBox>
     );
 };

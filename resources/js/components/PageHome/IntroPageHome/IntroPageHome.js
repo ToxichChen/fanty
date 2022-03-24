@@ -10,9 +10,7 @@ const IntroPageHome = () => {
                 {dataPostArr.map((item) => (
                     <CardIntroPageHome
                         key={item.id}
-                        svg={item.svg}
-                        title={item.title}
-                        text={item.text}
+                        item={item}
                     />
                 ))}
             </StylBoxCenterIntroPageHome>

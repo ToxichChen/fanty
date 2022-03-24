@@ -8,16 +8,16 @@ import {
     StylIconIntorCard,
 } from "./CardIntroPageHome.styled";
 
-const CardIntroPageHome = ({ svg, title, text }) => {
+const CardIntroPageHome = ({ item }) => {
     useEffect(() => {
         Aos.init({ duration: 1000 });
     }, []);
 
     return (
         <StylBoxCardIntroPageHome data-aos="fade-right">
-            <StylIconIntorCard className={svg} />
-            <StylTitleIntroCard>{title}</StylTitleIntroCard>
-            <StylTextIntroCard>{text}</StylTextIntroCard>
+            <StylIconIntorCard className={item.svg} />
+            <StylTitleIntroCard>{item.title}</StylTitleIntroCard>
+            <StylTextIntroCard>{item.text}</StylTextIntroCard>
         </StylBoxCardIntroPageHome>
     );
 };

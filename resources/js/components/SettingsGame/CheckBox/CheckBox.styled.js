@@ -59,6 +59,7 @@ const StylLabel = styled.label`
     display: flex;
     flex-direction: row;
     margin-bottom: 20px;
+    width: 100%;
 
     &:last-child {
         margin-bottom: 0;
@@ -112,13 +113,16 @@ const StylBoxAddInfoTask = styled.button`
     ${(props) =>
         props.isTask &&
         css`
-            right: 45px;
-            top: 45px;
+            right: 25px;
+            top: 17px;
             max-width: 180px;
 
             ${StylBoxInfo} {
                 top: calc(100% + 10px);
+                max-width: 150px;
+                left: -120px;
                 bottom: auto;
+                background-color: ${props => props.theme.palette.backgroundBtn.main};
             }
         `}
 

@@ -8,7 +8,7 @@ import {
 
 const AddMenuNav = ({ typeMenu, visibleContent, handleContent }) => {
     return (
-        <BoxAddMenu typeMenu={typeMenu} isShow={visibleContent}>
+        <BoxAddMenu typeMenu={typeMenu} isShow={visibleContent} onMouseLeave={handleContent}>
             <StylItemAddMenu>
                 <StylLinkAddMenu
                     onClick={handleContent}

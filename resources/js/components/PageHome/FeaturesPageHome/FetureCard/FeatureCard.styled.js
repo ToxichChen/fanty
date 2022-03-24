@@ -15,9 +15,6 @@ const StylCardFeatureBox = styled.article`
     width: 48%;
   }
 
-  &:last-child {
-    flex-grow: 100;
-  }
 `;
 
 const StylTitleFeature = styled.h2`

@@ -417,6 +417,12 @@ const StylArrowBackToHome = styled(NavLink)`
     }
 `;
 
+const StylBoxLeftAngle = styled.div`
+    position: absolute;
+    top: 20px;
+    left: 20px;
+`;
+
 export {
     StylBoxReview,
     BtnReview,
@@ -435,4 +441,5 @@ export {
     CountTask,
     StylSubTitleTask,
     StylArrowBackToHome,
+    StylBoxLeftAngle
 };

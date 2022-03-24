@@ -3,13 +3,16 @@ import {
     StylBoxReview,
     BtnReview,
     CountTask,
-    StylArrowBackToHome,
+    StylBoxLeftAngle,
+    StylArrowBackToHome
 } from "./TaskGamePage.styled";
 import useActionFanty from "../../hooks/redux/useActionFanty";
 import {
     StylBoxAddInfoTask,
     StylBoxInfo,
 } from "../SettingsGame/CheckBox/CheckBox.styled";
+import { routes } from "../../Router";
+import { BtnSettings } from "../SettingGameComplexity/SettingGameComplexity.styled";
 
 const TaskGameReview = ({ id }) => {
     const {
@@ -53,9 +56,9 @@ const TaskGameReview = ({ id }) => {
             <StylBoxAddInfoTask
                 isTask={true}
                 type="button"
-                onClick={() => setHiddenInfo(!isHiddenInfo)}
-                onFocus={() => setHiddenInfo(true)}
-                onBlur={() => setHiddenInfo(false)}
+                onClick={() => setHiddenInfo(true)}
+                onMouseEnter={() => setHiddenInfo(!isHiddenInfo)}
+                onMouseLeave={() => setHiddenInfo(!isHiddenInfo)}
             >
                 <i className="fas fa-question"></i>
                 <StylBoxInfo isHidden={isHiddenInfo}>
@@ -63,9 +66,15 @@ const TaskGameReview = ({ id }) => {
                     получить последнее наказание и на этом игра закончится!
                 </StylBoxInfo>
             </StylBoxAddInfoTask>
-            <StylArrowBackToHome to="/">
-                <i className="fa fa-door-open" />
-            </StylArrowBackToHome>
+            {window.screen.width >= 768 ? (
+                <StylBoxLeftAngle>
+                    <BtnSettings to={routes.seksFanty.settings}>
+                        <i className="fas fa-cog"></i> Настройки
+                    </BtnSettings>
+                </StylBoxLeftAngle>) : (
+                <StylArrowBackToHome to={routes.seksFanty.settings}>
+                    <i className="fa fa-door-open" />
+                </StylArrowBackToHome>)}
         </StylBoxReview>
     );
 };

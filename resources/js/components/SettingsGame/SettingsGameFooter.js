@@ -41,7 +41,7 @@ const SettingsGameFooter = ({ man, female }) => {
             </StylBoxFlexStartColumn>
             <StylBtnFooterSettingsComplexity onClick={sendDataSettingsGame}>
                 <i className="fas fa-align-left"></i>
-                Количество заданий
+                Далее
             </StylBtnFooterSettingsComplexity>
         </StylBoxFooterSettings>
     );

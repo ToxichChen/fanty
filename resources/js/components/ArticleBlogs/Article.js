@@ -14,7 +14,6 @@ import {
     StylBoxTrending,
     StylTrendTitle,
 } from "../Blogs/Blogs.styled";
-import Categories from "../Blogs/Categories/Categories";
 import Trend from "../Blogs/BlogsTrends/Trend";
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
 import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
@@ -54,7 +53,6 @@ const Article = () => {
                                         <Trend item={item} key={index} />
                                     ))}
                             </StylBoxTrending>
-                            <Categories />
                         </StylBoxOtherContent>
                     </StylBoxCenter>
                 </BoxArticle>
