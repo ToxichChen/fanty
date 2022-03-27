@@ -11,6 +11,7 @@ use App\Models\Subsetting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\View;
 
 class FantController extends Controller
@@ -99,11 +100,15 @@ class FantController extends Controller
         ]);
         $path = '';
 
+        $fant = Fant::find($id);
         if ($request->file('media') !== null && $request->file()) {
+            $path = Storage::disk('local')->path($fant->media);
+            if (file_exists($path)) {
+                unlink($path);
+            }
             $path = $request->file('media')->store('public');
         }
 
-        $fant = Fant::find($id);
         $fant->content = $validated['content'];
         $fant->game_setting_id = $validated['setting'];
         $fant->fant_group_id = $validated['fantGroup'];
@@ -115,13 +120,20 @@ class FantController extends Controller
             $fant->is_timer_active = 1;
             $fant->timer = $validated['timer'];
         }
-        $fant->media = $path;
+        if ($request->file('media') !== null && $request->file()) {
+            $fant->media = $path;
+        }
         $fant->save();
         return redirect('/admin/fant');
     }
 
     public function delete($id)
     {
+        $fant = Fant::find($id);
+        $path = Storage::disk('local')->path($fant->media);
+        if (file_exists($path)) {
+            unlink($path);
+        }
         $fant = Fant::where('id', $id)->delete();
 
         return redirect('/admin/fant');

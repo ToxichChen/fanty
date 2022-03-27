@@ -76,8 +76,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
-                                    class="fa fa-wrench text-light fa-lg mr-3" aria-hidden="true"></i> Settings
+                            <a href="/admin/post" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-wrench text-light fa-lg mr-3" aria-hidden="true"></i> Посты для блога
                             </a>
                         </li>
                         <li class="nav-item">

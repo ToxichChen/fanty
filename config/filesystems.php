@@ -42,6 +42,11 @@ return [
             'visibility' => 'public',
         ],
 
+        'music_uploads' => [
+            'driver' => 'local',
+            'root'   => "/var/www/html/public_html/music",
+        ],
+
         's3' => [
             'driver' => 's3',
             'key' => env('AWS_ACCESS_KEY_ID'),
@@ -69,5 +74,4 @@ return [
     'links' => [
         public_path('storage') => storage_path('app/public_html'),
     ],
-
 ];

@@ -8,6 +8,7 @@ use App\Http\Controllers\FantGroupController;
 use App\Http\Controllers\SubsettingController;
 use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -70,6 +71,14 @@ Route::prefix('admin')->group(function () {
             Route::get('/edit/{id}', [MusicController::class, 'edit'])->name('admin.music.edit');
             Route::post('/update/{id}', [MusicController::class, 'update'])->name('admin.music.update');
             Route::get('/delete/{id}', [MusicController::class, 'delete'])->name('admin.music.delete');
+        });
+        Route::prefix('post')->group(function () {
+            Route::get('/', [PostController::class, 'index'])->name('admin.post.index');
+            Route::get('/create', [PostController::class, 'createPage'])->name('admin.post.createPage');
+            Route::post('/createNew', [PostController::class, 'create'])->name('admin.post.create');
+            Route::get('/edit/{id}', [PostController::class, 'edit'])->name('admin.post.edit');
+            Route::post('/update/{id}', [PostController::class, 'update'])->name('admin.post.update');
+            Route::get('/delete/{id}', [PostController::class, 'delete'])->name('admin.post.delete');
         });
     });
     Route::get('/login', [AdminController::class, 'adminLogin'])->name('admin.login');

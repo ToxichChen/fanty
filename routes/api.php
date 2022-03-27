@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\GameSettingController;
 use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,4 +61,11 @@ Route::get('/fant/getFinishFant', [FantController::class, 'getFinishFant']);
 
 Route::get('/user/checkIfLoggedIn', [UserController::class, 'checkIfLoggedIn']);
 
+// Music API
 Route::get('/music/getMusicList', [MusicController::class, 'getMusicList']);
+
+// Posts APIs
+Route::get('/post/getAllPosts', [PostController::class, 'getAllPosts']);
+
+Route::get('/post/getPostById/{id}', [PostController::class, 'getPostById']);
+

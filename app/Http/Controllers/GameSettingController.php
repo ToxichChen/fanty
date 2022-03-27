@@ -37,16 +37,6 @@ class GameSettingController extends Controller
         return redirect('/admin/gameSetting');
     }
 
-//    public function show($id)
-//    {
-//        // get the shark
-//        $shark = shark::find($id);
-//
-//        // show the view and pass the shark to it
-//        return View::make('sharks.show')
-//            ->with('shark', $shark);
-//    }
-
     public function edit($id)
     {
         $gameSettings = GameSetting::find($id);

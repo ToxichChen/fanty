@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Storage;
 
 class MusicController extends Controller
 {
@@ -36,7 +37,9 @@ class MusicController extends Controller
             mkdir(Config::get('constants.music_path'));
         }
         if ($request->file('media') !== null && $request->file()) {
-            file_put_contents(Config::get('constants.music_path') . $request->file('media')->getClientOriginalName() , $request->file('media'));
+            Storage::disk('music_uploads')->putFileAs('.', $request->file('media'), $request->file('media')->getClientOriginalName());
+
+            //file_put_contents(Config::get('constants.music_path') . $request->file('media')->getClientOriginalName() , $request->file('media'));
         }
         $music = new Music();
         $music->title = $validated['title'];
