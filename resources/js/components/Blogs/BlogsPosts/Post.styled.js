@@ -13,6 +13,8 @@ const Article = styled.article`
 const StylWrapperImg = styled.div`
   position: relative;
   width: 100%;
+  min-width: 200px;
+  max-width: 800px;
   max-height: 350px;
   background-color: ${props => props.theme.palette.backgroundColor.middle};
   position: relative;

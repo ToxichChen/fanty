@@ -25,9 +25,9 @@ const MiniPlayer = () => {
 
     const playPlayer = useCallback(() => {
         audioEl.current.load();
-        fetch(musicList[showMiniPlayer.trackIndex].path)
+        fetch('./music/' + musicList[showMiniPlayer.trackIndex].media)
             .then(() => {
-                audioEl.current.src = musicList[showMiniPlayer.trackIndex].path;
+                audioEl.current.src = './music/' + musicList[showMiniPlayer.trackIndex].media;
             }).then(() => {
                 audioEl.current.autoplay = true;
             })
@@ -37,13 +37,18 @@ const MiniPlayer = () => {
             })
     }, [audioEl, showMiniPlayer])
 
+
+    useEffect(() => {
+        audioEl.current.currentTime = showMiniPlayer.currentTime;
+        showMiniPlayer.play && playPlayer();
+    }, [showMiniPlayer.play])
+
     useEffect(() => {
 
         if (showMiniPlayer.play) {
             playPlayer();
         } else {
             audioEl.current.pause()
-            timeMusic(audioEl.current.currentTime)
         }
 
         audioEl.current.addEventListener('ended', SkipSong)
@@ -53,7 +58,6 @@ const MiniPlayer = () => {
     useEffect(() => {
         if (location.pathname === routes.musicFromSex) {
             hiddenPlayer();
-            timeMusic(audioEl.current.currentTime)
         } else {
             showPlayer();
         }
@@ -64,8 +68,10 @@ const MiniPlayer = () => {
 
         if (showMiniPlayer.play) {
             interval = setInterval(() => {
-                changeDuration(isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration);
-                timeMusic(isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime);
+                timeMusic(
+                    (isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime),
+                    (isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration)
+                );
             }, 1000);
         }
 
@@ -88,7 +94,7 @@ const MiniPlayer = () => {
                 <i className="fas fa-chevron-left" />
             </StylArrow>
 
-            <audio src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].path : ''} ref={audioEl}></audio>
+            <audio src={musicList.length !== 0 ? './music/' + musicList[showMiniPlayer.trackIndex].media : ''} ref={audioEl} autoPlay={showMiniPlayer.play}></audio>
             <StylBoxPlayer>
                 <StylImgPlayer src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].img_src : './images/stay.png'} alt="img music" isPlay={showMiniPlayer.play} />
                 <StylWrapperOther>

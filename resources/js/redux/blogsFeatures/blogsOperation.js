@@ -3,17 +3,11 @@ import {
     blogsRequest,
     blogsSuccess,
     blogsError,
-    blogsTrendRequest,
-    blogsTrendSuccess,
-    blogsTrendError,
-    blogsCategoriesRequest,
-    blogsCategoriesSuccess,
-    blogsCategoriesError,
     blogsCurrentBlogRequest,
     blogsCurrentBlogSuccess,
     blogsCurrentBlogError,
 } from "./blogsAction";
-import {alert} from './../alertFeatures/AlertActions'
+import { alert } from './../alertFeatures/AlertActions'
 
 axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
@@ -26,84 +20,47 @@ const token = {
     },
 };
 
-const getAllBlogs = (credentials) => async (dispatch) => {
+const getAllBlogs = (setState) => async (dispatch) => {
     dispatch(blogsRequest());
 
     try {
-        const { data } = await axios.post("", credentials);
+        const { data } = await axios.get("/post/getAllPosts");
         token.set(data.access_token);
 
-        dispatch(blogsSuccess(data));
+        dispatch(blogsSuccess());
+        setState(data)
     } catch (error) {
         dispatch(blogsError(error.message));
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
     }
 };
 
-const getTrendsBlogs = (credentials) => async (dispatch) => {
-    dispatch(blogsTrendRequest());
 
-    try {
-        const { data } = await axios.post("", credentials);
-        token.set(data.access_token);
-
-        dispatch(blogsTrendSuccess(data));
-    } catch (error) {
-        dispatch(blogsTrendError(error.message));
-        dispatch(
-            alert({
-                show: true,
-                err: false,
-                message: "Что-то пошло не так",
-            })
-        );
-    }
-};
-
-const getCategoriesBlogs = (credentials) => async (dispatch) => {
-    dispatch(blogsCategoriesRequest());
-
-    try {
-        const { data } = await axios.post("", credentials);
-        token.set(data.access_token);
-
-        dispatch(blogsCategoriesSuccess(data));
-    } catch (error) {
-        dispatch(blogsCategoriesError(error.message));
-        dispatch(
-            alert({
-                show: true,
-                err: false,
-                message: "Что-то пошло не так",
-            })
-        );
-    }
-};
-
-const getCurrentBlog = (credentials) => async (dispatch) => {
+const getCurrentBlog = (id, setState) => async (dispatch) => {
     dispatch(blogsCurrentBlogRequest());
 
     try {
-        const { data } = await axios.post(`${credentials}`, credentials);
+        const { data } = await axios.get(`/post/getPostById/${id}`);
         token.set(data.access_token);
 
         dispatch(blogsCurrentBlogSuccess(data));
+        setState(data)
     } catch (error) {
         dispatch(blogsCurrentBlogError(error.message));
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
     }
 };
 
-export { getAllBlogs, getTrendsBlogs, getCategoriesBlogs, getCurrentBlog };
+export { getAllBlogs, getCurrentBlog };

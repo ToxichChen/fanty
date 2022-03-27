@@ -187,7 +187,7 @@ const TaskGamePage = () => {
         <SectionTaskGame>
             <StylBoxContentTask>
                 {isLoadingFanty ? (
-                    <MiniLoader />
+                    <MiniLoader isHeight={true} />
                 ) : (
                     <>
                         <StylBoxTask>

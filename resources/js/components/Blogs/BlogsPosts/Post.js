@@ -21,12 +21,12 @@ const Post = ({ item }) => {
   return (
     <Article data-aos='fade-right'>
       <StylWrapperImg>
-        <StylPostImg src={item.imgUrl} alt='post img' />
+        <StylPostImg src={item.media} alt='post img' />
       </StylWrapperImg>
-      <StylDataPost>{item.data}</StylDataPost>
+      <StylDataPost>{item.created_at.substring(0, 10)}</StylDataPost>
       <StylTitlePost>{item.title}</StylTitlePost>
       <StylTextPost>{item.text}</StylTextPost>
-      <StylLinkMorePost to={item.url}>
+      <StylLinkMorePost to={'/blogs/article/' + item.id}>
         Читать далее <img src={iconDoubleArrowPNG} alt='double arrow' />
       </StylLinkMorePost>
     </Article>

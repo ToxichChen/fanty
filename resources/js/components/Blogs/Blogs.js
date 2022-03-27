@@ -17,6 +17,7 @@ import { blogTrendsArr } from "../../constants";
 
 
 const Blogs = () => {
+
     return (
         <>
             <StylBoxBlogs>

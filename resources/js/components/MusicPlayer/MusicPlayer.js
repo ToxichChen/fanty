@@ -55,9 +55,9 @@ const MusicPlayer = () => {
             interval = setInterval(() => {
                 let seekPosition = 0;
 
-                setIsRange(isRange + 1);
                 seekPosition = Math.floor(parseFloat(isCurrTimeMusic) * (100 / showMiniPlayer.duration));
                 setIsRange(seekPosition);
+                setCurrTimeMusic(isCurrTime + 1)
                 console.log(seekPosition, isCurrTime, showMiniPlayer.duration)
 
                 let currentMinutes = Math.floor(isCurrTimeMusic / 60);

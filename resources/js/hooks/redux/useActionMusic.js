@@ -22,8 +22,8 @@ function useActionMusic() {
         dispatch(musicMiniPlayer({ ...showMiniPlayer, play: data }))
     }, [dispatch, showMiniPlayer]);
 
-    const timeMusic = useCallback((data) => {
-        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: data }))
+    const timeMusic = useCallback((data, duration = showMiniPlayer.duration) => {
+        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: data, duration: duration }))
     }, [dispatch, showMiniPlayer]);
 
     const changeRandom = useCallback(() => {

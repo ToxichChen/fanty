@@ -3,9 +3,9 @@ import ReactPaginate from "react-paginate";
 import {
   StylBoxPosts,
 } from "./../Blogs.styled";
-
-import { blogPostsArr } from "../../../constants";
 import Post from "./../BlogsPosts/Post";
+import useActionBlogs from "../../../hooks/redux/useActionBlogs";
+import MiniLoader from "../../Loader/MiniLoader";
 
 const Posts = ({ currentItems }) => {
   return (
@@ -19,25 +19,32 @@ const Posts = ({ currentItems }) => {
 };
 
 const PaginatedItems = ({ itemsPerPage }) => {
+  const { getBlogs, isLoadingBlogs } = useActionBlogs();
   const [currentItems, setCurrentItems] = useState(null);
   const [pageCount, setPageCount] = useState(0);
   const [itemOffset, setItemOffset] = useState(0);
+  const [isBlogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    getBlogs(setBlogs);
+  }, [getBlogs])
 
   useEffect(() => {
     const endOffset = itemOffset + itemsPerPage;
-    setCurrentItems(blogPostsArr.slice(itemOffset, endOffset));
-    setPageCount(Math.ceil(blogPostsArr.length / itemsPerPage));
-  }, [itemOffset, itemsPerPage]);
+    setCurrentItems(isBlogs.slice(itemOffset, endOffset));
+    setPageCount(Math.ceil(isBlogs.length / itemsPerPage));
+  }, [itemOffset, itemsPerPage, isBlogs]);
 
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % blogPostsArr.length;
+    const newOffset = (event.selected * itemsPerPage) % isBlogs.length;
     setItemOffset(newOffset);
     window.scrollTo(0, 0);
   };
 
   return (
     <StylBoxPosts>
-      <Posts currentItems={currentItems} />
+      {isLoadingBlogs ? <MiniLoader isHeight={true} /> :
+        <Posts currentItems={currentItems} />}
       <ReactPaginate
         nextLabel="next >"
         onPageChange={handlePageClick}

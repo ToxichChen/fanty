@@ -56,11 +56,12 @@ const StylSpiner = styled.svg`
 
 const StylBoxCenterSpinerMini = styled.div`
     align-items: center;
+    align-self: center;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
-    height: 50%;
+    height: ${props => props.isHeight ? '300px' : '50%'};
     width: 100%;
     background: transparent;
     overflow: hidden;

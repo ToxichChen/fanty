@@ -1,3 +1,5 @@
+import { useParams } from "react-router";
+import { useEffect, useState } from "react";
 import {
     SectionArticle,
     TitleArticle,
@@ -20,9 +22,17 @@ import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFo
 import FooterPageHome from "./../PageHome/FooterPageHome/FooterPageHome";
 import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
 
-import { article, blogTrendsArr } from "../../constants";
+import { blogTrendsArr } from "../../constants";
+import useActionBlogs from "../../hooks/redux/useActionBlogs";
+import MiniLoader from "../Loader/MiniLoader";
 
 const Article = () => {
+    const { isLoadingBlog, getBlog } = useActionBlogs();
+    const { id } = useParams();
+    const [blog, setBlog] = useState({ created_at: 'asdadadadasdasdsa' });
+
+    useEffect(() => getBlog(id, setBlog), [])
+
     return (
         <>
             <SectionArticle>
@@ -32,30 +42,31 @@ const Article = () => {
                         <HeaderMenuPageHome />
                     </StylBoxFlexColumnFlexStart>
                 </StylBoxContainerMaxWidth>
-                <BoxArticle>
-                    <StylBoxCenter>
-                        <WrapperArticle>
-                            <WrapperImgArticle>
-                                <ImgArticle
-                                    src={article.imgUrl}
-                                    alt="article img"
-                                />
-                            </WrapperImgArticle>
-                            <DateArticle>{article.data}</DateArticle>
-                            <TitleArticle>{article.title}</TitleArticle>
-                            <TextArticle>{article.text}</TextArticle>
-                        </WrapperArticle>
-                        <StylBoxOtherContent>
-                            <StylBoxTrending>
-                                <StylTrendTitle>Trending</StylTrendTitle>
-                                {!!blogTrendsArr.length &&
-                                    blogTrendsArr.map((item, index) => (
-                                        <Trend item={item} key={index} />
-                                    ))}
-                            </StylBoxTrending>
-                        </StylBoxOtherContent>
-                    </StylBoxCenter>
-                </BoxArticle>
+                {isLoadingBlog ? <MiniLoader isHeight={true} /> :
+                    <BoxArticle>
+                        <StylBoxCenter>
+                            <WrapperArticle>
+                                <WrapperImgArticle>
+                                    <ImgArticle
+                                        src={blog.media}
+                                        alt="article img"
+                                    />
+                                </WrapperImgArticle>
+                                <DateArticle>{blog.created_at.substring(0, 10)}</DateArticle>
+                                <TitleArticle>{blog.title}</TitleArticle>
+                                <TextArticle>{blog.text}</TextArticle>
+                            </WrapperArticle>
+                            <StylBoxOtherContent>
+                                <StylBoxTrending>
+                                    <StylTrendTitle>Trending</StylTrendTitle>
+                                    {!!blogTrendsArr.length &&
+                                        blogTrendsArr.map((item, index) => (
+                                            <Trend item={item} key={index} />
+                                        ))}
+                                </StylBoxTrending>
+                            </StylBoxOtherContent>
+                        </StylBoxCenter>
+                    </BoxArticle>}
             </SectionArticle>
             <FooterPageHome />
         </>

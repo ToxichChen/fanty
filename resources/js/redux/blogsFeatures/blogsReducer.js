@@ -1,37 +1,25 @@
-import { createReducer } from '@reduxjs/toolkit';
-import { combineReducers } from 'redux';
+import { createReducer } from "@reduxjs/toolkit";
+import { combineReducers } from "redux";
 
 import {
+  blogsRequest,
   blogsSuccess,
-  blogsTrendSuccess,
-  blogsCategoriesSuccess,
+  blogsCurrentBlogRequest,
   blogsCurrentBlogSuccess,
-} from './blogsAction';
+} from "./blogsAction";
 
-const blogs = createReducer([], {
-  [blogsSuccess]: (_, { payload }) => ({
-    ...payload,
-  }),
+
+const isLoadingBlogs = createReducer(false, {
+  [blogsRequest]: () => true,
+  [blogsSuccess]: () => false,
 });
 
-const trends = createReducer([], {
-  [blogsTrendSuccess]: (_, { payload }) => payload,
+const isLoadingBlog = createReducer(false, {
+  [blogsCurrentBlogRequest]: () => true,
+  [blogsCurrentBlogSuccess]: () => false,
 });
-
-const categories = createReducer([], {
-  [blogsCategoriesSuccess]: (_, { payload }) => payload,
-});
-
-const currentBlog = createReducer(
-  {},
-  {
-    [blogsCurrentBlogSuccess]: (_, { payload }) => payload,
-  }
-);
 
 export default combineReducers({
-  blogs,
-  trends,
-  categories,
-  currentBlog,
+  isLoadingBlogs,
+  isLoadingBlog,
 });
