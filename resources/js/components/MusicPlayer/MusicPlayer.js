@@ -18,8 +18,9 @@ import {
     StylBoxPlayMusic,
     StylSecondsMusicDuration,
     StylBtnNavMusic,
-    StylLinePlayerNow,
+    StylLinePlayerNow
 } from "./MusicPlayer.styled";
+import musykaImg from './../../assets/bg/muzyka.png'
 
 import HeaderMenuPageHome from "./../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
 import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
@@ -32,65 +33,64 @@ const MusicPlayer = () => {
         Aos.init({ duration: 1000 });
     });
 
-    const { playMusic, timeMusic, SkipSong, showMiniPlayer, musicList } = useActionMusic()
+    const {
+        playMusic,
+        timeMusic,
+        SkipSong,
+        changeRandom,
+        changeVolume,
+        showMiniPlayer,
+        musicList
+    } = useActionMusic();
+    const [isRangeVolume, setRangeVolume] = useState(showMiniPlayer.volume * 100);
+    const [isShowVolume, setShowVolume] = useState(false);
     const [isActiveLike, setActiveLike] = useState(false);
-    const [isRandom, setIsRandom] = useState(false);
-    const [isCurrTimeMusic, setCurrTimeMusic] = useState(1);
     const [isRange, setIsRange] = useState(1);
     const [isCurrTime, setIsCurrTime] = useState('00:00');
     const [isTotalDuration, setTotalDuration] = useState('00:00');
-    let interval = '';
 
     const seekTo = (e) => {
-        let seekto = Math.floor(isNaN(showMiniPlayer.duration) ? 0 : showMiniPlayer.duration * (e.target.value / 100));
+        const seekto = Math.floor(isNaN(showMiniPlayer.duration) ? 0 : showMiniPlayer.duration * (e.target.value / 100));
         timeMusic(seekto);
-        setIsRange(e.target.value)
+        setIsRange(e.target.value);
     }
 
 
     useEffect(() => {
-        clearInterval(interval);
-
         if (showMiniPlayer.play) {
-            interval = setInterval(() => {
-                let seekPosition = 0;
+            let seekPosition = 0;
 
-                seekPosition = Math.floor(parseFloat(isCurrTimeMusic) * (100 / showMiniPlayer.duration));
-                setIsRange(seekPosition);
-                setCurrTimeMusic(isCurrTime + 1)
-                console.log(seekPosition, isCurrTime, showMiniPlayer.duration)
+            seekPosition = Math.floor(parseFloat(showMiniPlayer.currentTime) * (100 / showMiniPlayer.duration));
+            setIsRange(seekPosition);
 
-                let currentMinutes = Math.floor(isCurrTimeMusic / 60);
-                let currentSeconds = Math.floor(
-                    isCurrTimeMusic - currentMinutes * 60
-                );
-                let durationMinutes = Math.floor(showMiniPlayer.duration / 60);
-                let durationSeconds = Math.floor(
-                    showMiniPlayer.duration - durationMinutes * 60
-                );
+            let currentMinutes = Math.floor(showMiniPlayer.currentTime / 60);
+            let currentSeconds = Math.floor(
+                showMiniPlayer.currentTime - currentMinutes * 60
+            );
+            let durationMinutes = Math.floor(showMiniPlayer.duration / 60);
+            let durationSeconds = Math.floor(
+                showMiniPlayer.duration - durationMinutes * 60
+            );
 
-                if (currentSeconds < 10) {
-                    currentSeconds = '0' + currentSeconds;
-                }
-                if (durationSeconds < 10) {
-                    durationSeconds = '0' + durationSeconds;
-                }
-                if (currentMinutes < 10) {
-                    currentMinutes = '0' + currentMinutes;
-                }
-                if (durationMinutes < 10) {
-                    durationMinutes = '0' + durationMinutes;
-                }
+            if (currentSeconds < 10) {
+                currentSeconds = '0' + currentSeconds;
+            }
+            if (durationSeconds < 10) {
+                durationSeconds = '0' + durationSeconds;
+            }
+            if (currentMinutes < 10) {
+                currentMinutes = '0' + currentMinutes;
+            }
+            if (durationMinutes < 10) {
+                durationMinutes = '0' + durationMinutes;
+            }
 
-                setIsCurrTime(currentMinutes + ':' + currentSeconds);
-                setTotalDuration(durationMinutes + ':' + durationSeconds)
-
-            }, 1000)
+            setIsCurrTime(currentMinutes + ':' + currentSeconds);
+            setTotalDuration(durationMinutes + ':' + durationSeconds)
         }
+    }, [showMiniPlayer.currentTime]);
 
-
-        return () => clearInterval(interval);
-    }, [showMiniPlayer.play]);
+    useEffect(() => setRangeVolume(showMiniPlayer.volume * 100), [showMiniPlayer.volume])
 
     return (
         <>
@@ -111,13 +111,22 @@ const MusicPlayer = () => {
                                 <i className="fas fa-heart"></i>
                             </StylBtnPlayer>
                             <StylBtnPlayer
-                                isActiveLike={isRandom}
-                                onClick={() => setIsRandom(!isRandom)}>
+                                isActiveLike={showMiniPlayer.random}
+                                onClick={() => {
+                                    changeRandom();
+                                }
+                                }>
                                 <i className="fas fa-random"></i>
                             </StylBtnPlayer>
                         </StylBoxFuncPlayer>
                         <StylImgPlayer
-                            src={musicList.length !== 0 ? musicList[showMiniPlayer.trackIndex].img_src : './images/stay.png'}
+                            src={
+                                musicList.length === 0 ?
+                                    musykaImg :
+                                    musicList[showMiniPlayer.trackIndex].img_src !== undefined ?
+                                        musicList[showMiniPlayer.trackIndex].img_src :
+                                        musykaImg
+                            }
                             alt="album music"
                         />
                         <StylInfoPlayer>
@@ -156,10 +165,29 @@ const MusicPlayer = () => {
                                 }>
                                     <i className="fas fa-step-forward"></i>
                                 </StylBtnNavMusic>
-                                <StylBtnNavMusic >
+                                <StylBtnNavMusic
+                                    onMouseEnter={() => setShowVolume(true)}
+                                    onMouseLeave={() => setShowVolume(false)}
+                                >
+                                    <StylLinePlayerNow
+                                        isShow={isShowVolume}
+                                        isShowMini={isShowVolume}
+                                        isWidth={isRangeVolume}
+                                        type="range"
+                                        min="1"
+                                        max="100"
+                                        value={isRangeVolume}
+                                        onChange={
+                                            (e) => {
+                                                changeVolume(e.target.value / 100);
+                                                setRangeVolume(e.target.value)
+                                            }
+                                        }
+                                    />
                                     <i
+                                        onClick={() => changeVolume(showMiniPlayer.volume === 0 ? 1 : 0)}
                                         className={
-                                            true
+                                            showMiniPlayer.volume > 0
                                                 ? "fas fa-volume-up"
                                                 : "fas fa-volume-mute"
                                         }
@@ -171,6 +199,7 @@ const MusicPlayer = () => {
                             </StylSecondsMusicDuration>
                         </StylControlMusic>
                         <StylLinePlayerNow
+                            isShow={true}
                             type="range"
                             min="1"
                             max="100"

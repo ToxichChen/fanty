@@ -163,6 +163,7 @@ const StylBoxPlayMusic = styled.div`
 
 const StylBtnNavMusic = styled.button`
   cursor: pointer;
+  position: relative;
   border: none;
   outline: none;
   padding: 15px;
@@ -192,6 +193,7 @@ const StylBtnNavMusic = styled.button`
 
 const StylLinePlayerNow = styled.input`
   position: absolute;
+  display: ${props => props.isShow ? 'block' : 'none'};
   bottom: 0;
   left: 0;
   width: 100%;
@@ -245,6 +247,17 @@ const StylLinePlayerNow = styled.input`
     background: ${(props) => props.theme.palette.icon.main};
     transition: all 0.2s ease;
   }
+
+  ${props => props.isShowMini && css`
+    left: 7px;
+    top: -20px;
+    transform: rotate(270deg);
+    width: 50px;
+
+    &[type='range']::-webkit-slider-runnable-track {
+      height: 10px;
+    }
+  `}
 `;
 
 const StylWrapperPlayer = styled.div`

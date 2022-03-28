@@ -10,7 +10,15 @@ const musicList = createReducer([...music_list], {
 });
 
 const miniPlayer = createReducer(
-    { showPlayer: true, trackIndex: 0, play: false, currentTime: 1, duration: 1, random: false },
+    {
+        showPlayer: true,
+        trackIndex: 0,
+        play: false,
+        currentTime: 1,
+        duration: 1,
+        random: false,
+        volume: 1
+    },
     {
         [musicMiniPlayer]: (_, { payload }) => ({
             ...payload,

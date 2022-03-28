@@ -1,5 +1,5 @@
 import { lazy, useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation, Navigate } from "react-router-dom";
 import useActionMusic from "./hooks/redux/useActionMusic";
 import useActionUsers from "./hooks/redux/useActionUsers";
 
@@ -56,12 +56,21 @@ const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
     const { userHave } = useActionUsers();
-    const { getAllMusic } = useActionMusic()
+    const { getAllMusic, hiddenPlayer, showPlayer } = useActionMusic();
+    let location = useLocation();
 
     useEffect(() => {
         userHave();
         getAllMusic();
     }, [userHave, getAllMusic]);
+
+    useEffect(() => {
+        if (location.pathname === routes.musicFromSex) {
+            hiddenPlayer()
+        } else {
+            showPlayer()
+        }
+    }, [location])
 
     return (
         <Routes>

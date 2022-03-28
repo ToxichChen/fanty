@@ -23,6 +23,7 @@ const store = configureStore({
         musicData: persistReducer(musicPersistConfig, musicData),
         blogs
     },
+
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
             serializableCheck: false,

@@ -31,11 +31,6 @@ function useActionMusic() {
     }, [dispatch, showMiniPlayer]);
 
 
-    const changeIndex = useCallback((data, player) => {
-        dispatch(musicMiniPlayer({ ...player, currentTime: 0, play: true, trackIndex: data }))
-    }, [dispatch]);
-
-
     const changeDuration = useCallback((data) => {
         dispatch(musicMiniPlayer({ ...showMiniPlayer, duration: data }))
     }, [dispatch, showMiniPlayer]);
@@ -44,44 +39,49 @@ function useActionMusic() {
         let temp = showMiniPlayer.trackIndex;
 
         if (forward) {
-            if (showMiniPlayer.trackIndex < musicList.length - 1) {
+            if (showMiniPlayer.trackIndex < musicList.length - 1 && !showMiniPlayer.random) {
                 temp++;
 
                 if (temp > musicList.length - 1) {
                     temp = 0
                 }
+            }
+            else if (showMiniPlayer.random) {
+                temp = Number.parseInt(Math.random() * musicList.length);
             } else {
                 temp = 0;
             }
-            dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp }))
-            return false;
         } else {
             temp--;
 
             if (temp < 0) {
                 temp = musicList.length - 1
             }
-            dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp }))
-            return false;
         }
+
+        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp }))
 
     }, [dispatch, showMiniPlayer, musicList])
 
     const getAllMusic = useCallback(() => {
         dispatch(getMusic())
-    }, [dispatch])
+    }, [dispatch]);
+
+    const changeVolume = useCallback((data) => {
+        dispatch(musicMiniPlayer({ ...showMiniPlayer, volume: data }))
+    }, [dispatch, showMiniPlayer]);
 
     return {
-        getAllMusic,
         showMiniPlayer,
+        musicList,
+        getAllMusic,
         changeDuration,
         changeRandom,
         hiddenPlayer,
         showPlayer,
         playMusic,
         timeMusic,
-        changeIndex,
-        musicList,
+        changeVolume,
         SkipSong
     };
 }
