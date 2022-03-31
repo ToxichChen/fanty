@@ -61,7 +61,7 @@ const TaskGamePage = () => {
         getFant({
             current_level: isLevelFant,
             fant_number: getNumberFanty,
-            sex: 0,
+            sex: 1,
         });
     }, []);
 
@@ -78,12 +78,12 @@ const TaskGamePage = () => {
             setLevelFant("yellow");
             sendNumberFanty(0);
             sendLevelFanty("yellow");
-            getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
+            getFant({ current_level: "yellow", fant_number: 0, sex: 1 });
         } else if (getCountTask.is_red !== "0") {
             setLevelFant("red");
             sendNumberFanty(0);
             sendLevelFanty("red");
-            getFant({ current_level: "red", fant_number: 0, sex: 0 });
+            getFant({ current_level: "red", fant_number: 0, sex: 1 });
         }
     };
 
@@ -123,14 +123,14 @@ const TaskGamePage = () => {
                 getFant({
                     current_level: isLevelFant,
                     fant_number: getNumberFanty + 1,
-                    sex: getFanty.sex ? 0 : 1,
+                    sex: getFanty.sex === 1 ? 2 : 1,
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
                 getNumberFanty === getCountTask.is_green - 1 &&
                 isLevelFant === "green"
             ) {
-                getFant({ current_level: "yellow", fant_number: 0, sex: 0 });
+                getFant({ current_level: "yellow", fant_number: 0, sex: 1 });
                 setLevelFant("yellow");
                 sendNumberFanty(0);
                 sendLevelFanty("yellow");
@@ -141,14 +141,14 @@ const TaskGamePage = () => {
                 getFant({
                     current_level: isLevelFant,
                     fant_number: getNumberFanty + 1,
-                    sex: getFanty.sex ? 0 : 1,
+                    sex: getFanty.sex === 1 ? 2 : 1,
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
                 getNumberFanty === getCountTask.is_yellow - 1 &&
                 isLevelFant === "yellow"
             ) {
-                getFant({ current_level: "red", fant_number: 0, sex: 0 });
+                getFant({ current_level: "red", fant_number: 0, sex: 1 });
                 setLevelFant("red");
                 sendNumberFanty(0);
                 sendLevelFanty("red");
@@ -159,7 +159,7 @@ const TaskGamePage = () => {
                 getFant({
                     current_level: isLevelFant,
                     fant_number: getNumberFanty + 1,
-                    sex: getFanty.sex ? 0 : 1,
+                    sex: getFanty.sex === 1 ? 2 : 1,
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
@@ -192,7 +192,7 @@ const TaskGamePage = () => {
                     <>
                         <StylBoxTask>
                             <StylTitleTask>
-                                {getFanty.sex
+                                {getFanty.sex === 1
                                     ? settingsUsers.is_man
                                     : settingsUsers.is_female}
                                 , твой ход!
@@ -280,7 +280,7 @@ const TaskGamePage = () => {
                                                     : isLevelFant
                                     }
                                     onClick={() =>
-                                        cancelTask(getFanty.sex ? 1 : 0)
+                                        cancelTask(getFanty.sex === 1 ? 1 : 2)
                                     }
                                     isCancel={true}
                                 >
