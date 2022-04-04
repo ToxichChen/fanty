@@ -219,7 +219,7 @@ const StylLinePlayerNow = styled.input`
     content: '';
     top: 0;
     left: 0;
-    width: ${(props) => props.isWidth && props.isWidth}%;
+    width: ${(props) => props.isWidth <= 100 ? props.isWidth : 100}%;
     height: 5px;
     background-color: ${(props) => props.theme.palette.icon.main};
     border-bottom-left-radius: 8px;

@@ -53,6 +53,7 @@ const OfferView = lazy(() => import("./views/OfferPage/OfferView.js"));
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
 const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
+const LayoutProfileCheckVip = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
     const { userHave } = useActionUsers();
@@ -81,7 +82,7 @@ const Router = () => {
             <Route
                 path={routes.seksFanty.duration}
                 element={
-                    <LayoutProfileSettings>
+                    <LayoutProfileSettings text='Пожалуйста, перед началом игры авторизируйтесь!'>
                         <SettingsGameComplexity title="Количество заданий" />
                     </LayoutProfileSettings>
                 }
@@ -89,7 +90,7 @@ const Router = () => {
             <Route
                 path={routes.seksFanty.settings}
                 element={
-                    <LayoutProfileSettings>
+                    <LayoutProfileSettings text='Пожалуйста, перед началом игры авторизируйтесь!'>
                         <SettingsGame title="Настройки игры" />
                     </LayoutProfileSettings>
                 }
@@ -113,7 +114,7 @@ const Router = () => {
             <Route
                 path={routes.seksFanty.main}
                 element={
-                    <LayoutProfileSettings>
+                    <LayoutProfileSettings text='Пожалуйста, перед началом игры авторизируйтесь!'>
                         <LayoutCheckFanty>
                             <TaskGame title="Задание игры" />
                         </LayoutCheckFanty>
@@ -139,8 +140,10 @@ const Router = () => {
             <Route
                 path={routes.payGame}
                 element={
-                    <LayoutProfileSettings>
-                        <PayGameView title="Оплата за игру" />
+                    <LayoutProfileSettings text='Пожалуйста, перед началом оплаты авторизируйтесь'>
+                        <LayoutProfileCheckVip text='Вы уже оплатили игру!'>
+                            <PayGameView title="Оплата за игру" />
+                        </LayoutProfileCheckVip>
                     </LayoutProfileSettings>
                 }
             />

@@ -22,8 +22,8 @@ function useActionMusic() {
         dispatch(musicMiniPlayer({ ...showMiniPlayer, play: data }))
     }, [dispatch, showMiniPlayer]);
 
-    const timeMusic = useCallback((data, duration = showMiniPlayer.duration) => {
-        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: data, duration: duration }))
+    const timeMusic = useCallback((data, duration = showMiniPlayer.duration, currentTimeClick = showMiniPlayer.currentTimeClick) => {
+        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: data, duration: duration, currentTimeClick: currentTimeClick }))
     }, [dispatch, showMiniPlayer]);
 
     const changeRandom = useCallback(() => {
@@ -37,6 +37,7 @@ function useActionMusic() {
 
     const SkipSong = useCallback((forward = true) => {
         let temp = showMiniPlayer.trackIndex;
+        console.log('ok')
 
         if (forward) {
             if (showMiniPlayer.trackIndex < musicList.length - 1 && !showMiniPlayer.random) {
@@ -59,7 +60,8 @@ function useActionMusic() {
             }
         }
 
-        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp }))
+        console.log(temp)
+        return dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp, currentTimeClick: 0 }))
 
     }, [dispatch, showMiniPlayer, musicList])
 
@@ -69,6 +71,10 @@ function useActionMusic() {
 
     const changeVolume = useCallback((data) => {
         dispatch(musicMiniPlayer({ ...showMiniPlayer, volume: data }))
+    }, [dispatch, showMiniPlayer]);
+
+    const changeCurrentTimeClick = useCallback((data) => {
+        dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTimeClick: data }))
     }, [dispatch, showMiniPlayer]);
 
     return {
@@ -82,7 +88,8 @@ function useActionMusic() {
         playMusic,
         timeMusic,
         changeVolume,
-        SkipSong
+        SkipSong,
+        changeCurrentTimeClick
     };
 }
 

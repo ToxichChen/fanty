@@ -6,6 +6,7 @@ import {
     logoutUser,
     registerForm,
     checkUser,
+    supportForm
 } from "./../../redux/formFeatures/formFeaturesOperation";
 import {
     fantyCounterCanceledTask,
@@ -44,6 +45,14 @@ function useActionUsers() {
         [dispatch]
     );
 
+    const setUserDataForm = useCallback(
+        (data) => {
+            dispatch(supportForm(data));
+        },
+        [dispatch]
+    );
+
+
     const clearDataSettingAndFant = useCallback(() => {
         dispatch(settingsSuccess([]));
         dispatch(settingsGameData([]));
@@ -75,6 +84,7 @@ function useActionUsers() {
         registerUser,
         clearDataSettingAndFant,
         userHave,
+        setUserDataForm
     };
 }
 

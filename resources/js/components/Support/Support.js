@@ -18,11 +18,15 @@ import HeaderFollowUs from "./../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFo
 import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
 import { StylImgDoubleArrow } from "../common/ImgLogo/ImgLogo.styled";
 import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 
 const Support = () => {
+    const { setUserDataForm } = useActionUsers();
+
     const handleSubmitForm = (initialValues) => {
-        console.log(initialValues);
+        setUserDataForm(initialValues)
     };
+
     return (
         <>
             <SectionSupport>
@@ -42,7 +46,7 @@ const Support = () => {
                         }}
                         onSubmit={handleSubmitForm}
                     >
-                        {({ values, handleSubmit }) => (
+                        {({ values }) => (
                             <FormSupport method="POST" autocomplete="off">
                                 <FormInput
                                     placeholder="Ваше имя"

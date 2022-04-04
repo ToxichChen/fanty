@@ -83,7 +83,7 @@ const registerForm = (credentials) => async (dispatch) => {
             })
         );
     } catch (error) {
-        dispatch(registerError(error.message));dispatch(
+        dispatch(registerError(error.message)); dispatch(
             alert({
                 show: true,
                 err: false,
@@ -109,7 +109,30 @@ const logoutUser = () => async (dispatch) => {
             })
         );
     } catch (error) {
-        dispatch(registerError(error.message));dispatch(
+        dispatch(registerError(error.message)); dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Что-то пошло не так",
+            })
+        );
+    }
+};
+
+
+const supportForm = (credentials) => async (dispatch) => {
+    try {
+        await axios.post("", credentials);
+
+        dispatch(
+            alert({
+                show: true,
+                err: false,
+                message: "Отправка данных прошла успешно",
+            })
+        );
+    } catch (error) {
+        dispatch(
             alert({
                 show: true,
                 err: false,
@@ -154,4 +177,10 @@ const checkUser = () => async (dispatch) => {
     }
 };
 
-export { loginForm, registerForm, logoutUser, checkUser };
+export {
+    loginForm,
+    registerForm,
+    logoutUser,
+    checkUser,
+    supportForm
+};

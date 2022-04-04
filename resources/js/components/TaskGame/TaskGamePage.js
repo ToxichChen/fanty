@@ -61,7 +61,7 @@ const TaskGamePage = () => {
         getFant({
             current_level: isLevelFant,
             fant_number: getNumberFanty,
-            sex: 1,
+            sex: 2,
         });
     }, []);
 

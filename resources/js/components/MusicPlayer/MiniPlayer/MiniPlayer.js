@@ -16,7 +16,7 @@ import useActionAlert from "../../../hooks/redux/useActionAlert";
 
 const MiniPlayer = () => {
     const { NotifyError } = useActionAlert()
-    const { showMiniPlayer, playMusic, timeMusic, SkipSong, musicList } = useActionMusic();
+    const { showMiniPlayer, playMusic, changeDuration, timeMusic, SkipSong, musicList } = useActionMusic();
     const [isShowBlock, setShowBlock] = useState(false);
     const audioEl = useRef(null);
 
@@ -24,9 +24,10 @@ const MiniPlayer = () => {
         audioEl.current.load();
         fetch('./music/' + musicList[showMiniPlayer.trackIndex].media)
             .then(() => {
-                audioEl.current.currentTime = showMiniPlayer.currentTime;
+                audioEl.current.currentTime = 1;
                 audioEl.current.volume = showMiniPlayer.volume;
             }).then(() => {
+                audioEl.current.currentTime = showMiniPlayer.currentTime;
                 audioEl.current.autoplay = true;
             })
             .catch(() => {
@@ -40,29 +41,24 @@ const MiniPlayer = () => {
             playPlayer();
         } else {
             audioEl.current.pause()
+            timeMusic(
+                (isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime),
+                (isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration))
         }
 
         audioEl.current.addEventListener('ended', SkipSong);
     }, [showMiniPlayer.trackIndex, showMiniPlayer.play]);
 
     useEffect(() => {
-        //audioEl.current.currentTime = showMiniPlayer.currentTime + 0.01;
-    }, [showMiniPlayer.currentTime])
+        audioEl.current.currentTime = showMiniPlayer.currentTime;
+        audioEl.current.currentTime = showMiniPlayer.currentTimeClick;
+    }, [showMiniPlayer.currentTimeClick])
 
-    useEffect(() => {
-        let interval;
-        clearInterval(interval);
+    window.onunload = function () {
+        timeMusic(
+            (isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime))
 
-        if (showMiniPlayer.play) {
-            interval = setInterval(() => {
-                return timeMusic(
-                    (isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime),
-                    (isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration)
-                );
-            }, 1000);
-        }
-        return () => clearInterval(interval);
-    }, [showMiniPlayer.trackIndex, showMiniPlayer.play]);
+    }
 
     useEffect(() => {
         audioEl.current.volume = showMiniPlayer.volume;

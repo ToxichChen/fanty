@@ -35,13 +35,15 @@ const MusicPlayer = () => {
 
     const {
         playMusic,
-        timeMusic,
+        changeCurrentTimeClick,
         SkipSong,
         changeRandom,
         changeVolume,
         showMiniPlayer,
         musicList
     } = useActionMusic();
+    let isCurrentTime = showMiniPlayer.currentTime;
+    let isDuration = showMiniPlayer.duration;
     const [isRangeVolume, setRangeVolume] = useState(showMiniPlayer.volume * 100);
     const [isShowVolume, setShowVolume] = useState(false);
     const [isActiveLike, setActiveLike] = useState(false);
@@ -50,45 +52,65 @@ const MusicPlayer = () => {
     const [isTotalDuration, setTotalDuration] = useState('00:00');
 
     const seekTo = (e) => {
-        const seekto = Math.floor(isNaN(showMiniPlayer.duration) ? 0 : showMiniPlayer.duration * (e.target.value / 100));
-        timeMusic(seekto);
+        const seekto = Math.floor(isNaN(isDuration) ? 0 : isDuration * (e.target.value / 100));
+        changeCurrentTimeClick(seekto);
+        isCurrentTime = seekto;
         setIsRange(e.target.value);
     }
 
+    useEffect(() => {
+        isCurrentTime = showMiniPlayer.currentTimeClick
+    }, [showMiniPlayer.currentTimeClick]);
+
 
     useEffect(() => {
+        isDuration = showMiniPlayer.duration
+    }, [showMiniPlayer.duration]);
+
+    useEffect(() => {
+        let interval;
+        clearInterval(interval);
+
         if (showMiniPlayer.play) {
-            let seekPosition = 0;
+            interval = setInterval(() => {
+                let seekPosition = 0;
 
-            seekPosition = Math.floor(parseFloat(showMiniPlayer.currentTime) * (100 / showMiniPlayer.duration));
-            setIsRange(seekPosition);
+                seekPosition = Math.floor(parseFloat(isCurrentTime) * (100 / isDuration));
+                setIsRange(seekPosition);
 
-            let currentMinutes = Math.floor(showMiniPlayer.currentTime / 60);
-            let currentSeconds = Math.floor(
-                showMiniPlayer.currentTime - currentMinutes * 60
-            );
-            let durationMinutes = Math.floor(showMiniPlayer.duration / 60);
-            let durationSeconds = Math.floor(
-                showMiniPlayer.duration - durationMinutes * 60
-            );
+                let currentMinutes = Math.floor(isCurrentTime / 60);
+                let currentSeconds = Math.floor(
+                    isCurrentTime - currentMinutes * 60
+                );
+                let durationMinutes = Math.floor(isDuration / 60);
+                let durationSeconds = Math.floor(
+                    isDuration - durationMinutes * 60
+                );
 
-            if (currentSeconds < 10) {
-                currentSeconds = '0' + currentSeconds;
-            }
-            if (durationSeconds < 10) {
-                durationSeconds = '0' + durationSeconds;
-            }
-            if (currentMinutes < 10) {
-                currentMinutes = '0' + currentMinutes;
-            }
-            if (durationMinutes < 10) {
-                durationMinutes = '0' + durationMinutes;
-            }
+                if (currentSeconds < 10) {
+                    currentSeconds = '0' + currentSeconds;
+                }
+                if (durationSeconds < 10) {
+                    durationSeconds = '0' + durationSeconds;
+                }
+                if (currentMinutes < 10) {
+                    currentMinutes = '0' + currentMinutes;
+                }
+                if (durationMinutes < 10) {
+                    durationMinutes = '0' + durationMinutes;
+                }
 
-            setIsCurrTime(currentMinutes + ':' + currentSeconds);
-            setTotalDuration(durationMinutes + ':' + durationSeconds)
+                setIsCurrTime(currentMinutes + ':' + currentSeconds);
+                setTotalDuration(durationMinutes + ':' + durationSeconds)
+                isCurrentTime++
+            }, 1000)
         }
-    }, [showMiniPlayer.currentTime]);
+
+        return () => clearInterval(interval);
+    }, [showMiniPlayer.play,
+    showMiniPlayer.trackIndex,
+    showMiniPlayer.currentTimeClick,
+    showMiniPlayer.duration]);
 
     useEffect(() => setRangeVolume(showMiniPlayer.volume * 100), [showMiniPlayer.volume])
 

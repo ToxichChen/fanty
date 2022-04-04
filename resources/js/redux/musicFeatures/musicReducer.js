@@ -15,6 +15,7 @@ const miniPlayer = createReducer(
         trackIndex: 0,
         play: false,
         currentTime: 1,
+        currentTimeClick: 1,
         duration: 1,
         random: false,
         volume: 1
