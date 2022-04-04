@@ -16,7 +16,7 @@ import useActionAlert from "../../../hooks/redux/useActionAlert";
 
 const MiniPlayer = () => {
     const { NotifyError } = useActionAlert()
-    const { showMiniPlayer, playMusic, changeDuration, timeMusic, SkipSong, musicList } = useActionMusic();
+    const { showMiniPlayer, playMusic, timeMusic, SkipSong, musicList } = useActionMusic();
     const [isShowBlock, setShowBlock] = useState(false);
     const audioEl = useRef(null);
 
@@ -48,6 +48,12 @@ const MiniPlayer = () => {
 
         audioEl.current.addEventListener('ended', SkipSong);
     }, [showMiniPlayer.trackIndex, showMiniPlayer.play]);
+
+    useEffect(() => {
+        timeMusic(
+            (isNaN(audioEl.current.currentTime) ? 1 : audioEl.current.currentTime === 0 ? 1 : audioEl.current.currentTime),
+            (isNaN(audioEl.current.duration) ? 1 : audioEl.current.duration === 0 ? 1 : audioEl.current.duration))
+    }, [showMiniPlayer.showPlayer])
 
     useEffect(() => {
         audioEl.current.currentTime = showMiniPlayer.currentTime;
