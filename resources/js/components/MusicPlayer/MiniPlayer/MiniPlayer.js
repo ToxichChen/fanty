@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import { useLocation } from "react-router-dom";
 import {
     StylPlayerMiniMusic,
     StylArrow,
@@ -11,14 +12,26 @@ import {
 } from "./MiniPlayer.styled";
 import musykaImg from './../../../assets/bg/muzyka.png'
 
+import { routes } from "../../../Router";
+
 import useActionMusic from "../../../hooks/redux/useActionMusic";
 import useActionAlert from "../../../hooks/redux/useActionAlert";
 
 const MiniPlayer = () => {
     const { NotifyError } = useActionAlert()
-    const { showMiniPlayer, playMusic, timeMusic, SkipSong, musicList } = useActionMusic();
+    const { showMiniPlayer, playMusic, timeMusic, SkipSong, hiddenPlayer, showPlayer, musicList } = useActionMusic();
     const [isShowBlock, setShowBlock] = useState(false);
     const audioEl = useRef(null);
+    const location = useLocation();
+
+
+    useEffect(() => {
+        if (location.pathname === routes.musicFromSex) {
+            hiddenPlayer()
+        } else {
+            showPlayer()
+        }
+    }, [location])
 
     const playPlayer = useCallback(() => {
         audioEl.current.load();
@@ -28,7 +41,7 @@ const MiniPlayer = () => {
                 audioEl.current.volume = showMiniPlayer.volume;
             }).then(() => {
                 audioEl.current.currentTime = showMiniPlayer.currentTime;
-                audioEl.current.autoplay = true;
+                setTimeout(() => audioEl.current.autoplay = true, 1000);
             })
             .catch(() => {
                 NotifyError('Что-то пошло не так');

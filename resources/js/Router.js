@@ -49,6 +49,7 @@ const PoliticsView = lazy(() => import("./views/PoliticsPage/PoliticsView"));
 const PayGameView = lazy(() => import("./views/PayGamePage/PayGameView"));
 const SupportView = lazy(() => import("./views/SupportPage/SupportView.js"));
 const OfferView = lazy(() => import("./views/OfferPage/OfferView.js"));
+const ProfileView = lazy(() => import('./views/ProfilePage/ProfileUser'))
 
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
@@ -57,21 +58,12 @@ const LayoutProfileCheckVip = lazy(() => import("./hoc/LayoutCheckFanty"));
 
 const Router = () => {
     const { userHave } = useActionUsers();
-    const { getAllMusic, hiddenPlayer, showPlayer } = useActionMusic();
-    let location = useLocation();
+    const { getAllMusic, } = useActionMusic();
 
     useEffect(() => {
         userHave();
         getAllMusic();
     }, [userHave, getAllMusic]);
-
-    useEffect(() => {
-        if (location.pathname === routes.musicFromSex) {
-            hiddenPlayer()
-        } else {
-            showPlayer()
-        }
-    }, [location])
 
     return (
         <Routes>
@@ -108,6 +100,15 @@ const Router = () => {
                 element={
                     <LayoutProfile>
                         <FormRegister title="Форма регистрации" />
+                    </LayoutProfile>
+                }
+            />
+
+            <Route
+                path={routes.profileUser}
+                element={
+                    <LayoutProfile profilePage={true}>
+                        <ProfileView title="Профиль" />
                     </LayoutProfile>
                 }
             />

@@ -37,7 +37,6 @@ function useActionMusic() {
 
     const SkipSong = useCallback((forward = true) => {
         let temp = showMiniPlayer.trackIndex;
-        console.log('ok')
 
         if (forward) {
             if (showMiniPlayer.trackIndex < musicList.length - 1 && !showMiniPlayer.random) {
@@ -60,7 +59,6 @@ function useActionMusic() {
             }
         }
 
-        console.log(temp)
         return dispatch(musicMiniPlayer({ ...showMiniPlayer, currentTime: 1, play: true, trackIndex: temp, currentTimeClick: 0 }))
 
     }, [dispatch, showMiniPlayer, musicList])

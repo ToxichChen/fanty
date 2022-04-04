@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
 import useActionUsers from "./../hooks/redux/useActionUsers";
 
-const LayoutProfile = ({ children }) => {
+const LayoutProfile = ({ children, profilePage }) => {
     const { profile } = useActionUsers();
 
-    if (Object.keys(profile).length !== 0) {
+    if (profilePage ? (profilePage && Object.keys(profile).length === 0) : Object.keys(profile).length !== 0) {
         return <Navigate to={"/"} />;
     }
 

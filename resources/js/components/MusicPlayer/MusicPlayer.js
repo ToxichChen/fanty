@@ -62,6 +62,9 @@ const MusicPlayer = () => {
         isCurrentTime = showMiniPlayer.currentTimeClick
     }, [showMiniPlayer.currentTimeClick]);
 
+    useEffect(() => {
+        isCurrentTime = showMiniPlayer.currentTime;
+    }, [showMiniPlayer.currentTime])
 
     useEffect(() => {
         isDuration = showMiniPlayer.duration
@@ -110,6 +113,7 @@ const MusicPlayer = () => {
     }, [showMiniPlayer.play,
     showMiniPlayer.trackIndex,
     showMiniPlayer.currentTimeClick,
+    showMiniPlayer.currentTime,
     showMiniPlayer.duration]);
 
     useEffect(() => setRangeVolume(showMiniPlayer.volume * 100), [showMiniPlayer.volume])
