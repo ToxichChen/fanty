@@ -7,6 +7,7 @@ use App\Http\Controllers\GameSettingController;
 use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\EmailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,3 +70,12 @@ Route::get('/post/getAllPosts', [PostController::class, 'getAllPosts']);
 
 Route::get('/post/getPostById/{id}', [PostController::class, 'getPostById']);
 
+//Email Support
+Route::post('/email/support', [EmailController::class, 'sendSupportEmail']);
+/**
+ * Incoming data:
+ *  name:  string
+ *  email: string
+ *  title: string
+ *  text:  string
+ */

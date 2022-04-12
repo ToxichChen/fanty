@@ -21,10 +21,10 @@ import doubleArrow from "./../../assets/icons/icon-double-arrow.png";
 import useActionUsers from "../../hooks/redux/useActionUsers";
 
 const Support = () => {
-    const { setUserDataForm } = useActionUsers();
+    const { setUserDataForm, loadingSupport } = useActionUsers();
 
     const handleSubmitForm = (initialValues) => {
-        setUserDataForm(initialValues)
+        setUserDataForm(initialValues);
     };
 
     return (
@@ -41,37 +41,41 @@ const Support = () => {
                         initialValues={{
                             name: "",
                             email: "",
-                            subject: "",
-                            comment: "",
+                            title: "",
+                            text: "",
                         }}
                         onSubmit={handleSubmitForm}
                     >
-                        {({ values }) => (
-                            <FormSupport method="POST" autocomplete="off">
+                        {({ values,  handleChange,handleSubmit }) => (
+                            <FormSupport method="POST" autocomplete="off" onSubmit={handleSubmit}>
                                 <FormInput
                                     placeholder="Ваше имя"
                                     name="name"
                                     type="text"
                                     valueInput={values.name}
+                                    onChange={handleChange}
                                 />
                                 <FormInput
                                     placeholder="Ваша почта"
                                     name="email"
                                     type="email"
                                     valueInput={values.email}
+                                    onChange={handleChange}
                                 />
                                 <FormInput
                                     placeholder="Тема"
-                                    name="subject"
+                                    name="title"
                                     type="text"
-                                    valueInput={values.subject}
+                                    valueInput={values.title}
+                                    onChange={handleChange}
                                 />
                                 <FormTextArea
                                     placeholder="Комментарий"
-                                    name="comment"
-                                    valueInput={values.comment}
+                                    name="text"
+                                    valueInput={values.text}
+                                    onChange={handleChange}
                                 />
-                                <BtnSendForm>
+                                <BtnSendForm isActive={loadingSupport}>
                                     Отправить сообщение!
                                     <StylImgDoubleArrow
                                         src={doubleArrow}

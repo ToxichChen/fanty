@@ -9,6 +9,8 @@ import {
     loginError,
     getUserProfileRequest,
     getUserProfileSuccess,
+    supportRequest,
+    supportSuccess
 } from "./formFeaturesActions";
 import {
     fantyCounterCanceledTask,
@@ -122,8 +124,9 @@ const logoutUser = () => async (dispatch) => {
 
 const supportForm = (credentials) => async (dispatch) => {
     try {
-        await axios.post("", credentials);
-
+        dispatch(supportRequest());
+        await axios.post("/email/support", credentials);
+        dispatch(supportSuccess());
         dispatch(
             alert({
                 show: true,
@@ -135,7 +138,7 @@ const supportForm = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );

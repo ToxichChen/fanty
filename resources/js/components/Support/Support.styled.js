@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 import imageMobileBGJPG from "./../../assets/bg/muzyka.png";
 
 const SectionSupport = styled.section`
@@ -138,6 +138,7 @@ const BtnSendForm = styled.button`
     margin-right: 12px;
     box-shadow: 0 0 9px 3px ${(props) => props.theme.palette.shadow.primary};
     border-radius: 8px;
+    transition: all 0.2s ease;
     z-index: 2 !important;
 
     &::before {
@@ -175,6 +176,12 @@ const BtnSendForm = styled.button`
             }
         }
     }
+
+    ${props => props.isActive && css`
+    cursor: none;
+    pointer-events: none;
+    opacity: 0.7;
+    `}
 `;
 
 const IconSupport = styled.p`

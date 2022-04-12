@@ -29,6 +29,9 @@ function useActionUsers() {
     const loadingProfile = useSelector(
         (state) => state.authForm.isAuthenticated
     );
+    const loadingSupport= useSelector(
+        (state) => state.authForm.isSupportLoad
+    );
     const getErrorUser = useSelector((state) => state.authForm.user[0]);
 
     const loginUser = useCallback(
@@ -84,6 +87,7 @@ function useActionUsers() {
         registerUser,
         clearDataSettingAndFant,
         userHave,
+        loadingSupport,
         setUserDataForm
     };
 }

@@ -9,6 +9,8 @@ import {
     registerError,
     loginError,
     getUserProfileError,
+    supportRequest,
+    supportSuccess
 } from "./formFeaturesActions";
 
 const user = createReducer(
@@ -36,9 +38,15 @@ const isAuthenticated = createReducer(false, {
     [getUserProfileSuccess]: () => false,
 });
 
+const isSupportLoad = createReducer(false, {
+    [supportRequest]: () => true,
+    [supportSuccess]: () => false,
+});
+
 export default combineReducers({
     user,
     token,
     error,
     isAuthenticated,
+    isSupportLoad
 });
