@@ -44,7 +44,7 @@ return [
 
         'music_uploads' => [
             'driver' => 'local',
-            'root'   => "/var/www/html/public_html/music",
+            'root'   => "/home/site/public_html/music",
         ],
 
         's3' => [
