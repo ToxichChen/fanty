@@ -96,14 +96,14 @@ class FantController extends Controller
             'sex' => 'required|numeric|min:0|max:2',
             'is_timer_active' => '',
             'timer' => 'numeric',
-            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
+            'media' => 'mimes:jpeg,jpg,png,gif|max:20000'
         ]);
         $path = '';
 
         $fant = Fant::find($id);
         if ($request->file('media') !== null && $request->file()) {
             $path = Storage::disk('local')->path($fant->media);
-            if (file_exists($path)) {
+            if ($fant->media !== trim('') && file_exists($path)) {
                 unlink($path);
             }
             $path = $request->file('media')->store('public');
@@ -119,6 +119,8 @@ class FantController extends Controller
             && isset($validated['timer']) && $validated['timer'] !== 0) {
             $fant->is_timer_active = 1;
             $fant->timer = $validated['timer'];
+        } else {
+            $fant->is_timer_active = 0;
         }
         if ($request->file('media') !== null && $request->file()) {
             $fant->media = $path;
@@ -131,7 +133,7 @@ class FantController extends Controller
     {
         $fant = Fant::find($id);
         $path = Storage::disk('local')->path($fant->media);
-        if (file_exists($path)) {
+        if ($fant->media !== trim('') && file_exists($path)) {
             unlink($path);
         }
         $fant = Fant::where('id', $id)->delete();
