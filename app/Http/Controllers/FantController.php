@@ -49,7 +49,7 @@ class FantController extends Controller
             'sex' => 'required|numeric|min:0|max:2',
             'is_timer_active' => '',
             'timer' => 'numeric',
-            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
+            'media' => 'mimes:jpeg,jpg,png,gif|max:10000'
         ]);
         $path = '';
 
