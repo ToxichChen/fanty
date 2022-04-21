@@ -1,6 +1,47 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
+const BoxBtnForm = styled.div`
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: space-between;
+min-height: 100px;
+
+@media(min-width: 500px){
+    flex-direction: row;
+}
+`;
+
+const OtherForm = styled(NavLink)`
+cursor: pointer;
+border: none;
+outline: none;
+background-color: transparent;
+display: inline-block;
+padding: 10px 20px;
+transition: all 0.2s ease;
+backgroun-color: transparent;
+letter-spacing: 4px;
+text-transform: uppercase;
+text-decoration: none;
+font-size: ${(props) => props.theme.typography.textSmall.primary};
+font-weight: ${(props) => props.theme.typography.textWeigth.main};
+font-family: ${(props) => props.theme.typography.textFamily.main};
+color: ${(props) => props.theme.palette.text.primary};
+
+@media (min-width: 1024px) {
+    &:hover {
+        background: ${(props) => props.theme.palette.text.primary};
+        color: ${(props) => props.theme.palette.text.light};
+        border-radius: 5px;
+        box-shadow: 0 0 5px ${(props) => props.theme.palette.text.primary},
+            0 0 25px ${(props) => props.theme.palette.text.primary},
+            0 0 50px ${(props) => props.theme.palette.text.primary},
+            0 0 100px ${(props) => props.theme.palette.text.primary};
+    }
+}`;
+
 const StylBtnSubmitForm = styled.button`
     cursor: pointer;
     border: none;
@@ -214,4 +255,6 @@ export {
     StylFormLogin,
     StylTitleForm,
     ArrowBack,
+    OtherForm,
+    BoxBtnForm
 };

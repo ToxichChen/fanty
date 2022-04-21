@@ -9,8 +9,9 @@ import {
     StylTitleForm,
     StylCenterBoxGradientForm,
     ArrowBack,
+    OtherForm,
+    BoxBtnForm
 } from "./FormLogin.styled";
-
 import { routes } from "../../Router";
 import useActionUsers from "../../hooks/redux/useActionUsers";
 import { inputFormLogin } from "../../constants";
@@ -64,7 +65,10 @@ const FormLogin = () => {
                                 changer={handleChange}
                             />
                         )}
-                        <BtnSubmitForm />
+                        <BoxBtnForm>
+                            <BtnSubmitForm />
+                            <OtherForm  to={routes.formRegister}>Регистрация</OtherForm>
+                        </BoxBtnForm>
                     </StylFormLogin>
                 )}
             </Formik>

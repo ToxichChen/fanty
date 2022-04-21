@@ -10,6 +10,7 @@ import {
     StylCenterBoxGradientForm,
     ArrowBack,
 } from "./../FormLogin/FormLogin.styled";
+import { OtherForm, BoxBtnForm } from "./../FormLogin/FormLogin.styled";
 
 import { inputFormRegistration } from "../../constants";
 import { routes } from "../../Router";
@@ -82,7 +83,10 @@ const FormRegistration = () => {
                                 changer={handleChange}
                             />
                         )}
-                        <BtnSubmitForm />
+                        <BoxBtnForm>
+                            <BtnSubmitForm />
+                            <OtherForm  to={routes.formLogin}>Вход</OtherForm>
+                        </BoxBtnForm>
                     </StylFormLogin>
                 )}
             </Formik>
