@@ -21,6 +21,7 @@ const fantyPersistConfig = {
     "levelFanty",
     "numberFanty",
     "like",
+    "isPunishment",
     "fantyPunishmentUser",
   ],
 };

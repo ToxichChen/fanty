@@ -11,9 +11,12 @@ import {
     postSettingsCountTask,
     postSettingsGame,
 } from "../../redux/settingsFeatures/SettingsOperation";
+import { changePunishment } from "../../redux/activeFantyFeatures/activeFantyFeaturesOperation";
+import useActionFanty from "./useActionFanty";
 
 function useActionSettings() {
     const dispatch = useDispatch();
+    const {isPunishment} = useActionFanty();
     const getAllSettings = useSelector((state) => state.settings.settings);
     const settingsGame = useSelector((state) => state.settings.settingsGame);
     const settingsUsers = useSelector((state) => state.settings.users);
@@ -24,7 +27,10 @@ function useActionSettings() {
     const settingsGameTask = useCallback(
         (data, clear = false, radio) => {
             const newArr = [...settingsGame];
-            
+
+            if(data.id === 1){
+                dispatch(changePunishment(!isPunishment));
+            }
 
             if (Object.prototype.toString.call(data) === "[object Array]") {
                 if (clear) {

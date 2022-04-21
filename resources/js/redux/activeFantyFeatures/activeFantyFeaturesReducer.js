@@ -10,6 +10,7 @@ import {
     fantyLike,
     fantyPunishment,
     fantyPunishmentRequest,
+    punishment
 } from "./activeFantyFeaturesActions";
 
 const fanty = createReducer(
@@ -59,12 +60,17 @@ const like = createReducer("", {
     [fantyLike.type]: (_, { payload }) => payload,
 });
 
+const isPunishment = createReducer(false, {
+    [punishment.type]: (_, {payload}) => payload,
+})
+
 export default combineReducers({
     fanty,
-    isLoadingFanty,
     countCanceledTask,
-    levelFanty,
     numberFanty,
-    like,
     fantyPunishmentUser,
+    isLoadingFanty,
+    levelFanty,
+    like,
+    isPunishment
 });

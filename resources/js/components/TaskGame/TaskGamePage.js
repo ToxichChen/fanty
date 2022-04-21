@@ -37,6 +37,7 @@ const TaskGamePage = () => {
         getNumberFanty,
         getLevelFanty,
         getFantyPunishment,
+        isPunishment,
         lastFantGame,
         clearPunishmentFant,
         getFant,
@@ -271,13 +272,14 @@ const TaskGamePage = () => {
                                 <StylBtnTask
                                     type="button"
                                     isType={
-                                        isLastFant
+                                        isLastFant 
                                             ? "none"
                                             : isLevelFant === "green"
                                                 ? "none"
                                                 : getCountCanceledTask === 4
                                                     ? "none"
-                                                    : isLevelFant
+                                                    : isPunishment === false ? 'none': 
+                                                    isLevelFant
                                     }
                                     onClick={() =>
                                         cancelTask(getFanty.sex === 1 ? 1 : 2)

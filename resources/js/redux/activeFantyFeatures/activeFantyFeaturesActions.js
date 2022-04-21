@@ -9,6 +9,7 @@ const fantyNumberTask = createAction("fanty/fantyNumberTask");
 const fantyLike = createAction("fanty/fantyLikes");
 const fantyPunishmentRequest = createAction("fanty/fantyPunishment/Request");
 const fantyPunishment = createAction("fanty/fantyPunishment");
+const punishment = createAction('fanty/punishment');
 
 export {
     fantyRequest,
@@ -20,4 +21,5 @@ export {
     fantyLike,
     fantyPunishment,
     fantyPunishmentRequest,
+    punishment
 };

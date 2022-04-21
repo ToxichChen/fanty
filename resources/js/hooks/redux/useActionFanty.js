@@ -18,6 +18,7 @@ import {
 
 function useActionFanty() {
     const dispatch = useDispatch();
+    const isPunishment = useSelector((state) => state.activeFanty.isPunishment);
     const isLoadingFanty = useSelector(
         (state) => state.activeFanty.isLoadingFanty
     );
@@ -111,6 +112,7 @@ function useActionFanty() {
         clearPunishmentFant,
         lastFantGame,
         isLoadingFanty,
+        isPunishment,
         getFanty,
         getCountTask,
         getCountCanceledTask,

@@ -6,6 +6,7 @@ import {
     fantyLike,
     fantyPunishment,
     fantyPunishmentRequest,
+    punishment,
 } from "./activeFantyFeaturesActions";
 import { alert } from "./../alertFeatures/AlertActions";
 
@@ -133,6 +134,10 @@ const getFinishFant = () => async (dispatch) => {
     }
 };
 
+const changePunishment = (data) => async (dispatch) => {
+    dispatch(punishment(data))
+}
+
 export {
     likeFanty,
     disLikeFanty,
@@ -141,4 +146,5 @@ export {
     getPunishment,
     getFinalPunishment,
     getFinishFant,
+    changePunishment
 };
