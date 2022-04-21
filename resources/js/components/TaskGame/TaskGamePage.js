@@ -78,12 +78,12 @@ const TaskGamePage = () => {
             setLevelFant("yellow");
             sendNumberFanty(0);
             sendLevelFanty("yellow");
-            getFant({ current_level: "yellow", fant_number: 0, sex: 1 });
+            getFant({ current_level: "yellow", fant_number: 0, sex: 2 });
         } else if (getCountTask.is_red !== "0") {
             setLevelFant("red");
             sendNumberFanty(0);
             sendLevelFanty("red");
-            getFant({ current_level: "red", fant_number: 0, sex: 1 });
+            getFant({ current_level: "red", fant_number: 0, sex: 2 });
         }
     };
 
@@ -117,7 +117,7 @@ const TaskGamePage = () => {
             setLastFant(true);
         } else {
             if (
-                getNumberFanty < getCountTask.is_green - 1 &&
+                getNumberFanty < getCountTask.is_green - 2 &&
                 isLevelFant === "green"
             ) {
                 getFant({
@@ -127,7 +127,7 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_green - 1 &&
+                getNumberFanty === getCountTask.is_green - 2 &&
                 isLevelFant === "green"
             ) {
                 getFant({ current_level: "yellow", fant_number: 0, sex: 1 });
@@ -135,7 +135,7 @@ const TaskGamePage = () => {
                 sendNumberFanty(0);
                 sendLevelFanty("yellow");
             } else if (
-                getNumberFanty < getCountTask.is_yellow - 1 &&
+                getNumberFanty < getCountTask.is_yellow - 2 &&
                 isLevelFant === "yellow"
             ) {
                 getFant({
@@ -145,7 +145,7 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_yellow - 1 &&
+                getNumberFanty === getCountTask.is_yellow - 2 &&
                 isLevelFant === "yellow"
             ) {
                 getFant({ current_level: "red", fant_number: 0, sex: 1 });
@@ -153,7 +153,7 @@ const TaskGamePage = () => {
                 sendNumberFanty(0);
                 sendLevelFanty("red");
             } else if (
-                getNumberFanty < getCountTask.is_red &&
+                getNumberFanty < getCountTask.is_red - 2 &&
                 isLevelFant === "red"
             ) {
                 getFant({
@@ -163,7 +163,7 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_red &&
+                getNumberFanty === getCountTask.is_red - 2 &&
                 isLevelFant === "red"
             ) {
                 navigate("/", { replace: true });

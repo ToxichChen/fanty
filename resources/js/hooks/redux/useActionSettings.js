@@ -24,6 +24,7 @@ function useActionSettings() {
     const settingsGameTask = useCallback(
         (data, clear = false, radio) => {
             const newArr = [...settingsGame];
+            
 
             if (Object.prototype.toString.call(data) === "[object Array]") {
                 if (clear) {
