@@ -7,7 +7,7 @@
     <link rel="icon" type="image/ico" sizes="16x16" href="./images/favicon.ico">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    
+    <meta name="interkassa-verification" content="8b4c3f4559065bc9956ef3a7307dec9c" />
     <title>Tasksman</title>
     <!-- Styles -->
 {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
