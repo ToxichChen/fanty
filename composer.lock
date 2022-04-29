@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4e38664dc2e1313269ea0f10ec8cbadf",
+    "content-hash": "5fb015a8d1dd402b22753df6648d1d4c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -958,6 +958,59 @@
                 }
             ],
             "time": "2021-10-06T17:43:30+00:00"
+        },
+        {
+            "name": "interkassa/php-sdk",
+            "version": "1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/interkassa/php-sdk.git",
+                "reference": "a280b712b1c4f2f122061b3ca1c2631f148c68d8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/interkassa/php-sdk/zipball/a280b712b1c4f2f122061b3ca1c2631f148c68d8",
+                "reference": "a280b712b1c4f2f122061b3ca1c2631f148c68d8",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "ext-mbstring": "*",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~8|~9"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Interkassa\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Interkassa",
+                    "email": "technical@interkassa.com",
+                    "homepage": "https://docs.interkassa.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "SDK for Interkassa",
+            "homepage": "https://github.com/interkassa/php-sdk",
+            "keywords": [
+                "Interkassa",
+                "pay"
+            ],
+            "support": {
+                "issues": "https://github.com/interkassa/php-sdk/issues",
+                "source": "https://github.com/interkassa/php-sdk/tree/v1.1.2"
+            },
+            "time": "2022-03-17T11:52:32+00:00"
         },
         {
             "name": "laravel/framework",

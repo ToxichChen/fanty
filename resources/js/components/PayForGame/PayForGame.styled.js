@@ -97,4 +97,12 @@ const BoxBonus = styled.div`
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.text.light};
 `;
-export { SectionPay, CenterPay, TitlePay, BoxSelectPay, Select, BoxBonus };
+
+const FormInter = styled.form`
+width: 100%;
+display: flex;
+flex-direction:row;
+justify-content: center;
+align-items: center;
+`;
+export { SectionPay, CenterPay, TitlePay, BoxSelectPay, Select, BoxBonus, FormInter};

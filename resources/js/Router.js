@@ -141,12 +141,7 @@ const Router = () => {
             <Route
                 path={routes.payGame}
                 element={
-                    <LayoutProfileSettings text='Пожалуйста, перед началом оплаты авторизируйтесь'>
-                        <LayoutProfileCheckVip text='Вы уже оплатили игру!'>
-                            <PayGameView title="Оплата за игру" />
-                        </LayoutProfileCheckVip>
-                    </LayoutProfileSettings>
-                }
+                            <PayGameView title="Оплата за игру" />}
             />
             <Route
                 path={routes.support}

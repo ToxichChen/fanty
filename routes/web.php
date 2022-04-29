@@ -9,6 +9,7 @@ use App\Http\Controllers\SubsettingController;
 use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('/payment/success', [CheckoutController::class, 'success']);
+
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'check.admin'], function () {
         Route::get('/logout', [AdminController::class, 'adminLogout']);
@@ -79,6 +83,11 @@ Route::prefix('admin')->group(function () {
             Route::get('/edit/{id}', [PostController::class, 'edit'])->name('admin.post.edit');
             Route::post('/update/{id}', [PostController::class, 'update'])->name('admin.post.update');
             Route::get('/delete/{id}', [PostController::class, 'delete'])->name('admin.post.delete');
+        });
+        Route::prefix('checkout')->group(function () {
+            Route::get('/', [CheckoutController::class, 'index'])->name('admin.checkout.index');
+            Route::get('/create', [CheckoutController::class, 'create'])->name('admin.checkout.create');
+            Route::get('/success', [CheckoutController::class, 'success'])->name('admin.checkout.success');
         });
     });
     Route::get('/login', [AdminController::class, 'adminLogin'])->name('admin.login');
