@@ -64,8 +64,11 @@ const FormRegistration = () => {
                             <ArrowBack to={routes.home} />
                             Регистрация
                         </StylTitleForm>
-                        {inputFormRegistration.map((item, index) =>
+                        {inputFormRegistration.map((item) =>
                             <FormInput
+                            
+                            id={item.placeholder}
+                            key={item.placeholder}
                                 type={item.type}
                                 name={item.name}
                                 autocomplete={item.autocomplete}
@@ -85,7 +88,7 @@ const FormRegistration = () => {
                         )}
                         <BoxBtnForm>
                             <BtnSubmitForm />
-                            <OtherForm  to={routes.formLogin}>Вход</OtherForm>
+                            <OtherForm  to={routes.formLogin}>Авторизация</OtherForm>
                         </BoxBtnForm>
                     </StylFormLogin>
                 )}

@@ -118,7 +118,7 @@ const TaskGamePage = () => {
             setLastFant(true);
         } else {
             if (
-                getNumberFanty < getCountTask.is_green - 2 &&
+                getNumberFanty < getCountTask.is_green - 1 &&
                 isLevelFant === "green"
             ) {
                 getFant({
@@ -128,15 +128,15 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_green - 2 &&
+                getNumberFanty === getCountTask.is_green - 1 &&
                 isLevelFant === "green"
             ) {
-                getFant({ current_level: "yellow", fant_number: 0, sex: 1 });
+                getFant({ current_level: "yellow", fant_number: 0, sex: 2 });
                 setLevelFant("yellow");
                 sendNumberFanty(0);
                 sendLevelFanty("yellow");
             } else if (
-                getNumberFanty < getCountTask.is_yellow - 2 &&
+                getNumberFanty < getCountTask.is_yellow - 1 &&
                 isLevelFant === "yellow"
             ) {
                 getFant({
@@ -146,15 +146,15 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_yellow - 2 &&
+                getNumberFanty === getCountTask.is_yellow - 1 &&
                 isLevelFant === "yellow"
             ) {
-                getFant({ current_level: "red", fant_number: 0, sex: 1 });
+                getFant({ current_level: "red", fant_number: 0, sex: 2 });
                 setLevelFant("red");
                 sendNumberFanty(0);
                 sendLevelFanty("red");
             } else if (
-                getNumberFanty < getCountTask.is_red - 2 &&
+                getNumberFanty < getCountTask.is_red - 1 &&
                 isLevelFant === "red"
             ) {
                 getFant({
@@ -164,7 +164,7 @@ const TaskGamePage = () => {
                 });
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_red - 2 &&
+                getNumberFanty === getCountTask.is_red - 1 &&
                 isLevelFant === "red"
             ) {
                 navigate("/", { replace: true });
@@ -225,18 +225,23 @@ const TaskGamePage = () => {
                                 }
                                 alt="img task"
                             />
-                            <TaskGameBar
-                                isTimeDuration={
-                                    Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.timer
-                                        : getFanty.timer
+                            {
+                                (getFantyPunishment.is_timer_active && getFantyPunishment.timer) &&
+                                <TaskGameBar
+                                isTimeDuration={ getFantyPunishment.timer}
+                                isTime={getFantyPunishment.is_timer_active}
+                            />
+                            }
+                             {
+                                (getFanty.is_timer_active && getFanty.timer) &&
+                                <TaskGameBar
+                                isTimeDuration={getFanty.timer
                                 }
-                                isTime={
-                                    Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.is_timer_active
-                                        : getFanty.is_timer_active}
+                                isTime={ getFanty.is_timer_active}
                                 nextTask={nextTask}
                             />
+                            }
+                            
                             <TaskGameReview
                                 idFanty={
                                     Object.keys(getFantyPunishment).length > 1
