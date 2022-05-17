@@ -8,6 +8,7 @@ import {
 } from "./FormInput.styled";
 
 const FormInput = ({
+    id,
     type,
     name,
     placeholder,
@@ -18,6 +19,7 @@ const FormInput = ({
     valueInput = "",
     changer,
     autocomplete,
+    key
 }) => {
     let [isType, setType] = useState(type);
 
@@ -28,9 +30,10 @@ const FormInput = ({
     };
 
     return (
-        <StylWrapperFormInput err={err}>
+        <StylWrapperFormInput err={err} key={key} >
             <StylIconInputStart src={imgStart} />
             <StylInputForm
+            id={id}
                 type={isType}
                 name={name}
                 placeholder={placeholder}

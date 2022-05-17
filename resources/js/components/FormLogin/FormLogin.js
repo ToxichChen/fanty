@@ -50,10 +50,11 @@ const FormLogin = () => {
                             <ArrowBack to={routes.home} />
                             Вход
                         </StylTitleForm>
-                        {inputFormLogin.map((item, index) =>
+                        {inputFormLogin.map((item) =>
 
                             <FormInput
-                                key={index}
+                                id={item.placeholder}
+                                key={item.placeholder}
                                 type={item.type}
                                 name={item.name}
                                 autocomplete={item.autocomplete}

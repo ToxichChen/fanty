@@ -6,7 +6,7 @@ const BtnSubmitForm = () => {
     const { loadingProfile } = useActionUsers();
     return (
         <StylBtnSubmitForm type="submit">
-            {loadingProfile ? "Загрузка" : "Отправить"}
+            {loadingProfile ? "Загрузка" : "Вход"}
 
             <StylLineBorder />
             <StylLineBorder />

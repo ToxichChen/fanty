@@ -10,6 +10,7 @@ min-height: 100px;
 
 @media(min-width: 500px){
     flex-direction: row;
+    min-height: auto;
 }
 `;
 
