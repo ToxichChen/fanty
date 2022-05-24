@@ -16,14 +16,14 @@ const Trend = ({ item }) => {
   });
   return (
     <NavLink
-      to={item.url}
+      to={`/blogs/article/${item.id}`}
       style={{ textDecoration: 'none' }}
       data-aos='fade-right'
     >
       <StylTrendBox>
-        <StylImgTrend src={item.imgUrl} alt='trend img' />
+        <StylImgTrend src={item.media} alt='trend img' />
         <StylBoxInfo>
-          <StylDataTrend>{item.data}</StylDataTrend>
+          <StylDataTrend>{item.created_at.substring(0, 10)}</StylDataTrend>
           <StylTitleTrend>{item.title}</StylTitleTrend>
         </StylBoxInfo>
       </StylTrendBox>

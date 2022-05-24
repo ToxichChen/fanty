@@ -14,6 +14,7 @@ import {
     fantyLevel,
     fantyNumberTask,
     fantyPunishment,
+    sex
 } from "../../redux/activeFantyFeatures/activeFantyFeaturesActions";
 
 function useActionFanty() {
@@ -35,6 +36,9 @@ function useActionFanty() {
     const getFantyPunishment = useSelector(
         (state) => state.activeFanty.fantyPunishmentUser
     );
+    const getFantSex = useSelector(
+        (state) => state.activeFanty.sexFant
+    );
 
     const getFant = useCallback(
         (obj) => {
@@ -42,6 +46,12 @@ function useActionFanty() {
         },
         [dispatch]
     );
+
+    const changeSexFant = useCallback(
+        (data) => {
+            dispatch(sex(data));
+        },
+        [dispatch])
 
     const canceledTask = useCallback(() => {
         dispatch(fantyCounterCanceledTask(getCountCanceledTask + 1));
@@ -111,6 +121,8 @@ function useActionFanty() {
         punishmentFinalFant,
         clearPunishmentFant,
         lastFantGame,
+        changeSexFant,
+        getFantSex,
         isLoadingFanty,
         isPunishment,
         getFanty,

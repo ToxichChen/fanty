@@ -23,6 +23,7 @@ const fantyPersistConfig = {
     "like",
     "isPunishment",
     "fantyPunishmentUser",
+    "sexFant"
   ],
 };
 

@@ -13,6 +13,7 @@ import {
     fantyLevel,
     fantyNumberTask,
     fantySuccess,
+    sex,
 } from "../../redux/activeFantyFeatures/activeFantyFeaturesActions";
 import {
     settingsGameData,
@@ -66,6 +67,7 @@ function useActionUsers() {
         dispatch(durationGameData({ is_green: "0", is_yellow: "0", is_red: "0" }));
         dispatch(fantySuccess({ media: "" }));
         dispatch(usersSetting({ is_man: "", is_female: "" }));
+        dispatch(sex(2));
     }, [dispatch]);
 
     const userLogout = useCallback(() => {

@@ -1,3 +1,4 @@
+import React, {useState, useEffect} from 'react';
 import {
     StylBoxBlogs,
     StylBoxCenter,
@@ -12,11 +13,18 @@ import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../commo
 import FooterPageHome from "../PageHome/FooterPageHome/FooterPageHome";
 import Trend from "./BlogsTrends/Trend";
 import PaginatedItems from "./PaginatedItems/PaginatedItems";
+import useActionBlogs from "../../hooks/redux/useActionBlogs";
+import MiniLoader from "../Loader/MiniLoader";
 
-import { blogTrendsArr } from "../../constants";
 
 
 const Blogs = () => {
+    const { getBlogs, isLoadingBlogs } = useActionBlogs();  
+    const [isBlogs, setBlogs] = useState([]);
+
+    useEffect(() => {
+      getBlogs(setBlogs);
+    }, [getBlogs])
 
     return (
         <>
@@ -33,8 +41,7 @@ const Blogs = () => {
                         <StylBoxOtherContent>
                             <StylBoxTrending>
                                 <StylTrendTitle>Trending</StylTrendTitle>
-                                {!!blogTrendsArr.length &&
-                                    blogTrendsArr.map((item, index) => (
+                               {isLoadingBlogs ? <MiniLoader/> : isBlogs.map((item, index) => index < 4 && (
                                         <Trend item={item} key={index} />
                                     ))}
                             </StylBoxTrending>
