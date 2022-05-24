@@ -64,31 +64,31 @@ const FormRegistration = () => {
                             <ArrowBack to={routes.home} />
                             Регистрация
                         </StylTitleForm>
-                        {inputFormRegistration.map((item) =>
-                            <FormInput
-                            
-                            id={item.placeholder}
-                            key={item.placeholder}
-                                type={item.type}
-                                name={item.name}
-                                autocomplete={item.autocomplete}
-                                valueInput={'values.name' === item.valueInput ? values.name : 'values.email' === item.valueInput ? values.email : 'values.password' === item.valueInput ? values.password : values.checkPassword}
-                                placeholder={item.placeholder}
-                                err={'errors.name' === item.err ?
-                                    errors.name : 'errors.email' === item.err ?
-                                        errors.email : 'errors.password' === item.err ?
-                                            errors.password : isCheckPassowrd}
-                                errText={'errors.name' === item.errText ?
-                                    errors.name : 'errors.email' === item.errText ?
-                                        errors.email : 'errors.password' === item.errText ?
-                                            errors.password : item.errText}
-                                imgStart={item.imgStart}
-                                changer={handleChange}
-                            />
+                        {inputFormRegistration.map((item, index) =>
+                            <div key={index}>
+                                <FormInput
+                                    id={item.placeholder}
+                                    type={item.type}
+                                    name={item.name}
+                                    autocomplete={item.autocomplete}
+                                    valueInput={'values.name' === item.valueInput ? values.name : 'values.email' === item.valueInput ? values.email : 'values.password' === item.valueInput ? values.password : values.checkPassword}
+                                    placeholder={item.placeholder}
+                                    err={'errors.name' === item.err ?
+                                        errors.name : 'errors.email' === item.err ?
+                                            errors.email : 'errors.password' === item.err ?
+                                                errors.password : isCheckPassowrd}
+                                    errText={'errors.name' === item.errText ?
+                                        errors.name : 'errors.email' === item.errText ?
+                                            errors.email : 'errors.password' === item.errText ?
+                                                errors.password : item.errText}
+                                    imgStart={item.imgStart}
+                                    changer={handleChange}
+                                />
+                            </div>
                         )}
                         <BoxBtnForm>
                             <BtnSubmitForm />
-                            <OtherForm  to={routes.formLogin}>Авторизация</OtherForm>
+                            <OtherForm to={routes.formLogin}>Авторизация</OtherForm>
                         </BoxBtnForm>
                     </StylFormLogin>
                 )}

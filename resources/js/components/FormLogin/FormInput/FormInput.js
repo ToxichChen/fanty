@@ -18,8 +18,7 @@ const FormInput = ({
     errText = "",
     valueInput = "",
     changer,
-    autocomplete,
-    key
+    autocomplete
 }) => {
     let [isType, setType] = useState(type);
 
@@ -30,7 +29,7 @@ const FormInput = ({
     };
 
     return (
-        <StylWrapperFormInput err={err} key={key} >
+        <StylWrapperFormInput err={err} >
             <StylIconInputStart src={imgStart} />
             <StylInputForm
             id={id}

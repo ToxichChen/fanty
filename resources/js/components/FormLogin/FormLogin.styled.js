@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
 const BoxBtnForm = styled.div`
 display: flex;
@@ -70,6 +70,11 @@ const StylBtnSubmitForm = styled.button`
                 0 0 100px ${(props) => props.theme.palette.text.primary};
         }
     }
+
+    ${props => props.isLoading && css`
+        cursor: none;
+        pointer-events: none;
+    `}
 `;
 
 const StylLineBorder = styled.span`

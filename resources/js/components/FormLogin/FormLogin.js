@@ -50,25 +50,26 @@ const FormLogin = () => {
                             <ArrowBack to={routes.home} />
                             Вход
                         </StylTitleForm>
-                        {inputFormLogin.map((item) =>
-
-                            <FormInput
-                                id={item.placeholder}
-                                key={item.placeholder}
-                                type={item.type}
-                                name={item.name}
-                                autocomplete={item.autocomplete}
-                                placeholder={item.placeholder}
-                                valueInput={'values.email' === item.valueInput ? values.email : values.password}
-                                imgStart={item.imgStart}
-                                err={'errors.email' === item.err ? errors.email : errors.password}
-                                errText={'errors.email' === item.errText ? errors.email : errors.password}
-                                changer={handleChange}
-                            />
+                        {inputFormLogin.map((item, index) =>
+                            <div
+                                key={index}>
+                                <FormInput
+                                    id={item.placeholder}
+                                    type={item.type}
+                                    name={item.name}
+                                    autocomplete={item.autocomplete}
+                                    placeholder={item.placeholder}
+                                    valueInput={'values.email' === item.valueInput ? values.email : values.password}
+                                    imgStart={item.imgStart}
+                                    err={'errors.email' === item.err ? errors.email : errors.password}
+                                    errText={'errors.email' === item.errText ? errors.email : errors.password}
+                                    changer={handleChange}
+                                />
+                            </div>
                         )}
                         <BoxBtnForm>
                             <BtnSubmitForm />
-                            <OtherForm  to={routes.formRegister}>Регистрация</OtherForm>
+                            <OtherForm to={routes.formRegister}>Регистрация</OtherForm>
                         </BoxBtnForm>
                     </StylFormLogin>
                 )}

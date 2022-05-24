@@ -90,6 +90,7 @@ const TaskGamePage = () => {
 
     const nextTask = () => {
         clearPunishmentFant();
+        console.log(getFanty, getNumberFanty)
 
         if (getCountCanceledTask === 4 || isLastFant) {
             clearDataSettingAndFant();

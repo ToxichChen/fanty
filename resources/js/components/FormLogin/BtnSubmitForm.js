@@ -5,7 +5,7 @@ import { StylBtnSubmitForm, StylLineBorder } from "./FormLogin.styled";
 const BtnSubmitForm = () => {
     const { loadingProfile } = useActionUsers();
     return (
-        <StylBtnSubmitForm type="submit">
+        <StylBtnSubmitForm type="submit" isLoading={loadingProfile}>
             {loadingProfile ? "Загрузка" : "Вход"}
 
             <StylLineBorder />
