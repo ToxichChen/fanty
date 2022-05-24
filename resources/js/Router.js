@@ -54,7 +54,7 @@ const ProfileView = lazy(() => import('./views/ProfilePage/ProfileUser'))
 const LayoutProfile = lazy(() => import("./hoc/LayoutProfile"));
 const LayoutProfileSettings = lazy(() => import("./hoc/LayoutProfileSettings"));
 const LayoutCheckFanty = lazy(() => import("./hoc/LayoutCheckFanty"));
-const LayoutProfileCheckVip = lazy(() => import("./hoc/LayoutCheckFanty"));
+const LayoutPay = lazy(() => import("./hoc/LayoutPay"));
 
 const Router = () => {
     const { userHave } = useActionUsers();
@@ -141,7 +141,9 @@ const Router = () => {
             <Route
                 path={routes.payGame}
                 element={
-                            <PayGameView title="Оплата за игру" />}
+                    <LayoutPay text='Вам не нужно платить за игру'>
+                        <PayGameView title="Оплата за игру" />
+                    </LayoutPay>}
             />
             <Route
                 path={routes.support}
