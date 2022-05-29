@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 import {
     settingsGameData,
@@ -16,19 +16,18 @@ import useActionFanty from "./useActionFanty";
 
 function useActionSettings() {
     const dispatch = useDispatch();
-    const {isPunishment} = useActionFanty();
+    const { isPunishment } = useActionFanty();
     const getAllSettings = useSelector((state) => state.settings.settings);
     const settingsGame = useSelector((state) => state.settings.settingsGame);
     const settingsUsers = useSelector((state) => state.settings.users);
     const loadingSettings = useSelector(
         (state) => state.settings.isLoadingSettings
     );
-
     const settingsGameTask = useCallback(
         (data, clear = false, radio) => {
             const newArr = [...settingsGame];
 
-            if(data.id === 1){
+            if (data.id === 1) {
                 dispatch(changePunishment(!isPunishment));
             }
 

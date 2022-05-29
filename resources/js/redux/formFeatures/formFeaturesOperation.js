@@ -51,7 +51,7 @@ const loginForm = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Авторизация прошло успешно",
             })
         );
@@ -60,7 +60,7 @@ const loginForm = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
@@ -80,7 +80,7 @@ const registerForm = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Регистрация прошло успешно",
             })
         );
@@ -88,7 +88,7 @@ const registerForm = (credentials) => async (dispatch) => {
         dispatch(registerError(error.message)); dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );

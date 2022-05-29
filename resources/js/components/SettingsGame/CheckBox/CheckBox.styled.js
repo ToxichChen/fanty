@@ -64,6 +64,12 @@ const StylLabel = styled.label`
     &:last-child {
         margin-bottom: 0;
     }
+
+    ${props => props.isDisabled && css`
+        cursor: none;
+        pointer-events: none;
+        opacity: 0.5;
+    `}
 `;
 
 const StylTextLabel = styled.p`

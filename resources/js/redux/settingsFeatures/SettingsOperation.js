@@ -1,5 +1,5 @@
 import axios from "axios";
-import {alert} from './../alertFeatures/AlertActions'
+import { alert } from './../alertFeatures/AlertActions'
 import {
     settingsRequest,
     settingsSuccess,
@@ -30,7 +30,7 @@ const getSettings = () => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
@@ -45,7 +45,7 @@ const postSettingsCountTask = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
@@ -63,7 +63,7 @@ const postSettingsGame = (settingsGame, man, female) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
@@ -78,7 +78,7 @@ const postPlayersGame = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );

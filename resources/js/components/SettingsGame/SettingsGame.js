@@ -13,14 +13,19 @@ import {
 
 import useActionSettings from "../../hooks/redux/useActionSettings";
 import MiniLoader from "./../Loader/MiniLoader";
+import useActionUsers from "../../hooks/redux/useActionUsers";
 
 const SettingsGame = () => {
     const { getAllSettings, loadingSettings, settingsUsers, settings } =
         useActionSettings();
+    const { clearDataSettingAndFant } = useActionUsers();
     const [isChangeMan, setChangeMan] = useState(settingsUsers.is_man);
     const [isChangeFemale, setChangeFemala] = useState(settingsUsers.is_female);
 
-    useEffect(() => getAllSettings.length === 0 && settings(), []);
+    useEffect(() => {
+        clearDataSettingAndFant();
+        getAllSettings.length === 0 && settings();
+    }, []);
 
     return (
         <SectionTaskGame>

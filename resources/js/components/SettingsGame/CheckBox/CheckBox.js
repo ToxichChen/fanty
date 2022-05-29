@@ -12,10 +12,11 @@ import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
 import useActionSettings from "../../../hooks/redux/useActionSettings";
 
 const Checkbox = ({ elem, premium }) => {
-    const { settingsGameTask, settingsGame } = useActionSettings();
+    const { settingsGameTask, settingsGame, idElement } = useActionSettings();
 
     const [isCheck, setCheck] = useState(false);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
+    const [isDisabled, setDisabled] = useState(false);
 
     const handleCheckboxChange = (event) => {
         setCheck(event.target.checked);
@@ -23,13 +24,18 @@ const Checkbox = ({ elem, premium }) => {
     };
 
     useEffect(
-        () =>
-            settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false),
+        () => {
+            settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false)
+            settingsGame.includes(10) && elem.id == 11
+                ? setDisabled(true)
+                : settingsGame.includes(11) && elem.id == 10 ?
+                    setDisabled(true) : setDisabled(false)
+        },
         [settingsGame, elem.id]
     );
 
     return (
-        <StylLabel>
+        <StylLabel isDisabled={isDisabled}>
             <CheckboxContainer>
                 <HiddenCheckbox
                     checked={isCheck}

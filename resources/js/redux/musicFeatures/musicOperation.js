@@ -28,7 +28,7 @@ const getMusic = (credentials) => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );

@@ -94,7 +94,6 @@ const TaskGamePage = () => {
 
     const nextTask = () => {
         clearPunishmentFant();
-        console.log(getFantSex)
 
         if (getCountCanceledTask === 4 || isLastFant) {
             clearDataSettingAndFant();
@@ -126,8 +125,8 @@ const TaskGamePage = () => {
                 getNumberFanty < getCountTask.is_green - 1 &&
                 isLevelFant === "green"
             ) {
-                
-            changeSexFant(getFantSex === 1 ? 2 : 1);
+
+                changeSexFant(getFantSex === 1 ? 2 : 1);
                 getFant({
                     current_level: isLevelFant,
                     fant_number: getNumberFanty + 1,
@@ -146,7 +145,7 @@ const TaskGamePage = () => {
             } else if (
                 getNumberFanty < getCountTask.is_yellow - 1 &&
                 isLevelFant === "yellow"
-            ) {   
+            ) {
                 changeSexFant(getFantSex === 1 ? 2 : 1);
                 getFant({
                     current_level: isLevelFant,
@@ -239,20 +238,20 @@ const TaskGamePage = () => {
                             {
                                 (getFantyPunishment.is_timer_active && getFantyPunishment.timer) &&
                                 <TaskGameBar
-                                isTimeDuration={ getFantyPunishment.timer}
-                                isTime={getFantyPunishment.is_timer_active}
-                            />
+                                    isTimeDuration={getFantyPunishment.timer}
+                                    isTime={getFantyPunishment.is_timer_active}
+                                />
                             }
-                             {
+                            {
                                 (getFanty.is_timer_active && getFanty.timer) &&
                                 <TaskGameBar
-                                isTimeDuration={getFanty.timer
-                                }
-                                isTime={ getFanty.is_timer_active}
-                                nextTask={nextTask}
-                            />
+                                    isTimeDuration={getFanty.timer
+                                    }
+                                    isTime={getFanty.is_timer_active}
+                                    nextTask={nextTask}
+                                />
                             }
-                            
+
                             <TaskGameReview
                                 idFanty={
                                     Object.keys(getFantyPunishment).length > 1
@@ -288,14 +287,14 @@ const TaskGamePage = () => {
                                 <StylBtnTask
                                     type="button"
                                     isType={
-                                        isLastFant 
+                                        isLastFant
                                             ? "none"
                                             : isLevelFant === "green"
                                                 ? "none"
                                                 : getCountCanceledTask === 4
                                                     ? "none"
-                                                    : isPunishment === false ? 'none': 
-                                                    isLevelFant
+                                                    : isPunishment === false ? 'none' :
+                                                        isLevelFant
                                     }
                                     onClick={() =>
                                         cancelTask(getFantSex === 1 ? 1 : 2)
