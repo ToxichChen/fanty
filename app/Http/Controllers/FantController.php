@@ -235,7 +235,7 @@ class FantController extends Controller
     public static function formAnalArray($setting)
     {
         if ($_SESSION['game_duration']['red'] === 'six_red') {
-            $plan = Config::get('constants.anal_six');
+            $plan = Config::get('constants.anal');
         } else {
             $plan = Config::get('constants.anal');
         }

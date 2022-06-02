@@ -83,6 +83,8 @@ class GameSettingController extends Controller
         $settings = $request->all();
         if (is_array($settings[0])) {
             $_SESSION['settings'] = $settings[0];
+            $_SESSION["fants_game"] = [];
+            $_SESSION["red_plan"] = [];
         } else {
             $_SESSION['settings'] = [];
         }
