@@ -148,7 +148,7 @@ class FantController extends Controller
                 if (!isset($_SESSION['settings'])) {
                     $_SESSION['settings'] = [];
                 }
-                if ($_SESSION['game_duration'][$request->current_level] === "") {
+                if (!isset($_SESSION['game_duration'])||$_SESSION['game_duration'][$request->current_level] === "") {
                     return null;
                 }
                 if ($request->current_level !== 'red') {
@@ -180,6 +180,7 @@ class FantController extends Controller
                                 }
                             }
                         }
+                        array_pop($levelPlan);
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
@@ -214,6 +215,7 @@ class FantController extends Controller
                                 }
                             }
                         }
+                        array_pop($levelPlan);
                         $_SESSION['fants_game']['red_plan'] = array_merge($levelPlan, $newPlan);
                         $levelPlan = $_SESSION['fants_game']['red_plan'];
                         $planSetting = $levelPlan[$request->fant_number];
@@ -232,7 +234,11 @@ class FantController extends Controller
 
     public static function formAnalArray($setting)
     {
-        $plan = Config::get('constants.anal');
+        if ($_SESSION['game_duration']['red'] === 'six_red') {
+            $plan = Config::get('constants.anal_six');
+        } else {
+            $plan = Config::get('constants.anal');
+        }
         for ($i = 0; $i < count($plan); $i++) {
             $plan[$i] = $setting;
         }

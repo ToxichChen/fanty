@@ -39,6 +39,9 @@ return [
     'anal_off_ten_or_eight' => [
         15, -1, -1, -1
     ],
+    'anal_six' => [
+        -2, -2, -2, -2
+    ],
     'anal' => [
         -2, -2, -2, -2
     ],

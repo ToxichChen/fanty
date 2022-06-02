@@ -22,7 +22,7 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 
-Route::get('/payment/success', [CheckoutController::class, 'success']);
+Route::get('/payment/results', [CheckoutController::class, 'success']);
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'check.admin'], function () {

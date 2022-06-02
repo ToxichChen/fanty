@@ -16,23 +16,29 @@ class UserController extends Controller
     public function login(Request $request)
     {
         $response = array('response' => '', 'errors' => '', 'success' => false);
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|exists:users|max:255',
             'password' => 'required|min:6',
         ]);
+
         if ($validator->fails()) {
             return $response['errors'] = $validator->messages()->all();
         } else {
             $user = User::where('email', $request->email)->first();
+
             if (Hash::check($request->password, $user->password)) {
+
                 $_SESSION['user']['username'] = $user->name;
                 $_SESSION['user']['id'] = $user->id;
                 $_SESSION['user']['is_premium'] = $user->is_premium;
                 $_SESSION['user']['email'] = $user->email;
                 $_SESSION['user']['premium_expires_at'] = $user->premium_expires_at;
                 $_SESSION['user']['token'] = hash('sha256', Str::random(60));
+
                 $response['response'] = $_SESSION['user'];
                 $response['success'] = true;
+
                 return $response;
             } else {
                 return $response['errors'] = ['Неправильный пароль!'];
@@ -43,11 +49,13 @@ class UserController extends Controller
     public function register(Request $request): array
     {
         $response = array('response' => '', 'errors' => '', 'success' => false);
+
         $validator = Validator::make($request->all(), [
             'email' => 'required|unique:users|max:255',
             'name' => 'required|max:255',
             'password' => 'required|min:6',
         ]);
+
         if ($validator->fails()) {
             return $response['errors'] = $validator->messages()->all();
         } else {
@@ -58,9 +66,14 @@ class UserController extends Controller
             $_SESSION['user']['email'] = $user->email = $request->email;
             $_SESSION['user']['premium_expires_at'] = 0;
             $_SESSION['user']['token'] = hash('sha256', Str::random(60));
+
             $user->save();
+
+            $_SESSION['user']['id'] = $user->id;
+
             $response['response'] = $_SESSION['user'];
             $response['success'] = true;
+
             return $response;
         }
     }
@@ -124,7 +137,9 @@ class UserController extends Controller
         $fant->sex_type = $validated['sex_type'];
         $fant->sex = $validated['sex'];
         $fant->media = $path;
+
         $fant->save();
+
         return redirect('/admin/fant');
     }
 
