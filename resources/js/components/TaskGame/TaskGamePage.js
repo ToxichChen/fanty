@@ -163,7 +163,7 @@ const TaskGamePage = () => {
                 sendNumberFanty(0);
                 sendLevelFanty("red");
             } else if (
-                getNumberFanty < getCountTask.is_red - 1 &&
+                getNumberFanty < getCountTask.is_red - 2 &&
                 isLevelFant === "red"
             ) {
                 getFant({
@@ -174,7 +174,7 @@ const TaskGamePage = () => {
                 changeSexFant(getFantSex === 1 ? 2 : 1);
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_red - 1 &&
+                getNumberFanty === getCountTask.is_red - 2 &&
                 isLevelFant === "red"
             ) {
                 navigate("/", { replace: true });

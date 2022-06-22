@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useLayoutEffect } from "react";
 import {
     CheckboxContainer,
     Icon,
@@ -12,11 +12,10 @@ import { StylBoxAddInfoTask, StylBoxInfo } from "./CheckBox.styled";
 import useActionSettings from "../../../hooks/redux/useActionSettings";
 
 const Checkbox = ({ elem, premium }) => {
-    const { settingsGameTask, settingsGame, idElement } = useActionSettings();
+    const { settingsGameTask, settingsGame } = useActionSettings();
 
     const [isCheck, setCheck] = useState(false);
     const [isHiddenInfo, setHiddenInfo] = useState(false);
-    const [isDisabled, setDisabled] = useState(false);
 
     const handleCheckboxChange = (event) => {
         setCheck(event.target.checked);
@@ -25,17 +24,23 @@ const Checkbox = ({ elem, premium }) => {
 
     useEffect(
         () => {
-            settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false)
-            settingsGame.includes(10) && elem.id == 11
-                ? setDisabled(true)
-                : settingsGame.includes(11) && elem.id == 10 ?
-                    setDisabled(true) : setDisabled(false)
+            settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false);
+            if (settingsGame.includes(10) && settingsGame.includes(11)) {
+                settingsGameTask({ id: 11 });
+            }
         },
         [settingsGame, elem.id]
     );
 
+    useLayoutEffect(() => {
+        if (elem.id == 11) {
+            setTimeout(() =>
+                settingsGameTask({ id: 11 }), 500)
+        }
+    }, [])
+
     return (
-        <StylLabel isDisabled={isDisabled}>
+        <StylLabel>
             <CheckboxContainer>
                 <HiddenCheckbox
                     checked={isCheck}

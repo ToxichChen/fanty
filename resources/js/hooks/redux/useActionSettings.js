@@ -27,8 +27,11 @@ function useActionSettings() {
         (data, clear = false, radio) => {
             const newArr = [...settingsGame];
 
-            if (data.id === 1) {
-                dispatch(changePunishment(!isPunishment));
+            if (data.id === 1 && !isPunishment) {
+                dispatch(changePunishment(true));
+            } else if (data.id === 1 && isPunishment) {
+                dispatch(changePunishment(false));
+
             }
 
             if (Object.prototype.toString.call(data) === "[object Array]") {
@@ -43,6 +46,10 @@ function useActionSettings() {
 
                         return true;
                     });
+
+                    if (!newArr.includes(11)) {
+                        newArr.push(11)
+                    }
                 } else {
                     data.map(
                         (item) =>
@@ -64,7 +71,24 @@ function useActionSettings() {
                     });
 
                     newArr.push(data.id);
-                } else if (settingsGame.includes(data.id)) {
+
+                }
+
+                else if (settingsGame.includes(11) && data.id == 10) {
+                    settingsGame.find(
+                        (item, index) =>
+                            item === 11 && newArr.splice(index, 1)
+                    );
+                    newArr.push(data.id);
+                }
+                else if (settingsGame.includes(10) && data.id == 11) {
+                    settingsGame.find(
+                        (item, index) =>
+                            item === 10 && newArr.splice(index, 1)
+                    );
+                    newArr.push(data.id);
+                }
+                else if (settingsGame.includes(data.id)) {
                     settingsGame.find(
                         (item, index) =>
                             item === data.id && newArr.splice(index, 1)

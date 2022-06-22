@@ -30,7 +30,7 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
 
         if (isSelect === "Включить всё") {
             settingsGameTask(item.subsettings);
-        } else if (isSelect === "По умолчанию") {
+        } else if (isSelect === "Выключить все") {
             settingsGameTask(item.subsettings, true);
         }
     }, [openModal, isSelect]);
