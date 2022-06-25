@@ -272,7 +272,7 @@ class FantController extends Controller
         $levels = Config::get('constants.levels_ids');
 
         if (in_array($planSetting, $_SESSION['settings'])) {
-            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex])->inRandomOrder()->first();
+            $fant = Fant::where(['subsetting_id' => $planSetting, 'sex' => $request->sex, 'fant_group_id' => $levels[$request->current_level]])->inRandomOrder()->first();
         } else {
             $fant = Fant::where(['subsetting_id' => 0, 'fant_group_id' => $levels[$request->current_level], 'sex' => $request->sex])->inRandomOrder()->first();
         }
