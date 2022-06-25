@@ -339,7 +339,7 @@ const article = {
 const optionsBasic = [
     { title: "Выключить все", checked: true, settings_id: 1 },
     { title: "Своя настройка", checked: false, settings_id: 2 },
-    { title: "Включить всё", checked: false, settings_id: 3 },
+    /*  { title: "Включить всё", checked: false, settings_id: 3 }, */
 ];
 
 export {

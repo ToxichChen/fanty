@@ -34,8 +34,8 @@ const Article = () => {
     useEffect(() => getBlog(id, setBlog), []);
     useEffect(() => {
         getBlogs(setBlogs);
-      }, [getBlogs])
-  
+    }, [getBlogs])
+
 
     return (
         <>
@@ -58,12 +58,12 @@ const Article = () => {
                                 </WrapperImgArticle>
                                 <DateArticle>{blog.created_at.substring(0, 10)}</DateArticle>
                                 <TitleArticle>{blog.title}</TitleArticle>
-                                <TextArticle>{blog.text}</TextArticle>
+                                <TextArticle dangerouslySetInnerHTML={{ __html: blog.text }} />
                             </WrapperArticle>
                             <StylBoxOtherContent>
                                 <StylBoxTrending>
                                     <StylTrendTitle>Trending</StylTrendTitle>
-                                    {isLoadingBlogs ? <MiniLoader/> : isBlogs.map((item, index) => index < 4 && (
+                                    {isLoadingBlogs ? <MiniLoader /> : isBlogs.map((item, index) => index < 4 && (
                                         <Trend item={item} key={index} />
                                     ))}
                                 </StylBoxTrending>

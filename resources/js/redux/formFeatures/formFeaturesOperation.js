@@ -37,7 +37,7 @@ const token = {
     },
 };
 
-const loginForm = (credentials) => async (dispatch) => {
+const loginForm = (credentials, func) => async (dispatch) => {
     dispatch(loginRequest());
     dispatch(getUserProfileRequest());
 
@@ -55,6 +55,7 @@ const loginForm = (credentials) => async (dispatch) => {
                 message: "Авторизация прошло успешно",
             })
         );
+        func()
     } catch (error) {
         dispatch(loginError(error.message));
         dispatch(
@@ -67,7 +68,7 @@ const loginForm = (credentials) => async (dispatch) => {
     }
 };
 
-const registerForm = (credentials) => async (dispatch) => {
+const registerForm = (credentials, func) => async (dispatch) => {
     dispatch(registerRequest());
     dispatch(getUserProfileRequest());
 
@@ -84,6 +85,7 @@ const registerForm = (credentials) => async (dispatch) => {
                 message: "Регистрация прошло успешно",
             })
         );
+        func()
     } catch (error) {
         dispatch(registerError(error.message)); dispatch(
             alert({

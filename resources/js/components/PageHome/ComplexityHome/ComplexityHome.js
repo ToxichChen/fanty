@@ -21,7 +21,7 @@ const ComplexityHome = () => {
             <StylComplexityList>
                 <StylComplexityItem data-aos="fade-right">
                     <StylTitleComplexity isComplexity="green">
-                        ЗЕЛЕНЫЙ
+                        ЗЕЛЕНЫЕ
                     </StylTitleComplexity>
                     <StylBoxFlexColumnSpaceBetween>
                         <StylTextTypeComplexity>

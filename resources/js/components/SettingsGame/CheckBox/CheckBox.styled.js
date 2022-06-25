@@ -84,20 +84,34 @@ const StylTextLabel = styled.p`
 const StylBoxInfo = styled.p`
     position: absolute;
     bottom: calc(100% + 10px);
-    right: calc(-100% - 35px);
+    left: 50%;
+    transform: translateX(-50%);
     height: auto;
+    min-width: 150px;
     max-width: 200px;
     font-size: ${(props) => props.theme.typography.textSmall.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.main};
-    background-color: ${props => props.theme.palette.backgroundRGB.middle}
+    background-color: transparent;
     text-align: center;
     border-radius: 8px;
     padding: 10px;
     letter-spacing: 1.2px;
     visibility: ${(props) => (props.isHidden ? "visible" : "hidden")};
     transition: all 0.2s ease;
+
+    &:empty{
+        display: none;
+    }
+
+    ${props => props.isTaskNow && css`
+    background-color: ${(props) => props.theme.palette.backgroundColor.second};
+        @media(max-width: 1024px){    
+            left: -150px;
+            transform: translateX(0);
+        }
+    `}
 `;
 
 const StylBoxAddInfoTask = styled.button`
@@ -126,7 +140,7 @@ const StylBoxAddInfoTask = styled.button`
             ${StylBoxInfo} {
                 top: calc(100% + 10px);
                 max-width: 150px;
-                left: -120px;
+                background-color: ${props => props.theme.palette.backgroundRGB.middle};
                 bottom: auto;
                 background-color: ${props => props.theme.palette.backgroundBtn.main};
             }
@@ -135,6 +149,7 @@ const StylBoxAddInfoTask = styled.button`
     @media (min-width: 1024px) {
         &:hover {
             ${StylBoxInfo} {
+                background-color: ${props => props.theme.palette.backgroundRGB.middle};
                 visibility: visible;
             }
         }

@@ -47,7 +47,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                             <StylWrapperAllSettings>
                                 <StylWrapperCenterContent>
                                     <StylImgModal src={iconManSVG} alt="man" />
-                                    <StylTextModal>Мужчина</StylTextModal>
+                                    <StylTextModal>{item.id === 3 ? 'Мужчине' : item.id === 4 ? "Для мужчины" : 'Мужчина'}</StylTextModal>
                                 </StylWrapperCenterContent>
                                 <StylOptionsAddedWrapper>
                                     {item.is_radio ? (
@@ -57,6 +57,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                                             subsettings={
                                                 item.is_premium === 1 && vip === 0
                                             }
+                                            desc={true}
                                         />
                                     ) : (
                                         item.subsettings.map((elem, index) => {
@@ -79,7 +80,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                             </StylWrapperAllSettings>
                             <StylWrapperCenterContent>
                                 <StylImgModal src={iconGirlSVG} alt="girl" />
-                                <StylTextModal>Женщина</StylTextModal>
+                                <StylTextModal>{item.id === 3 ? 'Женщине' : item.id === 4 ? "Для женщины" : 'Женщина'}</StylTextModal>
                             </StylWrapperCenterContent>
                             <StylOptionsAddedWrapper>
                                 {item.is_radio ? (
@@ -89,6 +90,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                                         subsettings={
                                             item.is_premium === 1 && vip === 0
                                         }
+                                        desc={true}
                                     />
                                 ) : (
                                     item.subsettings.map((elem, index) => {
@@ -114,11 +116,11 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                         <StylWrapperAllSettings>
                             <StylWrapperCenterContent>
                                 <StylImgModal src={iconManSVG} alt="man" />
-                                <StylTextModal>Мужчина</StylTextModal>
+                                <StylTextModal>{item.id === 3 ? 'Мужчине' : item.id === 4 ? "Для мужчины" : 'Мужчина'}</StylTextModal>
                             </StylWrapperCenterContent>
                             <StylWrapperCenterContent>
                                 <StylImgModal src={iconGirlSVG} alt="girl" />
-                                <StylTextModal>Женщина</StylTextModal>
+                                <StylTextModal>{item.id === 3 ? 'Женщине' : item.id === 4 ? "Для женщины" : 'Женщина'}</StylTextModal>
                             </StylWrapperCenterContent>
                         </StylWrapperAllSettings>
 
@@ -131,6 +133,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                                         subsettings={
                                             item.is_premium === 1 && vip === 0
                                         }
+                                        desc={true}
                                     />
                                 ) : (
                                     item.subsettings.map((elem, index) => {
@@ -159,6 +162,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                                         subsettings={
                                             item.is_premium === 1 && vip === 0
                                         }
+                                        desc={true}
                                     />
                                 ) : (
                                     item.subsettings.map((elem, index) => {
@@ -189,6 +193,7 @@ const ModalSettings = ({ visible, switchVisible, item, vip }) => {
                                 item={item}
                                 optionsBasic={item.subsettings}
                                 subsettings={item.is_premium === 1 && vip === 0}
+                                desc={true}
                             />
                         ) : (
                             item.subsettings.map((elem, index) => (

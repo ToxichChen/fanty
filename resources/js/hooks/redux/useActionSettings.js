@@ -31,7 +31,10 @@ function useActionSettings() {
                 dispatch(changePunishment(true));
             } else if (data.id === 1 && isPunishment) {
                 dispatch(changePunishment(false));
-
+            } else if (Object.prototype.toString.call(data) === "[object Array]") {
+                if (data[0].id === 1) {
+                    dispatch(changePunishment(false));
+                }
             }
 
             if (Object.prototype.toString.call(data) === "[object Array]") {

@@ -15,11 +15,14 @@ import {
 import { routes } from "../../Router";
 import useActionUsers from "../../hooks/redux/useActionUsers";
 import { inputFormLogin } from "../../constants";
+import { useNavigate } from "react-router";
 
 const FormLogin = () => {
     const { loginUser } = useActionUsers();
+    const navigate = useNavigate();
     const handleSubmitForm = (initialValues) => {
-        loginUser(initialValues);
+
+        loginUser(initialValues, () => navigate(-2));
     };
 
     const SignInSchema = Yup.object().shape({

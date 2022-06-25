@@ -51,13 +51,12 @@ const BtnSettings = styled(NavLink)`
     justify-content: center;
     flex-direction: row;
     width: 100%;
-    padding: 0 25px;
     margin-bottom: 20px;
+    padding: 0 8px;
 
-    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-size: 10px;
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
-    color: ${(props) => props.theme.palette.text.light};
     border: 3px solid ${props => props.theme.palette.border.second};
     background: linear-gradient(${props => props.theme.palette.backgroundGradien.light});
     box-shadow: 0 2px 10px ${props => props.theme.palette.shadow.main};
@@ -77,6 +76,12 @@ const BtnSettings = styled(NavLink)`
     }
 
     @media (min-width: 1024px) {
+        padding: 0 25px;
+    
+        font-size: ${(props) => props.theme.typography.textSmall.primary};
+        font-weight: ${(props) => props.theme.typography.textWeigth.main};
+        font-family: ${(props) => props.theme.typography.textFamily.main};
+
         &:hover {
             & > i {
                 transform: rotate(45deg);

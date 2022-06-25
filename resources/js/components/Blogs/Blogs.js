@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import {
     StylBoxBlogs,
     StylBoxCenter,
@@ -19,11 +19,11 @@ import MiniLoader from "../Loader/MiniLoader";
 
 
 const Blogs = () => {
-    const { getBlogs, isLoadingBlogs } = useActionBlogs();  
+    const { getBlogs, isLoadingBlogs } = useActionBlogs();
     const [isBlogs, setBlogs] = useState([]);
 
     useEffect(() => {
-      getBlogs(setBlogs);
+        getBlogs(setBlogs);
     }, [getBlogs])
 
     return (
@@ -41,9 +41,9 @@ const Blogs = () => {
                         <StylBoxOtherContent>
                             <StylBoxTrending>
                                 <StylTrendTitle>Trending</StylTrendTitle>
-                               {isLoadingBlogs ? <MiniLoader/> : isBlogs.map((item, index) => index < 4 && (
-                                        <Trend item={item} key={index} />
-                                    ))}
+                                {isLoadingBlogs ? <MiniLoader /> : isBlogs.map((item, index) => index < 4 && (
+                                    <Trend item={item} key={index} />
+                                ))}
                             </StylBoxTrending>
                         </StylBoxOtherContent>
                     </StylBoxCenter>

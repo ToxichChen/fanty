@@ -4,7 +4,6 @@ import {
     BtnReview,
     CountTask,
     StylBoxLeftAngle,
-    StylArrowBackToHome
 } from "./TaskGamePage.styled";
 import useActionFanty from "../../hooks/redux/useActionFanty";
 import {
@@ -61,20 +60,15 @@ const TaskGameReview = ({ id }) => {
                 onMouseLeave={() => setHiddenInfo(!isHiddenInfo)}
             >
                 <i className="fas fa-question"></i>
-                <StylBoxInfo isHidden={isHiddenInfo}>
-                    У вас есть возможность отказаться от 3 заданий. На 4 раз вы
-                    получить последнее наказание и на этом игра закончится!
+                <StylBoxInfo isHidden={isHiddenInfo} isTaskNow={true}>
+                    После трёх отказов на двоих, при четвёртом нажатии Вы получите полную власть над телом вашего партнера.  Этим можно воспользоваться :)
                 </StylBoxInfo>
             </StylBoxAddInfoTask>
-            {window.screen.width >= 768 ? (
-                <StylBoxLeftAngle>
-                    <BtnSettings to={routes.seksFanty.settings}>
-                        <i className="fas fa-cog"></i> Настройки
-                    </BtnSettings>
-                </StylBoxLeftAngle>) : (
-                <StylArrowBackToHome to={routes.seksFanty.settings}>
-                    <i className="fa fa-door-open" />
-                </StylArrowBackToHome>)}
+            <StylBoxLeftAngle>
+                <BtnSettings to={routes.seksFanty.settings}>
+                    <i className="fas fa-cog"></i> Настройки
+                </BtnSettings>
+            </StylBoxLeftAngle>
         </StylBoxReview>
     );
 };

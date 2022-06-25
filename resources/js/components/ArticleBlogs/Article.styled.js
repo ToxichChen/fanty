@@ -79,6 +79,17 @@ const TextArticle = styled.p`
     @media (min-width: 1024px) {
         font-size: ${(props) => props.theme.typography.textMedium.primary};
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    a{
+        color: ${(props) => props.theme.palette.text.light};
+    }
 `;
 
 const DateArticle = styled.p`

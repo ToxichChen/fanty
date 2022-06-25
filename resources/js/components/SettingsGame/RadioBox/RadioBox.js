@@ -10,7 +10,7 @@ import { StylBoxAddInfoTask, StylBoxInfo } from "./../CheckBox/CheckBox.styled";
 import useActionSettings from "../../../hooks/redux/useActionSettings";
 import useActionUsers from "../../../hooks/redux/useActionUsers";
 
-const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
+const RadioBox = ({ item, optionsBasic, subsettings, openModal, desc }) => {
     const { profile } = useActionUsers();
     const { settingsGameTask } = useActionSettings();
     const [isSelect, setSelect] = useState(optionsBasic[0].title);
@@ -28,9 +28,13 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
     useEffect(() => {
         openModal && setSelect("Своя настройка");
 
-        if (isSelect === "Включить всё") {
-            settingsGameTask(item.subsettings);
-        } else if (isSelect === "Выключить все") {
+        /*   if (isSelect === "Включить всё") {
+              settingsGameTask(item.subsettings);
+          } else if (isSelect === "Выключить все") {
+              settingsGameTask(item.subsettings, true);
+          } */
+
+        if (isSelect === "Выключить все") {
             settingsGameTask(item.subsettings, true);
         }
     }, [openModal, isSelect]);
@@ -65,7 +69,7 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal }) => {
                                 isVip={subsettings}
                             />
                             {elem.title}
-                            {subsettings && (
+                            {desc && (
                                 <StylBoxAddInfoTask
                                     type="button"
                                     onClick={() => setHiddenInfo(!isHiddenInfo)}

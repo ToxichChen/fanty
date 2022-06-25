@@ -11,6 +11,7 @@ const SectionTaskGame = styled.section`
     background-blend-mode: multiply;
     background-image: url(${imgBGMobileFromGameJPG});
     background-color: ${(props) => props.theme.palette.backgroundRGB.main};
+    background-size: 100%;
     padding: 130px 0;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -193,6 +194,12 @@ const StylTitleTask = styled.h2`
     color: ${(props) => props.theme.palette.main};
     margin-bottom: 20px;
     text-align: center;
+    transition: all 0.2s ease;
+    margin-top: 25px;
+
+    @media (min-width: 1024px){
+        margin-top: 0;
+    }
 `;
 
 const StylTextTask = styled.p`

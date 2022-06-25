@@ -107,14 +107,14 @@ const TaskGamePage = () => {
             setLastFant(true);
         } else if (
             isLevelFant === "yellow" &&
-            getNumberFanty === getCountTask.is_yellow - 1 &&
+            getNumberFanty === getCountTask.is_yellow - 2 &&
             "0" === getCountTask.is_red
         ) {
             lastFantGame();
             setLastFant(true);
         } else if (
             isLevelFant === "green" &&
-            getNumberFanty === getCountTask.is_green - 1 &&
+            getNumberFanty === getCountTask.is_green - 2 &&
             "0" === getCountTask.is_red &&
             "0" === getCountTask.is_yellow
         ) {

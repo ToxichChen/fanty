@@ -36,15 +36,15 @@ function useActionUsers() {
     const getErrorUser = useSelector((state) => state.authForm.user[0]);
 
     const loginUser = useCallback(
-        (data) => {
-            dispatch(loginForm(data));
+        (data, func) => {
+            dispatch(loginForm(data, func));
         },
         [dispatch]
     );
 
     const registerUser = useCallback(
-        (data) => {
-            dispatch(registerForm(data));
+        (data, func) => {
+            dispatch(registerForm(data, func));
         },
         [dispatch]
     );

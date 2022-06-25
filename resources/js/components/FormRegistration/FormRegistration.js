@@ -15,13 +15,15 @@ import { OtherForm, BoxBtnForm } from "./../FormLogin/FormLogin.styled";
 import { inputFormRegistration } from "../../constants";
 import { routes } from "../../Router";
 import useActionUsers from "../../hooks/redux/useActionUsers";
+import { useNavigate } from "react-router";
 
 const FormRegistration = () => {
     const { registerUser } = useActionUsers();
+    const navigate = useNavigate();
     const [isCheckPassowrd, setCheckPassword] = useState(false);
 
     const handleSubmitForm = (initialValues) => {
-        registerUser(initialValues);
+        registerUser(initialValues, () => navigate(-2));
     };
 
     const SignUpSchema = Yup.object().shape({

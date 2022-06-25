@@ -102,12 +102,11 @@ const FooterPageHome = () => {
                         {Object.keys(profile).length !== 0 && (
                             <StylItemMenuFooter>
                                 <StylLinkMenuFooter>
-                                    <NavLink
-                                        to={routes.profileUser}
+                                    <button
                                         onClick={userLogout}
                                     >
                                         Выйти
-                                    </NavLink>
+                                    </button>
                                 </StylLinkMenuFooter>
                             </StylItemMenuFooter>
                         )}

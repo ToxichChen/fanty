@@ -25,7 +25,7 @@ const Post = ({ item }) => {
       </StylWrapperImg>
       <StylDataPost>{item.created_at.substring(0, 10)}</StylDataPost>
       <StylTitlePost>{item.title}</StylTitlePost>
-      <StylTextPost>{item.text}</StylTextPost>
+      <StylTextPost dangerouslySetInnerHTML={{ __html: item.text }} />
       <StylLinkMorePost to={'/blogs/article/' + item.id}>
         Читать далее <img src={iconDoubleArrowPNG} alt='double arrow' />
       </StylLinkMorePost>
