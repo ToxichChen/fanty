@@ -114,7 +114,7 @@
     </div>
 
 </nav>
-<div style="margin-left: 20%; margin-top: 100px;">
+<div style="margin-left: 17%; margin-top: 100px;">
     @yield('content')
 </div>
 <!-- local -->

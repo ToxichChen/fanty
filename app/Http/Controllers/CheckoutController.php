@@ -76,6 +76,7 @@ class CheckoutController extends Controller
 
     public function result(Request $request)
     {
+        dd($request);
         $validated = $request->validate([
             'ik_inv_st' => 'required',
             'ik_co_id' => 'required',

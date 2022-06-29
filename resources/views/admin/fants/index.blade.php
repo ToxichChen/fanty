@@ -2,7 +2,7 @@
 @section('content')
     <h1>Список Фантов: </h1>
     <a role="button" href="/admin/fant/create" class="btn btn-success m-4">Создать новый</a>
-    <div style="width: 1200px; border: 1px solid;">
+    <div style="width: 1300px; border: 1px solid;">
         <div style="margin: 10px">
             <table id="table_id" class="display">
                 <thead>
@@ -14,6 +14,8 @@
                     <th>Группа фантов</th>
                     <th>Пол</th>
                     <th>Тип секса</th>
+                    <th>Лайков</th>
+                    <th>Дизлайков</th>
                     <th>Создано в</th>
                     <th>Изменено в</th>
                     <th>&nbsp</th>
@@ -29,6 +31,8 @@
                         <td>{{ $fant->fant_group_name }}</td>
                         <td>{{ ($fant->sex === 1 ? 'М' : ($fant->sex === 2 ? 'Ж' : '')) }}</td>
                         <td>{{ ($fant->sex_type === 1 ? 'Нежный' : ($fant->sex_type === 2 ? 'Жесткий' : '')) }}</td>
+                        <td>{{ $fant->likes }}</td>
+                        <td>{{ $fant->dislikes}}</td>
                         <td>{{ $fant->created_at }}</td>
                         <td>{{ $fant->updated_at }}</td>
                         <td>

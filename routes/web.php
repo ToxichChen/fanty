@@ -22,7 +22,7 @@ use App\Http\Controllers\CheckoutController;
 |
 */
 
-Route::get('/payment/results', [CheckoutController::class, 'success']);
+Route::get('/payment/results', [CheckoutController::class, 'result']);
 
 Route::prefix('admin')->group(function () {
     Route::group(['middleware' => 'check.admin'], function () {
@@ -62,11 +62,8 @@ Route::prefix('admin')->group(function () {
         });
         Route::prefix('user')->group(function () {
             Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
-            Route::get('/create', [UserController::class, 'createPage'])->name('admin.users.createPage');
-            Route::post('/createNew', [UserController::class, 'create'])->name('admin.users.create');
             Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
             Route::post('/update/{id}', [UserController::class, 'update'])->name('admin.users.update');
-            Route::get('/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete');
         });
         Route::prefix('music')->group(function () {
             Route::get('/', [MusicController::class, 'index'])->name('admin.music.index');
