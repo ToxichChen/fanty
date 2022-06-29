@@ -213,10 +213,14 @@ const TaskGamePage = () => {
                                     ? getFantyPunishment.title
                                     : getFanty.title}
                             </StylSubTitleTask>
-                            <StylTextTask>
-                                {Object.keys(getFantyPunishment).length > 1
-                                    ? getFantyPunishment.content
-                                    : getFanty.content}
+                            <StylTextTask dangerouslySetInnerHTML={{
+                                __html:
+                                    Object.keys(getFantyPunishment).length > 1
+                                        ? getFantyPunishment.content
+                                        : getFanty.content
+
+                            }}>
+
                             </StylTextTask>
                             <StylImgTask
                                 src={

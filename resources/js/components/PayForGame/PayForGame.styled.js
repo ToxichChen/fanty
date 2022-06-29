@@ -2,6 +2,63 @@ import styled from "styled-components";
 import imageMobileBGJPG from "./../../assets/bg/fanty.png";
 import imageBGJPG from "./../../assets/bg/fanty-pk.png";
 
+
+const BtnReadMore = styled('button')`
+    position: relative;
+    cursor: pointer;
+    display: block;
+    font-size: ${(props) => props.theme.typography.textSmall.primary};
+    font-weight: ${(props) => props.theme.typography.textWeigth.second};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.text.dark};
+    background-color: ${(props) => props.theme.palette.backgroundColor.light};
+    font-style: italic;
+    text-transform: uppercase;
+    max-width: 190px;
+    width: 100%;
+    text-decoration: none;
+    padding: 24px 30px;
+    text-align: center;
+    align-self: center;
+    margin-right: 12px;
+    box-shadow: 0 0 9px 3px ${props => props.theme.palette.shadow.second};
+    border-radius: 8px;
+    z-index: 2 !important;
+
+    &::before {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: ${(props) =>
+        props.theme.palette.backgroundColor.light};
+        border-radius: 8px;
+        z-index: -1;
+    }
+
+    &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        left: 9px;
+        top: 10px;
+        background: ${(props) => props.theme.palette.border.main};
+        z-index: -2;
+        box-shadow: 0 0 9px 3px ${props => props.theme.palette.shadow.second};
+        border-radius: 8px;
+    }
+
+    @media (min-width: 1024px) {
+        &:hover {
+            & > img {
+                transform: translateX(10px);
+            }
+        }
+    }
+`;
 const SectionPay = styled.section`
     display: flex;
     justify-content: flex-start;
@@ -105,4 +162,4 @@ flex-direction:row;
 justify-content: center;
 align-items: center;
 `;
-export { SectionPay, CenterPay, TitlePay, BoxSelectPay, Select, BoxBonus, FormInter};
+export { BtnReadMore, SectionPay, CenterPay, TitlePay, BoxSelectPay, Select, BoxBonus, FormInter };
