@@ -22,9 +22,15 @@ class FantController extends Controller
             ->join('game_settings', 'fants.game_setting_id', '=', 'game_settings.id')
             ->join('fant_groups', 'fants.fant_group_id', '=', 'fant_groups.id')
             ->leftJoin('subsettings', 'fants.subsetting_id', '=', 'subsettings.id')
-            ->select('fants.*', 'game_settings.title as setting_name', 'fant_groups.title as fant_group_name', 'subsettings.title as subsetting_name')
+            ->select(
+                'fants.*',
+                DB::raw('(SELECT COUNT(*) FROM likes WHERE likes.fant_id = fants.id) as likes'),
+                DB::raw('(SELECT COUNT(*) FROM dislikes WHERE dislikes.fant_id = fants.id) as dislikes'),
+                'game_settings.title as setting_name',
+                'fant_groups.title as fant_group_name',
+                'subsettings.title as subsetting_name'
+            )
             ->get();
-
         return View::make('admin.fants.index')
             ->with('fants', $fants);
     }
@@ -148,7 +154,7 @@ class FantController extends Controller
                 if (!isset($_SESSION['settings'])) {
                     $_SESSION['settings'] = [];
                 }
-                if (!isset($_SESSION['game_duration'])||$_SESSION['game_duration'][$request->current_level] === "") {
+                if (!isset($_SESSION['game_duration']) || $_SESSION['game_duration'][$request->current_level] === "") {
                     return null;
                 }
                 if ($request->current_level !== 'red') {
@@ -306,10 +312,15 @@ class FantController extends Controller
     public function getFinalPunishment()
     {
         $fant = Fant::where(['id' => Config::get('constants.final_punishment_id')])->get();
+        $fant = $fant->toArray();
+        if (trim($fant[0]["media"]) !== '') {
+            $fant[0]["media"] = str_replace("public/", "storage/", $fant[0]["media"]);
+            $fant[0]["media"] = asset($fant[0]["media"]);
+        }
         if ($fant === null) {
             return false;
         }
-        return $fant->toArray();
+        return $fant;
     }
 
     public function getFinishFant()
@@ -328,10 +339,15 @@ class FantController extends Controller
             $finishSetting = 29;
         }
         $fant = Fant::where(['subsetting_id' => $finishSetting])->inRandomOrder()->first();
+        $fant = $fant->toArray();
+        if (trim($fant["media"]) !== '') {
+            $fant["media"] = str_replace("public/", "storage/", $fant["media"]);
+            $fant["media"] = asset($fant["media"]);
+        }
         if ($fant === null) {
             return null;
         } else {
-            return $fant->toArray();
+            return $fant;
         }
     }
 

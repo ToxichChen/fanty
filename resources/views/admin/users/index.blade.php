@@ -1,7 +1,6 @@
 @extends('admin.layouts.app')
 @section('content')
     <h1>Список Пользователей: </h1>
-    <a role="button" href="/admin/user/create" class="btn btn-success m-4">Создать нового</a>
     <div style="width: 1200px; border: 1px solid;">
         <div style="margin: 10px">
             <table id="table_id" class="display">
@@ -31,7 +30,6 @@
                         <td>{{ $user->updated_at }}</td>
                         <td>
                             <a role="button" href="/admin/user/edit/{{$user->id}}" class="btn btn-primary">Изменить</a>
-                            <a role="button" href="/admin/user/delete/{{$user->id}}" class="btn btn-danger">Удалить</a>
                         </td>
                     </tr>
                 @endforeach

@@ -97,8 +97,6 @@ class UserController extends Controller
         }
     }
 
-    // ADMIN PANEL FUNCTIONALITY:
-
     public function index()
     {
         $users = User::all('id', 'name', 'email', 'is_admin', 'is_premium', 'premium_expires_at', 'created_at', 'updated_at');
@@ -107,63 +105,34 @@ class UserController extends Controller
             ->with('users', $users);
     }
 
-    public function createPage()
-    {
-        return View::make('admin.users.create');
-    }
-
-    public function create(Request $request)
-    {
-        $validated = $request->validate([
-            'content' => 'required',
-            'setting' => 'required',
-            'subsetting' => 'required',
-            'fantGroup' => 'required',
-            'sex_type' => 'required|numeric|min:0|max:2',
-            'sex' => 'required|numeric|min:0|max:2',
-            'media' => 'max:8194'
-        ]);
-        $path = '';
-
-        if ($request->file('media') !== null && $request->file()) {
-            $path = $request->file('media')->store('public');
-        }
-
-        $fant = new Fant();
-        $fant->content = $validated['content'];
-        $fant->game_setting_id = $validated['setting'];
-        $fant->fant_group_id = $validated['fantGroup'];
-        $fant->subsetting_id = $validated['subsetting'];
-        $fant->sex_type = $validated['sex_type'];
-        $fant->sex = $validated['sex'];
-        $fant->media = $path;
-
-        $fant->save();
-
-        return redirect('/admin/fant');
-    }
-
     public function edit($id)
     {
-        $fant = Fant::find($id);
-        $subsetting = Subsetting::all();
-        $settings = GameSetting::all();
-        $fantGroups = FantGroup::all();
-        // show the edit form and pass the shark
-        return View::make('admin.fants.edit')
-            ->with(['fant' => $fant, 'subsettings' => $subsetting, 'settings' => $settings, 'fantGroups' => $fantGroups]);
+        $user = User::find($id);
+
+        return View::make('admin.users.edit')
+            ->with(['user' => $user]);
     }
 
     public function update(Request $request, $id)
     {
         $validated = $request->validate([
-            'title' => 'required|max:255',
-            'setting' => 'required',
+            'name' => 'required|max:255'
         ]);
-        $subsetting = Subsetting::find($id);
-        $subsetting->title = $validated['title'];
-        $subsetting->setting_id = $validated['setting'];
-        $subsetting->save();
-        return redirect('/admin/fant');
+        $user = User::find($id);
+        $user->name = $validated['name'];
+        if (isset($request->premium) && $request->premium === 'on'
+            && isset($request->date) != null ) {
+            $user->is_premium = 1;
+            $user->premium_expires_at = $request->date;
+        } else {
+            $user->is_premium = 0;
+        }
+        if (isset($request->admin) && $request->admin === 'on') {
+            $user->is_admin = 1;
+        } else {
+            $user->is_admin = 0;
+        }
+        $user->save();
+        return redirect('/admin/user');
     }
 }
