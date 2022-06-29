@@ -71,7 +71,7 @@ const TaskGamePage = () => {
     const upLevelFant = () => {
         clearPunishmentFant();
 
-        if (getCountCanceledTask === 4 || isLastFant) {
+        if (getCountCanceledTask === 4) {
             clearDataSettingAndFant();
             NotifySuccess("Вы прошли последнее наказание. Игра окончена");
             navigate("/");
@@ -101,7 +101,7 @@ const TaskGamePage = () => {
             navigate("/");
         } else if (
             isLevelFant === "red" &&
-            getNumberFanty === getCountTask.is_red - 1
+            getNumberFanty === getCountTask.is_red - 2
         ) {
             lastFantGame();
             setLastFant(true);
@@ -110,7 +110,6 @@ const TaskGamePage = () => {
             getNumberFanty === getCountTask.is_yellow - 2 &&
             "0" === getCountTask.is_red
         ) {
-            lastFantGame();
             setLastFant(true);
         } else if (
             isLevelFant === "green" &&
@@ -118,9 +117,9 @@ const TaskGamePage = () => {
             "0" === getCountTask.is_red &&
             "0" === getCountTask.is_yellow
         ) {
-            lastFantGame();
             setLastFant(true);
-        } else {
+        }
+        else {
             if (
                 getNumberFanty < getCountTask.is_green - 1 &&
                 isLevelFant === "green"
@@ -174,9 +173,10 @@ const TaskGamePage = () => {
                 changeSexFant(getFantSex === 1 ? 2 : 1);
                 sendNumberFanty(getNumberFanty + 1);
             } else if (
-                getNumberFanty === getCountTask.is_red - 2 &&
+                getNumberFanty === getCountTask.is_red &&
                 isLevelFant === "red"
             ) {
+                console.log('ok')
                 navigate("/", { replace: true });
                 clearDataSettingAndFant();
                 NotifySuccess("Вы успешно прошли все задания");
