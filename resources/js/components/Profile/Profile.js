@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-duplicate-props */
 import { useLayoutEffect } from 'react';
 import { SectionPay, CenterPay } from "../PayForGame/PayForGame.styled";
 import FooterPageHome from './../PageHome/FooterPageHome/FooterPageHome';
@@ -15,11 +16,11 @@ const Profile = () => {
 
   useLayoutEffect(() => {
     function getTimeRemaining(endtime) {
-      var t = Date.parse(endtime) - Date.parse(new Date());
-      var seconds = Math.floor((t / 1000) % 60);
-      var minutes = Math.floor((t / 1000 / 60) % 60);
-      var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      var days = Math.floor(t / (1000 * 60 * 60 * 24));
+      let t = Date.parse(endtime) - Date.parse(new Date());
+      let seconds = Math.floor((t / 1000) % 60);
+      let minutes = Math.floor((t / 1000 / 60) % 60);
+      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+      let days = Math.floor(t / (1000 * 60 * 60 * 24));
       return {
         'total': t,
         'days': days,
@@ -30,14 +31,14 @@ const Profile = () => {
     }
 
     function initializeClock(id, endtime) {
-      var clock = document.getElementById(id);
-      var daysSpan = clock.querySelector('.days');
-      var hoursSpan = clock.querySelector('.hours');
-      var minutesSpan = clock.querySelector('.minutes');
-      var secondsSpan = clock.querySelector('.seconds');
+      let clock = document.getElementById(id);
+      let daysSpan = clock.querySelector('.days');
+      let hoursSpan = clock.querySelector('.hours');
+      let minutesSpan = clock.querySelector('.minutes');
+      let secondsSpan = clock.querySelector('.seconds');
 
       function updateClock() {
-        var t = getTimeRemaining(endtime);
+        let t = getTimeRemaining(endtime);
 
         daysSpan.innerHTML = t.days;
         hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
@@ -50,11 +51,10 @@ const Profile = () => {
       }
 
       updateClock();
-      var timeinterval = setInterval(updateClock, 1000);
+      let timeinterval = setInterval(updateClock, 1000);
     }
 
-    var deadline = "January 01 2018 00:00:00 GMT+0300"; //for Ukraine
-    var deadline = new Date(profile.premium_expires_at !== null && profile.premium_expires_at); // for endless timer
+    let deadline = new Date(profile?.premium_expires_at !== null && profile.premium_expires_at); // for endless timer
     initializeClock('countdown', deadline);
   }, [])
 
@@ -92,7 +92,7 @@ const Profile = () => {
               />
             </BoxColumnFlex>
           </BoxRowFlex>
-          <div id="countdown" className="countdown" style={profile.premium_expires_at === null && { display: 'none' }}>
+          <div id="countdown" className={profile?.premium_expires_at === null ? 'hidden--countdown countdown' : 'countdown'} >
             <div className="countdown-number">
               <span className="days countdown-time"></span>
               <span className="countdown-text">:</span>

@@ -127,3 +127,7 @@ a {
 .countdown-number--left {
   align-items: flex-start;
 }
+
+.hidden--countdown {
+  display: none;
+}
