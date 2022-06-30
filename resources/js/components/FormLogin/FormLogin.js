@@ -22,7 +22,7 @@ const FormLogin = () => {
     const navigate = useNavigate();
     const handleSubmitForm = (initialValues) => {
 
-        loginUser(initialValues, () => navigate(-2));
+        loginUser(initialValues, () => navigate(-1));
     };
 
     const SignInSchema = Yup.object().shape({

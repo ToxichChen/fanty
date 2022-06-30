@@ -112,7 +112,10 @@ const HeaderMenuPageHome = () => {
                     )}
                     {Object.keys(profile).length !== 0 && (
                         <BoxItemMenu>
-                            <StylLinkMainNav isOne={true} onClick={profileRequest}>Выйти</StylLinkMainNav>
+                            <StylLinkMainNav onClick={profileRequest}>
+                                <NavLink to={routes.home}>
+                                    Выйти
+                                </NavLink></StylLinkMainNav>
                         </BoxItemMenu>
                     )}
                 </StylItemMainNav>

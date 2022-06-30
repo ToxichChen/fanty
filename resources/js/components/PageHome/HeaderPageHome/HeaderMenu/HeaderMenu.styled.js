@@ -155,10 +155,6 @@ const StylLinkMainNav = styled.div`
     transition: all 0.2s ease;
     padding: ${props => props.isAddMenu && '10px 15px'};
 
-    ${props => props.isOne && css`
-    padding:  10px 15px;
-    `}
-
     & > a {
         text-decoration: none;
         white-space: nowrap;

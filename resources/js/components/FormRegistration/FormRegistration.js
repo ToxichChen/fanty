@@ -23,7 +23,7 @@ const FormRegistration = () => {
     const [isCheckPassowrd, setCheckPassword] = useState(false);
 
     const handleSubmitForm = (initialValues) => {
-        registerUser(initialValues, () => navigate(-2));
+        registerUser(initialValues, () => navigate(-1));
     };
 
     const SignUpSchema = Yup.object().shape({
