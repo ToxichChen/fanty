@@ -84,6 +84,7 @@ class CheckoutController extends Controller
 
             $user->is_premium = 1;
             $user->premium_expires_at = $newDate;
+            $user->save();
 
             $_SESSION['user']['is_premium'] = 1;
             $_SESSION['user']['premium_expires_at'] = $newDate;
