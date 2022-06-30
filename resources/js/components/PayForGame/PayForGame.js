@@ -35,7 +35,10 @@ const PayForGame = () => {
             isSelect,
             setId,
             setLoading,
-            () => e.target.submit());
+            () => setTimeout(() => {
+                e.target.submit();
+                setLoading(false)
+            }, 2000));
     }
 
     useEffect(() =>

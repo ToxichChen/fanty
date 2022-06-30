@@ -141,7 +141,7 @@ const Router = () => {
             <Route
                 path={routes.payGame}
                 element={
-                    <LayoutPay text='Вам не нужно платить за игру'>
+                    <LayoutPay text='Для начала нужно авторизоваться'>
                         <PayGameView title="Оплата за игру" />
                     </LayoutPay>}
             />
