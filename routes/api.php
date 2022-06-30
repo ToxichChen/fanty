@@ -83,7 +83,7 @@ Route::post('/email/support', [EmailController::class, 'sendSupportEmail']);
  */
 
 // Create payment
-Route::post('/checkOut/createPayment', [CheckoutController::class, 'createPayment']);
+Route::post('/checkout/createPayment', [CheckoutController::class, 'createPayment']);
 
 // Get all Subscriptions
 Route::get('/subscriptions/getAllSubscriptions', [SubscriptionController::class, 'getAllSubscriptions']);
