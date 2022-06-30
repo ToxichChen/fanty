@@ -26,7 +26,6 @@ import {
     usersSetting,
     durationGameData,
 } from "../../redux/settingsFeatures/SettingsAction";
-import { dataPostArr } from "../../constants";
 
 axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 

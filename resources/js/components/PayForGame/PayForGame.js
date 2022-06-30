@@ -65,7 +65,7 @@ const PayForGame = () => {
                     </TitlePay>
                     <BoxSelectPay>
                         <Select
-                            onClick={(e) => {
+                            onChange={(e) => {
                                 setSelect(e.target.value);
 
                             }}
