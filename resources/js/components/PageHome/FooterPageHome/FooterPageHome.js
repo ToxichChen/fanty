@@ -99,17 +99,6 @@ const FooterPageHome = () => {
                                 </StylLinkMenuFooter>
                             </StylItemMenuFooter>
                         )}
-                        {Object.keys(profile).length !== 0 && (
-                            <StylItemMenuFooter>
-                                <StylLinkMenuFooter>
-                                    <button
-                                        onClick={userLogout}
-                                    >
-                                        Выйти
-                                    </button>
-                                </StylLinkMenuFooter>
-                            </StylItemMenuFooter>
-                        )}
                     </StylMenuFooterPageHome>
                     <HeaderFollowUs />
                     <StylCopyrightFooter>

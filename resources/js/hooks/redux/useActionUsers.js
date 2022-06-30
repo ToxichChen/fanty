@@ -12,6 +12,7 @@ import {
     fantyCounterCanceledTask,
     fantyLevel,
     fantyNumberTask,
+    fantyPunishment,
     fantySuccess,
     sex,
 } from "../../redux/activeFantyFeatures/activeFantyFeaturesActions";
@@ -67,6 +68,7 @@ function useActionUsers() {
         dispatch(fantySuccess({ media: "" }));
         dispatch(usersSetting({ is_man: "", is_female: "" }));
         dispatch(sex(2));
+        dispatch(fantyPunishment({ media: "" }))
     }, [dispatch]);
 
     const userLogout = useCallback(() => {

@@ -6,11 +6,11 @@ import {
     BoxSelectPay,
     Select,
     BoxBonus,
-    FormInter
+    FormInter,
+    BtnReadMore
 } from "./PayForGame.styled";
 
 import { StylBoxFlexColumnFlexStart, StylBoxContainerMaxWidth } from "./../common/BasicBoxes/BasicBoxes.styled";
-import { StylBtnReadMore } from "./../PageHome/HeaderPageHome/SliderCard/SliderCard.styled";
 
 import { StylImgDoubleArrow } from "./../common/ImgLogo/ImgLogo.styled";
 import HeaderMenuPageHome from "../PageHome/HeaderPageHome/HeaderMenu/HeaderMenuPageHome";
@@ -55,21 +55,20 @@ const PayForGame = () => {
                         )}
                     </BoxSelectPay>
                     <FormInter name="payment" method="post" action="https://sci.interkassa.com/" accept-charset="UTF-8">
-                        <input type="hidden" name="ik_co_id" value="62619b17972ad26cd11d0423"/>
-                        <input type="hidden" name="ik_pm_no" value="ID_1234"/>
-                        <input type="hidden" name="ik_am" value={isSelect}/>
-                        <input type="hidden" name="ik_cur" value="uah"/>
-                        <input type="hidden" name="ik_desc" value="Payment Description"/>
-                    <StylBtnReadMore
-                        to={routes.home}
-                        style={{ maxWidth: "250px" }}
-                    >
-                        Оплатить игру
-                        <StylImgDoubleArrow
-                            src={doubleArrow}
-                            alt="double arrow"
-                        />
-                    </StylBtnReadMore>
+                        <input type="hidden" name="ik_co_id" value="62619b17972ad26cd11d0423" />
+                        <input type="hidden" name="ik_pm_no" value="ID_1234" />
+                        <input type="hidden" name="ik_am" value={isSelect} />
+                        <input type="hidden" name="ik_cur" value="uah" />
+                        <input type="hidden" name="ik_desc" value="Payment Description" />
+                        <BtnReadMore
+                            type="submit"
+                            style={{ maxWidth: "250px" }}>
+                            Оплатить игру
+                            <StylImgDoubleArrow
+                                src={doubleArrow}
+                                alt="double arrow"
+                            />
+                        </BtnReadMore>
                     </FormInter>
                 </CenterPay>
             </SectionPay>
