@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-duplicate-props */
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { SectionPay, CenterPay } from "../PayForGame/PayForGame.styled";
 import FooterPageHome from './../PageHome/FooterPageHome/FooterPageHome';
 import HeaderFollowUs from "../PageHome/HeaderPageHome/HeaderFollowUs/HeaderFollowUs";
@@ -12,50 +12,57 @@ import {
 } from './../Support/Support.styled';
 
 const Profile = () => {
-  const { profile } = useActionUsers();
+  const { profile, getTime } = useActionUsers();
+  let dateNow = new Date();
+  let counter = 0;
 
+  useEffect(() => getTime(dateNow), [])
   useLayoutEffect(() => {
-    function getTimeRemaining(endtime) {
-      let t = Date.parse(endtime) - Date.parse(new Date(profile?.current__time && profile.current__time));
-      let seconds = Math.floor((t / 1000) % 60);
-      let minutes = Math.floor((t / 1000 / 60) % 60);
-      let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-      let days = Math.floor(t / (1000 * 60 * 60 * 24));
-      return {
-        'total': t,
-        'days': days,
-        'hours': hours,
-        'minutes': minutes,
-        'seconds': seconds
-      };
-    }
-
-    function initializeClock(id, endtime) {
-      let clock = document.getElementById(id);
-      let daysSpan = clock.querySelector('.days');
-      let hoursSpan = clock.querySelector('.hours');
-      let minutesSpan = clock.querySelector('.minutes');
-      let secondsSpan = clock.querySelector('.seconds');
-
-      function updateClock() {
-        let t = getTimeRemaining(endtime);
-
-        daysSpan.innerHTML = t.days;
-        hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-        minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-        secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-        if (t.total <= 0) {
-          clearInterval(timeinterval);
-        }
+    setTimeout(() => {
+      function getTimeRemaining(endtime) {
+        let t = Date.parse(endtime) - Date.parse(new Date().toUTCString());
+        let seconds = Math.floor((t / 1000) % 60);
+        let minutes = Math.floor((t / 1000 / 60) % 60);
+        let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+        let days = Math.floor(t / (1000 * 60 * 60 * 24));
+        return {
+          'total': t,
+          'days': days,
+          'hours': hours,
+          'minutes': minutes,
+          'seconds': seconds
+        };
       }
 
-      updateClock();
-      let timeinterval = setInterval(updateClock, 1000);
-    }
+      function initializeClock(id, endtime) {
+        let clock = document.getElementById(id);
+        let daysSpan = clock.querySelector('.days');
+        let hoursSpan = clock.querySelector('.hours');
+        let minutesSpan = clock.querySelector('.minutes');
+        let secondsSpan = clock.querySelector('.seconds');
 
-    let deadline = new Date(profile?.premium_expires_at !== null && profile.premium_expires_at); // for endless timer
-    initializeClock('countdown', deadline);
+        function updateClock() {
+          let t = getTimeRemaining(endtime);
+
+          daysSpan.innerHTML = t.days;
+          hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
+          minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+          secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+          if (t.total <= 0) {
+            clearInterval(timeinterval);
+            clearInterval(counterInterval);
+          }
+        }
+
+        updateClock();
+        let counterInterval = setInterval(() => counter++, 1000);
+        let timeinterval = setInterval(() => { updateClock() }, 1000);
+      }
+
+      let deadline = new Date(profile?.premium_expires_at !== null && profile.premium_expires_at); // for endless timer
+      initializeClock('countdown', deadline, counter);
+    }, 3000)
   }, [])
 
 
@@ -92,7 +99,7 @@ const Profile = () => {
               />
             </BoxColumnFlex>
           </BoxRowFlex>
-          <div id="countdown" className={profile?.premium_expires_at === null ? 'hidden--countdown countdown' : 'countdown'} >
+          <div id="countdown" className={profile?.is_premium === 0 ? 'hidden--countdown countdown' : 'countdown'} >
             <div className="countdown-number">
               <span className="days countdown-time"></span>
               <span className="countdown-text">:</span>

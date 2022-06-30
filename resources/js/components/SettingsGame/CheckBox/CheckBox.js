@@ -55,9 +55,6 @@ const Checkbox = ({ elem, premium }) => {
             <StylTextLabel>{elem.title}</StylTextLabel>
             <StylBoxAddInfoTask
                 type="button"
-                onClick={() => setHiddenInfo(true)}
-                onMouseEnter={() => setHiddenInfo(!isHiddenInfo)}
-                onMouseLeave={() => setHiddenInfo(!isHiddenInfo)}
             >
                 <i className="fas fa-question"></i>
                 <StylBoxInfo isHidden={isHiddenInfo}>

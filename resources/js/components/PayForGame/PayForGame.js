@@ -31,12 +31,11 @@ const PayForGame = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        checkoutUser(isSelect, setId, setLoading);
-        setTimeout(() => {
-            setLoading(false)
-            e.target.submit()
-        }, 5000)
-
+        checkoutUser(
+            isSelect,
+            setId,
+            setLoading,
+            () => e.target.submit());
     }
 
     useEffect(() =>

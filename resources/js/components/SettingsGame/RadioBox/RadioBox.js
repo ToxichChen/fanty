@@ -72,9 +72,6 @@ const RadioBox = ({ item, optionsBasic, subsettings, openModal, desc }) => {
                             {desc && (
                                 <StylBoxAddInfoTask
                                     type="button"
-                                    onClick={() => setHiddenInfo(!isHiddenInfo)}
-                                    onFocus={() => setHiddenInfo(true)}
-                                    onBlur={() => setHiddenInfo(false)}
                                 >
                                     <i className="fas fa-question"></i>
                                     <StylBoxInfo isHidden={isHiddenInfo}>

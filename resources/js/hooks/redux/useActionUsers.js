@@ -9,7 +9,8 @@ import {
     supportForm,
     selectForm,
     checkout,
-    send
+    send,
+    time
 } from "./../../redux/formFeatures/formFeaturesOperation";
 import {
     fantyCounterCanceledTask,
@@ -54,8 +55,15 @@ function useActionUsers() {
     );
 
     const checkoutUser = useCallback(
-        (id, state, load) => {
-            dispatch(checkout(id, state, load));
+        (id, state, load, prevent) => {
+            dispatch(checkout(id, state, load, prevent));
+        },
+        [dispatch]
+    );
+
+    const getTime = useCallback(
+        (state) => {
+            dispatch(time(state));
         },
         [dispatch]
     );
@@ -113,6 +121,7 @@ function useActionUsers() {
         loadingSupport,
         setUserDataForm,
         getSelectForm,
+        getTime
     };
 }
 

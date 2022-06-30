@@ -103,6 +103,12 @@ const registerForm = (credentials, func) => async (dispatch) => {
     }
 };
 
+const time = (state) => async (dispatch) => {
+    const { data } = await axios.get("/currentTime");
+
+    state = new Date(data);
+};
+
 const logoutUser = () => async (dispatch) => {
     dispatch(registerRequest());
     dispatch(getUserProfileRequest());
@@ -144,11 +150,12 @@ const selectForm = (state) => async (dispatch) => {
     }
 }
 
-const checkout = (id, state, load) => async (dispatch) => {
+const checkout = (id, state, load, prevent) => async (dispatch) => {
     try {
         load(true)
         const { data } = await axios.post("/checkout/createPayment", { id: id });
         state(data);
+        load(false)
     } catch (error) {
         dispatch(
             alert({
@@ -157,6 +164,8 @@ const checkout = (id, state, load) => async (dispatch) => {
                 message: "Что-то пошло не так",
             })
         );
+    } finally {
+        prevent()
     }
 }
 
@@ -231,7 +240,7 @@ const checkUser = () => async (dispatch) => {
         dispatch(
             alert({
                 show: true,
-                err: false,
+                err: true,
                 message: "Что-то пошло не так",
             })
         );
@@ -246,4 +255,5 @@ export {
     selectForm,
     checkout,
     supportForm,
+    time,
 };

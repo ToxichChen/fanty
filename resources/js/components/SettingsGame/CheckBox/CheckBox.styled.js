@@ -93,20 +93,25 @@ const StylBoxInfo = styled.p`
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: ${(props) => props.theme.palette.main};
+    background-color: ${props => props.theme.palette.backgroundRGB.middle};
     background-color: transparent;
     text-align: center;
     border-radius: 8px;
     padding: 10px;
     letter-spacing: 1.2px;
-    visibility: ${(props) => (props.isHidden ? "visible" : "hidden")};
+    visibility: hidden;
     transition: all 0.2s ease;
 
     &:empty{
         display: none;
     }
 
+    &:hover{
+        visibility: visible;  
+     }
+  
+
     ${props => props.isTaskNow && css`
-    background-color: ${(props) => props.theme.palette.backgroundColor.second};
         @media(max-width: 1024px){    
             left: -150px;
             transform: translateX(0);
@@ -136,6 +141,7 @@ const StylBoxAddInfoTask = styled.button`
             right: 25px;
             top: 17px;
             max-width: 180px;
+            background-color: ${props => props.theme.palette.backgroundRGB.middle};
 
             ${StylBoxInfo} {
                 top: calc(100% + 10px);
@@ -146,14 +152,12 @@ const StylBoxAddInfoTask = styled.button`
             }
         `}
 
-    @media (min-width: 1024px) {
         &:hover {
             ${StylBoxInfo} {
                 background-color: ${props => props.theme.palette.backgroundRGB.middle};
                 visibility: visible;
             }
         }
-    }
 `;
 
 export {
