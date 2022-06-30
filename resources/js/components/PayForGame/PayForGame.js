@@ -32,8 +32,10 @@ const PayForGame = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         checkoutUser(isSelect, setId, setLoading);
-        setTimeout(() =>
-            e.target.submit(), 5000)
+        setTimeout(() => {
+            setLoading(false)
+            e.target.submit()
+        }, 5000)
 
     }
 

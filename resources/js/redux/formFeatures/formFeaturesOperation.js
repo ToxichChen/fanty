@@ -149,7 +149,6 @@ const checkout = (id, state, load) => async (dispatch) => {
         load(true)
         const { data } = await axios.post("/checkout/createPayment", { id: id });
         state(data);
-        load(false)
     } catch (error) {
         dispatch(
             alert({
