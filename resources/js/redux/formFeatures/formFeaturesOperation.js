@@ -50,15 +50,15 @@ const loginForm = (credentials, func) => async (dispatch) => {
         dispatch(loginSuccess(data));
 
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
-        dispatch(
-            alert({
-                show: true,
-                err: false,
-                message: "Авторизация прошло успешно",
-            })
-        );
         if (data.length !== 1) {
-            func()
+            func();
+            dispatch(
+                alert({
+                    show: true,
+                    err: false,
+                    message: "Авторизация прошло успешно",
+                })
+            );
         }
     } catch (error) {
         dispatch(loginError(error.message));
@@ -82,15 +82,15 @@ const registerForm = (credentials, func) => async (dispatch) => {
         dispatch(registerSuccess(data));
 
         dispatch(getUserProfileSuccess({ response: {}, ...data }));
-        dispatch(
-            alert({
-                show: true,
-                err: false,
-                message: "Регистрация прошло успешно",
-            })
-        );
         if (data.length !== 1) {
-            func()
+            func();
+            dispatch(
+                alert({
+                    show: true,
+                    err: false,
+                    message: "Регистрация прошло успешно",
+                })
+            );
         }
     } catch (error) {
         dispatch(registerError(error.message)); dispatch(

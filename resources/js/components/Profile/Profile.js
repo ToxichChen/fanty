@@ -16,7 +16,7 @@ const Profile = () => {
 
   useLayoutEffect(() => {
     function getTimeRemaining(endtime) {
-      let t = Date.parse(endtime) - Date.parse(new Date());
+      let t = Date.parse(endtime) - Date.parse(new Date(profile?.current__time && profile.current__time));
       let seconds = Math.floor((t / 1000) % 60);
       let minutes = Math.floor((t / 1000 / 60) % 60);
       let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
