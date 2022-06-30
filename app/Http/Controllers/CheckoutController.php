@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 use App\Models\Checkout;
 use App\Models\Subscription;
+use Carbon\Carbon;
 
 class CheckoutController extends Controller
 {
@@ -45,7 +46,7 @@ class CheckoutController extends Controller
 
             if (isset($_SESSION['user']['payment']['checkout_id'])) {
                 $checkout = Checkout::find($_SESSION['user']['payment']['checkout_id']);
-                $checkout->status = 'not_payed';
+                $checkout->state = 'not_payed';
 
                 $checkout->save();
 
@@ -76,23 +77,44 @@ class CheckoutController extends Controller
 
     public function result(Request $request)
     {
-        dd($request);
         $validated = $request->validate([
             'ik_inv_st' => 'required',
+            'ik_inv_id' => "required",
             'ik_co_id' => 'required',
             'ik_pm_no' => 'required'
         ]);
 
         if ($validated['ik_inv_st'] === 'success') {
             $checkout = Checkout::find($validated['ik_pm_no']);
-            $checkout->status = 'success';
+            $subscription = Subscription::find($checkout->subscription_id);
+
+            $checkout->state = 'success';
 
             $checkout->save();
 
             $user = User::find($_SESSION['user']['id']);
 
+            $date = Carbon::now();
+            $newDate = $date->addDays($subscription->duration);
+
             $user->is_premium = 1;
-            $user->premium_expires_at = '';
+            $user->premium_expires_at = $newDate;
+
+            $_SESSION['user']['is_premium'] = 1;
+            $_SESSION['user']['premium_expires_at'] = $newDate;
+
+            $_SESSION['user']['payment']['state'] = 'success';
+
+            return redirect('/');
+        } else {
+
+            $checkout = Checkout::find($validated['ik_pm_no']);
+            $checkout->state = 'failed';
+            $checkout->save();
+
+            $_SESSION['user']['payment']['state'] = 'failed';
+
+            return redirect('/');
         }
     }
 }

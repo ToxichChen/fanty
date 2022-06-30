@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -91,6 +92,12 @@ class UserController extends Controller
     public function checkIfLoggedIn()
     {
         if (isset($_SESSION['user'])) {
+            if ($_SESSION['user']['premium_expires_at'] < Carbon::now()) {
+                $_SESSION['user']['is_premium'] = 0;
+                $user = User::find($_SESSION['user']['id']);
+                $user->is_premium = 0;
+                $user->save();
+            }
             return $_SESSION['user'];
         } else {
             return false;

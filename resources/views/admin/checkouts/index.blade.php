@@ -7,25 +7,25 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Название</th>
-                    <th>Текст</th>
+                    <th>Имейл</th>
+                    <th>ID пользователя</th>
+                    <th>ID платежа интеркассы</th>
+                    <th>Подписка</th>
+                    <th>Статус оплаты</th>
+                    <th>Сумма</th>
                     <th>Создано в</th>
-                    <th>Изменено в</th>
-                    <th>&nbsp</th>
                 </tr>
                 </thead>
                 <tbody>
                 @foreach ($checkouts as $checkout)
                     <tr>
                         <td>{{ $checkout->id }}</td>
-                        <td>{{ $checkout->title }}</td>
-                        <td>{{ $checkout->text }}</td>
+                        <td>{{ $checkout->email }}</td>
+                        <td>{{ $checkout->user_id }}</td>
+                        <td>{{ $checkout->checkout_id }}</td>
+                        <td>{{ $checkout->subscription_id }}</td>
+                        <td>{{ $checkout->state }}</td>
                         <td>{{ $checkout->created_at }}</td>
-                        <td>{{ $checkout->updated_at }}</td>
-                        <td>
-                            <a role="button" href="/admin/checkout/edit/{{$checkout->id}}" class="btn btn-primary">Изменить</a>
-                            <a role="button" href="/admin/checkout/delete/{{$checkout->id}}" class="btn btn-danger">Удалить</a>
-                        </td>
                     </tr>
                 @endforeach
                 </tbody>

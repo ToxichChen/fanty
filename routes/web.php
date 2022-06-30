@@ -10,6 +10,7 @@ use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -83,8 +84,14 @@ Route::prefix('admin')->group(function () {
         });
         Route::prefix('checkout')->group(function () {
             Route::get('/', [CheckoutController::class, 'index'])->name('admin.checkout.index');
-            Route::get('/create', [CheckoutController::class, 'create'])->name('admin.checkout.create');
-            Route::get('/success', [CheckoutController::class, 'success'])->name('admin.checkout.success');
+        });
+        Route::prefix('subscription')->group(function () {
+            Route::get('/', [SubscriptionController::class, 'index'])->name('admin.subscription.index');
+            Route::get('/create', [SubscriptionController::class, 'createPage'])->name('admin.subscription.createPage');
+            Route::post('/createNew', [SubscriptionController::class, 'create'])->name('admin.subscription.create');
+            Route::get('/edit/{id}', [SubscriptionController::class, 'edit'])->name('admin.subscription.edit');
+            Route::post('/update/{id}', [SubscriptionController::class, 'update'])->name('admin.subscription.update');
+            Route::get('/delete/{id}', [SubscriptionController::class, 'delete'])->name('admin.subscription.delete');
         });
     });
     Route::get('/login', [AdminController::class, 'adminLogin'])->name('admin.login');

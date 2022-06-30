@@ -8,6 +8,7 @@ use App\Http\Controllers\FantController;
 use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\SubscriptionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,3 +80,6 @@ Route::post('/email/support', [EmailController::class, 'sendSupportEmail']);
  *  title: string
  *  text:  string
  */
+
+// Get all Subscriptions
+Route::get('/subscriptions/getAllSubscriptions', [SubscriptionController::class, 'getAllSubscriptions']);

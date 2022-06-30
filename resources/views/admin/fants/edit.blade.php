@@ -95,12 +95,12 @@
                     Жесткий секс
                 </label>
             </div>
-            <label for="exampleFormControlSelect1">Активировать таймер: </label>
+            <label for="is_timer_active">Активировать таймер: </label>
             <input type="checkbox"
                    @if ($fant->is_timer_active === 1) checked @endif
                    onchange="document.getElementById('timer').disabled = !this.checked;" name='is_timer_active'
                    id='is_timer_active'/>
-            <input type="number" class="form-control" @if ($fant->is_timer_active === 0) disabled @endif name="timer" id="timer" placeholder="Длительность таймера" @if ($fant->is_timer_active === 1) value="{{$fant->timer}}" @endif>
+            <input type="number" class="form-control" min="0" @if ($fant->is_timer_active === 0) disabled @endif name="timer" id="timer" placeholder="Длительность таймера" @if ($fant->is_timer_active === 1) value="{{$fant->timer}}" @endif>
             <br/>
             <label for="exampleFormControlFile1">Файл для фанта</label>
             <input type="file" name="media" class="form-control-file" id="exampleFormControlFile1">

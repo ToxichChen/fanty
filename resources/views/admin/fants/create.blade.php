@@ -80,11 +80,11 @@
                     Жесткий секс
                 </label>
             </div>
-            <label for="exampleFormControlSelect1">Активировать таймер: </label>
+            <label for="is_timer_active">Активировать таймер: </label>
             <input type="checkbox"
                    onchange="document.getElementById('timer').disabled = !this.checked;" name='is_timer_active'
                    id='is_timer_active'/>
-            <input type="number" class="form-control" disabled name="timer" id="timer"
+            <input type="number" class="form-control" disabled min="0" name="timer" id="timer"
                    placeholder="Длительность таймера">
             <br/>
             <label for="exampleFormControlFile1">Файл для фанта</label>

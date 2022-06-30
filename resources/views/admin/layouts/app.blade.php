@@ -35,18 +35,13 @@
                 <!-- sidebar navbar -->
                 <div class="col-lg-3 col-xl-2 col-md-4 sidebar fixed-top">
                     <a href="/admin/" class="navbar-brand text-white d-block mx-auto text-center mb-4 bottom-border pb-2">
-                        CodeAdmin
+                        DipBabyAdmin
                     </a>
                     <a href="#" class="text-white ">{{$_SESSION['admin_user']['username']}} </a>
                     <div class="border-bottom pb-3"></div>
                     <ul class="navbar-nav flex-column mt-4">
                         <li class="nav-item">
-                            <a href="/admin/" class="nav-link text-light p-3 mb-2 current"> <i
-                                    class="fa fa-home text-light fa-lg mr-3" aria-hidden="true"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/admin/user" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                            <a href="/admin/user" class="nav-link text-light p-3 mb-2 current sidebar-link"> <i
                                     class="fa fa-user text-light fa-lg mr-3" aria-hidden="true"></i> Пользователи
                             </a>
                         </li>
@@ -81,8 +76,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
-                                    class="fa fa-file text-light fa-lg mr-3" aria-hidden="true"></i> Documentation
+                            <a href="/admin/checkout" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-shopping-cart text-light fa-lg mr-3" aria-hidden="true"></i> Платежи
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/admin/subscription" class="nav-link text-light p-3 mb-2 sidebar-link"> <i
+                                    class="fa fa-table text-light fa-lg mr-3" aria-hidden="true"></i> Подписки
                             </a>
                         </li>
                     </ul>
