@@ -38,12 +38,12 @@ class CheckoutController extends Controller
 
             $subscription = Subscription::find($validated['id']);
 
-            $_SESSION['user']['payment']['amount'] = $subscription->price;
+            $_SESSION['user']['payment']['price'] = $subscription->price;
             $_SESSION['user']['payment']['state'] = 'paying';
             $_SESSION['user']['payment']['subscription_id'] = $validated['id'];
 
             $checkout = new Checkout();
-            $checkout->amount = $subscription->price;
+            $checkout->price = $subscription->price;
             $checkout->state = 'paying';
             $checkout->user_id = $_SESSION['user']['id'];
             $checkout->subscription_id = $_SESSION['user']['payment']['subscription_id'];

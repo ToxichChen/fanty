@@ -84,6 +84,10 @@ Route::post('/email/support', [EmailController::class, 'sendSupportEmail']);
 
 // Create payment
 Route::post('/checkout/createPayment', [CheckoutController::class, 'createPayment']);
+/**
+ * Incoming data:
+ *  id:  number (id of subscription)
+ */
 
 // Get all Subscriptions
 Route::get('/subscriptions/getAllSubscriptions', [SubscriptionController::class, 'getAllSubscriptions']);
