@@ -18,7 +18,7 @@ class CreateCheckoutsTable extends Migration
             $table->string('email');
             $table->string('user_id');
             $table->string('state');
-            $table->string('checkout_id');
+            $table->string('checkout_id')->default('');
             $table->string('subscription_id');
             $table->decimal('price');
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));

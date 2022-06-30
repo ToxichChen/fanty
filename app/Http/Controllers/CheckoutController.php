@@ -46,6 +46,8 @@ class CheckoutController extends Controller
             $checkout->price = $subscription->price;
             $checkout->state = 'paying';
             $checkout->user_id = $_SESSION['user']['id'];
+            $checkout->email = $_SESSION['user']['email'];
+            $checkout->checkout_id = '';
             $checkout->subscription_id = $_SESSION['user']['payment']['subscription_id'];
 
             $checkout->save();
