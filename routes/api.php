@@ -91,3 +91,6 @@ Route::post('/checkout/createPayment', [CheckoutController::class, 'createPaymen
 
 // Get all Subscriptions
 Route::get('/subscriptions/getAllSubscriptions', [SubscriptionController::class, 'getAllSubscriptions']);
+
+// Get server time
+Route::get('/currentTime', [UserController::class, 'currentTime']);

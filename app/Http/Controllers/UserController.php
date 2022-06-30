@@ -35,7 +35,6 @@ class UserController extends Controller
                 $_SESSION['user']['is_premium'] = $user->is_premium;
                 $_SESSION['user']['email'] = $user->email;
                 $_SESSION['user']['premium_expires_at'] = $user->premium_expires_at;
-                $_SESSION['user']['current_time'] = Carbon::now();
                 $_SESSION['user']['token'] = hash('sha256', Str::random(60));
 
                 $response['response'] = $_SESSION['user'];
@@ -67,7 +66,6 @@ class UserController extends Controller
             $_SESSION['user']['is_premium'] = 0;
             $_SESSION['user']['email'] = $user->email = $request->email;
             $_SESSION['user']['premium_expires_at'] = 0;
-            $_SESSION['user']['current_time'] = Carbon::now();
             $_SESSION['user']['token'] = hash('sha256', Str::random(60));
 
             $user->save();
@@ -104,6 +102,11 @@ class UserController extends Controller
         } else {
             return false;
         }
+    }
+
+    public function currentTime()
+    {
+        return Carbon::now();
     }
 
     public function index()
