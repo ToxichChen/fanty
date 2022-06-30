@@ -176,7 +176,6 @@ const TaskGamePage = () => {
                 getNumberFanty === getCountTask.is_red &&
                 isLevelFant === "red"
             ) {
-                console.log('ok')
                 navigate("/", { replace: true });
                 clearDataSettingAndFant();
                 NotifySuccess("Вы успешно прошли все задания");

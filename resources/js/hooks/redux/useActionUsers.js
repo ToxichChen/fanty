@@ -6,7 +6,10 @@ import {
     logoutUser,
     registerForm,
     checkUser,
-    supportForm
+    supportForm,
+    selectForm,
+    checkout,
+    send
 } from "./../../redux/formFeatures/formFeaturesOperation";
 import {
     fantyCounterCanceledTask,
@@ -42,6 +45,22 @@ function useActionUsers() {
         },
         [dispatch]
     );
+
+    const getSelectForm = useCallback(
+        (state) => {
+            dispatch(selectForm(state));
+        },
+        [dispatch]
+    );
+
+    const checkoutUser = useCallback(
+        (id, state, load) => {
+            dispatch(checkout(id, state, load));
+        },
+        [dispatch]
+    );
+
+
 
     const registerUser = useCallback(
         (data, func) => {
@@ -87,11 +106,13 @@ function useActionUsers() {
         getErrorUser,
         loginUser,
         userLogout,
+        checkoutUser,
         registerUser,
         clearDataSettingAndFant,
         userHave,
         loadingSupport,
-        setUserDataForm
+        setUserDataForm,
+        getSelectForm,
     };
 }
 

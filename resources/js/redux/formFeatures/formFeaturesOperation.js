@@ -16,6 +16,7 @@ import {
     fantyCounterCanceledTask,
     fantyLevel,
     fantyNumberTask,
+    fantyPunishment,
     fantySuccess,
 } from "../../redux/activeFantyFeatures/activeFantyFeaturesActions";
 import {
@@ -25,6 +26,7 @@ import {
     usersSetting,
     durationGameData,
 } from "../../redux/settingsFeatures/SettingsAction";
+import { dataPostArr } from "../../constants";
 
 axios.defaults.baseURL = `${document.location.protocol}//${document.location.host}/api`;
 
@@ -55,7 +57,9 @@ const loginForm = (credentials, func) => async (dispatch) => {
                 message: "Авторизация прошло успешно",
             })
         );
-        func()
+        if (data.length !== 1) {
+            func()
+        }
     } catch (error) {
         dispatch(loginError(error.message));
         dispatch(
@@ -85,7 +89,9 @@ const registerForm = (credentials, func) => async (dispatch) => {
                 message: "Регистрация прошло успешно",
             })
         );
-        func()
+        if (data.length !== 1) {
+            func()
+        }
     } catch (error) {
         dispatch(registerError(error.message)); dispatch(
             alert({
@@ -123,6 +129,37 @@ const logoutUser = () => async (dispatch) => {
     }
 };
 
+const selectForm = (state) => async (dispatch) => {
+    try {
+        const { data } = await axios.get("/subscriptions/getAllSubscriptions");
+        state(data);
+    } catch (error) {
+        dispatch(
+            alert({
+                show: true,
+                err: true,
+                message: "Что-то пошло не так",
+            })
+        );
+    }
+}
+
+const checkout = (id, state, load) => async (dispatch) => {
+    try {
+        load(true)
+        const { data } = await axios.post("/checkout/createPayment", { id: id });
+        state(data);
+        load(false)
+    } catch (error) {
+        dispatch(
+            alert({
+                show: true,
+                err: true,
+                message: "Что-то пошло не так",
+            })
+        );
+    }
+}
 
 const supportForm = (credentials) => async (dispatch) => {
     try {
@@ -153,6 +190,25 @@ const checkUser = () => async (dispatch) => {
 
     try {
         const { data } = await axios.get("/user/checkIfLoggedIn");
+
+        if (data?.payment?.state == 'success') {
+            dispatch(
+                alert({
+                    show: true,
+                    err: false,
+                    message: "Оплата прошла успешно",
+                })
+            );
+        } else if (data?.payment?.state == 'failed') {
+            dispatch(
+                alert({
+                    show: true,
+                    err: true,
+                    message: "Оплата не прошла",
+                })
+            );
+        }
+
         if (data !== "") {
             dispatch(getUserProfileSuccess({ response: { ...data } }));
         } else {
@@ -169,6 +225,7 @@ const checkUser = () => async (dispatch) => {
             );
             dispatch(fantySuccess({ media: "" }));
             dispatch(usersSetting({ is_man: "", is_female: "" }));
+            dispatch(fantyPunishment({ media: "" }))
         }
     } catch (error) {
         dispatch(registerError(error.message));
@@ -187,5 +244,7 @@ export {
     registerForm,
     logoutUser,
     checkUser,
-    supportForm
+    selectForm,
+    checkout,
+    supportForm,
 };

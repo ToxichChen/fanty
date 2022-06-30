@@ -149,6 +149,7 @@ const Select = styled.select`
 `;
 
 const BoxBonus = styled.div`
+margin-top: 10px;
     font-size: ${(props) => props.theme.typography.textSmall.primary};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
