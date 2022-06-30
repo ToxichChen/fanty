@@ -19,23 +19,6 @@ class CheckoutController extends Controller
             ->with('checkouts', $checkouts);
     }
 
-    public function create()
-    {
-//        $configuration = new \Interkassa\Helper\Config();
-//        $SDKClient = new \Interkassa\Interkassa($configuration);
-//        $invoiceRequest = new \Interkassa\Request\GetInvoiceRequest();
-//        $invoiceRequest
-//            ->setCheckoutId('62619b17972ad26cd11d0423')
-//            ->setPaymentNumber('ID_1234')
-//            ->setAmount('100')
-//            ->setCurrency('UAH')
-//            ->setDescription('Payment Description');
-//
-//        $url = $SDKClient->makeInvoiceSciLink($invoiceRequest);
-//        dd($url);
-        return View::make('admin.checkouts.create');
-    }
-
     public function createPayment(Request $request)
     {
         $validated = $request->validate([

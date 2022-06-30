@@ -9,6 +9,7 @@ use App\Http\Controllers\MusicController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\EmailController;
 use App\Http\Controllers\SubscriptionController;
+use App\Http\Controllers\CheckoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,9 @@ Route::post('/email/support', [EmailController::class, 'sendSupportEmail']);
  *  title: string
  *  text:  string
  */
+
+// Create payment
+Route::post('/checkOut/createPayment', [CheckoutController::class, 'createPayment']);
 
 // Get all Subscriptions
 Route::get('/subscriptions/getAllSubscriptions', [SubscriptionController::class, 'getAllSubscriptions']);
