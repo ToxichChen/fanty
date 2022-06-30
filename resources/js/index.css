@@ -80,3 +80,54 @@ a {
   text-decoration: none;
   cursor: pointer;
 }
+
+
+.countdown {
+  width: 100%;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 30px;
+  padding-bottom: 5px;
+  color: #fff;
+}
+
+.countdown-title {
+  font-weight: 100;
+  font-size: 40px;
+  margin: 40px 0px 20px;
+}
+
+
+.countdown-number {
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.countdown-time {
+  padding: 5px;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.countdown-text {
+  display: block;
+  padding: 0 5px;
+  font-size: 30px;
+}
+
+.countdown-number--left {
+  align-items: flex-start;
+}
+
+.hidden--countdown {
+  display: none;
+}

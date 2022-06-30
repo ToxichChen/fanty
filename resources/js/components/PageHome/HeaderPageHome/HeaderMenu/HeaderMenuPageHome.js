@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router";
 import logo from "./../../../../assets/logo.png";
 
 import AddMenuNav from "./../AddMenuNav/AddMenuNav";
@@ -19,6 +20,7 @@ import useActionUsers from "../../../../hooks/redux/useActionUsers";
 
 const HeaderMenuPageHome = () => {
     const { profile, userLogout } = useActionUsers();
+    const navigate = useNavigate();
     const [isOpenMainMenu, setOpenMainMenu] = useState(false),
         [isOpenAdditional, setOpenAdditiona] = useState(false);
 
@@ -31,6 +33,7 @@ const HeaderMenuPageHome = () => {
     };
 
     const profileRequest = () => {
+        navigate('/')
         handleMenu();
         userLogout();
     };
