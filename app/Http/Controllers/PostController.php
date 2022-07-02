@@ -27,7 +27,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'text' => 'required',
-            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
+            'media' => 'mimes:jpeg,jpg,png,gif|max:20000'
         ]);
         $path = '';
 
@@ -56,7 +56,7 @@ class PostController extends Controller
         $validated = $request->validate([
             'title' => 'required|max:255',
             'text' => 'required',
-            'media' => 'mimes:jpeg,jpg,png,gif|max:8194'
+            'media' => 'mimes:jpeg,jpg,png,gif|max:20000'
         ]);
         $path = '';
 
