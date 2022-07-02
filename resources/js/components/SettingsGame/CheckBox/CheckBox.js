@@ -15,7 +15,6 @@ const Checkbox = ({ elem, premium }) => {
     const { settingsGameTask, settingsGame } = useActionSettings();
 
     const [isCheck, setCheck] = useState(false);
-    const [isHiddenInfo, setHiddenInfo] = useState(false);
 
     const handleCheckboxChange = (event) => {
         setCheck(event.target.checked);
@@ -25,9 +24,6 @@ const Checkbox = ({ elem, premium }) => {
     useEffect(
         () => {
             settingsGame.includes(elem.id) ? setCheck(true) : setCheck(false);
-            if (settingsGame.includes(10) && settingsGame.includes(11)) {
-                settingsGameTask({ id: 11 });
-            }
         },
         [settingsGame, elem.id]
     );
@@ -57,7 +53,7 @@ const Checkbox = ({ elem, premium }) => {
                 type="button"
             >
                 <i className="fas fa-question"></i>
-                <StylBoxInfo isHidden={isHiddenInfo}>
+                <StylBoxInfo>
                     {elem.description}
                 </StylBoxInfo>
             </StylBoxAddInfoTask>
