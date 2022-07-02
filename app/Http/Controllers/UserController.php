@@ -147,4 +147,11 @@ class UserController extends Controller
         $user->save();
         return redirect('/admin/user');
     }
+
+    public function delete($id)
+    {
+        $user = User::where('id', $id)->delete();
+
+        return redirect('/admin/user');
+    }
 }
