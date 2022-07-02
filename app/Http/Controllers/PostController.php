@@ -63,7 +63,7 @@ class PostController extends Controller
         $post = Post::find($id);
         if ($request->file('media') !== null && $request->file()) {
             $path = Storage::disk('local')->path($post->media);
-            if (file_exists($path)) {
+            if (file_exists($path) && $post->media != '' && !is_dir($path)) {
                 unlink($path);
             }
             $path = $request->file('media')->store('public/posts');
@@ -82,7 +82,7 @@ class PostController extends Controller
     {
         $post = Post::find($id);
         $path = Storage::disk('local')->path($post->media);
-        if (file_exists($path)) {
+        if (file_exists($path) && $post->media != '' && !is_dir($path)) {
             unlink($path);
         }
         $post = Post::where('id', $id)->delete();
@@ -92,11 +92,25 @@ class PostController extends Controller
 
     public function getAllPosts()
     {
-        return Post::all();
+        $posts = Post::all();
+        $posts = $posts->toArray();
+        for ($i = 0; $i < count($posts); $i++) {
+            if (trim($posts[$i]["media"]) !== '') {
+                $posts[$i]["media"] = str_replace("public/", "storage/", $posts[$i]["media"]);
+                $posts[$i]["media"] = asset($posts[$i]["media"]);
+            }
+        }
+        return $posts;
     }
 
     public function getPostById($id)
     {
-        return Post::find($id);
+        $post = Post::find($id);
+        $post = $post->toArray();
+        if (trim($post["media"]) !== '') {
+            $post["media"] = str_replace("public/", "storage/", $post["media"]);
+            $post["media"] = asset($post["media"]);
+        }
+        return $post;
     }
 }
