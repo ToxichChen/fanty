@@ -11,7 +11,7 @@ const SectionTaskGame = styled.section`
     background-blend-mode: multiply;
     background-image: url(${imgBGMobileFromGameJPG});
     background-color: ${(props) => props.theme.palette.backgroundRGB.main};
-    background-size: 100%;
+    background-size: cover;
     padding: 130px 0;
     background-repeat: no-repeat;
     background-attachment: fixed;

@@ -59,7 +59,7 @@ const TaskGameBar = ({ isTimeDuration = 0, nextTask, isTime }) => {
     }, [isTimeDuration]);
 
     return (
-        <div style={containerStyles}>
+        <div style={[containerStyles]}>
             <div style={fillerStyles} />
         </div>
     );
