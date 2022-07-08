@@ -65,6 +65,7 @@ Route::prefix('admin')->group(function () {
             Route::get('/', [UserController::class, 'index'])->name('admin.users.index');
             Route::get('/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
             Route::post('/update/{id}', [UserController::class, 'update'])->name('admin.users.update');
+            Route::get('/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete');
         });
         Route::prefix('music')->group(function () {
             Route::get('/', [MusicController::class, 'index'])->name('admin.music.index');

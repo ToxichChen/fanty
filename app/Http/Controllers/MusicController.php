@@ -27,7 +27,7 @@ class MusicController extends Controller
     {
         $validated = $request->validate([
             'title' => 'required|max:255',
-            'media' => 'required|mimes:mp3|max:20000'
+            'media' => 'required|mimes:mp3|max:40000'
         ]);
 
         if (Music::where('media', '=', $request->file('media')->getClientOriginalName())->first()) {

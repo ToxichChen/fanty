@@ -1,6 +1,4 @@
 <?php
-ini_set('post_max_size', '40M');
-ini_set( 'upload_max_filesize', '40m');
 
 use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Http\Request;

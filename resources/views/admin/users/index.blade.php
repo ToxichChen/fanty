@@ -30,6 +30,7 @@
                         <td>{{ $user->updated_at }}</td>
                         <td>
                             <a role="button" href="/admin/user/edit/{{$user->id}}" class="btn btn-primary">Изменить</a>
+                            <a role="button" href="/admin/user/delete/{{$user->id}}" class="btn btn-danger">Удалить</a>
                         </td>
                     </tr>
                 @endforeach
