@@ -239,14 +239,14 @@ const TaskGamePage = () => {
                                 alt="img task"
                             />
                             {
-                                (getFantyPunishment.is_timer_active && getFantyPunishment.timer) &&
+                                (getFantyPunishment.is_timer_active > 0 && getFantyPunishment.timer > 0) &&
                                 <TaskGameBar
                                     isTimeDuration={getFantyPunishment.timer}
                                     isTime={getFantyPunishment.is_timer_active}
                                 />
                             }
                             {
-                                (getFanty.is_timer_active && getFanty.timer) &&
+                                (getFanty.is_timer_active > 0 && getFanty.timer > 0) &&
                                 <TaskGameBar
                                     isTimeDuration={getFanty.timer
                                     }

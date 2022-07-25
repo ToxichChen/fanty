@@ -55,7 +55,7 @@ const StylTextIntroCard = styled.p`
     font-family: ${(props) => props.theme.typography.textFamily.main};
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-size: ${(props) => props.theme.typography.textSmall.primary};
-    color: ${(props) => props.theme.palette.text.main};
+    color: ${(props) => props.theme.palette.text.light};
     text-align: left;
     line-height: 1.6;
 `;

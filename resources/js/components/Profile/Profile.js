@@ -12,15 +12,12 @@ import {
 } from './../Support/Support.styled';
 
 const Profile = () => {
-  const { profile, getTime } = useActionUsers();
-  let dateNow = new Date();
-  let counter = 0;
+  const { profile } = useActionUsers();
 
-  useEffect(() => getTime(dateNow), [])
   useLayoutEffect(() => {
     setTimeout(() => {
       function getTimeRemaining(endtime) {
-        let t = Date.parse(endtime) - Date.parse(new Date().toUTCString());
+        let t = Date.parse(endtime) - Date.parse(new Date(new Date().getTime() + new Date().getTimezoneOffset() * 60));
         let seconds = Math.floor((t / 1000) % 60);
         let minutes = Math.floor((t / 1000 / 60) % 60);
         let hours = Math.floor((t / (1000 * 60 * 60)) % 24);
@@ -51,17 +48,15 @@ const Profile = () => {
 
           if (t.total <= 0) {
             clearInterval(timeinterval);
-            clearInterval(counterInterval);
           }
         }
 
         updateClock();
-        let counterInterval = setInterval(() => counter++, 1000);
         let timeinterval = setInterval(() => { updateClock() }, 1000);
       }
 
       let deadline = new Date(profile?.premium_expires_at !== null && profile.premium_expires_at); // for endless timer
-      initializeClock('countdown', deadline, counter);
+      initializeClock('countdown', deadline);
     }, 3000)
   }, [])
 

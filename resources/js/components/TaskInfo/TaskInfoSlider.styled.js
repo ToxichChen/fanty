@@ -55,7 +55,7 @@ const StylTaskInfoDescription = styled.p`
     font-size: ${(props) => props.theme.typography.textSmall.small};
     font-weight: ${(props) => props.theme.typography.textWeigth.main};
     font-family: ${(props) => props.theme.typography.textFamily.main};
-    color: ${(props) => props.theme.palette.text.main};
+    color: ${(props) => props.theme.palette.text.light};
     text-align: center;
     line-height: 1.5;
     white-space: normal;
