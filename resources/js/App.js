@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import theme from "./theme";
 import { store } from "./redux/store";
 import BtnToTop from "./components/BtnToTop/BtnToTop";
+import ModalOld from "./components/ModalOld/ModalOld";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                     <AlertMessage />
                     <MiniPlayer />
                     <BtnToTop />
+                    <ModalOld />
                 </BrowserRouter>
             </Provider>
         </ThemeProvider>
