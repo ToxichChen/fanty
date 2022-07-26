@@ -45,7 +45,7 @@ const StylBtnMenuNavPageHome = styled.a`
         z-index: 1;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
         display: none;
     }
 `;
@@ -76,7 +76,7 @@ const StylBoxMainMenuPageHome = styled.ul`
     transition: all 0.2s ease-in-out;
     animation: ${(props) => (props.open ? "1s slidein" : "0.5s slideout")};
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -91,7 +91,7 @@ const StylBoxMainMenuPageHome = styled.ul`
         flex-direction: row;
         justify-content: center;
         position: static;
-        width: 85%;
+        width: 80%;
     }
 
     @keyframes slidein {
@@ -119,7 +119,7 @@ const StylItemMainNav = styled.li`
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
         width: auto;
     }
 
@@ -132,7 +132,7 @@ const StylItemMainNav = styled.li`
             justify-content: flex-end;
             margin-right: 200px;
 
-            @media (min-width: 1024px) {
+            @media (min-width: 1080px) {
                 flex-direction: row;
                 position: absolute;
                 right: -170px;
@@ -179,7 +179,7 @@ const StylLinkMainNav = styled.div`
         justify-content: center;
     }
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
         width: auto;
 
         &:hover {
@@ -214,7 +214,7 @@ const StylLinkMainNav = styled.div`
                 transition: all 0.2s ease;
             }
 
-            @media (min-width: 1024px) {
+            @media (min-width: 1080px) {
                 &:hover {
                     &:after {
                         border-color: ${(props) =>
@@ -240,9 +240,24 @@ const BoxItemMenu = styled.div`
     width: 100%;
     display: flex;
 
-    @media (min-width: 1024px) {
+    @media (min-width: 1080px) {
         width: auto;
     }
+`;
+
+const Wrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+`;
+
+const Year = styled.p`
+    text-shadow: #b01ba5 1px 0 10px; 
+    font-size: 20px;
+    font-weight: ${(props) => props.theme.typography.textWeigth.primary};
+    font-family: ${(props) => props.theme.typography.textFamily.main};
+    color: ${(props) => props.theme.palette.main};
+    z-index: 1;
 `;
 
 export {
@@ -253,4 +268,6 @@ export {
     StylItemMainNav,
     StylLinkMainNav,
     BoxItemMenu,
+    Wrapper,
+    Year
 };

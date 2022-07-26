@@ -1,6 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
-const Box  = styled.div`
+const Box = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
@@ -41,6 +41,7 @@ const Text = styled.p`
     color: #fff;
     font-family: 'Roboto', sans-serif;
     max-width: 80%;
+    margin-bottom: 25px;
     text-align: center;
     line-height: 25px;
 `;
@@ -49,8 +50,23 @@ const Block = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: center;
+    align-items: stretch;
+    width: 100%;
     max-width: 80%;
+`;
+
+const Button = styled.button`
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    max-width: 49%;
+    width: 100%;
+    padding: 10px 5px;
+    background-color: #6f2b95;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    color: #fff;
 `;
 
 export {
@@ -58,5 +74,6 @@ export {
     Title,
     Img,
     Text,
-    Block
+    Block,
+    Button
 };

@@ -222,6 +222,21 @@ const TaskGamePage = () => {
 
                             </StylTextTask>
                             <StylImgTask
+                                isHidden={
+
+                                    Object.keys(getFantyPunishment).length >
+                                        1 &&
+                                        getFantyPunishment.media.trim() === ""
+                                        ? true
+                                        : Object.keys(getFantyPunishment)
+                                            .length > 1 &&
+                                            getFantyPunishment.media.trim() !== ""
+                                            ? getFantyPunishment.media
+                                            : Object.keys(getFanty).length >= 1 &&
+                                                getFanty.media.trim() === ""
+                                                ? true
+                                                : getFanty.media
+                                }
                                 src={
                                     Object.keys(getFantyPunishment).length >
                                         1 &&

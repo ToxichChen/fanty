@@ -219,6 +219,7 @@ const StylImgTask = styled.img`
     object-fit: cover;
     margin: 0 auto;
     margin-bottom: 20px;
+    display: ${props => props.isHidden ? 'none' : 'block'}
 `;
 
 const StylBoxFeatures = styled.div`
