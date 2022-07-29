@@ -17,7 +17,6 @@ import {
     StylBoxBtn,
     StylSubTitleTask,
 } from "./TaskGamePage.styled";
-import imgBgJPG from "./../../assets/bg/fanty.png";
 import MiniLoader from "./../Loader/MiniLoader";
 import useActionFanty from "../../hooks/redux/useActionFanty";
 import useActionUsers from "../../hooks/redux/useActionUsers";
@@ -241,14 +240,14 @@ const TaskGamePage = () => {
                                     Object.keys(getFantyPunishment).length >
                                         1 &&
                                         getFantyPunishment.media.trim() === ""
-                                        ? imgBgJPG
+                                        ? ''
                                         : Object.keys(getFantyPunishment)
                                             .length > 1 &&
                                             getFantyPunishment.media.trim() !== ""
                                             ? getFantyPunishment.media
                                             : Object.keys(getFanty).length >= 1 &&
                                                 getFanty.media.trim() === ""
-                                                ? imgBgJPG
+                                                ? ''
                                                 : getFanty.media
                                 }
                                 alt="img task"
