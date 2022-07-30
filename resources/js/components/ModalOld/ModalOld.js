@@ -21,11 +21,11 @@ const ModalOld = () => {
                     <Img src={LogoPNG} alt="logo" />
                     <Title>Проверка возроста</Title>
                     <Text>
-                        DIPbaby - это сообщество для врозслых, в котором содержится контент с ограничением по
+                        dipbaby - это сообщество для врозслых, в котором содержится контент с ограничением по
                         возросту.<br></br> Для регистрация вам должно быть не менее 18 лет.
                     </Text>
                     <Block>
-                        <Button onClick={() => setShow(false)}>Вам есть 18 и больше</Button>
+                        <Button onClick={() => setShow(false)}>Мне есть 18 и больше</Button>
                         <Button onClick={() => window.location.href = 'https://www.google.com'}>Мне нет 18</Button>
                     </Block>
                 </Box>
