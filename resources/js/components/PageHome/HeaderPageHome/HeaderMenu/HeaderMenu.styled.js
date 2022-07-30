@@ -256,7 +256,7 @@ const Year = styled.p`
                 #6b0078 -5px 0 10px,
                 #b01ba5 0 5px 10px, 
                 #6b0078 0 -5px 10px;
-    font-size: 40px;
+    font-size: 45px;
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-family: ${(props) => props.theme.typography.textFamily.main};
     color: #081624;
