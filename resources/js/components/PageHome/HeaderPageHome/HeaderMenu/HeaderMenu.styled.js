@@ -252,11 +252,10 @@ const Wrapper = styled.div`
 `;
 
 const Year = styled.p`
-
-text-transform: uppercase;
-background: linear-gradient(45deg, #b01ba5 33%, #6b0078 66%, #f5a1ff);
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+    text-shadow: #b01ba5 5px 0 10px, 
+                #6b0078 -5px 0 10px,
+                #b01ba5 0 5px 10px, 
+                #6b0078 0 -5px 10px;
     font-size: 40px;
     font-weight: ${(props) => props.theme.typography.textWeigth.primary};
     font-family: ${(props) => props.theme.typography.textFamily.main};
