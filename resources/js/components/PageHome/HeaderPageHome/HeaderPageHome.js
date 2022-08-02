@@ -16,10 +16,10 @@ import { sliderDataArr } from "../../../constants";
 const HeaderPageHome = () => {
     const [isSelectedSlide, setSelectedSlide] = useState(
         sliderDataArr[0].counter
-    ),
-        [isSelectedSlideImg, setSelectedSlideImg] = useState(
-            sliderDataArr[0].img
-        );
+    );
+    const [isSelectedSlideImg, setSelectedSlideImg] = useState(
+        sliderDataArr[0].img
+    );
 
     const handleSlide = (e) => {
         const valueTarget = e.currentTarget.innerHTML;
@@ -49,7 +49,7 @@ const HeaderPageHome = () => {
                 <HeaderMenuPageHome />
             </StylBoxFlexColumnFlexStart>
 
-            {sliderDataArr.map((item, index) => (
+            {!!sliderDataArr.length && sliderDataArr.map((item, index) => (
                 <SliderCard
                     imgUrl={isSelectedSlideImg}
                     imgUrl2={item.img2}
@@ -63,7 +63,7 @@ const HeaderPageHome = () => {
             ))}
 
             <StylContainerCounter>
-                {sliderDataArr.map((item, index) => (
+                {!!sliderDataArr.length && sliderDataArr.map((item, index) => (
                     <StylCounterHeaderPageHome
                         type="button"
                         key={index}
