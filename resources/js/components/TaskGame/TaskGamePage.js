@@ -193,148 +193,150 @@ const TaskGamePage = () => {
     };
 
     return (
-        <SectionTaskGame>
-            <StylBoxContentTask>
-                {isLoadingFanty ? (
-                    <MiniLoader isHeight={true} />
-                ) : (
-                    <>
-                        <StylBoxTask>
-                            <StylTitleTask>
-                                {getFantSex === 1
-                                    ? settingsUsers.is_man
-                                    : settingsUsers.is_female}
-                                , твой ход!
-                            </StylTitleTask>
-                            <StylSubTitleTask>
-                                {Object.keys(getFantyPunishment).length > 1
-                                    ? getFantyPunishment.title
-                                    : getFanty.title}
-                            </StylSubTitleTask>
-                            <StylTextTask dangerouslySetInnerHTML={{
-                                __html:
-                                    Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.content
-                                        : getFanty.content
+        <div>
+            <SectionTaskGame>
+                <StylBoxContentTask>
+                    {isLoadingFanty ? (
+                        <MiniLoader isHeight={true} />
+                    ) : (
+                        <>
+                            <StylBoxTask>
+                                <StylTitleTask>
+                                    {getFantSex === 1
+                                        ? settingsUsers.is_man
+                                        : settingsUsers.is_female}
+                                    , твой ход!
+                                </StylTitleTask>
+                                <StylSubTitleTask>
+                                    {Object.keys(getFantyPunishment).length > 1
+                                        ? getFantyPunishment.title
+                                        : getFanty.title}
+                                </StylSubTitleTask>
+                                <StylTextTask dangerouslySetInnerHTML={{
+                                    __html:
+                                        Object.keys(getFantyPunishment).length > 1
+                                            ? getFantyPunishment.content
+                                            : getFanty.content
 
-                            }}>
+                                }}>
 
-                            </StylTextTask>
-                            <StylImgTask
-                                isHidden={
-                                    Object.keys(getFantyPunishment).length >
-                                        1 &&
-                                        getFantyPunishment.media.trim() === ""
-                                        ? true
-                                        : Object.keys(getFantyPunishment)
-                                            .length > 1 &&
-                                            getFantyPunishment.media.trim() !== ""
-                                            ? false
-                                            : Object.keys(getFanty).length >= 1 &&
-                                                getFanty.media.trim() === ""
-                                                ? true
-                                                : false
-                                }
-                                src={
-                                    Object.keys(getFantyPunishment).length >
-                                        1 &&
-                                        getFantyPunishment.media.trim() === ""
-                                        ? ''
-                                        : Object.keys(getFantyPunishment)
-                                            .length > 1 &&
-                                            getFantyPunishment.media.trim() !== ""
-                                            ? getFantyPunishment.media
-                                            : Object.keys(getFanty).length >= 1 &&
-                                                getFanty.media.trim() === ""
-                                                ? ''
-                                                : getFanty.media
-                                }
-                                alt="img task"
-                            />
-                            {
-                                (getFantyPunishment.is_timer_active > 0 && getFantyPunishment.timer > 0) &&
-                                <TaskGameBar
-                                    isTimeDuration={getFantyPunishment.timer}
-                                    isTime={getFantyPunishment.is_timer_active}
+                                </StylTextTask>
+                                <StylImgTask
+                                    isHidden={
+                                        Object.keys(getFantyPunishment).length >
+                                            1 &&
+                                            getFantyPunishment.media.trim() === ""
+                                            ? true
+                                            : Object.keys(getFantyPunishment)
+                                                .length > 1 &&
+                                                getFantyPunishment.media.trim() !== ""
+                                                ? false
+                                                : Object.keys(getFanty).length >= 1 &&
+                                                    getFanty.media.trim() === ""
+                                                    ? true
+                                                    : false
+                                    }
+                                    src={
+                                        Object.keys(getFantyPunishment).length >
+                                            1 &&
+                                            getFantyPunishment.media.trim() === ""
+                                            ? ''
+                                            : Object.keys(getFantyPunishment)
+                                                .length > 1 &&
+                                                getFantyPunishment.media.trim() !== ""
+                                                ? getFantyPunishment.media
+                                                : Object.keys(getFanty).length >= 1 &&
+                                                    getFanty.media.trim() === ""
+                                                    ? ''
+                                                    : getFanty.media
+                                    }
+                                    alt="img task"
                                 />
-                            }
-                            {
-                                (getFanty.is_timer_active > 0 && getFanty.timer > 0) &&
-                                <TaskGameBar
-                                    isTimeDuration={getFanty.timer
-                                    }
-                                    isTime={getFanty.is_timer_active}
-                                    nextTask={nextTask}
-                                />
-                            }
-
-                            <TaskGameReview
-                                idFanty={
-                                    Object.keys(getFantyPunishment).length > 1
-                                        ? getFantyPunishment.id
-                                        : getFanty.id
+                                {
+                                    (getFantyPunishment.is_timer_active > 0 && getFantyPunishment.timer > 0) &&
+                                    <TaskGameBar
+                                        isTimeDuration={getFantyPunishment.timer}
+                                        isTime={getFantyPunishment.is_timer_active}
+                                    />
                                 }
-                            />
-                        </StylBoxTask>
-                        <StylBoxFeatures>
-                            <StylBoxBtn>
-                                <StylBtnTask
-                                    type="button"
-                                    isType={
-                                        isLevelFant === "green" &&
-                                            getCountTask.is_yellow === "0" &&
-                                            getCountCanceledTask.is_red === "0"
-                                            ? "none"
-                                            : isLevelFant === "yellow" &&
-                                                getCountTask.is_red === "0"
+                                {
+                                    (getFanty.is_timer_active > 0 && getFanty.timer > 0) &&
+                                    <TaskGameBar
+                                        isTimeDuration={getFanty.timer
+                                        }
+                                        isTime={getFanty.is_timer_active}
+                                        nextTask={nextTask}
+                                    />
+                                }
+
+                                <TaskGameReview
+                                    idFanty={
+                                        Object.keys(getFantyPunishment).length > 1
+                                            ? getFantyPunishment.id
+                                            : getFanty.id
+                                    }
+                                />
+                            </StylBoxTask>
+                            <StylBoxFeatures>
+                                <StylBoxBtn>
+                                    <StylBtnTask
+                                        type="button"
+                                        isType={
+                                            isLevelFant === "green" &&
+                                                getCountTask.is_yellow === "0" &&
+                                                getCountCanceledTask.is_red === "0"
                                                 ? "none"
-                                                : isLevelFant === "red"
+                                                : isLevelFant === "yellow" &&
+                                                    getCountTask.is_red === "0"
                                                     ? "none"
-                                                    : isLevelFant
-                                    }
-                                    isPreLastBtn={true}
-                                    onClick={upLevelFant}
-                                >
-                                    <i className="fas fa-arrow-up"></i>Следующий
-                                    уровень
-                                </StylBtnTask>
-                            </StylBoxBtn>
-                            <StylBoxBtn>
-                                <StylBtnTask
-                                    type="button"
-                                    isType={
-                                        isLastFant
-                                            ? "none"
-                                            : isLevelFant === "green"
+                                                    : isLevelFant === "red"
+                                                        ? "none"
+                                                        : isLevelFant
+                                        }
+                                        isPreLastBtn={true}
+                                        onClick={upLevelFant}
+                                    >
+                                        <i className="fas fa-arrow-up"></i>Следующий
+                                        уровень
+                                    </StylBtnTask>
+                                </StylBoxBtn>
+                                <StylBoxBtn>
+                                    <StylBtnTask
+                                        type="button"
+                                        isType={
+                                            isLastFant
                                                 ? "none"
-                                                : getCountCanceledTask === 4
+                                                : isLevelFant === "green"
                                                     ? "none"
-                                                    : isPunishment === false ? 'none' :
-                                                        isLevelFant
-                                    }
-                                    onClick={() =>
-                                        cancelTask(getFantSex === 1 ? 1 : 2)
-                                    }
-                                    isCancel={true}
-                                >
-                                    <i className="fas fa-ban"></i>Отказаться от
-                                    задания
-                                </StylBtnTask>
-                                <StylBtnTask
-                                    type="button"
-                                    onClick={nextTask}
-                                    isType={isLevelFant}
-                                    isArrowRight={true}
-                                >
-                                    <i className="fas fa-arrow-right"></i>
-                                    Следующее задание
-                                </StylBtnTask>
-                            </StylBoxBtn>
-                        </StylBoxFeatures>
-                    </>
-                )}
-            </StylBoxContentTask>
-        </SectionTaskGame>
+                                                    : getCountCanceledTask === 4
+                                                        ? "none"
+                                                        : isPunishment === false ? 'none' :
+                                                            isLevelFant
+                                        }
+                                        onClick={() =>
+                                            cancelTask(getFantSex === 1 ? 1 : 2)
+                                        }
+                                        isCancel={true}
+                                    >
+                                        <i className="fas fa-ban"></i>Отказаться от
+                                        задания
+                                    </StylBtnTask>
+                                    <StylBtnTask
+                                        type="button"
+                                        onClick={nextTask}
+                                        isType={isLevelFant}
+                                        isArrowRight={true}
+                                    >
+                                        <i className="fas fa-arrow-right"></i>
+                                        Следующее задание
+                                    </StylBtnTask>
+                                </StylBoxBtn>
+                            </StylBoxFeatures>
+                        </>
+                    )}
+                </StylBoxContentTask>
+            </SectionTaskGame>
+        </div>
     );
 };
 
